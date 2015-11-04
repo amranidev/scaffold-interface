@@ -1,17 +1,17 @@
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface) [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 
 # ScaffoldInterface
-###this is a test version###
+####this is a test version####
 
 Scaffold Interface for laravel v5.1 using materailize
 
 ####features :
 
-+generate your model,views,controller and migrations just in few clicks.
++ generate your model,views,controller and migrations just in few clicks.
 
-+rollbacking possibility.
++ rollbacking possibility.
 
-+using an interface to design your table
++ using an interface to design your table
 
 #Package installation#
 
@@ -43,8 +43,10 @@ Amranidev\Ajaxis\AjaxisServiceProvider::class,
 
 The next required step is to publish assets in your application with :
 
+```
 php artisan vendor:publish
 
+```
 
 The last required step is to migrate scaffoldinterface
 
