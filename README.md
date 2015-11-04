@@ -13,21 +13,19 @@ Scaffold Interface for laravel v5.1 using materailize
 
 +using an interface to design your table
 
-#contact : amranidev@gmail.com
-
 #Package installation#
 
 Add scaffold-interface to your composer.json file to require Ajaxis :
 
 ```json
-
 require : {
 "laravel/framework": "5.1.*",
 "Amranidev/scaffold-interface": "dev-master"
 }
-
 ´´´
+
 Update Composer :
+
 
 ```
 composer update
@@ -57,3 +55,4 @@ php artisan migrate
 
 Congratulations, you have successfully installed Scafold !
 
+###contact : amranidev@gmail.com
