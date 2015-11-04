@@ -1,0 +1,23 @@
+{
+  "name": "amranidev/ScaffoldInterface",
+  "description": "Scaffold Interface For Laravel 5.1",
+  "homepage": "http://github.com/amranidev/ScaffoldInterface",
+  "keywords": ["laravel", "framework", "files", "scaffod", "scaffoldinterface", "Scaffolding","Scaffold","laravel bootstrap","laravel materialize", "amranidev", "Amrani Houssain", "amrnaihoussain"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Amrani Houssain",
+      "email": "amranidev@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "~5.1",
+    "Amranidev/Ajaxis" : "2.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Amranidev\\ScaffoldInterface\\": "src/"
+    }
+  }
+}
