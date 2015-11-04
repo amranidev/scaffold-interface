@@ -22,7 +22,7 @@ require : {
 "laravel/framework": "5.1.*",
 "Amranidev/scaffold-interface": "dev-master"
 }
-´´´
+```
 
 Update Composer :
 
