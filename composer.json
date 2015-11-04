@@ -1,7 +1,7 @@
 {
-  "name": "amranidev/ScaffoldInterface",
+  "name": "amranidev/scaffold-interface",
   "description": "Scaffold Interface For Laravel 5.1",
-  "homepage": "http://github.com/amranidev/ScaffoldInterface",
+  "homepage": "http://github.com/amranidev/scaffold-interface",
   "keywords": ["laravel", "framework", "files", "scaffod", "scaffoldinterface", "Scaffolding","Scaffold","laravel bootstrap","laravel materialize", "amranidev", "Amrani Houssain", "amrnaihoussain"],
   "license": "MIT",
   "authors": [
