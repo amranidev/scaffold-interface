@@ -10,15 +10,15 @@ Scaffold Interface for laravel v5.1 using materailize
 
 ####features :
 
-+ generate your model,views,controller and migrations just in few clicks.
++ Generate your model,views,controller and migrations just in few clicks.
 
-+ rollbacking possibility.
++ Rollbacking possibility.
 
-+ using an interface to design your table
++ Using an interface to design your table
 
 #Package installation#
 
-Add scaffold-interface to your composer.json file to require Ajaxis :
+1. Add scaffold-interface to your composer.json file to require Ajaxis :
 
 ```json
 require : {
@@ -35,7 +35,7 @@ composer update
 
 ```
 
-The next required step is to add the service provider to config/app.php :
+2. Add the service provider to config/app.php :
 
 ```php
 
@@ -44,14 +44,14 @@ Amranidev\Ajaxis\AjaxisServiceProvider::class,
 
 ```
 
-The next required step is to publish assets in your application with :
+3. Publish assets in your application with :
 
 ```
 php artisan vendor:publish
 
 ```
 
-The last required step is to migrate scaffoldinterface
+4. Migrate scaffoldinterface
 
 ```
 php artisan migrate
