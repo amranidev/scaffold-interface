@@ -27,7 +27,7 @@ require : {
 }
 ```
 
-Update Composer :
+2. Update Composer :
 
 
 ```
@@ -35,7 +35,7 @@ composer update
 
 ```
 
-2. Add the service provider to config/app.php :
+3. Add the service provider to config/app.php :
 
 ```php
 
@@ -44,14 +44,14 @@ Amranidev\Ajaxis\AjaxisServiceProvider::class,
 
 ```
 
-3. Publish assets in your application with :
+4. Publish assets in your application with :
 
 ```
 php artisan vendor:publish
 
 ```
 
-4. Migrate scaffoldinterface
+5. Migrate scaffoldinterface
 
 ```
 php artisan migrate
