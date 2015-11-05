@@ -20,43 +20,43 @@ Scaffold Interface for laravel v5.1 using materailize
 
 1. Add scaffold-interface to your composer.json file to require Ajaxis :
 
-```json
-require : {
-"laravel/framework": "5.1.*",
-"Amranidev/scaffold-interface": "dev-master"
-}
-```
+  ```json
+  require : {
+  "laravel/framework": "5.1.*",
+  "Amranidev/scaffold-interface": "dev-master"
+  }
+  ```
 
 2. Update Composer :
 
-
-```
-composer update
-
-```
+  
+  ```
+  composer update
+  
+  ```
 
 3. Add the service provider to config/app.php :
 
-```php
+  ```php
 
-Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
-Amranidev\Ajaxis\AjaxisServiceProvider::class,
+  Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
+  Amranidev\Ajaxis\AjaxisServiceProvider::class,
 
-```
+  ```
 
 4. Publish assets in your application with :
 
-```
-php artisan vendor:publish
-
-```
+  ```
+  php artisan vendor:publish
+  
+  ```
 
 5. Migrate scaffoldinterface
 
-```
-php artisan migrate
+  ```
+  php artisan migrate
 
-```
+  ```
 
 Congratulations, you have successfully installed Scafold !
 
