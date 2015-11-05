@@ -19,6 +19,7 @@ class GuiController extends Controller
     public function index() {
         
         $scaffold = Scaffoldinterface::paginate(6);
+        
         //dd($scaffold);
         return view('app', compact('scaffold'));
     }
@@ -51,8 +52,8 @@ class GuiController extends Controller
         $scaffold->save();
         
         Session::flash('status', $object->TableName . ' Created successfuly To complete your scaffold. you must add to your terminal $: php artisan migrate');
-
-          return redirect('scaffold');
+        
+        return redirect('scaffold');
     }
     
     /**
@@ -73,7 +74,7 @@ class GuiController extends Controller
         unlink($scaffold->views . '/edit.blade.php');
         rmdir($scaffold->views);
         $scaffold->delete();
-
+        
         Session::flash('status', 'Removed');
         
         return URL::to('scaffold');
@@ -81,7 +82,7 @@ class GuiController extends Controller
     
     public function deleteMsg($id) {
         $scaffold = Scaffoldinterface::FindOrFail($id);
-        $msg = Ajaxis::Mtdeleting('Warning!!', 'Are you sure you want to Rollback ' . $scaffold->tablename . ' by rollbacking "'.$scaffold->tablename.'" . be sure that you rollback ' . $scaffold->tablename . ' from database. and avoid to keep routes recoureces', '/scaffold/guirollback/' . $id);
+        $msg = Ajaxis::Mtdeleting('Warning!!', 'Are you sure you want to Rollback ' . $scaffold->tablename . ' by rollbacking "' . $scaffold->tablename . '" . be sure that you rollback ' . $scaffold->tablename . ' from database. and avoid to keep routes recoureces', '/scaffold/guirollback/' . $id);
         if (Request::ajax()) {
             return $msg;
         }

@@ -47,7 +47,7 @@ class Scaffold extends ScaffoldTools
     Public $ModelFile;
     Public $ControllerFile;
     public $ViewsDir;
-
+    
     function __construct($data) {
         
         $this->TableNames = $data['TableName'];
@@ -57,7 +57,6 @@ class Scaffold extends ScaffoldTools
         unset($data['TableName']);
         $this->Reqeust = $data;
     }
-
     
     public function Migration() {
         
@@ -78,7 +77,7 @@ class Scaffold extends ScaffoldTools
     public function ViewIndex() {
         $content = $this->vIndex($this->Reqeust, $this->TableName, $this->TableNameSingle, $this->TableNames);
         $DirName = $this->TableNameSingle;
-        $this->ViewsDir = base_path() . '/resources/views/'.$DirName;
+        $this->ViewsDir = base_path() . '/resources/views/' . $DirName;
         mkdir(base_path() . '/resources/views/' . $DirName);
         $FileName = 'index.blade.php';
         $fileLocation = base_path() . '/resources/views/' . $DirName . '/' . $FileName;
@@ -95,7 +94,6 @@ class Scaffold extends ScaffoldTools
         $content = $this->vEdit($this->Reqeust, $this->TableName, $this->TableNameSingle);
         $DirName = $this->TableNameSingle;
         
-    
         $FileName = 'edit.blade.php';
         $fileLocation = base_path() . '/resources/views/' . $DirName . '/' . $FileName;
         $this->FileCreate($content, $fileLocation);
@@ -121,5 +119,4 @@ class Scaffold extends ScaffoldTools
         $file = base_path() . "/app/Http/routes.php";
         file_put_contents($file, $content, FILE_APPEND | LOCK_EX);
     }
-
 }
