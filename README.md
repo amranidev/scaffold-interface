@@ -3,7 +3,7 @@
 # ScaffoldInterface
 ####this is a test version####
 
-![Scaffold](http://d.pr/i/1gf7L)
+![Scaffold](https://d1zjcuqflbd5k.cloudfront.net/files/acc_443008/1gf7L?response-content-disposition=inline;%20filename=scaffoldinterface.png&Expires=1446730446&Signature=GxclGxMC-s0NnmSC7zc8CuhJkZtUaT-e0ahaxhHM3J1sl8R9w6Z1UDFmkeuPIbJ3hwPBII9tSyEbGZJ82bcCQgv-K0Lw-oxHBBePv3wLoj1Va1gDeteVmxAfIrd9NAebgLe2IuQ9Xq~PhTENJqWzhJXkDbctpgyUojqxfGKdNPU_&Key-Pair-Id=APKAJTEIOJM3LSMN33SA)
 
 
 Scaffold Interface for laravel v5.1 using materailize
