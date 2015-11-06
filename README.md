@@ -16,7 +16,7 @@ Scaffold Interface for laravel v5.1 using materailize
 
 + Using an interface to design your table
 
-I. ###Package installation#
+###I. Package installation
 
   1. Add scaffold-interface to your composer.json file to require Ajaxis :
 
@@ -60,7 +60,7 @@ I. ###Package installation#
 
 Congratulations, you have successfully installed Scaffold Interface!
 
-II. ### Usage
+###II. Usage
   
   1. Access to scaffold interface
     
@@ -68,7 +68,7 @@ II. ### Usage
   
   2. Table creation
 
-     tablename must be tiny and plural . you can add many of attributes like (String,date,longtext,etc.) *for example : products*
+     tablename must be tiny and plural *for example : products* . you can add many of attributes like (String,date,longtext,etc.) 
 
   3. After creation
      
