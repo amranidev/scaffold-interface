@@ -16,50 +16,73 @@ Scaffold Interface for laravel v5.1 using materailize
 
 + Using an interface to design your table
 
-#Package installation#
+I. ###Package installation#
 
-1. Add scaffold-interface to your composer.json file to require Ajaxis :
+  1. Add scaffold-interface to your composer.json file to require Ajaxis :
 
-  ```json
-  require : {
-  "laravel/framework": "5.1.*",
-  "Amranidev/scaffold-interface": "dev-master"
-  }
-  ```
+    ```json
+    require : {
+    "laravel/framework": "5.1.*",
+    "Amranidev/scaffold-interface": "dev-master"
+    }
+    ```
 
-2. Update Composer :
+  2. Update Composer :
 
   
-  ```
-  composer update
+    ```
+    composer update
   
-  ```
+    ```
 
-3. Add the service provider to config/app.php :
+  3. Add the service provider to config/app.php :
 
-  ```php
+    ```php
 
-  Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
-  Amranidev\Ajaxis\AjaxisServiceProvider::class,
-
-  ```
-
-4. Publish assets in your application with :
-
-  ```
-  php artisan vendor:publish
+    Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
+    Amranidev\Ajaxis\AjaxisServiceProvider::class,
   
-  ```
+    ```
 
-5. Migrate scaffoldinterface
+  4. Publish assets in your application with :
 
-  ```
-  php artisan migrate
+    ```
+    php artisan vendor:publish
+  
+    ```
 
-  ```
+  5. Migrate scaffoldinterface
+  
+    ```
+    php artisan migrate
+
+    ```
 
 Congratulations, you have successfully installed Scaffold Interface!
 
-#### Finally : "localhost:8000/scaffold" to get into scaffoldinterface . Enjoy
+II. ### Usage
+  
+  1. Access to scaffold interface
+    
+    "localhost:8000/scaffold" to get into scaffoldinterface.
+  
+  2. Table creation
+
+     tablename must be tiny and plural . you can add many of attributes like (String,date,longtext,etc.) *for example : products*
+
+  3. After creation
+     
+     to complete your scaffolding . go to your terminal and type.  
+     
+     ```
+     $ php artisan migrate
+     
+     ```
+  
+  4. Finally 
+     
+     scaffolding it's done. you can use your CRUD for example : localhost:8000/product   
+
+
 
 ###contact : amranidev@gmail.com
