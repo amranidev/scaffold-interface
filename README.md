@@ -18,7 +18,7 @@ Scaffold Interface for laravel v5.1 using materailize
 
 ###I. Package installation
 
-  1. Add scaffold-interface to your composer.json file to require Ajaxis :
+  1. Add scaffold-interface to your composer.json file to require Scaffold-Interface :
 
     ```json
     require : {
@@ -51,7 +51,7 @@ Scaffold Interface for laravel v5.1 using materailize
   
     ```
 
-  5. Migrate scaffoldinterface
+  5. Migrate scaffoldinterface :
   
     ```
     php artisan migrate
@@ -62,15 +62,15 @@ Congratulations, you have successfully installed Scaffold Interface!
 
 ###II. Usage
   
-  1. Access to scaffold interface
+  1. Access to scaffold interface :
     
     "localhost:8000/scaffold" to get into scaffoldinterface.
   
-  2. Table creation
+  2. Table creation :
 
      tablename must be tiny and plural *for example : products* . you can add many of attributes like (String,date,longtext,etc.) 
 
-  3. After creation
+  3. After creation :
      
      to complete your scaffolding . go to your terminal and type.  
      
@@ -79,7 +79,7 @@ Congratulations, you have successfully installed Scaffold Interface!
      
      ```
   
-  4. Finally 
+  4. Finally :
      
      scaffolding it's done. you can use your CRUD for example : localhost:8000/product   
 
