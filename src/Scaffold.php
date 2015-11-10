@@ -1,122 +1,118 @@
 <?php
 namespace Amranidev\ScaffoldInterface;
 
-use Amranidev\ScaffoldInterface\Scaffoldf;
+use Amranidev\ScaffoldInterface\Filesystem\Paths;
+use Amranidev\ScaffoldInterface\Generators\Generator;
+use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
-class Scaffold extends ScaffoldTools
+class Scaffold
 {
-    
     /**
-     * main Reqeust
+     * The Paths instance
      *
-     * @var $Reqeust Array
+     * @var paths
      */
-    public $Reqeust;
-    
+    public $paths;
+
     /**
-     * Table Name first char upper
+     * The Names instance
      *
-     * @var $TableName String
+     * @var names
      */
-    public $TableName;
-    
+    public $names;
+
     /**
-     * Table name for migration class
+     * The generator instance
      *
-     * @var $TableNameMigration String
+     * @var generator
      */
-    
-    public $TableNameMigration;
-    
+    public $generator;
+
     /**
-     * Table Name plurar
+     * Create new Scaffold instance
      *
-     * @var $TableNames String
+     * @param Array $data
      */
-    
-    public $TableNames;
-    
+    public function __construct($data)
+    {
+        $this->names = new NamesGenerate($data);
+        $this->paths = new Paths($this->names);
+        $this->generator = new Generator($this->data($data, 'view'), $this->data($data, 'migration'), $this->names, $this->paths);
+    }
+
     /**
-     * Table name singular
+     * To feetch reqeust between dataviews and datamigration
      *
-     * @var $TableNames String
+     * @param Array  $data
+     * @param String $spec
+     * @return
      */
-    public $TableNameSingle;
-    
-    public $MigrationFile;
-    Public $ModelFile;
-    Public $ControllerFile;
-    public $ViewsDir;
-    
-    function __construct($data) {
-        
-        $this->TableNames = $data['TableName'];
-        $this->TableNameMigration = ucfirst($this->TableNames);
-        $this->TableName = substr($this->TableNameMigration, 0, -1);
-        $this->TableNameSingle = substr($this->TableNames, 0, -1);
+    public function data($data, $spec)
+    {
         unset($data['TableName']);
-        $this->Reqeust = $data;
+        if ($spec == 'migration') {
+            $i = 0;
+        } else {
+            $i = 1;
+        }
+        $request = [];
+        foreach ($data as $key => $value) {
+            if ($i == 1) {
+                $i = 0;
+            } elseif ($i == 0) {
+                array_push($request, $value);
+                $i = 1;
+            }
+        }
+        return $request;
     }
-    
-    public function Migration() {
-        
-        $content = $this->Schema($this->Reqeust, $this->TableNameMigration, $this->TableNames);
-        $FileName = date('Y') . '_' . date('m') . '_' . date('d') . '_' . date('his') . '_' . $this->TableNames . ".php";
-        $fileLocation = database_path() . "/" . "migrations" . "/" . $FileName;
-        $this->MigrationFile = $fileLocation;
-        $this->FileCreate($content, $fileLocation);
+
+    /**
+     * Scaffold Migration
+     *
+     */
+    public function Migration()
+    {
+        $this->generator->migration();
     }
-    public function Model() {
-        $content = $this->ModelTxt($this->TableName);
-        $FileName = $this->TableName . ".php";
-        $fileLocation = app_path() . "/" . $FileName;
-        $this->FileCreate($content, $fileLocation);
-        $this->ModelFile = $fileLocation;
+
+    /**
+     * Scaffold Model
+     *
+     */
+    public function Model()
+    {
+        $this->generator->model();
     }
-    
-    public function ViewIndex() {
-        $content = $this->vIndex($this->Reqeust, $this->TableName, $this->TableNameSingle, $this->TableNames);
-        $DirName = $this->TableNameSingle;
-        $this->ViewsDir = base_path() . '/resources/views/' . $DirName;
-        mkdir(base_path() . '/resources/views/' . $DirName);
-        $FileName = 'index.blade.php';
-        $fileLocation = base_path() . '/resources/views/' . $DirName . '/' . $FileName;
-        $this->FileCreate($content, $fileLocation);
+
+    /**
+     * Scaffold Views
+     *
+     */
+    public function Views()
+    {
+        $this->generator->dir();
+        $this->generator->index();
+        $this->generator->create();
+        $this->generator->show();
+        $this->generator->edit();
     }
-    public function ViewCreate() {
-        $content = $this->vCreate($this->Reqeust, $this->TableName, $this->TableNameSingle);
-        $DirName = $this->TableNameSingle;
-        $FileName = 'create.blade.php';
-        $fileLocation = base_path() . '/resources/views/' . $DirName . '/' . $FileName;
-        $this->FileCreate($content, $fileLocation);
+
+    /**
+     * Scaffold Controller
+     *
+     */
+    public function Controller()
+    {
+        $this->generator->controller();
     }
-    public function ViewEdit() {
-        $content = $this->vEdit($this->Reqeust, $this->TableName, $this->TableNameSingle);
-        $DirName = $this->TableNameSingle;
-        
-        $FileName = 'edit.blade.php';
-        $fileLocation = base_path() . '/resources/views/' . $DirName . '/' . $FileName;
-        $this->FileCreate($content, $fileLocation);
-    }
-    public function ViewShow() {
-        $content = $this->vShow($this->Reqeust, $this->TableName, $this->TableNameSingle);
-        $DirName = $this->TableNameSingle;
-        $FileName = 'show.blade.php';
-        $fileLocation = base_path() . '/resources/views/' . $DirName . '/' . $FileName;
-        $this->FileCreate($content, $fileLocation);
-    }
-    public function Controller() {
-        $content = $this->GenerateController($this->Reqeust, $this->TableName, $this->TableNameSingle, $this->TableNames);
-        $FileName = $this->TableName . "Controller.php";
-        $fileLocation = base_path() . "/app/Http/Controllers/" . $FileName;
-        $this->ControllerFile = $fileLocation;
-        $file = fopen($fileLocation, "w");
-        fwrite($file, $content);
-        fclose($file);
-    }
-    public function Route() {
-        $content = $this->GenerateRoute($this->TableName, $this->TableNameSingle);
-        $file = base_path() . "/app/Http/routes.php";
-        file_put_contents($file, $content, FILE_APPEND | LOCK_EX);
+
+    /**
+     * Scaffold Route
+     *
+     */
+    public function Route()
+    {
+        $this->generator->route();
     }
 }

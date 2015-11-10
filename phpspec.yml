@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Amranidev\ScaffoldInterface
+        psr4_prefix: Amranidev\ScaffoldInterface
+        src_path: src
