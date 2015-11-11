@@ -39,7 +39,7 @@ class ControllerGenerate
         $TableNames = $this->names->TableNames();
         $dataS = $this->dataS;
 
-        return "<?php\n" . view('template.controller.controller', compact('TableName', 'TableNameSingle', 'TableNames', 'dataS'));
+        return "<?php\n" . view('template.controller.controller', compact('TableName', 'TableNameSingle', 'TableNames', 'dataS'))->render();
     }
 
 }

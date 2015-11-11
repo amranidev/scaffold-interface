@@ -45,7 +45,7 @@ class MigrationGenerate
         $TableNames = $this->names->TableNames();
         $dataM = $this->dataMigration;
         $dataS = $this->dataStandard;
-        return "<?php\n" . view('template.migration.migration', compact('TableName', 'dataM', 'dataS', 'TableNames'));
+        return "<?php\n" . view('template.migration.migration', compact('TableName', 'dataM', 'dataS', 'TableNames'))->render();
     }
 
 }
