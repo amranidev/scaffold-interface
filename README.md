@@ -1,21 +1,24 @@
 [![Build Status](https://travis-ci.org/amranidev/scaffold-interface.svg?branch=master)](https://travis-ci.org/amranidev/scaffold-interface)
-[![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface) [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
+[![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 
-# ScaffoldInterface
-####this is a test version####
+# ScaffoldInterface (CRUD Generator)
 
 ![Scaffold](http://i.imgur.com/KHDtfP1.png)
 
 
-Scaffold Interface for laravel v5.1 using materailize
+Scaffold Interface for laravel v5.1 it's simple and useful
+
 
 ####features :
 
 + Generate your model,views,controller and migrations just in few clicks.
 
++ Using an interface to design your table.
+
 + Rollbacking possibility.
 
-+ Using an interface to design your table
++ Craft your laravel application faster and easier.
+
 
 ###I. Package installation
 
