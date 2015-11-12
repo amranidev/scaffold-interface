@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Request;
 use App\Http\Controllers\Controller;
 use App\{{$TableName}};
+use Amranidev\Ajaxis\Ajaxis;
+use URL;
 
 class {{$TableName}}Controller extends Controller
 {
@@ -96,6 +98,16 @@ class {{$TableName}}Controller extends Controller
         return redirect('{{$TableNameSingle}}');
     }
 
+    public function DeleteMsg($id)
+    {
+        $msg = Ajaxis::MtDeleting('Warning','Would you like to remove This?','/{{$TableNameSingle}}/'. $id . '/delete/');
+
+        if(Request::ajax())
+        {
+            return $msg;
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -106,6 +118,6 @@ class {{$TableName}}Controller extends Controller
     {
      	${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
      	${{$TableNameSingle}}->delete();
-        return redirect('{{$TableNameSingle}}');
+        return URL::to('{{$TableNameSingle}}');
     }
 }

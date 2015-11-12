@@ -3,4 +3,5 @@
 Route::resource('{{$TableNameSingle}}','{{$TableName}}Controller');
 Route::post('{{$TableNameSingle}}/{id}/update','{{$TableName}}Controller@update');
 Route::get('{{$TableNameSingle}}/{id}/delete','{{$TableName}}Controller@destroy');
+Route::get('{{$TableNameSingle}}/{id}/deleteMsg','{{$TableName}}Controller@DeleteMsg');
 /********************************************************/

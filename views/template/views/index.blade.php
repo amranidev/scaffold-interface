@@ -26,7 +26,6 @@
                 </thead>
                 <tbody>
                     {{$foreach}}
-
                     <tr>
                         @foreach($request as $value)
 
@@ -34,20 +33,24 @@
                         @endforeach
 
                         <td>
-                        <div class = 'row'>
-                            <form method = 'get' class = 'col s12 m4 l2' action = '{{$standardApi}}/{{$open}}$value->id{{$close}}/delete'><button class = 'btn-floating red'><i class = 'material-icons'>delete</i></button></form>
+                            <div class = 'row'>
+                                <a href = '#modal1' class = 'delete btn-floating modal-trigger red col s12 m4 l2' data-link = "/{{$TableNameSingle}}/{{$open}}$value->id{{$close}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                             <form method = 'get' class = 'col s12 m4 l2' action = '{{$standardApi}}/{{$open}}$value->id{{$close}}/edit'><button type = 'submit' class = 'btn-floating blue'><i class = 'material-icons'>edit</i></button></form>
-                            <form method = 'get' class = 'col s12 m4 l2' action = '{{$standardApi}}/{{$open}}$value->id{{$close}}'><button type = 'submit' class = 'btn-floating orange'><i class = 'material-icons'>info</i></button></form>
-                        </div>
-                        </td>
-
-                    </tr>
-                    {{$endforeach}}
-
-                </tbody>
-            </table>
-        </div>
-    </body>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+                        <form method = 'get' class = 'col s12 m4 l2' action = '{{$standardApi}}/{{$open}}$value->id{{$close}}'><button type = 'submit' class = 'btn-floating orange'><i class = 'material-icons'>info</i></button></form>
+                    </div>
+                </td>
+            </tr>
+            {{$endforeach}}
+        </tbody>
+    </table>
+</div>
+<div id="modal1" class="modal">
+    <div class = "row AjaxisModal">
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+<script> var baseURL = "{{$open}}URL::to('/'){{$close}}"</script>
+<script type="text/javascript" src = "{{URL::to('js/AjaxisMaterialize.js')}}"></script>
 </html>

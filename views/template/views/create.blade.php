@@ -16,7 +16,7 @@
             </form>
             <br>
             <form method = 'POST' action = '{{$standardApi}}'>
-                <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+                <input type = 'hidden' name = '_token' value = '{{$open}}Session::token(){{$close}}'>
                 @foreach($request as $value)
 
                 <div class="input-field col s6">
