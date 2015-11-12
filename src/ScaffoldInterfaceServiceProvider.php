@@ -40,6 +40,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         //views
         $this->publishes([
             __DIR__ . '/../views' => base_path('resources/views'),
+            __DIR__ . '/../views/layouts' => base_path('resources/views/layouts'),
         ]);
 
         //migrations

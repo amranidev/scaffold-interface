@@ -54,10 +54,12 @@ class ViewGenerate
      */
     public function GenerateCreate()
     {
+        $open = $this->names->open();
+        $close = $this->names->close();
         $standardApi = $this->names->standardapi();
         $TableName = $this->names->TableName();
         $request = $this->ViewData;
-        return view('template.views.create', compact('request', 'TableName', 'standardApi'))->render();
+        return view('template.views.create', compact('request', 'TableName', 'standardApi', 'open', 'close'))->render();
     }
 
     /**
