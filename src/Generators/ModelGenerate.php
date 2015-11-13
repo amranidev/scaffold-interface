@@ -28,6 +28,7 @@ class ModelGenerate
     public function generate()
     {
         $TableName = $this->names->TableName();
-        return "<?php\n" . view('template.model.model', compact('TableName', 'php', 'less'))->render();
+        $TableNames = $this->names->TableNames();
+        return "<?php\n" . view('template.model.model', compact('TableName', 'TableNames'))->render();
     }
 }

@@ -29,7 +29,7 @@ class NamesGenerate
      */
     public function TableNames()
     {
-        return $this->data['TableName'];
+        return str_plural($this->data['TableName']);
     }
 
     /**
@@ -48,7 +48,7 @@ class NamesGenerate
      */
     public function TableName()
     {
-        return substr($this->TableNameMigration(), 0, -1);
+        return ucfirst(str_singular($this->data['TableName']));
     }
 
     /**
@@ -58,7 +58,8 @@ class NamesGenerate
      */
     public function TableNameSingle()
     {
-        return substr($this->TableNames(), 0, -1);
+        //return substr($this->TableNames(), 0, -1);
+        return lcfirst($this->TableName());
     }
 
     /**
