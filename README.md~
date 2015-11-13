@@ -73,7 +73,7 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   2. Table creation :
 
-     create your table . you can add many of attributes like (String,date,longtext,etc.) 
+     tablename must be tiny and plural *for example : products* . you can add many of attributes like (String,date,longtext,etc.) 
 
   3. After creation :
      
