@@ -14,12 +14,15 @@ Scaffold Interface for laravel v5.1 it's simple and useful
 
 + Generate your model,views,controller and migrations just in few clicks.
 
++ Delete confirmation message.
+
 + Using an interface to design your table.
 
 + Rollbacking possibility.
 
-+ Craft your laravel application faster and easier.
++ Template changing possibility.
 
++ Craft your laravel application faster and easier.
 
 ###I. Package installation
 
@@ -52,14 +55,14 @@ Scaffold Interface for laravel v5.1 it's simple and useful
   4. Publish assets in your application with :
 
     ```
-    php artisan vendor:publish
+    $ php artisan vendor:publish
   
     ```
 
   5. Migrate scaffoldinterface :
   
     ```
-    php artisan migrate
+    $ php artisan migrate
 
     ```
 
@@ -73,7 +76,7 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   2. Table creation :
 
-     create your table . you can add many of attributes like (String,date,longtext,etc.) 
+     create your table . you can add many of attributes such like (String,date,longtext,etc.) 
 
   3. After creation :
      
