@@ -60,6 +60,11 @@ class {{$TableName}}Controller extends Controller
      */
     public function show($id)
     {
+        if(Request::ajax())
+        {
+            return URL::to('{{$TableNameSingle}}/'.$id);
+        }
+
         ${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
         return view('{{$TableNameSingle}}.show',compact('{{$TableNameSingle}}'));
     }
@@ -72,6 +77,11 @@ class {{$TableName}}Controller extends Controller
      */
     public function edit($id)
     {
+        if(Request::ajax())
+        {
+            return URL::to('{{$TableNameSingle}}/'. $id . '/edit');
+        }
+
         ${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
         return view('{{$TableNameSingle}}.edit',compact('{{$TableNameSingle}}'));
     }
