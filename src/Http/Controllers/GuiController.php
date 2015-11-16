@@ -50,7 +50,7 @@ class GuiController extends Controller
         $scaffold->tablename = $object->names->TableName();
         $scaffold->save();
 
-        Session::flash('status', $object->names->TableName() . ' Created successfuly . To complete your scaffold. go ahead and migrate the schema.');
+        Session::flash('status', ' Successfully created ' . $object->names->TableName() . '. To complete your scaffold. go ahead and migrate the schema.');
 
         return redirect('scaffold');
     }
@@ -75,7 +75,7 @@ class GuiController extends Controller
         rmdir($scaffold->views);
         $scaffold->delete();
 
-        Session::flash('status', 'Removed');
+        Session::flash('status', 'Successfully deleted');
 
         return URL::to('scaffold');
     }
