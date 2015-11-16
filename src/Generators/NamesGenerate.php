@@ -58,7 +58,6 @@ class NamesGenerate
      */
     public function TableNameSingle()
     {
-        //return substr($this->TableNames(), 0, -1);
         return lcfirst($this->TableName());
     }
 
