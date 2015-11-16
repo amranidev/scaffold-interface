@@ -89,8 +89,6 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   4. Finally :
      
-     scaffolding it's done. you can use your CRUD for example : localhost:8000/product   
+     scaffolding it's done. just check it. for example : localhost:8000/product   
 
-
-
-###contact : amranidev@gmail.com
+####contact : amranidev@gmail.com
