@@ -50,7 +50,7 @@ class GuiController extends Controller
         $scaffold->tablename = $object->names->TableName();
         $scaffold->save();
 
-        Session::flash('status', $object->names->TableName() . ' Created successfuly To complete your scaffold. you must add to your terminal $: php artisan migrate');
+        Session::flash('status', $object->names->TableName() . ' Created successfuly . To complete your scaffold. go ahead and migrate the schema.');
 
         return redirect('scaffold');
     }

@@ -21,12 +21,12 @@ var i = 0;
 function option(i) {
     var options = '<div class="input-field col s12">\
     <select id = "opt' + i + '" name = "opt' + i + '">\
-        <option value="String">String</option>\
-        <option value= "longText">longText</option>\
-        <option value="Date">Date</option>\
-        <option value="Bool">boolean</option>\
-        <option value= "binary">binary</option>\
-        <option value= "float">float</option>\
+        <option value = "String">String</option>\
+        <option value = "longText">longText</option>\
+        <option value = "Date">Date</option>\
+        <option value = "Bool">boolean</option>\
+        <option value = "binary">binary</option>\
+        <option value = "float">float</option>\
         <option value = "integer">integer</option>\
         <option value = "bigInteger">bigInteger</option>\
         <option value = "json">json</option>\
@@ -47,6 +47,7 @@ $(document).on('click', '.createNewTable', function() {
     $('.actions').html(actions);
     $('#form').validate();
     $('.val').hide();
+    $('.readyy').hide();
 })
 $(document).on('click', '.newattr', function() {
     $('select').material_select();
@@ -54,6 +55,7 @@ $(document).on('click', '.newattr', function() {
     ")
     i++;
     $('select').material_select();
+    $('.readyy').show();
 })
 $(document).on('click', '.readyy', function() {
     $('.val').show();
