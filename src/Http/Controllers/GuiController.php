@@ -86,7 +86,7 @@ class GuiController extends Controller
     public function deleteMsg($id)
     {
         $scaffold = Scaffoldinterface::FindOrFail($id);
-        $msg = Ajaxis::Mtdeleting('Warning!!', 'Are you sure you want to Rollback ' . $scaffold->tablename . ' by rollbacking "' . $scaffold->tablename . '" . be sure that you rollback ' . $scaffold->tablename . ' from database. and avoid to keep routes recoureces', '/scaffold/guirollback/' . $id);
+        $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database. and avoid to keep routes recoureces.", '/scaffold/guirollback/' . $id);
         if (Request::ajax()) {
             return $msg;
         }
