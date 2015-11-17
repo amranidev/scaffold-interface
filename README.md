@@ -31,7 +31,7 @@ Scaffold Interface for laravel v5.1 it's simple and useful
     ```json
     require : {
     "laravel/framework": "5.1.*",
-    "Amranidev/scaffold-interface": "dev-master"
+    "Amranidev/scaffold-interface": "1.0.*"
     }
     ```
 
