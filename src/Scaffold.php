@@ -7,6 +7,14 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 class Scaffold
 {
+
+    /**
+     * DataSystem instance
+     *
+     * @var data
+     */
+    public $data;
+
     /**
      * The Paths instance
      *
@@ -35,36 +43,10 @@ class Scaffold
      */
     public function __construct($data)
     {
+        $this->data = new DataSystem($data);
         $this->names = new NamesGenerate($data);
         $this->paths = new Paths($this->names);
-        $this->generator = new Generator($this->data($data, 'view'), $this->data($data, 'migration'), $this->names, $this->paths);
-    }
-
-    /**
-     * To feetch reqeust between dataviews and datamigration
-     *
-     * @param Array  $data
-     * @param String $spec
-     * @return
-     */
-    public function data($data, $spec)
-    {
-        unset($data['TableName']);
-        if ($spec == 'migration') {
-            $i = 0;
-        } else {
-            $i = 1;
-        }
-        $request = [];
-        foreach ($data as $key => $value) {
-            if ($i == 1) {
-                $i = 0;
-            } elseif ($i == 0) {
-                array_push($request, $value);
-                $i = 1;
-            }
-        }
-        return $request;
+        $this->generator = new Generator($this->data->dataScaffold('view'), $this->data->dataScaffold('migration'), $this->names, $this->paths);
     }
 
     /**
