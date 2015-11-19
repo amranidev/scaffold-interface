@@ -1,6 +1,7 @@
 <?php
 namespace Amranidev\ScaffoldInterface;
 
+use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Filesystem\Paths;
 use Amranidev\ScaffoldInterface\Generators\Generator;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
