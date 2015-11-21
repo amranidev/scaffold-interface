@@ -93,6 +93,6 @@ Congratulations, you have successfully installed Scaffold Interface!
 
 ####Contribution
 
-     Any ideas are welcome. Feel free to submit any issues or pull requests
+ Any ideas are welcome. Feel free to submit any issues or pull requests
 
 ####contact : amranidev@gmail.com
