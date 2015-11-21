@@ -91,4 +91,8 @@ Congratulations, you have successfully installed Scaffold Interface!
      
      scaffolding it's done. just check it. for example : localhost:8000/product   
 
+####Contribution
+
+     Any ideas are welcome. Feel free to submit any issues or pull requests
+
 ####contact : amranidev@gmail.com
