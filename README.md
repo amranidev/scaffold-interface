@@ -10,7 +10,7 @@
 Scaffold Interface for laravel v5.1 it's simple and useful
 
 
-####features :
+####Features :
 
 + Generate your model,views,controller and migrations just in few clicks.
 
