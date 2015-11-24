@@ -90,12 +90,18 @@ Congratulations, you have successfully installed Scaffold Interface!
      
      scaffolding it's done. just check it. for example : localhost:8000/client  
   
-  *Rollbacking :
-      Now if you want to rollback yout table just check this
-      [Imgur](http://i.imgur.com/dnYc2ZE.png)
-
-      Before you make your rollback . make sure that you have rollbacked your table from database and avoid to keep routes recoureces.
+  **Rollbacking :
       
+      Now if you want to rollback yout table just check this
+      
+      ![Imgur](http://i.imgur.com/dnYc2ZE.png)
+
+      Before you make your rollback. 
+
+      make sure that you have rollbacked your table from database and avoid to keep 
+
+      routes recoureces.
+
 ####Contribution
 
  Any ideas are welcome. Feel free to submit any issues or pull requests
