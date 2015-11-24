@@ -92,7 +92,7 @@ Congratulations, you have successfully installed Scaffold Interface!
       
   5. Rollback  
 
-      Now if you want to rollback yout table just check this
+      Now if you want to rollback your table just check this
       
       ![Imgur](http://i.imgur.com/dnYc2ZE.png)
 
