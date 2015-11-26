@@ -21,7 +21,7 @@ class GuiController extends Controller
     {
 
         $scaffold = Scaffoldinterface::paginate(6);
-        return view('app', compact('scaffold'));
+        return view('scaffoldApp', compact('scaffold'));
     }
 
     /**
