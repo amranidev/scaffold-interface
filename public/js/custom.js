@@ -44,7 +44,7 @@ function option(i) {
         <option value = "String">String</option>\
         <option value = "longText">longText</option>\
         <option value = "Date">Date</option>\
-        <option value = "Bool">boolean</option>\
+        <option value = "Boolean">boolean</option>\
         <option value = "binary">binary</option>\
         <option value = "float">float</option>\
         <option value = "integer">integer</option>\
