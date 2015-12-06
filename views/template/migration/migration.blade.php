@@ -11,10 +11,11 @@ class {{$TableName}} extends Migration
     public function up()
     {
         Schema::create('{{$TableNames}}',function (Blueprint $table){
-              $table->increments('id');<?php $i = 0?>
+
+              $table->increments('id');<?php $i = 0;?>
         @foreach($dataS as $attr)
 
-		      $table->{{$dataM[$i]}}('{{$attr}}');<?php $i = $i + 1?>
+		      $table->{{$dataM[$i]}}('{{$attr}}');<?php $i = $i + 1;?>
 		@endforeach
 
         // type your addition here
