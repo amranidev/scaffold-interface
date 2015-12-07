@@ -29,8 +29,25 @@
                         </td>
                         <td>{{$open}}${{$TableNameSingle}}->{{$value}}{{$close}}</td>
                     </tr>
-
                     @endforeach
+
+
+                        @if($relationAttr != null)
+                        @foreach($relationAttr as $key=>$value)
+
+                        @foreach($value as $key1 => $value1)
+
+                        <tr>
+                        <td>
+                            <b><i>{{$value1}} : </i><b>
+                        </td>
+                        <td>{{$open}}${{$TableNameSingle}}->{{str_singular($key)}}->{{$value1}}{{$close}}</td>
+                        </tr>
+                        @endforeach
+
+                        @endforeach
+
+                        @endif
 
                 </tbody>
             </table>

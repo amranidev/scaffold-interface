@@ -25,8 +25,8 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         // Get namespace
         $nameSpace = $this->app->getNamespace();
 
-        // Set namespace alias for Controller
-        AliasLoader::getInstance()->alias('ScaffoldController', $nameSpace . 'Http\Controllers\Controller');
+        // Set namespace alias for HomeController
+        AliasLoader::getInstance()->alias('AppController', $nameSpace . 'Http\Controllers\Controller');
 
         // Routes
         $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers'], function () {

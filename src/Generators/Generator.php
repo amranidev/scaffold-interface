@@ -1,6 +1,7 @@
 <?php
 namespace Amranidev\ScaffoldInterface\Generators;
 
+use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 use Amranidev\ScaffoldInterface\Filesystem\Paths;
 use Amranidev\ScaffoldInterface\Generators\ControllerGenerate;
@@ -12,6 +13,14 @@ use Amranidev\ScaffoldInterface\Generators\ViewGenerate;
 
 class Generator extends Filesystem
 {
+
+    /**
+     * the DataSystem instance
+     *
+     * @var dataSystem
+     */
+    public $dataSystem;
+
     /**
      * @var ViewGenerate
      */
@@ -40,17 +49,17 @@ class Generator extends Filesystem
     /**
      * Create new Generator instance
      *
-     * @param Array $data (data standard)
-     * @param Array $dataM (data migration)
+     * @param DataSystem $dataSystem
      * @param NamesGenerate
      * @param PathsGenerate
      */
-    public function __construct($data, $dataM, NamesGenerate $names, Paths $paths)
+    public function __construct(DataSystem $dataSystem, NamesGenerate $names, Paths $paths)
     {
-        $this->view = new ViewGenerate($data, $names);
-        $this->model = new ModelGenerate($names);
-        $this->migration = new MigrationGenerate($data, $dataM, $names);
-        $this->controller = new ControllerGenerate($data, $names);
+        $this->dataSystem = $dataSystem;
+        $this->view = new ViewGenerate($dataSystem, $names);
+        $this->model = new ModelGenerate($names, $dataSystem);
+        $this->migration = new MigrationGenerate($dataSystem, $names);
+        $this->controller = new ControllerGenerate($names, $dataSystem);
         $this->route = new RouteGenerate($names);
         $this->paths = $paths;
     }

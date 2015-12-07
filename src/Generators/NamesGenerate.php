@@ -22,6 +22,11 @@ class NamesGenerate
         $this->data = $data;
     }
 
+    public function TableNameHead()
+    {
+        return lcfirst(str_plural($this->data['TableName']));
+    }
+
     /**
      * Table name parser plurar
      *

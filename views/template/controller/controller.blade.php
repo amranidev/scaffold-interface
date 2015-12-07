@@ -5,6 +5,11 @@ use App\Http\Controllers\Controller;
 use App\{{$TableName}};
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
+@foreach($foreignKeys as $key)
+
+use App\{{ucfirst(str_singular($key))}};
+
+@endforeach
 
 class {{$TableName}}Controller extends Controller
 {
@@ -26,7 +31,21 @@ class {{$TableName}}Controller extends Controller
      */
     public function create()
     {
-        return view('{{$TableNameSingle}}.create');
+        @foreach($foreignKeys as $key => $value)
+
+        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$onData[$key]}}','id');
+        @endforeach
+
+        return view('{{$TableNameSingle}}.create'
+        @if($foreignKeys != null)
+        ,compact(
+        @foreach($foreignKeys as $key => $value)
+        '{{str_plural($value)}}'
+        @if($value != last($foreignKeys)),
+        @endif
+        @endforeach)
+        @endif
+        );
     }
 
     /**
@@ -44,6 +63,12 @@ class {{$TableName}}Controller extends Controller
         @foreach($dataS as $value)
 
         ${{$TableNameSingle}}->{{$value}} = $input['{{$value}}'];
+
+        @endforeach
+
+        @foreach($foreignKeys as $key)
+
+        ${{$TableNameSingle}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
 
         @endforeach
 
@@ -82,8 +107,26 @@ class {{$TableName}}Controller extends Controller
             return URL::to('{{$TableNameSingle}}/'. $id . '/edit');
         }
 
+        @foreach($foreignKeys as $key => $value)
+
+        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$onData[$key]}}','id');
+
+        @endforeach
+
         ${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
-        return view('{{$TableNameSingle}}.edit',compact('{{$TableNameSingle}}'));
+        return view('{{$TableNameSingle}}.edit',compact('{{$TableNameSingle}}'
+        @if($foreignKeys != null)
+        ,
+        @foreach($foreignKeys as $key => $value)
+        '{{str_plural($value)}}'
+        @if($value != last($foreignKeys)),
+        @endif
+        @endforeach
+        )
+        @else
+        )
+        @endif
+        );
     }
 
     /**
@@ -101,6 +144,12 @@ class {{$TableName}}Controller extends Controller
     	@foreach($dataS as $value)
 
         ${{$TableNameSingle}}->{{$value}} = $input['{{$value}}'];
+        @endforeach
+
+        @foreach($foreignKeys as $key)
+
+        ${{$TableNameSingle}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+
         @endforeach
 
         ${{$TableNameSingle}}->save();
@@ -130,4 +179,5 @@ class {{$TableName}}Controller extends Controller
      	${{$TableNameSingle}}->delete();
         return URL::to('{{$TableNameSingle}}');
     }
+
 }

@@ -10,11 +10,9 @@ class Scaffold
 {
 
     /**
-     * DataSystem instance
-     *
-     * @var data
+     * The data system instance
      */
-    public $data;
+    public $dataS;
 
     /**
      * The Paths instance
@@ -44,10 +42,14 @@ class Scaffold
      */
     public function __construct($data)
     {
-        $this->data = new DataSystem($data);
+
+        $this->dataS = new DataSystem($data);
+
         $this->names = new NamesGenerate($data);
+
         $this->paths = new Paths($this->names);
-        $this->generator = new Generator($this->data->dataScaffold('view'), $this->data->dataScaffold('migration'), $this->names, $this->paths);
+
+        $this->generator = new Generator($this->dataS, $this->names, $this->paths);
     }
 
     /**

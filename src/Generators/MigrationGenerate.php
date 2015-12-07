@@ -1,10 +1,12 @@
 <?php
 namespace Amranidev\ScaffoldInterface\Generators;
 
+use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 class MigrationGenerate
 {
+    public $dataSystem;
     /**
      * @var dataMigration Array
      */
@@ -27,10 +29,11 @@ class MigrationGenerate
      * @param $dataM Array
      * @param NamesGenerate
      */
-    public function __construct($dataS, $dataM, NamesGenerate $names)
+    public function __construct(DataSystem $dataSystem, NamesGenerate $names)
     {
-        $this->dataMigration = $dataM;
-        $this->dataStandard = $dataS;
+        $this->dataSystem = $dataSystem;
+        $this->dataMigration = $this->dataSystem->dataScaffold('migration');
+        $this->dataStandard = $this->dataSystem->dataScaffold('v');
         $this->names = $names;
     }
 
@@ -45,7 +48,8 @@ class MigrationGenerate
         $TableNames = $this->names->TableNames();
         $dataM = $this->dataMigration;
         $dataS = $this->dataStandard;
-        return "<?php\n" . view('template.migration.migration', compact('TableName', 'dataM', 'dataS', 'TableNames'))->render();
+        $foreignKeys = $this->dataSystem->foreignKeys;
+        return "<?php\n" . view('template.migration.migration', compact('TableName', 'dataM', 'dataS', 'TableNames', 'foreignKeys'))->render();
     }
 
 }

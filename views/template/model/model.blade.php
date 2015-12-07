@@ -9,4 +9,13 @@ class {{$TableName}} extends Model
 
     protected $table = '{{$TableNames}}';
 
+	@foreach($foreignKeys as $key)
+
+	public function {{lcfirst(str_singular($key))}}()
+	{
+		return $this->belongsTo('App\{{ucfirst(str_singular($key))}}');
+	}
+
+	@endforeach
+
 }

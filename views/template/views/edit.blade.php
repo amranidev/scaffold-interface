@@ -24,11 +24,25 @@
                     <label for="{{$value}}">{{$value}}</label>
                 </div>
                 @endforeach
+                @foreach($foreignKeys as $key)
+
+                <div class="input-field col s12">
+                    <select name = '{{lcfirst(str_singular($key))}}_id'>
+                        {{$blade}}foreach(${{str_plural($key)}} as $key1 => $value1)
+                        <option value="@{{$key1}}">@{{$value1}}</option>
+                        {{$blade}}endforeach
+                    </select>
+                    <label>{{$key}} Select</label>
+                </div>
+                @endforeach
 
                 <button class = 'btn red' type ='submit'>Update</button>
             </form>
         </div>
     </body>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    $('select').material_select();
+    </script>
 </html>

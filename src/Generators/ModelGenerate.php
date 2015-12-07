@@ -1,10 +1,13 @@
 <?php
 namespace Amranidev\ScaffoldInterface\Generators;
 
+use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 class ModelGenerate
 {
+    public $dataSystem;
+
     /**
      * @var NamesGenerate
      */
@@ -15,9 +18,10 @@ class ModelGenerate
      *
      * @param NameGenerate
      */
-    public function __construct(NamesGenerate $names)
+    public function __construct(NamesGenerate $names, DataSystem $dataSystem)
     {
         $this->names = $names;
+        $this->dataSystem = $dataSystem;
     }
 
     /**
@@ -29,6 +33,7 @@ class ModelGenerate
     {
         $TableName = $this->names->TableName();
         $TableNames = $this->names->TableNames();
-        return "<?php\n" . view('template.model.model', compact('TableName', 'TableNames'))->render();
+        $foreignKeys = $this->dataSystem->foreignKeys;
+        return "<?php\n" . view('template.model.model', compact('TableName', 'TableNames', 'foreignKeys'))->render();
     }
 }

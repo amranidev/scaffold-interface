@@ -22,6 +22,19 @@
                     <th>{{$value}}</th>
                     @endforeach
 
+                    @if($relationAttr != null)
+
+                    @foreach($relationAttr as $key => $value)
+
+                    @foreach($value as $key1 => $value1)
+
+                    <th>{{$value1}}</th>
+                    @endforeach
+
+                    @endforeach
+
+                    @endif
+
                     <th>actions</th>
                 </thead>
                 <tbody>
@@ -32,6 +45,19 @@
 
                         <td>{{$open}}$value->{{$value}}{{$close}}</td>
                         @endforeach
+
+                        @if($relationAttr != null)
+
+                        @foreach($relationAttr as $key=>$value)
+
+                        @foreach($value as $key1 => $value1)
+
+                        <td>{{$open}}$value->{{str_singular($key)}}->{{$value1}}{{$close}}</td>
+                        @endforeach
+
+                        @endforeach
+
+                        @endif
 
                         <td>
                             <div class = 'row'>

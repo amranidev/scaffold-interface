@@ -12,13 +12,26 @@ class {{$TableName}} extends Migration
     {
         Schema::create('{{$TableNames}}',function (Blueprint $table){
 
-              $table->increments('id');<?php $i = 0;?>
+        $table->increments('id');<?php $i = 0;?>
+
         @foreach($dataS as $attr)
 
-		      $table->{{$dataM[$i]}}('{{$attr}}');<?php $i = $i + 1;?>
-		@endforeach
+        $table->{{$dataM[$i]}}('{{$attr}}');<?php $i = $i + 1;?>
+
+        @endforeach
+
+        /**
+         * Foreignkeys section
+         */
+        @foreach($foreignKeys as $key)
+
+        $table->integer('{{lcfirst(str_singular($key))}}_id')->unsigned();
+        $table->foreign('{{lcfirst(str_singular($key))}}_id')->references('id')->on('{{$key}}');
+
+        @endforeach
 
         // type your addition here
+
         });
     }
 

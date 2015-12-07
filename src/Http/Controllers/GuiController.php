@@ -4,12 +4,12 @@ namespace Amranidev\ScaffoldInterface\Http\Controllers;
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
+use App\Http\Controllers\Controller;
 use Request;
-use ScaffoldController;
 use Session;
 use URL;
 
-class GuiController extends ScaffoldController
+class GuiController extends Controller
 {
 
     /**
@@ -21,8 +21,8 @@ class GuiController extends ScaffoldController
     {
 
         $scaffold = Scaffoldinterface::paginate(6);
-
-        return view('scaffoldApp', compact('scaffold'));
+        $scaffoldList = Scaffoldinterface::all()->lists('id', 'tablename');
+        return view('scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
 
     /**
@@ -45,12 +45,11 @@ class GuiController extends ScaffoldController
         $object->Route();
 
         $scaffold = new Scaffoldinterface();
-
         $scaffold->migration = $object->paths->MigrationPath();
         $scaffold->model = $object->paths->ModelPath();
         $scaffold->controller = $object->paths->ControllerPath();
         $scaffold->views = $object->paths->DirPath();
-        $scaffold->tablename = $object->names->TableName();
+        $scaffold->tablename = $object->names->TableNames();
         $scaffold->save();
 
         Session::flash('status', ' Successfully created ' . $object->names->TableName() . '. To complete your scaffold. go ahead and migrate the schema.');
@@ -69,7 +68,6 @@ class GuiController extends ScaffoldController
 
         $scaffold = Scaffoldinterface::FindOrFail($id);
 
-        unlink($scaffold->migration);
         unlink($scaffold->model);
         unlink($scaffold->controller);
         unlink($scaffold->views . '/index.blade.php');
@@ -90,9 +88,7 @@ class GuiController extends ScaffoldController
     public function deleteMsg($id)
     {
         $scaffold = Scaffoldinterface::FindOrFail($id);
-
         $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database. and avoid to keep routes recoureces.", '/scaffold/guirollback/' . $id);
-
         if (Request::ajax()) {
             return $msg;
         }

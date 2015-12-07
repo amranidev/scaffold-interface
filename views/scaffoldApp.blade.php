@@ -6,29 +6,28 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>installation</title>
-        <style>
-            label {
-                width: 100%;
-            }
-            .input-field label {
-                font-size: 0.8rem;
-                -webkit-transform: translateY(-140%);
-                -moz-transform: translateY(-140%);
-                -ms-transform: translateY(-140%);
-                -o-transform: translateY(-140%);
-                transform: translateY(-140%);
-            }
-            .scaffoldv{
-                border-radius: 3px;
-                padding:0 5px 0 5px;
-            }
-            .pushDown{
-                margin-top: 20px;
-            }
-
-        </style>
+        <title>Scaffold-Interface</title>
     </head>
+    <style>
+        label {
+            width: 100%;
+        }
+        .scaffoldv{
+            border-radius: 3px;
+            padding:0 5px 0 5px;
+        }
+        .input-field label {
+            font-size: 0.8rem;
+            -webkit-transform: translateY(-140%);
+            -moz-transform: translateY(-140%);
+            -ms-transform: translateY(-140%);
+            -o-transform: translateY(-140%);
+            transform: translateY(-140%);
+        }
+        .pushDown{
+            margin-top: 20px;
+        }
+    </style>
     <body>
         <div class="container">
             <h2><i>Scaffold Interface</i> for laravel v5.1</h2>
@@ -72,7 +71,7 @@
                 </table>
                 {!! $scaffold->render() !!}
                 <div class="pushDown"></div>
-                <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.0.1</span></span>
+                <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
                 <p class = 'light'>Copyright (c) 2015 Amrani Houssian<br><br>
                 Permission is hereby granted, free of charge, to any person obtaining a copy
                 of this software and associated documentation files (the "Scaffold-Interface"), to deal
@@ -106,6 +105,9 @@
 <script> var baseURL = "{{URL::to('/')}}"</script>
 <script type="text/javascript" src = "{{URL::to('js/AjaxisMaterialize.js')}}"></script>
 <script> var baseURL = "{{URL::to('/')}}"</script>
-<script> var token = '{{Session::token()}}'</script>
+<script>
+var token = '{{Session::token()}}';
+var TableData = {!! $scaffoldList !!}
+</script>
 <script src = "{{URL::to('js/custom.js')}}"></script>
 </html>
