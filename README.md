@@ -13,6 +13,8 @@ Scaffold Interface for laravel v5.1 it's simple and useful
 
 + Generate your model,views,controller and migrations just in few clicks.
 
++ OneToMany relationship . only (dev-master)
+
 + Delete confirmation message.
 
 + Using an interface to design your table.
@@ -26,7 +28,7 @@ Scaffold Interface for laravel v5.1 it's simple and useful
 ###I. Package installation
 
   1. Add scaffold-interface to your composer.json file to require Scaffold-Interface :
-
+  
     ```json
     require : {
     "laravel/framework": "5.1.*",
