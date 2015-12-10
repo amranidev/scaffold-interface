@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class = 'container'>
-            <h1>Create a {{$TableName}}</h1>
+            <h1>Create {{$TableName}}</h1>
             <form method = 'get' action = '{{$standardApi}}'>
                 <button class = 'btn blue'>{{$TableName}} Index</button>
             </form>
