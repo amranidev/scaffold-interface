@@ -37,7 +37,7 @@ class ViewGenerate
     }
 
     /**
-     * fetch index view template
+     * compile index view
      *
      * @return String
      */
@@ -57,7 +57,7 @@ class ViewGenerate
     }
 
     /**
-     * fetch create view template
+     * compile create view
      *
      * @return String
      */
@@ -74,7 +74,7 @@ class ViewGenerate
     }
 
     /**
-     * fetch show view template
+     * compile show view
      *
      * @return String
      */
@@ -92,7 +92,7 @@ class ViewGenerate
     }
 
     /**
-     * fetch edit view template
+     * compile edit view
      *
      * @return String
      */
