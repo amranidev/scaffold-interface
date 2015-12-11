@@ -53,10 +53,12 @@
                     </div>
                 </div>
                 @endif
-                <table>
+                <table class = 'centered'>
                     <thead>
                         <th>Name</th>
                         <th>Created at</th>
+                        <th>State</th>
+                        <th>Link</th>
                         <th>Rollback</th>
                     </thead>
                     <tbody>
@@ -64,6 +66,8 @@
                         <tr>
                             <td>{{$value->tablename}}</td>
                             <td>{{$value->created_at}}</td>
+                            <td><span class = "scaffoldv {{$toto = Schema::hasTable($value->tablename) ? 'green' : 'red'}} white-text">{{$toto = Schema::hasTable($value->tablename) ? 'Migrated' : 'Not migrated'}}</span></td>
+                            <td><a href="{{URL::to('/')}}/{{lcfirst(str_singular($value->tablename))}}" class = 'btn-floating blue white-text'><i class = 'material-icons'>send</i></a></td>
                             <td><a href = '#modal1' class = 'delete btn-floating modal-trigger pink' data-link = '/scaffold/guidelete/{{$value->id}}/'><i class = 'material-icons'>repeat</i></a></td>
                         </tr>
                         @endforeach

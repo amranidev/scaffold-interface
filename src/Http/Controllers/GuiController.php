@@ -22,7 +22,7 @@ class GuiController extends Controller
 
         $scaffold = Scaffoldinterface::paginate(6);
         $scaffoldList = Scaffoldinterface::all()->lists('id', 'tablename');
-        return view('scaffoldApp', compact('scaffold', 'scaffoldList'));
+        return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
 
     /**

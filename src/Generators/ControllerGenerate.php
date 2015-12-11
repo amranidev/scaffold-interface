@@ -43,7 +43,7 @@ class ControllerGenerate
         $dataS = $this->dataS;
         $foreignKeys = $this->dataSystem->foreignKeys;
         $onData = $this->dataSystem->onData;
-        return "<?php\n" . view('template.controller.controller', compact('TableName', 'TableNameSingle', 'TableNames', 'dataS', 'foreignKeys', 'onData'))->render();
+        return "<?php\n" . view('scaffold-interface::template.controller.controller', compact('TableName', 'TableNameSingle', 'TableNames', 'dataS', 'foreignKeys', 'onData'))->render();
     }
 
 }

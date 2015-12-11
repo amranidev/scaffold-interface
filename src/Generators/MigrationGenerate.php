@@ -49,7 +49,7 @@ class MigrationGenerate
         $dataM = $this->dataMigration;
         $dataS = $this->dataStandard;
         $foreignKeys = $this->dataSystem->foreignKeys;
-        return "<?php\n" . view('template.migration.migration', compact('TableName', 'dataM', 'dataS', 'TableNames', 'foreignKeys'))->render();
+        return "<?php\n" . view('scaffold-interface::template.migration.migration', compact('TableName', 'dataM', 'dataS', 'TableNames', 'foreignKeys'))->render();
     }
 
 }

@@ -34,6 +34,6 @@ class ModelGenerate
         $TableName = $this->names->TableName();
         $TableNames = $this->names->TableNames();
         $foreignKeys = $this->dataSystem->foreignKeys;
-        return "<?php\n" . view('template.model.model', compact('TableName', 'TableNames', 'foreignKeys'))->render();
+        return "<?php\n" . view('scaffold-interface::template.model.model', compact('TableName', 'TableNames', 'foreignKeys'))->render();
     }
 }

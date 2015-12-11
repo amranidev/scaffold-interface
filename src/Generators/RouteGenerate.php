@@ -29,7 +29,7 @@ class RouteGenerate
     {
         $TableName = $this->names->TableName();
         $TableNameSingle = $this->names->TableNameSingle();
-        return "\n" . view('template.routes', compact('TableName', 'TableNameSingle'))->render();
+        return "\n" . view('scaffold-interface::template.routes', compact('TableName', 'TableNameSingle'))->render();
     }
 
 }

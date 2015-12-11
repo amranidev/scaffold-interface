@@ -37,10 +37,8 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../public' => public_path(),
         ], 'public');
 
-        //views
-        $this->publishes([
-            __DIR__ . '/../views' => base_path('resources/views'),
-        ]);
+        //Load Views
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffold-interface');
 
         //migrations
         $this->publishes([

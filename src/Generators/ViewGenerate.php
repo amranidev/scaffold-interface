@@ -53,7 +53,7 @@ class ViewGenerate
         $TableNameSingle = $this->names->TableNameSingle();
         $request = $this->ViewData;
         $relationAttr = $this->dataSystem->relationAttr;
-        return view('template.views.index', compact('request', 'TableName', 'TableNames', 'TableNameSingle', 'open', 'close', 'foreach', 'endforeach', 'standardApi', 'relationAttr'))->render();
+        return view('scaffold-interface::template.views.index', compact('request', 'TableName', 'TableNames', 'TableNameSingle', 'open', 'close', 'foreach', 'endforeach', 'standardApi', 'relationAttr'))->render();
     }
 
     /**
@@ -70,7 +70,7 @@ class ViewGenerate
         $TableName = $this->names->TableName();
         $request = $this->ViewData;
         $foreignKeys = $this->dataSystem->foreignKeys;
-        return view('template.views.create', compact('request', 'TableName', 'standardApi', 'open', 'close', 'foreignKeys', 'blade'))->render();
+        return view('scaffold-interface::template.views.create', compact('request', 'TableName', 'standardApi', 'open', 'close', 'foreignKeys', 'blade'))->render();
     }
 
     /**
@@ -88,7 +88,7 @@ class ViewGenerate
         $TableNameSingle = $this->names->TableNameSingle();
         $request = $this->ViewData;
         $relationAttr = $this->dataSystem->relationAttr;
-        return view('template.views.show', compact('request', 'TableName', 'TableNameSingle', 'standardApi', 'open', 'close', 'relationAttr'))->render();
+        return view('scaffold-interface::template.views.show', compact('request', 'TableName', 'TableNameSingle', 'standardApi', 'open', 'close', 'relationAttr'))->render();
     }
 
     /**
@@ -106,6 +106,6 @@ class ViewGenerate
         $TableNameSingle = $this->names->TableNameSingle();
         $request = $this->ViewData;
         $foreignKeys = $this->dataSystem->foreignKeys;
-        return view('template.views.edit', compact('request', 'TableName', 'TableNameSingle', 'open', 'close', 'standardApi', 'open', 'close', 'foreignKeys', 'blade'))->render();
+        return view('scaffold-interface::template.views.edit', compact('request', 'TableName', 'TableNameSingle', 'open', 'close', 'standardApi', 'open', 'close', 'foreignKeys', 'blade'))->render();
     }
 }
