@@ -1,7 +1,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class {{$TableName}} extends Migration
+class {{$names->TableNames()}} extends Migration
 {
     /**
      * Run the migrations.
@@ -10,20 +10,20 @@ class {{$TableName}} extends Migration
      */
     public function up()
     {
-        Schema::create('{{$TableNames}}',function (Blueprint $table){
+        Schema::create('{{$names->TableNames()}}',function (Blueprint $table){
 
         $table->increments('id');<?php $i = 0;?>
 
-        @foreach($dataS as $attr)
+        @foreach($dataSystem->dataScaffold('v') as $attr)
 
-        $table->{{$dataM[$i]}}('{{$attr}}');<?php $i = $i + 1;?>
+        $table->{{$dataSystem->dataScaffold('migration')[$i]}}('{{$attr}}');<?php $i = $i + 1;?>
 
         @endforeach
 
         /**
          * Foreignkeys section
          */
-        @foreach($foreignKeys as $key)
+        @foreach($dataSystem->foreignKeys as $key)
 
         $table->integer('{{lcfirst(str_singular($key))}}_id')->unsigned();
         $table->foreign('{{lcfirst(str_singular($key))}}_id')->references('id')->on('{{$key}}');
@@ -42,6 +42,6 @@ class {{$TableName}} extends Migration
      */
     public function down()
     {
-        Schema::drop('{{$TableNames}}');
+        Schema::drop('{{$names->TableNames()}}');
      }
 }

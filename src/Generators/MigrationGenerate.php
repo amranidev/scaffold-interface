@@ -4,20 +4,25 @@ namespace Amranidev\ScaffoldInterface\Generators;
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
+/**
+ * Class MigrationGenerate
+ *
+ * @package scaffold-interface/Generators
+ * @author Amrani Houssian <amranidev@gmail.com>
+ */
 class MigrationGenerate
 {
+
+    /**
+     * DataSystem instance
+     *
+     * @var $dataSystem
+     */
     public $dataSystem;
-    /**
-     * @var dataMigration Array
-     */
-    public $dataMigration;
 
     /**
-     * @var dataStandard
-     */
-    public $dataStandard;
-
-    /**
+     * NamesGenerate instance
+     *
      * @var NamesGenerate
      */
     public $names;
@@ -25,16 +30,15 @@ class MigrationGenerate
     /**
      * Create New MigrationGenerate instance
      *
-     * @param $dataS Array
-     * @param $dataM Array
+     * @param DataSystem
      * @param NamesGenerate
      */
     public function __construct(DataSystem $dataSystem, NamesGenerate $names)
     {
+
         $this->dataSystem = $dataSystem;
-        $this->dataMigration = $this->dataSystem->dataScaffold('migration');
-        $this->dataStandard = $this->dataSystem->dataScaffold('v');
         $this->names = $names;
+
     }
 
     /**
@@ -44,12 +48,11 @@ class MigrationGenerate
      */
     public function generate()
     {
-        $TableName = $this->names->TableNameMigration();
-        $TableNames = $this->names->TableNames();
-        $dataM = $this->dataMigration;
-        $dataS = $this->dataStandard;
-        $foreignKeys = $this->dataSystem->foreignKeys;
-        return "<?php\n" . view('scaffold-interface::template.migration.migration', compact('TableName', 'dataM', 'dataS', 'TableNames', 'foreignKeys'))->render();
+
+        $names = $this->names;
+        $dataSystem = $this->dataSystem;
+
+        return "<?php\n" . view('scaffold-interface::template.migration.migration', compact('dataSystem', 'names'))->render();
     }
 
 }

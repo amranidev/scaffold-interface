@@ -56,15 +56,13 @@ jQuery.each(TableData, function(index, item) {
 
 }
 
-var actions = "<div class='card-panel #fafafa grey lighten-5 center'>\
+var actions = "<div class='card-panel #fafafa grey lighten-5'>\
                <h4 class = 'center'>Rows</h4>\
                <div class = 'row center actionRow'>\
                <a href = '#' class = 'newattr btn blue'><i class = 'material-icons left'>add</i>new</a>\
                <a href = '#' class = 'rmattr btn red'><i class = 'material-icons left'>delete</i>remove</a>\
                <a href = '#' class = 'readyy btn orange'><i class = 'material-icons left'>layers</i>ready</a>\
-                </div>\
-                <a href='#' class = 'relations btn #7cb342 light-green darken-1'><i class = 'material-icons left'>device_hub</i>One To Many</a>\
-                </div>";
+                </div></div>";
 
 $(document).on('click', '.createNewTable', function() {
     $('.new').html(content);
@@ -72,7 +70,7 @@ $(document).on('click', '.createNewTable', function() {
     $('#form').validate();
     $('.val').hide();
     $('.readyy').hide();
-    $('.relations').hide();
+
 })
 
 $(document).on('click', '.newattr', function() {
@@ -82,14 +80,13 @@ $(document).on('click', '.newattr', function() {
     i++;
     $('select').material_select();
     $('.readyy').show();
-    $('.relations').show();
 })
 
 $(document).on('click', '.readyy', function() {
     $('.val').show();
     $('.actionRow').html('')
-    $('.relations').hide();
-    $('.actionRow').html("<a class = 'editt btn purple'><i class = 'material-icons left'>arrow_back</i>back</a>");
+    $('.actionRow').html("<a class = 'editt btn purple'><i class = 'material-icons left'>arrow_back</i>back</a>\
+        <a href='#' class = 'relations btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a></div>");
 })
 
 $(document).on('click','.relations',function(){

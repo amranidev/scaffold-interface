@@ -4,6 +4,12 @@ namespace Amranidev\ScaffoldInterface;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ScaffoldInterfaceServiceProvider
+ *
+ * @package scaffold-interface
+ * @author Amrani Houssain <amranidev@gmail.com>
+ */
 class ScaffoldInterfaceServiceProvider extends ServiceProvider
 {
 

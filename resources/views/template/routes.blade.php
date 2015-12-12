@@ -1,7 +1,7 @@
-//{{$TableName}} Resources
+//{{$names->TableName()}} Resources
 /*******************************************************/
-Route::resource('{{$TableNameSingle}}','{{$TableName}}Controller');
-Route::post('{{$TableNameSingle}}/{id}/update','{{$TableName}}Controller@update');
-Route::get('{{$TableNameSingle}}/{id}/delete','{{$TableName}}Controller@destroy');
-Route::get('{{$TableNameSingle}}/{id}/deleteMsg','{{$TableName}}Controller@DeleteMsg');
+Route::resource('{{$names->TableNameSingle()}}','{{$names->TableName()}}Controller');
+Route::post('{{$names->TableNameSingle()}}/{id}/update','{{$names->TableName()}}Controller@update');
+Route::get('{{$names->TableNameSingle()}}/{id}/delete','{{$names->TableName()}}Controller@destroy');
+Route::get('{{$names->TableNameSingle()}}/{id}/deleteMsg','{{$names->TableName()}}Controller@DeleteMsg');
 /********************************************************/

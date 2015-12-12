@@ -4,6 +4,12 @@ namespace Amranidev\ScaffoldInterface\Generators;
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
+/**
+ * Class ModelGenerate
+ *
+ * @package scaffold-interface/Generators
+ * @author Amrani Houssian <amranidev@gmail.com>
+ */
 class ModelGenerate
 {
     public $dataSystem;
@@ -25,15 +31,14 @@ class ModelGenerate
     }
 
     /**
-     * fetch model template
+     * Compile Model template
      *
      * @return String
      */
     public function generate()
     {
-        $TableName = $this->names->TableName();
-        $TableNames = $this->names->TableNames();
+        $names = $this->names;
         $foreignKeys = $this->dataSystem->foreignKeys;
-        return "<?php\n" . view('scaffold-interface::template.model.model', compact('TableName', 'TableNames', 'foreignKeys'))->render();
+        return "<?php\n" . view('scaffold-interface::template.model.model', compact('names', 'foreignKeys'))->render();
     }
 }

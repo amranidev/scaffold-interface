@@ -4,6 +4,14 @@ namespace Amranidev\ScaffoldInterface\DataSystem;
 
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Class     DataSystem
+ *
+ * @package  scaffold-interface\DataSystem
+ * @author   Amrani Houssain <amranidev@gmail.com>
+ *
+ * @todo     Testing
+ */
 class DataSystem
 {
 
@@ -56,11 +64,12 @@ class DataSystem
      */
     public function __construct($data)
     {
+        unset($data['TableName']);
         $this->data = $data;
         $this->migrationData = $this->dataScaffold('migration');
         $this->viewData = $this->dataScaffold('v');
-        $this->Tables($data);
-        $this->getAttr($data);
+        $this->Tables($this->data);
+        $this->getAttr($this->data);
     }
 
     /**
@@ -70,13 +79,13 @@ class DataSystem
      */
     private function getAttr($data)
     {
-        unset($data['TableName']);
 
         foreach ($this->foreignKeys as $key => $value) {
             $Schema = Schema::getColumnListing($value);
             unset($Schema[0]);
             $this->relationAttr[$value] = $Schema;
         }
+
     }
 
     /**
@@ -86,9 +95,9 @@ class DataSystem
      */
     private function Tables($data)
     {
+
         $this->onData = [];
         $this->foreignKeys = [];
-        unset($data['TableName']);
         $i = 0;
         $j = 0;
         foreach ($data as $key => $value) {
@@ -99,7 +108,6 @@ class DataSystem
                 array_push($this->onData, $value);
                 $j++;
             }
-
         }
     }
 
@@ -112,7 +120,7 @@ class DataSystem
      */
     public function dataScaffold($spec)
     {
-        unset($this->data['TableName']);
+
         if ($spec == 'migration') {
             $i = 0;
         } else {
@@ -129,7 +137,7 @@ class DataSystem
                 }
             }
         }
-        return $request;
 
+        return $request;
     }
 }

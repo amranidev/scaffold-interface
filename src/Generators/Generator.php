@@ -11,6 +11,12 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 use Amranidev\ScaffoldInterface\Generators\RouteGenerate;
 use Amranidev\ScaffoldInterface\Generators\ViewGenerate;
 
+/**
+ * Class     Generator
+ *
+ * @package  scaffold-interface/Generators
+ * @author   Amrani Houssain <amranidev@gmail.com>
+ */
 class Generator extends Filesystem
 {
 

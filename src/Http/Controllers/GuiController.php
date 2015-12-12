@@ -4,12 +4,20 @@ namespace Amranidev\ScaffoldInterface\Http\Controllers;
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
-use App\Http\Controllers\Controller;
+use AppController;
 use Request;
 use Session;
 use URL;
 
-class GuiController extends Controller
+/**
+ * Class GuiController
+ *
+ * @package scaffold-interface/Http/Controllers
+ * @author Amrani Houssain <amranidev@gmail.com>
+ *
+ * @todo Testing
+ */
+class GuiController extends AppController
 {
 
     /**
@@ -75,6 +83,7 @@ class GuiController extends Controller
         unlink($scaffold->views . '/show.blade.php');
         unlink($scaffold->views . '/edit.blade.php');
         rmdir($scaffold->views);
+
         $scaffold->delete();
 
         Session::flash('status', 'Successfully deleted');

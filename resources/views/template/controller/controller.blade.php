@@ -2,16 +2,16 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\Http\Controllers\Controller;
-use App\{{$TableName}};
+use App\{{$names->TableName()}};
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
-@foreach($foreignKeys as $key)
+@foreach($dataSystem->foreignKeys as $key)
 
 use App\{{ucfirst(str_singular($key))}};
 
 @endforeach
 
-class {{$TableName}}Controller extends Controller
+class {{$names->TableName()}}Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +20,8 @@ class {{$TableName}}Controller extends Controller
      */
     public function index()
     {
-        ${{$TableNames}} = {{$TableName}}::all();
-        return view('{{$TableNameSingle}}.index',compact('{{$TableNames}}'));
+        ${{$names->TableNames()}} = {{$names->TableName()}}::all();
+        return view('{{$names->TableNameSingle()}}.index',compact('{{$names->TableNames()}}'));
     }
 
     /**
@@ -31,17 +31,17 @@ class {{$TableName}}Controller extends Controller
      */
     public function create()
     {
-        @foreach($foreignKeys as $key => $value)
+        @foreach($dataSystem->foreignKeys as $key => $value)
 
-        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$onData[$key]}}','id');
+        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->onData[$key]}}','id');
         @endforeach
 
-        return view('{{$TableNameSingle}}.create'
-        @if($foreignKeys != null)
+        return view('{{$names->TableNameSingle()}}.create'
+        @if($dataSystem->foreignKeys != null)
         ,compact(
-        @foreach($foreignKeys as $key => $value)
+        @foreach($dataSystem->foreignKeys as $key => $value)
         '{{str_plural($value)}}'
-        @if($value != last($foreignKeys)),
+        @if($value != last($dataSystem->foreignKeys)),
         @endif
         @endforeach)
         @endif
@@ -58,23 +58,23 @@ class {{$TableName}}Controller extends Controller
     {
         $input = Request::except('_token');
 
-        ${{$TableNameSingle}} = new {{$TableName}}();
+        ${{$names->TableNameSingle()}} = new {{$names->TableName()}}();
 
-        @foreach($dataS as $value)
+        @foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$TableNameSingle}}->{{$value}} = $input['{{$value}}'];
-
-        @endforeach
-
-        @foreach($foreignKeys as $key)
-
-        ${{$TableNameSingle}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+        ${{$names->TableNameSingle()}}->{{$value}} = $input['{{$value}}'];
 
         @endforeach
 
-        ${{$TableNameSingle}}->save();
+        @foreach($dataSystem->foreignKeys as $key)
 
-        return redirect('{{$TableNameSingle}}');
+        ${{$names->TableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+
+        @endforeach
+
+        ${{$names->TableNameSingle()}}->save();
+
+        return redirect('{{$names->TableNameSingle()}}');
     }
 
     /**
@@ -87,11 +87,11 @@ class {{$TableName}}Controller extends Controller
     {
         if(Request::ajax())
         {
-            return URL::to('{{$TableNameSingle}}/'.$id);
+            return URL::to('{{$names->TableNameSingle()}}/'.$id);
         }
 
-        ${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
-        return view('{{$TableNameSingle}}.show',compact('{{$TableNameSingle}}'));
+        ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
+        return view('{{$names->TableNameSingle()}}.show',compact('{{$names->TableNameSingle()}}'));
     }
 
     /**
@@ -104,22 +104,22 @@ class {{$TableName}}Controller extends Controller
     {
         if(Request::ajax())
         {
-            return URL::to('{{$TableNameSingle}}/'. $id . '/edit');
+            return URL::to('{{$names->TableNameSingle()}}/'. $id . '/edit');
         }
 
-        @foreach($foreignKeys as $key => $value)
+        @foreach($dataSystem->foreignKeys as $key => $value)
 
-        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$onData[$key]}}','id');
+        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->onData[$key]}}','id');
 
         @endforeach
 
-        ${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
-        return view('{{$TableNameSingle}}.edit',compact('{{$TableNameSingle}}'
-        @if($foreignKeys != null)
+        ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
+        return view('{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}'
+        @if($dataSystem->foreignKeys != null)
         ,
-        @foreach($foreignKeys as $key => $value)
+        @foreach($dataSystem->foreignKeys as $key => $value)
         '{{str_plural($value)}}'
-        @if($value != last($foreignKeys)),
+        @if($value != last($dataSystem->foreignKeys)),
         @endif
         @endforeach
         )
@@ -140,26 +140,26 @@ class {{$TableName}}Controller extends Controller
     {
         $input = Request::except('_token');
 
-        ${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
-    	@foreach($dataS as $value)
+        ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
+    	@foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$TableNameSingle}}->{{$value}} = $input['{{$value}}'];
+        ${{$names->TableNameSingle()}}->{{$value}} = $input['{{$value}}'];
         @endforeach
 
-        @foreach($foreignKeys as $key)
+        @foreach($dataSystem->foreignKeys as $key)
 
-        ${{$TableNameSingle}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+        ${{$names->TableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
 
         @endforeach
 
-        ${{$TableNameSingle}}->save();
+        ${{$names->TableNameSingle()}}->save();
 
-        return redirect('{{$TableNameSingle}}');
+        return redirect('{{$names->TableNameSingle()}}');
     }
 
     public function DeleteMsg($id)
     {
-        $msg = Ajaxis::MtDeleting('Warning','Would you like to remove This?','/{{$TableNameSingle}}/'. $id . '/delete/');
+        $msg = Ajaxis::MtDeleting('Warning','Would you like to remove This?','/{{$names->TableNameSingle()}}/'. $id . '/delete/');
 
         if(Request::ajax())
         {
@@ -175,9 +175,9 @@ class {{$TableName}}Controller extends Controller
      */
     public function destroy($id)
     {
-     	${{$TableNameSingle}} = {{$TableName}}::findOrfail($id);
-     	${{$TableNameSingle}}->delete();
-        return URL::to('{{$TableNameSingle}}');
+     	${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
+     	${{$names->TableNameSingle()}}->delete();
+        return URL::to('{{$names->TableNameSingle()}}');
     }
 
 }

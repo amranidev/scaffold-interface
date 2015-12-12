@@ -6,31 +6,31 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Edit {{$TableName}}</title>
+        <title>Edit {{$names->TableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Edit {{$TableName}}</h1>
-            <form method = 'get' action = '{{$standardApi}}'>
-                <button class = 'btn blue'>{{$TableName}} Index</button>
+            <h1>Edit {{$names->TableName()}}</h1>
+            <form method = 'get' action = '{{$names->standardApi()}}'>
+                <button class = 'btn blue'>{{$names->TableName()}} Index</button>
             </form>
             <br>
-            <form method = 'POST' action = '{{$standardApi}}/{{$open}}${{$TableNameSingle}}->id{{$close}}/update'>
-                <input type = 'hidden' name = '_token' value = '{{$open}}Session::token(){{$close}}'>
-                @foreach($request as $value)
+            <form method = 'POST' action = '{{$names->standardApi()}}/{{$names->open()}}${{$names->TableNameSingle()}}->id{{$names->close()}}/update'>
+                <input type = 'hidden' name = '_token' value = '{{$names->open()}}Session::token(){{$names->close()}}'>
+                @foreach($dataSystem->dataScaffold('v') as $value)
 
                 <div class="input-field col s6">
-                    <input id="{{$value}}" name = "{{$value}}" type="text" class="validate" value="{{$open}}${{$TableNameSingle}}->{{$value}}{{$close}}">
+                    <input id="{{$value}}" name = "{{$value}}" type="text" class="validate" value="{{$names->open()}}${{$names->TableNameSingle()}}->{{$value}}{{$names->close()}}">
                     <label for="{{$value}}">{{$value}}</label>
                 </div>
                 @endforeach
-                @foreach($foreignKeys as $key)
+                @foreach($dataSystem->foreignKeys as $key)
 
                 <div class="input-field col s12">
                     <select name = '{{lcfirst(str_singular($key))}}_id'>
-                        {{$blade}}foreach(${{str_plural($key)}} as $key1 => $value1)
+                        {{$names->blade()}}foreach(${{str_plural($key)}} as $key1 => $value1)
                         <option value="@{{$key1}}">@{{$value1}}</option>
-                        {{$blade}}endforeach
+                        {{$names->blade()}}endforeach
                     </select>
                     <label>{{$key}} Select</label>
                 </div>

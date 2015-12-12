@@ -3,6 +3,12 @@ namespace Amranidev\ScaffoldInterface\Generators;
 
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
+/**
+ * Class RouteGenerate
+ *
+ * @package scaffold-interface/Generators
+ * @author Amrani Houssian <amranidev@gmailcom>
+ */
 class RouteGenerate
 {
     /**
@@ -21,15 +27,17 @@ class RouteGenerate
     }
 
     /**
-     * fetch route template
+     * Compile route template
      *
      * @return String
      */
     public function generate()
     {
-        $TableName = $this->names->TableName();
-        $TableNameSingle = $this->names->TableNameSingle();
-        return "\n" . view('scaffold-interface::template.routes', compact('TableName', 'TableNameSingle'))->render();
+
+        $names = $this->names;
+
+        return "\n" . view('scaffold-interface::template.routes', compact('names'))->render();
+
     }
 
 }

@@ -3,6 +3,12 @@ namespace Amranidev\ScaffoldInterface\Generators;
 
 use URL;
 
+/**
+ * Class NamesGenerate
+ *
+ * @package scaffold-interface/Generators
+ * @author Amrani Houssain <amranidev@gmail.com
+ */
 class NamesGenerate
 {
     /**
@@ -104,6 +110,16 @@ class NamesGenerate
     public function endforeachh()
     {
         return "@endforeach";
+    }
+
+    /**
+     * @ for blades
+     *
+     * @return char
+     */
+    public function blade()
+    {
+        return "@";
     }
 
     /**

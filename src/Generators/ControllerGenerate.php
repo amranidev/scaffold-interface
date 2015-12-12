@@ -4,18 +4,26 @@ namespace Amranidev\ScaffoldInterface\Generators;
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
+/**
+ * Class ControllerGenerate
+ *
+ * @package scaffold-interface
+ * @author Amrani Houssain <amranidev@gmail.com>
+ */
 class ControllerGenerate
 {
+
+    /**
+     * DataSystem Instance
+     *
+     * @var dataSystem
+     */
     public $dataSystem;
+
     /**
      * @var NamesGenerate
      */
     public $names;
-
-    /**
-     * @var dataStandard Array
-     */
-    public $dataS;
 
     /**
      * Create new ControllerGenerate instance
@@ -27,23 +35,21 @@ class ControllerGenerate
     {
         $this->dataSystem = $dataSystem;
         $this->names = $names;
-        $this->dataS = $this->dataSystem->dataScaffold('v');
     }
 
     /**
-     * fetch controller tamplate
+     * compile controller tamplate
      *
      * @return String
      */
     public function generate()
     {
-        $TableName = $this->names->TableName();
-        $TableNameSingle = $this->names->TableNameSingle();
-        $TableNames = $this->names->TableNames();
-        $dataS = $this->dataS;
-        $foreignKeys = $this->dataSystem->foreignKeys;
-        $onData = $this->dataSystem->onData;
-        return "<?php\n" . view('scaffold-interface::template.controller.controller', compact('TableName', 'TableNameSingle', 'TableNames', 'dataS', 'foreignKeys', 'onData'))->render();
+
+        $names = $this->names;
+        $dataSystem = $this->dataSystem;
+
+        return "<?php\n" . view('scaffold-interface::template.controller.controller', compact('names', 'dataSystem'))->render();
+
     }
 
 }

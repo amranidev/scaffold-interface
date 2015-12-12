@@ -6,6 +6,14 @@ use Amranidev\ScaffoldInterface\Filesystem\Paths;
 use Amranidev\ScaffoldInterface\Generators\Generator;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
+/**
+ * Class     Scaffold
+ *
+ * @package  scaffold-interface
+ * @author   Amrani Houssain <amranidev@gmail.com>
+ *
+ * @todo     Testing
+ */
 class Scaffold
 {
 
