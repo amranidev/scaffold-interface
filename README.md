@@ -9,6 +9,8 @@
 Scaffold Interface for laravel v5.1 it's simple and useful
 
 >Generate OneToMany RelationShip just in few clicks available only on dev-master.
+
+
 >if you want to test it. Require dev-master.
 
    ```json
