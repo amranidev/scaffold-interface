@@ -13,12 +13,6 @@ Scaffold Interface for laravel v5.1 it's simple and useful
 
 >if you want to test it. Require dev-master.
 
-   ```json
-    require : {
-    "laravel/framework": "5.1.*",
-    "Amranidev/scaffold-interface": "dev-master"
-    }
-    ```
 
 ####Features :
 
