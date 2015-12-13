@@ -8,6 +8,15 @@
 
 Scaffold Interface for laravel v5.1 it's simple and useful
 
+>Generate OneToMany RelationShip just in few clicks available only on dev master.
+
+   ```json
+    require : {
+    "laravel/framework": "5.1.*",
+    "Amranidev/scaffold-interface": "dev-master"
+    }
+    ```
+>thank you for your testing
 
 ####Features :
 
@@ -90,7 +99,7 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   4. Finally :
      
-     scaffolding it's done. just check it. for example : localhost:8000/client  
+     scaffolding it's done. go to http://{your-project}/scaffold 
       
   5. Rollback  
 
