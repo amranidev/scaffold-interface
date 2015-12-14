@@ -11,10 +11,22 @@
     <body>
         <div class = 'container'>
             <h1>{{$names->TableName()}} Index</h1>
-            <form method = 'get' action = '{{$names->standardApi()}}/create'>
+            <div class="row">
+            <form class = 'col s3' method = 'get' action = '{{$names->standardApi()}}/create'>
                 <button class = 'btn red' type = 'submit'>Create New {{$names->TableName()}}</button>
             </form>
-            <br>
+            @if($dataSystem->relationAttr != null)
+
+                <ul id="dropdown" class="dropdown-content">
+            @foreach($dataSystem->relationAttr as $key => $value)
+
+                    <li><a href="{{URL::to('/')}}/{{lcfirst(str_singular($key))}}">{{lcfirst(str_singular($key))}}</a></li>
+            @endforeach
+
+                </ul>
+                <a class="col s3 btn dropdown-button indigo" href="#!" data-activates="dropdown">Associate<i class="mdi-navigation-arrow-drop-down right"></i></a>
+            @endif
+            </div>
             <table>
                 <thead>
                     @foreach($dataSystem->dataScaffold('v') as $value)
