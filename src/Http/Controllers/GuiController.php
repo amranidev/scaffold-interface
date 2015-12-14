@@ -44,23 +44,23 @@ class GuiController extends AppController
 
         $data = Request::except('_token');
 
-        $object = new Scaffold($data);
+        $scaffold = new Scaffold($data);
 
-        $object->Migration();
-        $object->Model();
-        $object->Views();
-        $object->Controller();
-        $object->Route();
+        $scaffold->Migration();
+        $scaffold->Model();
+        $scaffold->Views();
+        $scaffold->Controller();
+        $scaffold->Route();
 
-        $scaffold = new Scaffoldinterface();
-        $scaffold->migration = $object->paths->MigrationPath();
-        $scaffold->model = $object->paths->ModelPath();
-        $scaffold->controller = $object->paths->ControllerPath();
-        $scaffold->views = $object->paths->DirPath();
-        $scaffold->tablename = $object->names->TableNames();
-        $scaffold->save();
+        $scaffoldInterface = new Scaffoldinterface();
+        $scaffoldInterface->migration = $scaffold->paths->MigrationPath();
+        $scaffoldInterface->model = $scaffold->paths->ModelPath();
+        $scaffoldInterface->controller = $scaffold->paths->ControllerPath();
+        $scaffoldInterface->views = $scaffold->paths->DirPath();
+        $scaffoldInterface->tablename = $scaffold->names->TableNames();
+        $scaffoldInterface->save();
 
-        Session::flash('status', ' Successfully created ' . $object->names->TableName() . '. To complete your scaffold. go ahead and migrate the schema.');
+        Session::flash('status', ' Successfully created ' . $scaffold->names->TableName() . '. To complete your scaffold. go ahead and migrate the schema.');
 
         return redirect('scaffold');
     }
@@ -74,17 +74,17 @@ class GuiController extends AppController
     public function destroy($id)
     {
 
-        $scaffold = Scaffoldinterface::FindOrFail($id);
+        $scaffoldInterface = Scaffoldinterface::FindOrFail($id);
 
-        unlink($scaffold->model);
-        unlink($scaffold->controller);
-        unlink($scaffold->views . '/index.blade.php');
-        unlink($scaffold->views . '/create.blade.php');
-        unlink($scaffold->views . '/show.blade.php');
-        unlink($scaffold->views . '/edit.blade.php');
-        rmdir($scaffold->views);
+        unlink($scaffoldInterface->model);
+        unlink($scaffoldInterface->controller);
+        unlink($scaffoldInterface->views . '/index.blade.php');
+        unlink($scaffoldInterface->views . '/create.blade.php');
+        unlink($scaffoldInterface->views . '/show.blade.php');
+        unlink($scaffoldInterface->views . '/edit.blade.php');
+        rmdir($scaffoldInterface->views);
 
-        $scaffold->delete();
+        $scaffoldInterface->delete();
 
         Session::flash('status', 'Successfully deleted');
 
@@ -92,7 +92,11 @@ class GuiController extends AppController
     }
 
     /**
-     * Delete confirmation message
+     * Delete confirmation message by Ajaxis
+     *
+     * @link https://github.com/amranidev/ajaxis
+     *
+     * @return String
      */
     public function deleteMsg($id)
     {
