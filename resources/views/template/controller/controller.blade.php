@@ -157,6 +157,13 @@ class {{$names->TableName()}}Controller extends Controller
         return redirect('{{$names->TableNameSingle()}}');
     }
 
+    /**
+     * Delete confirmation message by Ajaxis
+     *
+     * @link https://github.com/amranidev/ajaxis
+     *
+     * @return String
+     */
     public function DeleteMsg($id)
     {
         $msg = Ajaxis::MtDeleting('Warning','Would you like to remove This?','/{{$names->TableNameSingle()}}/'. $id . '/delete/');
