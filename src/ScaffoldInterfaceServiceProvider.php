@@ -31,7 +31,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         // Get namespace
         $nameSpace = $this->app->getNamespace();
 
-        // Set namespace alias for HomeController
+        // Set namespace alias for AppController
         AliasLoader::getInstance()->alias('AppController', $nameSpace . 'Http\Controllers\Controller');
 
         // Routes
@@ -43,16 +43,14 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../public' => public_path(),
         ], 'public');
 
-        //Load Views
+        // Load Views
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffold-interface');
 
-        //migrations
+        // Migrations
         $this->publishes([
             __DIR__ . '/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
 
     }
-    public function register()
-    {
-    }
+
 }
