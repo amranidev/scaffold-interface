@@ -3,6 +3,12 @@ namespace Amranidev\ScaffoldInterface\Filesystem;
 
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
+/**
+ * Class Paths
+ *
+ * @package scaffold-interface/FileSystem
+ * @author Amrani Houssain <amranidev@gmail.com>
+ */
 class Paths
 {
     /**
