@@ -20,11 +20,11 @@
                 <ul id="dropdown" class="dropdown-content">
             @foreach($dataSystem->relationAttr as $key => $value)
 
-                    <li><a href="{{URL::to('/')}}/{{lcfirst(str_singular($key))}}">{{lcfirst(str_singular($key))}}</a></li>
+                    <li><a href="{{URL::to('/')}}/{{lcfirst(str_singular($key))}}">{{ucfirst(str_singular($key))}}</a></li>
             @endforeach
 
                 </ul>
-                <a class="col s3 btn dropdown-button indigo" href="#!" data-activates="dropdown">Associate<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                <a class="col s3 btn dropdown-button #1e88e5 blue darken-1" href="#!" data-activates="dropdown">Associate<i class="mdi-navigation-arrow-drop-down right"></i></a>
             @endif
             </div>
             <table>
