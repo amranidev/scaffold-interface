@@ -53,4 +53,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
 
     }
 
+    public function register()
+    {}
+
 }
