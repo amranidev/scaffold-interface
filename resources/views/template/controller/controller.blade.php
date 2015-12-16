@@ -11,6 +11,12 @@ use App\{{ucfirst(str_singular($key))}};
 
 @endforeach
 
+/**
+ * Class {{$names->TableName()}}Controller
+ *
+ * @author The scaffold-interface at {{date("Y-m-d h:i:sa")}}
+ * @link   https://github.com/amranidev/scaffold-interfac
+ */
 class {{$names->TableName()}}Controller extends Controller
 {
     /**
