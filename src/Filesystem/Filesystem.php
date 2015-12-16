@@ -1,6 +1,12 @@
 <?php
 namespace Amranidev\ScaffoldInterface\Filesystem;
 
+/**
+ * Class FileSystem
+ *
+ * @package scaffold-interface/FileSystem
+ * @author Amrani Houssian <amranidev@gmail.com>
+ */
 class FileSystem
 {
 
