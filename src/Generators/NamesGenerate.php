@@ -7,7 +7,7 @@ use URL;
  * Class NamesGenerate
  *
  * @package scaffold-interface/Generators
- * @author Amrani Houssain <amranidev@gmail.com
+ * @author Amrani Houssain <amranidev@gmail.com>
  */
 class NamesGenerate
 {
