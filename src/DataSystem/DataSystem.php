@@ -83,6 +83,11 @@ class DataSystem
         foreach ($this->foreignKeys as $key => $value) {
             $Schema = Schema::getColumnListing($value);
             unset($Schema[0]);
+            foreach ($Schema as $SchemaKey => $SchemaValue) {
+                if (strpos($SchemaValue, '_id')) {
+                    unset($Schema[$SchemaKey]);
+                }
+            }
             $this->relationAttr[$value] = $Schema;
         }
 
