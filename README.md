@@ -4,7 +4,7 @@
 
 # ScaffoldInterface (CRUD Generator)
 
-[Scaffold](http://i.imgur.com/oDl3i1N.png)
+![Scaffold](http://i.imgur.com/oDl3i1N.png)
 
 Scaffold Interface for laravel v5.1 it's simple and useful
 
