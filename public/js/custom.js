@@ -34,7 +34,7 @@ function option(i) {
         <option value = "bigInteger">bigInteger</option>\
         <option value = "json">json</option>\
      </select>\
-    <label for = "opt' + i + '">Materialize Select</label>\
+    <label for = "opt' + i + '">Select Type</label>\
     </div>'
     return options;
 }
@@ -50,7 +50,7 @@ jQuery.each(TableData, function(index, item) {
 });
     relations +='\
      </select>\
-    <label for = "tbl' + i+'">Materialize Select</label>\
+    <label for = "tbl' + i+'">Select Model</label>\
     </div>';
     return relations;
 
@@ -75,7 +75,7 @@ $(document).on('click', '.createNewTable', function() {
 
 $(document).on('click', '.newattr', function() {
     $('select').material_select();
-    $('.t tr:last').after("<tr><td>" + option(i) + "</td><td><div class = 'input-field'><input id = 'atr" + i + "' name = 'atr" + i + "' type='text' class='validate' required = '' aria-required = 'true'><label for = 'atr" + i + "'>attribute</label></div></td></tr>\
+    $('.t tr:last').after("<tr><td>" + option(i) + "</td><td><div class = 'input-field'><input id = 'atr" + i + "' name = 'atr" + i + "' type='text' class='validate' required = '' aria-required = 'true'><label for = 'atr" + i + "'>Attribute</label></div></td></tr>\
     ")
     i++;
     $('select').material_select();
@@ -91,7 +91,7 @@ $(document).on('click', '.readyy', function() {
 
 $(document).on('click','.relations',function(){
 
-    $('.t tr:last').after("<tr><td>"+relation(j)+"</td><td><div class = 'input-field'><input id = 'on" + j + "' name = 'on" + j + "' type='text' class='validate' required = '' aria-required = 'true'><label for = 'on" + j + "'>On dataspec</label></div></td></tr>");
+    $('.t tr:last').after("<tr><td>"+relation(j)+"</td><td><div class = 'input-field'><input id = 'on" + j + "' name = 'on" + j + "' type='text' class='validate' required = '' aria-required = 'true'><label for = 'on" + j + "'>On Column</label></div></td></tr>");
     j++;
     $('select').material_select();
 })
