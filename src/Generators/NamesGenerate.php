@@ -40,7 +40,7 @@ class NamesGenerate
      */
     public function TableNames()
     {
-        return str_plural($this->data['TableName']);
+        return str_plural(str_slug($this->data['TableName'], '_'));
     }
 
     /**
@@ -59,7 +59,7 @@ class NamesGenerate
      */
     public function TableName()
     {
-        return ucfirst(str_singular($this->data['TableName']));
+        return ucfirst(str_singular(str_slug($this->data['TableName'], '_')));
     }
 
     /**
