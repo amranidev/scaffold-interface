@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
  * @author The scaffold-interface at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interfac
  */
-class {{ucfirst($names->TableNames())}} extends Migration
+class {{studly_case(ucfirst($names->TableNames()))}} extends Migration
 {
     /**
      * Run the migrations.
