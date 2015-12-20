@@ -30,7 +30,7 @@
     </style>
     <body>
         <div class="container">
-            <h2><i>Scaffold Interface</i> for laravel v5.1</h2>
+            <h2 class = "thin"><i>Scaffold Interface</i> for laravel</h2>
             <div style = 'margin-top: 2cm;'></div>
             <div class = 'row'>
                 <div class = 'col s5'>
