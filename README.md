@@ -6,7 +6,7 @@
 
 ![Scaffold](http://i.imgur.com/oDl3i1N.png)
 
-Scaffold Interface for laravel v5.1 it's simple and useful
+Scaffold Interface for laravel. it's simple and useful
 
 >Generate OneToMany RelationShip just in few clicks available only on dev-master.
 
