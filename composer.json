@@ -1,8 +1,8 @@
 {
   "name": "amranidev/scaffold-interface",
-  "description": "laravel v5.1 CRUD Generator i'ts simple and usefu",
+  "description": "laravel CRUD Generator i'ts simple and usefu",
   "homepage": "http://github.com/amranidev/scaffold-interface",
-  "keywords": ["laravel", "framework", "files", "scaffod","CRUD", "crud generator", "crud generators",  "scaffoldinterface", "Scaffolding","Scaffold","laravel bootstrap","laravel materialize", "amranidev", "Amrani Houssain", "amrnaihoussain"],
+  "keywords": ["laravel", "framework", "files", "scaffod","CRUD", "crud generator", "crud generators",  "scaffoldinterface", "Scaffolding","Scaffold","laravel bootstrap","laravel materialize", "Laravel 5.1" , "Laravel 5.2","amranidev", "Amrani Houssain", "amrnaihoussain"],
   "license": "MIT",
   "authors": [
     {
