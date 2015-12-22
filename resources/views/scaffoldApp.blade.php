@@ -105,10 +105,9 @@
 <!--***********************************************************************************************************-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-<script src= "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js" </script>
+<script src= "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <script> var baseURL = "{{URL::to('/')}}"</script>
 <script type="text/javascript" src = "{{URL::to('js/AjaxisMaterialize.js')}}"></script>
-<script> var baseURL = "{{URL::to('/')}}"</script>
 <script>
 var token = '{{Session::token()}}';
 var TableData = {!! $scaffoldList !!}
