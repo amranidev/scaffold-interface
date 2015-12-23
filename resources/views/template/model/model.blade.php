@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class {{$names->TableName()}}Controller
  *
- * @author The scaffold-interface at {{date("Y-m-d h:i:sa")}}
+ * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interfac
  */
 class {{$names->TableName()}} extends Model
