@@ -8,17 +8,11 @@
 
 Scaffold Interface for laravel. it's simple and useful
 
->Generate OneToMany RelationShip just in few clicks available only on dev-master.
-
-
->if you want to test it. Require dev-master.
-
-
 ####Features :
 
 + Generate your model,views,controller and migrations just in few clicks.
 
-+ OneToMany relationship . only (dev-master)
++ OneToMany relationship.
 
 + Delete confirmation message.
 
@@ -37,7 +31,7 @@ Scaffold Interface for laravel. it's simple and useful
     ```json
     require : {
     "laravel/framework": "5.1.*",
-    "Amranidev/scaffold-interface": "1.0.*"
+    "Amranidev/scaffold-interface": "1.1.*"
     }
     ```
 
