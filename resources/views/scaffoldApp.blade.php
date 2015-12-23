@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 @endif
-                <table class = 'centered'>
+                <table class = 'centered highlight'>
                     <thead>
                         <th>Name</th>
                         <th>Created at</th>
