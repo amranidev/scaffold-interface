@@ -172,7 +172,7 @@ class {{$names->TableName()}}Controller extends Controller
      */
     public function DeleteMsg($id)
     {
-        $msg = Ajaxis::MtDeleting('Warning','Would you like to remove This?','/{{$names->TableNameSingle()}}/'. $id . '/delete/');
+        $msg = Ajaxis::MtDeleting('Warning!!','Would you like to remove This?','/{{$names->TableNameSingle()}}/'. $id . '/delete/');
 
         if(Request::ajax())
         {
