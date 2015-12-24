@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/amranidev/scaffold-interface.svg?branch=master)](https://travis-ci.org/amranidev/scaffold-interface)
 [![Latest Stable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/stable)](https://packagist.org/packages/amranidev/scaffold-interface)
+[![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 
 # ScaffoldInterface (CRUD Generator)
 
-![Scaffold](http://i.imgur.com/oDl3i1N.png)
+![Scaffold](http://i.imgur.com/62HTlvT.png)
 
 Scaffold Interface for laravel. it's simple and useful
 
@@ -12,7 +13,7 @@ Scaffold Interface for laravel. it's simple and useful
 
 + Generate your model,views,controller and migrations just in few clicks.
 
-+ OneToMany relationship.
++ Generate OneToMany relationship.
 
 + Delete confirmation message.
 
@@ -98,6 +99,18 @@ Congratulations, you have successfully installed Scaffold Interface!
       ![Imgur](http://i.imgur.com/dnYc2ZE.png)
 
       Before you make your rollback make sure that you have rollbacked your table from database and avoid to keep routes recoureces.
+  
+  6. OneToMany Relationship
+      
+      example : 
+
+      basically we want to generate a small app that contain (Clients , Products , Orders). 
+
+      so the Orders must include the Clients and products foreign keys. 
+      then first things first is to generate Clients and Products normally. 
+      
+      after that you could generate Orders and adding two relation to Clients and products.
+
 
 ####Contribution
 
