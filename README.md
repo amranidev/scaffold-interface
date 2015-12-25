@@ -73,7 +73,7 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   1. Access to scaffold interface :
     
-    "localhost:8000/scaffold" to get into scaffoldinterface.
+     http://{your-project}/scaffold to get into scaffoldinterface.
   
   2. Table creation :
 
@@ -90,7 +90,7 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   4. Finally :
      
-     scaffolding it's done. go to http://{your-project}/scaffold 
+     scaffolding it's done. go to http://{your-project}/{your-model} 
       
   5. Rollback  
 
