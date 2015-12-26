@@ -76,7 +76,7 @@
                 {!! $scaffold->render() !!}
                 <div class="pushDown"></div>
                 <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
-                <p class = 'light'>Copyright (c) 2015 Amrani Houssian<br><br>
+                <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
                 Permission is hereby granted, free of charge, to any person obtaining a copy
                 of this software and associated documentation files (the "Scaffold-Interface"), to deal
                 in the Software without restriction, including without limitation the rights
