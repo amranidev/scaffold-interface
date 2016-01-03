@@ -13,7 +13,7 @@
   "require": {
     "php": ">=5.5.0",
     "illuminate/support": "~5.1",
-    "Amranidev/Ajaxis" : "2.0.*"
+    "Amranidev/Ajaxis" : "2.1.*"
   },
   "require-dev": {
     "phpspec/phpspec": "~2.1"
