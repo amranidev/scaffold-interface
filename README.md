@@ -118,6 +118,6 @@ Congratulations, you have successfully installed Scaffold Interface!
 
 ####TODOS
 
-  Add a select for OneToMany (on data fields) in interface.  
+ - [ ] Add a select for OneToMany (on data fields) in interface.  
 
 ####contact : amranidev@gmail.com
