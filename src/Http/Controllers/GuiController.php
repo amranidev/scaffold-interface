@@ -2,6 +2,7 @@
 namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
 use Amranidev\Ajaxis\Ajaxis;
+use Amranidev\ScaffoldInterface\AutoArray;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
@@ -27,9 +28,9 @@ class GuiController extends AppController
      */
     public function index()
     {
-
         $scaffold = Scaffoldinterface::paginate(6);
         $scaffoldList = Scaffoldinterface::all()->lists('id', 'tablename');
+
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
 
@@ -53,11 +54,13 @@ class GuiController extends AppController
         $scaffold->Route();
 
         $scaffoldInterface = new Scaffoldinterface();
+
         $scaffoldInterface->migration = $scaffold->paths->MigrationPath();
         $scaffoldInterface->model = $scaffold->paths->ModelPath();
         $scaffoldInterface->controller = $scaffold->paths->ControllerPath();
         $scaffoldInterface->views = $scaffold->paths->DirPath();
         $scaffoldInterface->tablename = $scaffold->names->TableNames();
+
         $scaffoldInterface->save();
 
         Session::flash('status', ' Successfully created ' . $scaffold->names->TableName() . '. To complete your scaffold. go ahead and migrate the schema.');
@@ -105,5 +108,19 @@ class GuiController extends AppController
         if (Request::ajax()) {
             return $msg;
         }
+    }
+
+    /**
+     * get Attributes from
+     *
+     * @param String $table
+     *
+     * @return Array
+     */
+    public function GetResult($table)
+    {
+        $attributes = new AutoArray($table);
+
+        return $attributes->getResult();
     }
 }
