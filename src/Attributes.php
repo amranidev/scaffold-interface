@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\DB;
 /**
  * class Attributes
  *
- * @package ajaxis\Parser
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Attributes
