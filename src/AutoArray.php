@@ -5,12 +5,10 @@ use Amranidev\ScaffoldInterface\Attributes;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * class AutoArray (Test v3.0.x-dev)
+ * class AutoArray
  *
- * @package ajaxis\Autoarray
  * @author Amrani Houssain <amranidev@gmail.com>
  *
- * @todo test if its more practical
  */
 class AutoArray
 {
