@@ -121,6 +121,8 @@ class GuiController extends AppController
     {
         $attributes = new AutoArray($table);
 
-        return $attributes->getResult();
+        if (Request::ajax()) {
+            return $attributes->getResult();
+        }
     }
 }
