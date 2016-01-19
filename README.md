@@ -118,6 +118,13 @@ Congratulations, you have successfully installed Scaffold Interface!
 
 ####TODOS
 
- - [ ] Add a select for OneToMany (on data fields) in interface.  
+ - [ ] 100% Code coverage + Maximum code quality.
+
+####DONE
+
+ - [x] Add a select for OneToMany (on data fields) in interface.  
+ - [x] Laravel 5.2 supported.
+ - [x] Laravel 5.1 supported.
+ - [x] Laravel 5.0 supported.
 
 ####contact : amranidev@gmail.com
