@@ -47,11 +47,7 @@ class GuiController extends AppController
 
         $scaffold = new Scaffold($data);
 
-        $scaffold->Migration();
-        $scaffold->Model();
-        $scaffold->Views();
-        $scaffold->Controller();
-        $scaffold->Route();
+        $scaffold->Migration()->Model()->Views()->Controller()->Route();
 
         $scaffoldInterface = new Scaffoldinterface();
 
