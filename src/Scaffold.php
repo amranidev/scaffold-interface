@@ -67,6 +67,8 @@ class Scaffold
     public function Migration()
     {
         $this->generator->migration();
+
+        return $this;
     }
 
     /**
@@ -76,6 +78,8 @@ class Scaffold
     public function Model()
     {
         $this->generator->model();
+
+        return $this;
     }
 
     /**
@@ -89,6 +93,8 @@ class Scaffold
         $this->generator->create();
         $this->generator->show();
         $this->generator->edit();
+
+        return $this;
     }
 
     /**
@@ -98,6 +104,8 @@ class Scaffold
     public function Controller()
     {
         $this->generator->controller();
+
+        return $this;
     }
 
     /**
@@ -107,5 +115,7 @@ class Scaffold
     public function Route()
     {
         $this->generator->route();
+
+        return $this;
     }
 }
