@@ -5,7 +5,7 @@ jQuery.fn.extend({
         });
     }
 });
-var content = "<form id = 'form' method = 'post' action = '" + baseURL + "/scaffold/guipost/'><input type = 'hidden' name = '_token' value = '" + token + "'>\
+var content = "<form id = 'form' method = 'post' action = '" + baseURL + "/scaffold/guipost'><input type = 'hidden' name = '_token' value = '" + token + "'>\
     <table class = 't'>\
         <tr><td>\
         <div class = 'input-field'>\
