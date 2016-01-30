@@ -1,26 +1,29 @@
 {
-  "name": "amranidev/scaffold-interface",
-  "description": "laravel CRUD Generator i'ts simple and usefu",
-  "homepage": "http://github.com/amranidev/scaffold-interface",
-  "keywords": ["laravel", "framework", "files", "scaffod","CRUD", "crud generator", "crud generators",  "scaffoldinterface", "Scaffolding","Scaffold","laravel bootstrap","laravel materialize", "Laravel 5.1" , "Laravel 5.2","amranidev", "Amrani Houssain", "amrnaihoussain"],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Amrani Houssain",
-      "email": "amranidev@gmail.com"
+    "name": "amranidev/scaffold-interface",
+    "description": "laravel CRUD Generator i'ts simple and usefu",
+    "homepage": "http://github.com/amranidev/scaffold-interface",
+    "keywords": ["laravel", "framework", "files", "scaffod", "CRUD", "crud generator", "crud generators", "scaffoldinterface", "Scaffolding", "Scaffold", "laravel bootstrap", "laravel materialize", "Laravel 5.1", "Laravel 5.2", "amranidev", "Amrani Houssain", "amrnaihoussain"],
+    "license": "MIT",
+    "authors": [{
+        "name": "Amrani Houssain",
+        "email": "amranidev@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/support": "~5.1",
+        "Amranidev/Ajaxis": "2.1.*"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amranidev\\ScaffoldInterface\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2.x-dev"
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.5.0",
-    "illuminate/support": "~5.1",
-    "Amranidev/Ajaxis" : "2.1.*"
-  },
-  "require-dev": {
-    "phpspec/phpspec": "~2.1"
-  },
-  "autoload": {
-    "psr-4": {
-      "Amranidev\\ScaffoldInterface\\": "src/"
-    }
-  }
 }
