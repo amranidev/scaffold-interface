@@ -9,24 +9,24 @@
         <title>Scaffold-Interface</title>
     </head>
     <style>
-        label {
-            width: 100%;
-        }
-        .scaffoldv{
-            border-radius: 3px;
-            padding:0 5px 0 5px;
-        }
-        .input-field label {
-            font-size: 0.8rem;
-            -webkit-transform: translateY(-140%);
-            -moz-transform: translateY(-140%);
-            -ms-transform: translateY(-140%);
-            -o-transform: translateY(-140%);
-            transform: translateY(-140%);
-        }
-        .pushDown{
-            margin-top: 20px;
-        }
+    label {
+    width: 100%;
+    }
+    .scaffoldv{
+    border-radius: 3px;
+    padding:0 5px 0 5px;
+    }
+    .input-field label {
+    font-size: 0.8rem;
+    -webkit-transform: translateY(-140%);
+    -moz-transform: translateY(-140%);
+    -ms-transform: translateY(-140%);
+    -o-transform: translateY(-140%);
+    transform: translateY(-140%);
+    }
+    .pushDown{
+    margin-top: 20px;
+    }
     </style>
     <body>
         <div class="container">
@@ -77,21 +77,21 @@
                 <div class="pushDown"></div>
                 <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
                 <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
-                Permission is hereby granted, free of charge, to any person obtaining a copy
-                of this software and associated documentation files (the "Scaffold-Interface"), to deal
-                in the Software without restriction, including without limitation the rights
-                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                copies of the Software, and to permit persons to whom the Software is
-                furnished to do so, subject to the following conditions:<br><br>
-                The above copyright notice and this permission notice shall be included in
-                all copies or substantial portions of the Software.<br><br>
-                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
-                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                THE SOFTWARE.
+                    Permission is hereby granted, free of charge, to any person obtaining a copy
+                    of this software and associated documentation files (the "Scaffold-Interface"), to deal
+                    in the Software without restriction, including without limitation the rights
+                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                    copies of the Software, and to permit persons to whom the Software is
+                    furnished to do so, subject to the following conditions:<br><br>
+                    The above copyright notice and this permission notice shall be included in
+                    all copies or substantial portions of the Software.<br><br>
+                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                    THE SOFTWARE.
                 </p>
                 <div class = 'message'></div>
             </div>
@@ -100,6 +100,17 @@
     <div id="modal1" class="modal">
         <div class = "row AjaxisModal">
         </div>
+    </div>
+    <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large red">
+            <i class="large mdi-navigation-menu"></i>
+        </a>
+        <ul>
+            <li><a class="btn-floating red"><i class="material-icons">view_list</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
     </div>
 </body>
 <!--***********************************************************************************************************-->
