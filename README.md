@@ -32,7 +32,7 @@ Scaffold Interface for laravel. it's simple and useful
     ```json
     require : {
     "laravel/framework": "5.2.*",
-    "Amranidev/scaffold-interface": "1.1.*"
+    "Amranidev/scaffold-interface": "v1.1.*"
     }
     ```
 
