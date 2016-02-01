@@ -106,7 +106,7 @@
             <i class="large mdi-navigation-menu"></i>
         </a>
         <ul>
-            <li><a class="btn-floating red"><i class="material-icons">view_list</i></a></li>
+            <li><a class="btn-floating red index" data-link = '/scaffold/homePage'><i class="material-icons">view_list</i></a></li>
             <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
             <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
             <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
