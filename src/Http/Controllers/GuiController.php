@@ -121,4 +121,12 @@ class GuiController extends AppController
             return $attributes->getResult();
         }
     }
+
+    /**
+     * TEST
+     */
+    public function homePage()
+    {
+        return "TEST";
+    }
 }
