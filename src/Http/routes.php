@@ -10,3 +10,4 @@ Route::post('scaffold/guipost', '\Amranidev\ScaffoldInterface\Http\Controllers\G
 Route::get('scaffold/guirollback/{id}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@destroy');
 Route::get('scaffold/guidelete/{id}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@deleteMsg');
 Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@GetResult');
+Route::get('scaffold/homePage', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePage');
