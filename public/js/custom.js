@@ -127,16 +127,6 @@ $(document).on("change", ".parent", function() {
         }
     })
 })
-$(document).on("click", ".index", function() {
-    $.ajax({
-        async: true,
-        type: 'get',
-        url: baseURL + $(this).data('link'),
-        success: function(A) {
-            console.log(A);
-        }
-    })
-});
 
 function Attributes(TableData) {
     var relations = '';
