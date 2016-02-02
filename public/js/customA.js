@@ -4,7 +4,6 @@ $(document).on("click", ".viewEdit", function() {
 $(document).on("click", ".viewShow", function() {
 	GETT($(this).data('link'));
 })
-
 function GETT(dataLink) {
     $.ajax({
         async: true,
