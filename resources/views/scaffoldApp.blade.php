@@ -75,7 +75,7 @@
                 </table>
                 {!! $scaffold->render() !!}
                 <div class="pushDown"></div>
-                <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
+                <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.1.7</span></span>
                 <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
                     Permission is hereby granted, free of charge, to any person obtaining a copy
                     of this software and associated documentation files (the "Scaffold-Interface"), to deal
@@ -106,13 +106,13 @@
             <i class="large mdi-navigation-menu"></i>
         </a>
         <ul>
-            <li><a class="btn-floating red index" data-link = '/scaffold/homePage'><i class="material-icons">view_list</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+            <li><a class="btn-floating blue index" data-link = "/scaffold/homePage"><i class="material-icons">view_list</i></a></li>
+            <li><a class="btn-floating red darken-1 deleteIndex" data-link = "/scaffold/HomePageDelete"><i class="material-icons">delete</i></a></li>
+            <li><a href = "{{URL::to('/')}}/scaffold/HomePageScaffold" class="btn-floating yellow"><i class="material-icons">send</i></a></li>
         </ul>
     </div>
 </body>
+
 <!--***********************************************************************************************************-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
