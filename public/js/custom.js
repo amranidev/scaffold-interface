@@ -5,7 +5,7 @@ jQuery.fn.extend({
         });
     }
 });
-var content = "<form id = 'form' method = 'post' action = '" + baseURL + "/scaffold/guipost'><input type = 'hidden' name = '_token' value = '" + token + "'>\
+var content = "<form id = 'form' method = 'post' action = '" + baseURL + "/scaffold/guipost/'><input type = 'hidden' name = '_token' value = '" + token + "'>\
     <table class = 't'>\
         <tr><td>\
         <div class = 'input-field'>\
@@ -124,6 +124,26 @@ $(document).on("change", ".parent", function() {
         success: function(response) {
             $("#on" + id).html(Attributes(response));
             $("#on" + id).material_select();
+        }
+    })
+})
+$(document).on("click", ".index", function() {
+    $.ajax({
+        async: true,
+        type: 'get',
+        url: baseURL + $(this).data('link'),
+        success: function(response) {
+            window.location.replace(response)
+        }
+    })
+})
+$(document).on("click", ".deleteIndex", function() {
+    $.ajax({
+        async: true,
+        type: 'get',
+        url: baseURL + $(this).data('link'),
+        success: function(response) {
+            window.location.replace(response)
         }
     })
 })
