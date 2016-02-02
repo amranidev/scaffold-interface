@@ -3,6 +3,7 @@ namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\AutoArray;
+use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
@@ -122,11 +123,28 @@ class GuiController extends AppController
         }
     }
 
-    /**
-     * TEST
-     */
     public function homePage()
     {
-        return "TEST";
+        $scaffoldList = Scaffoldinterface::all();
+
+        $home = new HomePageGenerator($scaffoldList);
+
+        $home->Burn();
+
+        return URL::to('scaffold/HomePageScaffold');
+    }
+
+    public function getIndex()
+    {
+        return view('HomePageScaffold');
+    }
+
+    public function homePageDelete()
+    {
+        unlink(base_path() . '/resources/views/HomePageScaffold.blade.php');
+
+        Session::flash('status', 'HomePage removed');
+
+        return URL::to('scaffold');
     }
 }
