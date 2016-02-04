@@ -1,6 +1,8 @@
 <?php
 namespace Amranidev\ScaffoldInterface\Filesystem;
 
+use Amranidev\ScaffoldInterface\Filesystem\FileAlreadyExists;
+
 /**
  * Class FileSystem
  *
@@ -21,6 +23,7 @@ class FileSystem
     public function make($file, $content)
     {
         if ($this->exists($file)) {
+
             throw new FileAlreadyExists;
         }
 
