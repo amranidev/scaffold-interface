@@ -31,7 +31,6 @@ class GuiController extends AppController
     {
         $scaffold = Scaffoldinterface::paginate(6);
         $scaffoldList = Scaffoldinterface::all()->lists('id', 'tablename');
-
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
 
@@ -101,7 +100,9 @@ class GuiController extends AppController
     public function deleteMsg($id)
     {
         $scaffold = Scaffoldinterface::FindOrFail($id);
+
         $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database. and avoid to keep routes recoureces.", '/scaffold/guirollback/' . $id);
+
         if (Request::ajax()) {
             return $msg;
         }
