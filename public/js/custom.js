@@ -134,6 +134,11 @@ $(document).on("click", ".index", function() {
         url: baseURL + $(this).data('link'),
         success: function(response) {
             window.location.replace(response)
+            if (response.error) {
+                // handle the error
+                throw response.error.msg;
+            }
+            window.location.replace(response)            
         }
     })
 })
@@ -143,6 +148,11 @@ $(document).on("click", ".deleteIndex", function() {
         type: 'get',
         url: baseURL + $(this).data('link'),
         success: function(response) {
+
+            if (response.error) {
+                // handle the error
+                throw response.error.msg;
+            }
             window.location.replace(response)
         }
     })
