@@ -10,7 +10,7 @@ function GETT(dataLink) {
         method: 'get',
         url: baseURL + dataLink,
         success: function(response) {
-            window.location.replace(response);
+            window.location = response
         }
     });
 }
