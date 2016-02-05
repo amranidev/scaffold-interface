@@ -126,11 +126,18 @@ class GuiController extends AppController
 
     public function homePage()
     {
-        $scaffoldList = Scaffoldinterface::all();
+        try {
 
-        $home = new HomePageGenerator($scaffoldList);
+            $scaffoldList = Scaffoldinterface::all();
 
-        $home->Burn();
+            $home = new HomePageGenerator($scaffoldList);
+
+            $home->Burn()->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $home->Generate());
+
+        } catch (Exception $e) {
+
+            return "Scaffold-Interface : " . $e->getMessage();
+        }
 
         return URL::to('scaffold/HomePageScaffold');
     }
@@ -142,8 +149,14 @@ class GuiController extends AppController
 
     public function homePageDelete()
     {
-        unlink(base_path() . '/resources/views/HomePageScaffold.blade.php');
+        try
+        {
+            unlink(base_path() . '/resources/views/HomePageScaffold.blade.php');
 
+        } catch (\Exception $e) {
+            return "Scaffold-Interface : " . $e->getMessage();
+
+        }
         Session::flash('status', 'HomePage removed');
 
         return URL::to('scaffold');
