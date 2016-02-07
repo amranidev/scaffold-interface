@@ -137,7 +137,7 @@ class GuiController extends AppController
 
     public function getIndex()
     {
-        return view('home');
+        return view('HomePageScaffold');
     }
 
     public function homePageDelete()
