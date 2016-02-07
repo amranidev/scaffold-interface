@@ -17,10 +17,10 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@GetResult');
 
-    Route::get('scaffold/homePage', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePage');
+    Route::get('scaffold/scaffoldHomePage', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePage');
 
-    Route::get('scaffold/HomePageScaffold', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@getIndex');
+    Route::get('scaffold/scaffoldHomePageIndex', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@getIndex');
 
-    Route::get('scaffold/HomePageDelete', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePageDelete');
+    Route::get('scaffold/scaffoldHomePageDelete', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePageDelete');
 
 });
