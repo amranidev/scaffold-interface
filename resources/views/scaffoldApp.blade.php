@@ -75,7 +75,7 @@
                 </table>
                 {!! $scaffold->render() !!}
                 <div class="pushDown"></div>
-                <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.1.7</span></span>
+                <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>v1.2.x-dev</span></span>
                 <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
                     Permission is hereby granted, free of charge, to any person obtaining a copy
                     of this software and associated documentation files (the "Scaffold-Interface"), to deal
@@ -106,9 +106,9 @@
             <i class="large mdi-navigation-menu"></i>
         </a>
         <ul>
-            <li><a class="btn-floating blue index" data-link = "/scaffold/homePage"><i class="material-icons">view_list</i></a></li>
-            <li><a class="btn-floating orange darken-1 deleteIndex" data-link = "/scaffold/HomePageDelete"><i class="material-icons">delete</i></a></li>
-            <li><a href = "{{URL::to('/')}}/scaffold/HomePageScaffold" class="btn-floating #7cb342 light-green darken-1"><i class="material-icons">send</i></a></li>
+            <li><a class="btn-floating blue index" data-link = "/scaffold/scaffoldHomePage"><i class="material-icons">view_list</i></a></li>
+            <li><a class="btn-floating orange darken-1 deleteIndex" data-link = "/scaffold/scaffoldHomePageDelete"><i class="material-icons">delete</i></a></li>
+            <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageIndex" class="btn-floating #7cb342 light-green darken-1"><i class="material-icons">send</i></a></li>
         </ul>
     </div>
 </body>
