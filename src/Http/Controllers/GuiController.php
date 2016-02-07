@@ -126,25 +126,18 @@ class GuiController extends AppController
 
     public function homePage()
     {
-        try {
+        $scaffoldList = Scaffoldinterface::all();
 
-            $scaffoldList = Scaffoldinterface::all();
+        $home = new HomePageGenerator($scaffoldList);
 
-            $home = new HomePageGenerator($scaffoldList);
+        $home->Burn()->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $home->Generate());
 
-            $home->Burn()->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $home->Generate());
-
-        } catch (Exception $e) {
-
-            return "Scaffold-Interface : " . $e->getMessage();
-        }
-
-        return URL::to('scaffold/HomePageScaffold');
+        return URL::to('scaffold/scaffoldHomePage');
     }
 
     public function getIndex()
     {
-        return view('HomePageScaffold');
+        return view('home');
     }
 
     public function homePageDelete()
@@ -157,7 +150,8 @@ class GuiController extends AppController
             return "Scaffold-Interface : " . $e->getMessage();
 
         }
-        Session::flash('status', 'HomePage removed');
+
+        Session::flash('status', 'Home Page Successfully deleted');
 
         return URL::to('scaffold');
     }
