@@ -23,4 +23,5 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold/scaffoldHomePageDelete', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePageDelete');
 
+    Route::get('scaffold/migrate', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@migrate');
 });
