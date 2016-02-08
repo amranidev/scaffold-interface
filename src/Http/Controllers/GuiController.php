@@ -7,6 +7,7 @@ use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
+use Illuminate\Support\Facades\Artisan;
 use Request;
 use Session;
 use URL;
@@ -154,5 +155,18 @@ class GuiController extends AppController
         Session::flash('status', 'Home Page Successfully deleted');
 
         return URL::to('scaffold');
+    }
+
+    public function migrate()
+    {
+        try {
+            $exitCode = Artisan::call('migrate');
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+        Session::flash('status', Artisan::output());
+
+        return redirect('scaffold');
     }
 }
