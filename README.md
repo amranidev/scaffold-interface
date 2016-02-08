@@ -111,6 +111,25 @@ Congratulations, you have successfully installed Scaffold Interface!
       
       after that you could generate Orders and adding two relation to Clients and products.
 
+  7. Check this out
+      
+     Add (route::group) to *vendor/amranidev/scaffold-interface/src/Http/routes.php* if you're using **laravel 5.2** 
+      
+```php
+  Route::group(['middleware' => 'web'], function () {
+
+    Route::get('scaffold', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@index');
+
+    Route::post('scaffold/guipost', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@store');
+
+    Route::get('scaffold/guirollback/{id}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@destroy');
+
+    Route::get('scaffold/guidelete/{id}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@deleteMsg');
+
+    Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@GetResult');
+
+  });
+```
 
 ####Contribution
 
@@ -125,6 +144,5 @@ Congratulations, you have successfully installed Scaffold Interface!
  - [x] Add a select for OneToMany (on data fields) in interface.  
  - [x] Laravel 5.2 supported.
  - [x] Laravel 5.1 supported.
- - [x] Laravel 5.0 supported.
 
 ####contact : amranidev@gmail.com
