@@ -7,6 +7,7 @@ use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Artisan;
 use Request;
 use Session;
@@ -82,6 +83,7 @@ class GuiController extends AppController
         unlink($scaffoldInterface->views . '/create.blade.php');
         unlink($scaffoldInterface->views . '/show.blade.php');
         unlink($scaffoldInterface->views . '/edit.blade.php');
+        unlink($scaffoldInterface->migration);
         rmdir($scaffoldInterface->views);
 
         $scaffoldInterface->delete();
@@ -131,9 +133,9 @@ class GuiController extends AppController
 
         $home = new HomePageGenerator($scaffoldList);
 
-        $home->Burn()->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $home->Generate());
+        $home->Burn();
 
-        return URL::to('scaffold/scaffoldHomePage');
+        return URL::to('scaffold/scaffoldHomePageIndex');
     }
 
     public function getIndex()
@@ -154,13 +156,34 @@ class GuiController extends AppController
 
         Session::flash('status', 'Home Page Successfully deleted');
 
-        return URL::to('scaffold');
+        return redirect('scaffold');
     }
 
     public function migrate()
     {
         try {
+
             $exitCode = Artisan::call('migrate');
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+        Session::flash('status', Artisan::output());
+
+        return redirect('scaffold');
+    }
+
+    public function rollback()
+    {
+        $schedule = new Schedule();
+
+        try {
+
+            exec('cd ' . base_path() . ' && composer dump-autoload');
+
+            $exitCode = Artisan::call('migrate:rollback');
+
         } catch (Exception $e) {
             return $e->getMessage();
         }
