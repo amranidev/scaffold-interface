@@ -7,7 +7,6 @@ use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Artisan;
 use Request;
 use Session;
@@ -127,6 +126,11 @@ class GuiController extends AppController
         }
     }
 
+    /**
+     * Generate Home Page for app
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function homePage()
     {
         $scaffoldList = Scaffoldinterface::all();
@@ -135,14 +139,26 @@ class GuiController extends AppController
 
         $home->Burn();
 
-        return URL::to('scaffold/scaffoldHomePageIndex');
+        Session::flash('status', 'Home Page Generated Successfully');
+
+        return redirect('scaffold/scaffoldHomePageIndex');
     }
 
+    /**
+     * get index page for the app
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getIndex()
     {
         return view('HomePageScaffold');
     }
 
+    /**
+     * delete index page
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function homePageDelete()
     {
         try
@@ -159,6 +175,11 @@ class GuiController extends AppController
         return redirect('scaffold');
     }
 
+    /**
+     * Migrate table ORM
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function migrate()
     {
         try {
@@ -174,10 +195,13 @@ class GuiController extends AppController
         return redirect('scaffold');
     }
 
+    /**
+     * Rollback Table
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function rollback()
     {
-        $schedule = new Schedule();
-
         try {
 
             exec('cd ' . base_path() . ' && composer dump-autoload');
@@ -185,6 +209,7 @@ class GuiController extends AppController
             $exitCode = Artisan::call('migrate:rollback');
 
         } catch (Exception $e) {
+
             return $e->getMessage();
         }
 
