@@ -127,32 +127,6 @@ $(document).on("change", ".parent", function() {
         }
     })
 })
-$(document).on("click", ".index", function() {
-    $.ajax({
-        async: true,
-        type: 'get',
-        url: baseURL + $(this).data('link'),
-        success: function(response) {
-            if (response.error) {
-                throw response.error.msg;
-            }
-            window.location = response;
-        }
-    })
-})
-$(document).on("click", ".deleteIndex", function() {
-    $.ajax({
-        async: true,
-        type: 'get',
-        url: baseURL + $(this).data('link'),
-        success: function(response) {
-            if (response.error) {
-                throw response.error.msg;
-            }
-            window.location = response;
-        }
-    })
-})
 
 function Attributes(TableData) {
     var relations = '';
