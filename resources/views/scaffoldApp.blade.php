@@ -106,8 +106,8 @@
             <i class="large mdi-navigation-menu"></i>
         </a>
         <ul>
-            <li><a class="btn-floating blue index" data-link = "/scaffold/scaffoldHomePage"><i class="material-icons">view_list</i></a></li>
-            <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageDelete"class="btn-floating red darken-1 deleteIndex"><i class="material-icons">delete</i></a></li>
+            <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePage"class="btn-floating blue"><i class="material-icons">view_list</i></a></li>
+            <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageDelete"class="btn-floating red darken-1"><i class="material-icons">delete</i></a></li>
             <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageIndex" class="btn-floating #7cb342 light-green darken-1"><i class="material-icons">send</i></a></li>
             <li><a href = "{{URL::to('/')}}/scaffold/rollback" class="btn-floating pink"><i class="material-icons">repeat</i></a></li>
             <li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange"><i class="material-icons">input</i></a></li>
