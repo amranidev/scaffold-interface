@@ -188,6 +188,8 @@ class GuiController extends AppController
 
             $exitCode = Artisan::call('migrate');
 
+            exec('cd ' . base_path() . ' && composer dump-autoload');
+
         } catch (Exception $e) {
 
             return $e->getMessage();
@@ -206,8 +208,6 @@ class GuiController extends AppController
     public function rollback()
     {
         try {
-
-            exec('cd ' . base_path() . ' && composer dump-autoload');
 
             $exitCode = Artisan::call('migrate:rollback');
 
