@@ -31,7 +31,9 @@ class GuiController extends AppController
     public function index()
     {
         $scaffold = Scaffoldinterface::paginate(6);
+
         $scaffoldList = Scaffoldinterface::all()->lists('id', 'tablename');
+
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
 
@@ -43,7 +45,6 @@ class GuiController extends AppController
      */
     public function store(Request $request)
     {
-
         $data = Request::except('_token');
 
         $scaffold = new Scaffold($data);
@@ -73,7 +74,6 @@ class GuiController extends AppController
      */
     public function destroy($id)
     {
-
         $scaffoldInterface = Scaffoldinterface::FindOrFail($id);
 
         unlink($scaffoldInterface->model);
@@ -106,6 +106,7 @@ class GuiController extends AppController
         $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database. and avoid to keep routes recoureces.", '/scaffold/guirollback/' . $id);
 
         if (Request::ajax()) {
+
             return $msg;
         }
     }
@@ -122,6 +123,7 @@ class GuiController extends AppController
         $attributes = new AutoArray($table);
 
         if (Request::ajax()) {
+
             return $attributes->getResult();
         }
     }
@@ -166,8 +168,8 @@ class GuiController extends AppController
             unlink(base_path() . '/resources/views/HomePageScaffold.blade.php');
 
         } catch (\Exception $e) {
-            return "Scaffold-Interface : " . $e->getMessage();
 
+            return "Scaffold-Interface : " . $e->getMessage();
         }
 
         Session::flash('status', 'Home Page Successfully deleted');
@@ -187,6 +189,7 @@ class GuiController extends AppController
             $exitCode = Artisan::call('migrate');
 
         } catch (Exception $e) {
+
             return $e->getMessage();
         }
 
