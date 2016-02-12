@@ -92,5 +92,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
     <script> var baseURL = "{{$names->open()}}URL::to('/'){{$names->close()}}"</script>
     <script type="text/javascript" src = "/js/AjaxisMaterialize.js"></script>
-    <script type="text/javascript" src = "/js/customA.js"></script>
+    <script type="text/javascript" src = "/js/scaffold-interface-js/customA.js"></script>
 </html>
