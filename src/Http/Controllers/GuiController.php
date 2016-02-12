@@ -22,7 +22,6 @@ use URL;
  */
 class GuiController extends AppController
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -201,7 +200,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Rollback Table
+     * Rollback a table from database
      *
      * @return \Illuminate\Http\Response
      */
