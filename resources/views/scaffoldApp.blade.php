@@ -124,5 +124,5 @@
 var token = '{{Session::token()}}';
 var TableData = {!! $scaffoldList !!}
 </script>
-<script src = "{{URL::to('js/custom.js')}}"></script>
+<script src = "{{URL::to('js/scaffold-interface-js/custom.js')}}"></script>
 </html>
