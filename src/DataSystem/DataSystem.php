@@ -97,32 +97,15 @@ class DataSystem
      * Analyse data and get ondata specification
      *
      * @param Array $data
+     * @todo  optimisation
      */
     private function Tables($data)
     {
-        $tmp = '';
-        $this->onData = [];
-        $this->foreignKeys = [];
-        $i = 0;
-        $j = 0;
-        foreach ($data as $key => $value) {
+        $tmp = getTables($data);
 
-            if ($key == 'tbl' . $i) {
-                $tmp = $value;
-                if (in_array($value, $this->foreignKeys)) {
-                    throw new \Exception($value . " Relation Already selected");
-                }
-                array_push($this->foreignKeys, $value);
-                $i++;
+        $this->ondata = $tmp[0];
 
-            } elseif ($key == 'on' . $j) {
-                if (!in_array($value, Schema::getColumnListing($tmp))) {
-                    throw new \Exception($value . " Does not exist in " . $tmp);
-                }
-                array_push($this->onData, $value);
-                $j++;
-            }
-        }
+        $this->foreignKeys = $tmp[1];
     }
 
     /**
