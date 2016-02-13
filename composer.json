@@ -19,7 +19,8 @@
     "autoload": {
         "psr-4": {
             "Amranidev\\ScaffoldInterface\\": "src/"
-        }
+        },
+        "files": ["helpers.php"]
     },
     "extra": {
         "branch-alias": {
