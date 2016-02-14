@@ -43,3 +43,29 @@ if (!function_exists('getTables')) {
         return $result;
     }
 }
+
+if (!function_exists('dataScaffold')) {
+
+    function dataScaffold(array $data, $spec)
+    {
+        if ($spec == 'migration') {
+            $i = 0;
+        } else {
+            $i = 1;
+        }
+        $request = [];
+        foreach ($data as $key => $value) {
+            if ($i == 1) {
+                $i = 0;
+            } elseif ($i == 0) {
+                if ($key == 'tbl0' or $key == 'on0') {break;} else {
+                    array_push($request, str_slug($value, '_'));
+                    $i = 1;
+                }
+            }
+        }
+
+        return $request;
+    }
+
+}
