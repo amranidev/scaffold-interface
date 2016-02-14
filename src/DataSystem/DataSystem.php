@@ -70,6 +70,8 @@ class DataSystem
         $this->viewData = $this->dataScaffold('v');
         $this->Tables($this->data);
         $this->getAttr($this->data);
+
+        //dd($this->dataScaffold($this->data, 'migration'));
     }
 
     /**
@@ -117,24 +119,6 @@ class DataSystem
      */
     public function dataScaffold($spec)
     {
-
-        if ($spec == 'migration') {
-            $i = 0;
-        } else {
-            $i = 1;
-        }
-        $request = [];
-        foreach ($this->data as $key => $value) {
-            if ($i == 1) {
-                $i = 0;
-            } elseif ($i == 0) {
-                if ($key == 'tbl0' or $key == 'on0') {break;} else {
-                    array_push($request, str_slug($value, '_'));
-                    $i = 1;
-                }
-            }
-        }
-
-        return $request;
+        return dataScaffold($this->data, $spec);
     }
 }
