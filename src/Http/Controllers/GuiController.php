@@ -16,7 +16,7 @@ use URL;
  * Class GuiController
  *
  * @package scaffold-interface/Http/Controllers
- * @author Amrani Houssain <amranidev@gmail.com>
+ * @author  Amrani Houssain <amranidev@gmail.com>
  *
  * @todo Testing
  */
