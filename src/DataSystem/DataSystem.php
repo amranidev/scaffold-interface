@@ -103,7 +103,7 @@ class DataSystem
     {
         $tmp = getTables($data);
 
-        $this->ondata = $tmp[0];
+        $this->onData = $tmp[0];
 
         $this->foreignKeys = $tmp[1];
     }
