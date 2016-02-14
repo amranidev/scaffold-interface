@@ -45,7 +45,14 @@ if (!function_exists('getTables')) {
 }
 
 if (!function_exists('dataScaffold')) {
-
+    /**
+     * get Scaffolding Data and fetch between migration and views
+     *
+     * @param Array $data
+     * @param String $spec
+     *
+     * @return $request Array
+     */
     function dataScaffold(array $data, $spec)
     {
         if ($spec == 'migration') {
