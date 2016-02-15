@@ -7,7 +7,8 @@
 
 ![Scaffold](http://i.imgur.com/62HTlvT.png)
 
-Scaffold Interface for laravel. it's simple and useful
+> scaffold-interface v1.2.x coming soon with more speed and performance and of course new 
+> features.
 
 ####Features :
 
