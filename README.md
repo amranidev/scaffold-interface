@@ -7,14 +7,13 @@
 
 ![Scaffold](http://i.imgur.com/62HTlvT.png)
 
-> scaffold-interface v1.2.x coming soon with more speed and performance and of course new 
-> features.
-
 ####Features :
 
 + Generate your model,views,controller and migrations just in few clicks.
 
 + Generate OneToMany relationship.
+
++ Generate dashboard template.
 
 + Delete confirmation message.
 
@@ -22,9 +21,17 @@
 
 + Rollbacking possibility.
 
-+ Template changing possibility.
-
 + Craft your laravel application faster and easier.
+
+###What's new in v1.2.x
+
++ A helper FAB button.
+
++ Migration button.
+
++ Table rollback (database) button.
+
++ Dashboard template generate.
 
 ###I. Package installation
 
