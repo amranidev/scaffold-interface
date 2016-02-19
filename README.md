@@ -146,7 +146,7 @@ Congratulations, you have successfully installed Scaffold Interface!
 ####TODOS
 
  - [ ] 100% Code coverage + Maximum code quality.
-
+ - [ ] improve Frontend by Vuejs instead JQeury (custom.js , customA.js)
 ####DONE
 
  - [x] Add a select for OneToMany (on data fields) in interface.  
