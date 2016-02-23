@@ -9,17 +9,14 @@
 	<body>
 		<div id = "el1" class = 'container'>
 			<br><br>
-			<button class = 'btn blue' @click = 'show = ! show'>Create Table</button>
+			<button v-if = '!show' class = 'btn blue' @click = 'show = ! show'>Create Table</button>
 			<div class="row">
-				<div class="col s4">
-					<my-form :list = "data" v-show = 'show'></my-form>
-				</div>
-				<div class="col s6">
-					<my-actions v-show = 'show'></my-actions>
-				</div>
+				<my-actions v-if = 'show' :list = "data"></my-actions>
 			</div>
 		</div>
-		<template id = "myform">
+	</body>
+	<template id = "my-actions">
+	<div class="col s4">
 		<form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
 			<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 			<table class = 'ta'>
@@ -31,7 +28,7 @@
 						</div>
 					</td>
 				</tr>
-				<tr v-for = "el in list">
+				<tr v-for = "el in rows">
 					<td>@{{el}}</td>
 					<td>
 						<div class = 'input-field'>
@@ -42,50 +39,25 @@
 				</tr>
 			</table>
 			<div class 'row'>
-				<button  type = 'submit' class = 'val btn green col s12'>
+				<button v-if = 'submit' type = 'submit' class = 'val btn green col s12'>
 				<i class = 'material-icons left'>done</i>
 				Done
 				</button>
 			</div>
 		</form>
-		</template>
-		<template id= "my-actions">
+	</div>
+	<div class="col s6">
 		<div class='card-panel #fafafa grey lighten-5'>
 			<h4 class = 'center'>Rows</h4>
 			<div class = 'row center actionRow'>
-				<button class = 'btn blue' v-on:click = "add"><i class = 'material-icons left'>add</i>new</button>
-				<a href = '#' class = 'btn red' v-on:click = 'remove'><i class = 'material-icons left'>delete</i>remove</a>
-				<a href = '#' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
+				<button class = 'btn blue' @click = "rows += 1"><i class = 'material-icons left'>add</i>new</button>
+				<a href = '#' class = 'btn red' @click = 'rows -= 1'><i class = 'material-icons left'>delete</i>remove</a>
+				<a href = '#' @click = 'submit = !submit' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
 			</div>
 		</div>
-		</template>
-</body>
-<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
-<script type="text/javascript">
-		Vue.component('my-form', {
-		props: ['list'],
-		template: '#myform',
-		});
-		Vue.component('my-actions', {
-		template: "#my-actions",
-		methods: {
-		add: function() {
-		$('.ta tr:last').after(c.template)
-		},
-		remove: function() {
-		$('.ta tr:last').remove();
-		}
-		}
-		});
-		new Vue({
-		el: 'body',
-		data: {
-		message: 'TotO',
-		message2: '',
-		show: false,
-		data:['tata','gogo','bobo']
-		}
-		})
-</script>
+	</div>
+	</template>
+	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
+	<script type="text/javascript" src = "/js/main.js"></script>
 </html>
