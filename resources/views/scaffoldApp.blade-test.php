@@ -5,59 +5,69 @@
 		<title>Vue Test</title>
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+		<link rel="stylesheet" href="{{asset('css/main.css')}}">
 	</head>
 	<body>
 		<div id = "el1" class = 'container'>
-			<br><br>
+			<h2 class = "thin">The <i>Scaffold Interface</i> for laravel</h2>
+			<div style = 'margin-top: 2cm;'></div>
 			<button v-if = '!show' class = 'btn blue' @click = 'show = ! show'>Create Table</button>
-			<div class="row">
-				<my-actions v-if = 'show' :list = "data"></my-actions>
+			<div class="row" v-if = 'show'>
+				<div class="col s6">
+					<p class = 'red-text' v-if = 'error'>Cannot Remove More</p>
+					<form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
+						<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+						<table class = 'ta'>
+							<tr>
+								<td>
+									<div class = 'input-field'>
+										<input id = 'TableName' name='TableName' required='' aria-required='true' type='text'>
+										<label for='TableName'>TableName</label>
+									</div>
+								</td>
+							</tr>
+							<tr v-for = "el in rows">
+								<td>
+									<div class="input-field col s12">
+										<select class = 'browser-default' id = "@{{el}}" name = "@{{el}}" data-id = "@{{el}}">
+											<option v-for = "element in select" value = "@{{element}}">@{{element}}</option>
+											<label for = "@{{el}}">Select Type</label>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div class = 'input-field'>
+										<input id = 'atr" + i + "' name = 'atr" + i + "' type='text'>
+										<label for = 'atr" + i + "'>Attribute</label>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<div class 'row'>
+							<button v-if = 'submit' type = 'submit' class = 'val btn green col s12'>
+							<i class = 'material-icons left'>done</i>
+							Done
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="col s6">
+					<div class='card-panel #fafafa grey lighten-5'>
+						<h4 class = 'center'>Rows</h4>
+						<div class = 'row center actionRow'>
+							<a class = 'btn blue' v-if = '!submit' @click = "increment"><i class = 'material-icons left'>add</i>new</a>
+							<a href = '#' v-if = '!submit' class = 'btn red' @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
+							<a href = '#'v-if = '!submit' @click = 'submit = !submit' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
+							<a class = 'btn purple' v-if = 'submit' @click = 'submit = false'><i class = 'material-icons left'>arrow_back</i>back</a>
+							<a href='#' v-if = 'submit' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
-	<template id = "my-actions">
-	<div class="col s4">
-		<form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
-			<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
-			<table class = 'ta'>
-				<tr>
-					<td>
-						<div class = 'input-field'>
-							<input id = 'TableName' name='TableName' required='' aria-required='true' type='text'>
-							<label for='TableName'>TableName</label>
-						</div>
-					</td>
-				</tr>
-				<tr v-for = "el in rows">
-					<td>@{{el}}</td>
-					<td>
-						<div class = 'input-field'>
-							<input id = 'atr" + i + "' name = 'atr" + i + "' type='text'>
-							<label for = 'atr" + i + "'>Attribute</label>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<div class 'row'>
-				<button v-if = 'submit' type = 'submit' class = 'val btn green col s12'>
-				<i class = 'material-icons left'>done</i>
-				Done
-				</button>
-			</div>
-		</form>
-	</div>
-	<div class="col s6">
-		<div class='card-panel #fafafa grey lighten-5'>
-			<h4 class = 'center'>Rows</h4>
-			<div class = 'row center actionRow'>
-				<button class = 'btn blue' @click = "rows += 1"><i class = 'material-icons left'>add</i>new</button>
-				<a href = '#' class = 'btn red' @click = 'rows -= 1'><i class = 'material-icons left'>delete</i>remove</a>
-				<a href = '#' @click = 'submit = !submit' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
-			</div>
-		</div>
-	</div>
-	</template>
 	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 	<script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
 	<script type="text/javascript" src = "/js/main.js"></script>
 </html>
