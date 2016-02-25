@@ -6,7 +6,10 @@ new Vue({
         error: false,
         rows: 0,
         finals: false,
-        select: ['String' , 'date','longText','integer','biginteger','boolean','float']
+        select: ['String' , 'date','longText','integer','biginteger','boolean','float'],
+        baseUrl: baseUrl,
+        OneToMany: scaffoldList,
+        OneToManyRows:0,
     },
     methods: {
         increment: function() {
@@ -19,6 +22,15 @@ new Vue({
             } else {
                 this.rows -= 1;
             }
+        },
+        addOneToMany:function()
+        {
+            this.OneToManyRows += 1;
+        },
+
+        deleteOneToMany:function()
+        {
+            this.OneToManyRows -= 1;
         }
     }
 })
