@@ -29,9 +29,26 @@
 							<tr v-for = "el in rows">
 								<td>
 									<div class="input-field col s12">
-										<select class = 'browser-default' id = "@{{el}}" name = "@{{el}}" data-id = "@{{el}}">
+										<select class = 'browser-default' id = "opt@{{el}}" name = "opt@{{el}}" data-id = "@{{el}}">
 											<option v-for = "element in select" value = "@{{element}}">@{{element}}</option>
-											<label for = "@{{el}}">Select Type</label>
+											<label for = "opt@{{el}}">Select Type</label>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div class = 'input-field'>
+										<input id = 'atr" + i + "' name = 'atr" + i + "' type='text'>
+										<label for = 'atr" + i + "'>Attribute</label>
+									</div>
+								</td>
+							</tr>
+							<!-- One To Many Relationship-->
+							<tr v-for = "el in OneToManyRows">
+								<td>
+									<div class="input-field col s12">
+										<select class = 'browser-default' id = "tbl@{{el}}" name = "tbl@{{el}}" data-id = "@{{el}}">
+											<option v-for = "element in OneToMany" value = "@{{element}}">@{{element}}</option>
+											<label for = "tbl@{{el}}">Select Type</label>
 										</select>
 									</div>
 								</td>
@@ -59,13 +76,17 @@
 							<a href = '#' v-if = '!submit' class = 'btn red' @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
 							<a href = '#'v-if = '!submit' @click = 'submit = !submit' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
 							<a class = 'btn purple' v-if = 'submit' @click = 'submit = false'><i class = 'material-icons left'>arrow_back</i>back</a>
-							<a href='#' v-if = 'submit' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
+							<a href='#' v-if = 'submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+	var baseUrl = "{{URL::to('/')}}"
+	var scaffoldList = {!! $scaffoldList !!}
+	</script>
 	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 	<script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
