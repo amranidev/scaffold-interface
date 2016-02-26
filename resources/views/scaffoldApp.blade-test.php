@@ -46,17 +46,17 @@
 							<tr v-for = "el in OneToManyRows">
 								<td>
 									<div class="input-field col s12">
-										<select class = 'browser-default' id = "tbl@{{el}}" name = "tbl@{{el}}" data-id = "@{{el}}">
+										<select v-model = 'selected' @change = 'getAttr' class = 'browser-default' id = "tbl@{{el}}" name = "tbl@{{el}}" data-id = "@{{el}}">
 											<option v-for = "element in OneToMany" value = "@{{element}}">@{{element}}</option>
 											<label for = "tbl@{{el}}">Select Type</label>
 										</select>
 									</div>
 								</td>
 								<td>
-									<div class = 'input-field'>
-										<input id = 'atr" + i + "' name = 'atr" + i + "' type='text'>
-										<label for = 'atr" + i + "'>Attribute</label>
-									</div>
+									<select v-model = 'attributes' class = 'browser-default' id = "on@{{el}}" name = "on@{{el}}" data-id = "@{{el}}">
+										<option v-for = "elementt in attributes" value = "@{{elementt}}">@{{elementt}}</option>
+										<label for = "on@{{el}}">Select Type</label>
+									</select>
 								</td>
 							</tr>
 						</table>
@@ -81,6 +81,9 @@
 					</div>
 				</div>
 			</div>
+			<pre>
+				@{{attributes}}
+			</pre>
 		</div>
 	</body>
 	<script type="text/javascript">
