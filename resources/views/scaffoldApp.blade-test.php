@@ -46,7 +46,7 @@
 							<tr v-for = "el in OneToManyRows">
 								<td>
 									<div class="input-field col s12">
-										<select v-model = 'selected' @change = 'getAttr' class = 'browser-default' id = "tbl@{{el}}" name = "tbl@{{el}}" data-id = "@{{el}}">
+										<select @change = 'getAttr' class = 'browser-default' id = "tbl@{{el}}" name = "tbl@{{el}}" data-id = "@{{el}}">
 											<option v-for = "element in OneToMany" value = "@{{element}}">@{{element}}</option>
 											<label for = "tbl@{{el}}">Select Type</label>
 										</select>
