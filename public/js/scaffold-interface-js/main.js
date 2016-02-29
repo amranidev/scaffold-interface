@@ -9,7 +9,7 @@ new Vue({
         selected: '0',
         baseUrl: baseUrl,
         OneToMany: scaffoldList,
-        attributes: {},
+        attributes: [],
         OneToManyRows: 0,
         rows: 0,
     },
@@ -19,25 +19,21 @@ new Vue({
             this.rows += 1;
         },
         decrement: function() {
-            if (this.rows == 0) {
+            if (this.rows == 0 && this.OneToManyRows == 0) {
+                this.error = true;
+            } else {
                 if (this.OneToManyRows != 0) {
                     this.OneToManyRows -= 1;
                     return;
                 }
-                this.error = true;
-            } else {
                 this.rows -= 1;
             }
         },
         addOneToMany: function() {
             this.OneToManyRows += 1;
         },
-        
         getAttr: function() {
-            var E = this.OneToManyRows;
-            E -= 1;
-            console.log('#tbl' + E);
-            this.selected = $('#tbl' + E).val();
+            this.selected = $('#tbl0').val();
             console.log(this.baseUrl + '/scaffold/getAttributes/' + this.selected);
             $.ajax({
                 method: 'get',
