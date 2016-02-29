@@ -20,6 +20,10 @@ new Vue({
         },
         decrement: function() {
             if (this.rows == 0) {
+                if (this.OneToManyRows != 0) {
+                    this.OneToManyRows -= 1;
+                    return;
+                }
                 this.error = true;
             } else {
                 this.rows -= 1;
@@ -28,9 +32,7 @@ new Vue({
         addOneToMany: function() {
             this.OneToManyRows += 1;
         },
-        deleteOneToMany: function() {
-            this.OneToManyRows -= 1;
-        },
+        
         getAttr: function() {
             var E = this.OneToManyRows;
             E -= 1;
