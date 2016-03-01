@@ -9,7 +9,7 @@ new Vue({
         selected: '0',
         baseUrl: baseUrl,
         OneToMany: scaffoldList,
-        attributes: [],
+        attributes: swihla,
         OneToManyRows: 0,
         rows: 0,
     },
@@ -39,10 +39,9 @@ new Vue({
                 method: 'get',
                 url: this.baseUrl + '/scaffold/getAttributes/' + this.selected,
                 success: function(response) {
-                    this.attributes = response
-                    console.log(this.attributes)
+                    console.log(response)
                 }
-            })
+            });
         }
     }
 })
