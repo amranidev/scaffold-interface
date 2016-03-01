@@ -42,13 +42,14 @@ class AutoArray
      */
     public function arrayAnalyzer($input)
     {
-        $result = [];
+        $result = null;
+
         foreach ($input as $key => $value) {
             if ($key == "Field") {
-                $result[] = $value;
+                $result = $value;
+                break;
             }
         }
-
         return $result;
     }
     /**
@@ -64,39 +65,3 @@ class AutoArray
         }
         return $result;
     }
-    /**
-     * merge : get the final result and inject (name,type,key,value)
-     *
-     * @return $this->result
-     */
-    public function merge()
-    {
-        $array = $this->getResult();
-        foreach ($array as $key => $value) {
-            $value['name'] = $value['0'];
-            $value['type'] = $value['1'];
-            $value['key'] = $value['0'] . ' :';
-            $value['value'] = '';
-            unset($value['1']);
-            unset($value['0']);
-            $this->result[] = $value;
-        }
-        return $this->result;
-    }
-    /**
-     * get simple array from Model
-     *
-     * @param Model $model
-     *
-     * @return $result
-     */
-    public function getModelArray(Model $model)
-    {
-        $result = [];
-        foreach ($model->getAttributes() as $key => $value) {
-            $result[] = ['type' => 'text', 'name' => $key, 'key' => $key . ' :', 'value' => $value];
-        }
-        unset($result[0]);
-        return $result;
-    }
-}
