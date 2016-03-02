@@ -2,7 +2,6 @@
 namespace Amranidev\ScaffoldInterface;
 
 use Amranidev\ScaffoldInterface\Attributes;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * class AutoArray
@@ -65,3 +64,4 @@ class AutoArray
         }
         return $result;
     }
+}
