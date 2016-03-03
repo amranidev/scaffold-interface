@@ -1,3 +1,6 @@
+Vue.component("ola-bola", {
+    template: "<h1>Hello World</h1>"
+});
 new Vue({
     el: 'body',
     data: {
@@ -12,6 +15,9 @@ new Vue({
         attributes: [],
         OneToManyRows: 0,
         rows: 0,
+        table: '',
+        OneToManyData: [],
+        OneToManyBool: false
     },
     methods: {
         increment: function() {
@@ -31,14 +37,26 @@ new Vue({
         },
         addOneToMany: function() {
             this.OneToManyRows += 1;
+            this.OneToManyBool = true;
         },
         getAttr: function(index) {
             console.log(index);
-            this.selected = $('#tbl' + index).val();
+            this.selected = $('#tbl').val();
             console.log(this.baseUrl + '/scaffold/getAttributes/' + this.selected);
             $.getJSON(this.baseUrl + '/scaffold/getAttributes/' + this.selected, function(response) {
                 this.attributes = response
+
+                this.table = this.selected;
+
             }.bind(this));
+        },
+
+        getOnData: function(index)
+        {
+            var onData = $('#on').val();
+            console.log(onData);
+            this.OneToManyData.push({table: this.table},{onData: onData});
+            console.log(this.OneToManyData);
         }
     }
 })
