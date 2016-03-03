@@ -37,25 +37,37 @@
 								</td>
 								<td>
 									<div class = 'input-field'>
-										<input id = 'atr" + i + "' name = 'atr" + i + "' type='text'>
-										<label for = 'atr" + i + "'>Attribute</label>
+										<input id = 'atr@{{el}}' name = 'atr@{{el}}' type='text'>
+										<label for = 'atr@{{el}}'>Attribute</label>
 									</div>
 								</td>
 							</tr>
 							<!-- One To Many Relationship-->
-							<tr v-for = "el in OneToManyRows">
+							<tr v-for = "final in OneToManyData">
 								<td>
 									<div class="input-field col s12">
-										<select @change = 'getAttr' class = 'browser-default' id = "tbl@{{el}}" name = "tbl@{{el}}" data-id = "@{{el}}">
+										<input type = "text" value = "@{{final.table}}">
+									</div>
+								</td>
+								<td>
+									<div class="input-field col s12">
+										<input type = "text" value = "@{{final.onData}}">
+									</div>
+								</td>
+							</tr>
+							<tr v-if = "OneToManyBool">
+								<td>
+									<div class="input-field col s12">
+										<select @change = 'getAttr($index)' class = 'browser-default' id = "tbl" name = "tbl@{{el}}" data-id = "@{{el}}">
 											<option v-for = "element in OneToMany" value = "@{{element}}">@{{element}}</option>
-											<label for = "tbl@{{el}}">Select Type</label>
+											<label for = "tbl">Select Type</label>
 										</select>
 									</div>
 								</td>
 								<td>
-									<select v-model = 'attributes' class = 'browser-default' id = "on@{{el}}" name = "on@{{el}}" data-id = "@{{el}}">
-										<option v-for = "elementt in attributes" value = "@{{elementt}}">@{{elementt}}</option>
-										<label for = "on@{{el}}">Select Type</label>
+									<select class = 'browser-default' id = "on" name = "on" data-id = "on" @change = 'getOnData($index)'>
+										<option v-for = "elementt in attributes" value = "@{{ elementt }}">@{{* elementt }}</option>
+										<label for = "on">Select Type</label>
 									</select>
 								</td>
 							</tr>
@@ -82,8 +94,9 @@
 				</div>
 			</div>
 			<pre>
-				@{{attributes}}
+				@{{attributes | json}}
 			</pre>
+			<button class = 'btn orange' @click = 'getOnData'>Test</button>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -92,6 +105,6 @@
 	</script>
 	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-	<script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
+	<script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
 	<script type="text/javascript" src = "/js/main.js"></script>
 </html>
