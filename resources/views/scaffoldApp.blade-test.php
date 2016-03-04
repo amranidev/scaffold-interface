@@ -46,12 +46,12 @@
 							<tr v-for = "final in OneToManyData">
 								<td>
 									<div class="input-field col s12">
-										<input type = "text" value = "@{{final.table}}">
+										<input disabled type = "text" value = "@{{final.table}}">
 									</div>
 								</td>
 								<td>
 									<div class="input-field col s12">
-										<input type = "text" value = "@{{final.onData}}">
+										<input disabled type = "text" value = "@{{final.onData}}">
 									</div>
 								</td>
 							</tr>
