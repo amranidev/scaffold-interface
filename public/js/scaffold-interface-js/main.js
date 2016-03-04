@@ -1,6 +1,3 @@
-Vue.component("ola-bola", {
-    template: "<h1>Hello World</h1>"
-});
 new Vue({
     el: 'body',
     data: {
@@ -54,8 +51,11 @@ new Vue({
         getOnData: function(index)
         {
             var onData = $('#on').val();
+
             console.log(onData);
-            this.OneToManyData.push({table: this.table},{onData: onData});
+            
+            this.OneToManyData.push({table: this.table , onData: onData});
+            
             console.log(this.OneToManyData);
         }
     }
