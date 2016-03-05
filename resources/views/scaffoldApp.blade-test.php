@@ -46,12 +46,12 @@
 							<tr v-for = "final in OneToManyData">
 								<td>
 									<div class="input-field col s12">
-										<input disabled type = "text" value = "@{{final.table}}">
+										<input disable name = "tbl@{{final.id}}" type = "text" value = "@{{final.table}}">
 									</div>
 								</td>
 								<td>
 									<div class="input-field col s12">
-										<input disabled type = "text" value = "@{{final.onData}}">
+										<input disable name = "on@{{final.id}}" type = "text" value = "@{{final.onData}}">
 									</div>
 								</td>
 							</tr>
@@ -82,21 +82,21 @@
 				</div>
 				<div class="col s6">
 					<div class='card-panel #fafafa grey lighten-5'>
-						<h4 class = 'center'>Rows</h4>
+						<h4 class = 'center thin'>Rows</h4>
 						<div class = 'row center actionRow'>
-							<a class = 'btn blue' v-if = '!submit' @click = "increment"><i class = 'material-icons left'>add</i>new</a>
-							<a href = '#' v-if = '!submit' class = 'btn red' @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
-							<a href = '#'v-if = '!submit' @click = 'submit = !submit' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
-							<a class = 'btn purple' v-if = 'submit' @click = 'submit = false'><i class = 'material-icons left'>arrow_back</i>back</a>
-							<a href='#' v-if = 'submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
+							<a class = 'btn blue' v-if = '!more' @click = "increment"><i class = 'material-icons left'>add</i>new</a>
+							<a href = '#' v-if = '!more' class = 'btn red' @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
+							<a class = 'btn #ffd600 yellow accent-4' v-if = "!more" @click = 'more = true'><i class = 'material-icons left'>arrow_forward</i>more</a>
+							<a class = 'btn purple' v-if = 'more' @click = 'lastStep'><i class = 'material-icons left'>arrow_back</i>back</a>
+							<a href='#' v-if = 'more && !submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
+							<a href = '#' v-if = 'more && !submit' @click = 'lastOne' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<pre>
-				@{{attributes | json}}
+				@{{OneToManyData[0] | json}}
 			</pre>
-			<button class = 'btn orange' @click = 'getOnData'>Test</button>
 		</div>
 	</body>
 	<script type="text/javascript">
