@@ -1,10 +1,18 @@
-new Vue({
+function inArray(needle, haystack) {
+    var length = haystack.length;
+    for (var i = 0; i < length; i++) {
+        if (haystack[i].onData == needle) return true;
+    }
+    return false;
+}
+var vm = new Vue({
     el: 'body',
     data: {
         show: false,
         submit: false,
         error: false,
         finals: false,
+        more: false,
         select: ['String', 'date', 'longText', 'integer', 'biginteger', 'boolean', 'float'],
         selected: '0',
         baseUrl: baseUrl,
@@ -14,7 +22,14 @@ new Vue({
         rows: 0,
         table: '',
         OneToManyData: [],
-        OneToManyBool: false
+        OneToManyBool: false,
+        OneToManyBool2: false
+    },
+    filters: {},
+    computed: {
+        Relations: function() {
+            return this.OneToManyRows + 1
+        }
     },
     methods: {
         increment: function() {
@@ -33,8 +48,20 @@ new Vue({
             }
         },
         addOneToMany: function() {
-            this.OneToManyRows += 1;
             this.OneToManyBool = true;
+            if (this.OneToManyBool2) {
+                var onData = $('#on').val();
+                if (inArray(onData, this.OneToManyData)) {
+                    return;
+                }
+                var onData = $('#on').val();
+                this.OneToManyData.push({
+                    id: this.OneToManyRows,
+                    table: this.table,
+                    onData: onData
+                });
+                this.OneToManyRows += 1;
+            }
         },
         getAttr: function(index) {
             console.log(index);
@@ -42,21 +69,18 @@ new Vue({
             console.log(this.baseUrl + '/scaffold/getAttributes/' + this.selected);
             $.getJSON(this.baseUrl + '/scaffold/getAttributes/' + this.selected, function(response) {
                 this.attributes = response
-
                 this.table = this.selected;
-
+                this.OneToManyBool2 = true;
             }.bind(this));
         },
-
-        getOnData: function(index)
-        {
-            var onData = $('#on').val();
-
-            console.log(onData);
-            
-            this.OneToManyData.push({table: this.table , onData: onData});
-            
-            console.log(this.OneToManyData);
+        lastStep: function() {
+            this.submit = false;
+            this.more = false;
+            this.OneToManyBool = false;
+        },
+        lastOne: function() {
+            this.submit = !this.submit;
+            this.OneToManyBool = false;
         }
     }
 })
