@@ -41,6 +41,7 @@ var vm = new Vue({
                 this.error = true;
             } else {
                 if (this.OneToManyRows != 0) {
+                    this.OneToManyData.$remove(this.OneToManyRows);
                     this.OneToManyRows -= 1;
                     return;
                 }
@@ -81,6 +82,10 @@ var vm = new Vue({
         lastOne: function() {
             this.submit = !this.submit;
             this.OneToManyBool = false;
+        },
+        removeRelation:function(item)
+        {
+            this.OneToManyData.$remove(item);
         }
     }
 })
