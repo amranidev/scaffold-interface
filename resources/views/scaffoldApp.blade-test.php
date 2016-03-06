@@ -11,7 +11,7 @@
 		<div id = "el1" class = 'container'>
 			<h2 class = "thin">The <i>Scaffold Interface</i> for laravel</h2>
 			<div style = 'margin-top: 2cm;'></div>
-			<button v-if = '!show' class = 'btn blue' @click = 'show = ! show'>Create Table</button>
+			<button v-if = '!show' class = 'btn' @click = 'show = ! show'><i class = 'material-icons left'>create</i>NEW</button>
 			<div class="row" v-if = 'show'>
 				<div class="col s6">
 					<p class = 'red-text' v-if = 'error'>Cannot Remove More</p>
@@ -26,6 +26,16 @@
 									</div>
 								</td>
 							</tr>
+							<tr>
+								<td>
+									<input name="template" type="radio" value = "materialize" checked id="materialize" />
+									<label for="materialize">Materialize Template</label>
+								</td>
+								<td>
+									<input name="template" type="radio" value = "bootstrap" id="bootstrap" />
+									<label for="bootstrap">Bootstrap Template</label>
+								</td>
+							</tr>
 							<tr v-for = "el in rows">
 								<td>
 									<div class="input-field col s12">
@@ -37,7 +47,7 @@
 								</td>
 								<td>
 									<div class = 'input-field'>
-										<input id = 'atr@{{el}}' name = 'atr@{{el}}' type='text'>
+										<input id = 'atr@{{el}}' name = 'atr@{{el}}' required='' aria-required='true' type='text'>
 										<label for = 'atr@{{el}}'>Attribute</label>
 									</div>
 								</td>
@@ -46,13 +56,16 @@
 							<tr v-for = "final in OneToManyData">
 								<td>
 									<div class="input-field col s12">
-										<input disable name = "tbl@{{final.id}}" type = "text" value = "@{{final.table}}">
+										<input disable name = "tbl@{{final.id}}" type = "text" required='' aria-required='true' value = "@{{final.table}}">
 									</div>
 								</td>
 								<td>
 									<div class="input-field col s12">
-										<input disable name = "on@{{final.id}}" type = "text" value = "@{{final.onData}}">
+										<input disable name = "on@{{final.id}}" type = "text" required='' aria-required='true' value = "@{{final.onData}}">
 									</div>
+								</td>
+								<td>
+									<a href="#" class = 'btn-floating red' @click = 'removeRelation(final)'><i class = 'material-icons left'>delete</i></a>
 								</td>
 							</tr>
 							<tr v-if = "OneToManyBool">
@@ -85,18 +98,56 @@
 						<h4 class = 'center thin'>Rows</h4>
 						<div class = 'row center actionRow'>
 							<a class = 'btn blue' v-if = '!more' @click = "increment"><i class = 'material-icons left'>add</i>new</a>
-							<a href = '#' v-if = '!more' class = 'btn red' @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
-							<a class = 'btn #ffd600 yellow accent-4' v-if = "!more" @click = 'more = true'><i class = 'material-icons left'>arrow_forward</i>more</a>
+							<a v-if = '!more' class = 'btn red' @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
+							<a class = 'btn green' v-if = "!more" @click = 'more = true'><i class = 'material-icons left'>arrow_forward</i>more</a>
 							<a class = 'btn purple' v-if = 'more' @click = 'lastStep'><i class = 'material-icons left'>arrow_back</i>back</a>
-							<a href='#' v-if = 'more && !submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
-							<a href = '#' v-if = 'more && !submit' @click = 'lastOne' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
+							<a  v-if = 'more && !submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
+							<a  v-if = 'more && !submit' @click = 'lastOne' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
 						</div>
 					</div>
+					<!-- Interface Core-->
+					<table class = 'centered highlight'>
+						<thead>
+							<th>Name</th>
+							<th>Created at</th>
+							<th>State</th>
+							<th>Link</th>
+							<th>Rollback</th>
+						</thead>
+						<tbody>
+							@foreach($scaffold as $value)
+							<tr>
+								<td>{{$value->tablename}}</td>
+								<td>{{$value->created_at}}</td>
+								<td><span class = "scaffoldv {{$toto = Schema::hasTable($value->tablename) ? 'green' : 'red'}} white-text">{{$toto = Schema::hasTable($value->tablename) ? 'Migrated' : 'Not migrated'}}</span></td>
+								<td><a href="{{URL::to('/')}}/{{lcfirst(str_singular($value->tablename))}}" class = 'btn-floating blue white-text'><i class = 'material-icons'>send</i></a></td>
+								<td><a href = '#modal1' class = 'delete btn-floating modal-trigger pink' data-link = '/scaffold/guidelete/{{$value->id}}/'><i class = 'material-icons'>repeat</i></a></td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+					{!! $scaffold->render() !!}
+					<div class="pushDown"></div>
+					<span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
+					<p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
+						Permission is hereby granted, free of charge, to any person obtaining a copy
+						of this software and associated documentation files (the "Scaffold-Interface"), to deal
+						in the Software without restriction, including without limitation the rights
+						to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+						copies of the Software, and to permit persons to whom the Software is
+						furnished to do so, subject to the following conditions:<br><br>
+						The above copyright notice and this permission notice shall be included in
+						all copies or substantial portions of the Software.<br><br>
+						THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+						IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+						FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+						AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+						LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+						OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+						THE SOFTWARE.
+					</p>
 				</div>
 			</div>
-			<pre>
-				@{{OneToManyData[0] | json}}
-			</pre>
 		</div>
 	</body>
 	<script type="text/javascript">
