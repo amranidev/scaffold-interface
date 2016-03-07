@@ -31,7 +31,7 @@ class GuiController extends AppController
     {
         $scaffold = Scaffoldinterface::paginate(6);
 
-        $scaffoldList = Scaffoldinterface::all()->lists('id', 'tablename');
+        $scaffoldList = Scaffoldinterface::all()->lists('tablename');
 
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
@@ -45,10 +45,10 @@ class GuiController extends AppController
     public function store(Request $request)
     {
         $data = Request::except('_token');
-
+        //dd($data);
         $scaffold = new Scaffold($data);
 
-        $scaffold->Migration()->Model()->Views()->Controller()->Route();
+        $scaffold->Migration()->Model()->Controller()->Views()->Route();
 
         $scaffoldInterface = new Scaffoldinterface();
 
