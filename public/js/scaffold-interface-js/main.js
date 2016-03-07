@@ -6,30 +6,25 @@ function inArray(needle, haystack) {
     return false;
 }
 var vm = new Vue({
-    el: 'body',
+    el: '.container',
     data: {
         show: false,
         submit: false,
         error: false,
+        errorMsg: '',
         finals: false,
         more: false,
         select: ['String', 'date', 'longText', 'integer', 'biginteger', 'boolean', 'float'],
         selected: '0',
+        rows: 0,
         baseUrl: baseUrl,
         OneToMany: scaffoldList,
         attributes: [],
         OneToManyRows: 0,
-        rows: 0,
         table: '',
         OneToManyData: [],
         OneToManyBool: false,
-        OneToManyBool2: false
-    },
-    filters: {},
-    computed: {
-        Relations: function() {
-            return this.OneToManyRows + 1
-        }
+        OpenClose: false
     },
     methods: {
         increment: function() {
@@ -38,6 +33,7 @@ var vm = new Vue({
         },
         decrement: function() {
             if (this.rows == 0 && this.OneToManyRows == 0) {
+                this.errorMsg = 'Cannot remove More'
                 this.error = true;
             } else {
                 if (this.OneToManyRows != 0) {
@@ -50,7 +46,7 @@ var vm = new Vue({
         },
         addOneToMany: function() {
             this.OneToManyBool = true;
-            if (this.OneToManyBool2) {
+            if (this.OpenClose) {
                 var onData = $('#on').val();
                 if (inArray(onData, this.OneToManyData)) {
                     return;
@@ -71,8 +67,11 @@ var vm = new Vue({
             $.getJSON(this.baseUrl + '/scaffold/getAttributes/' + this.selected, function(response) {
                 this.attributes = response
                 this.table = this.selected;
-                this.OneToManyBool2 = true;
-            }.bind(this));
+                this.OpenClose = true;
+            }.bind(this)).error(function(response) {
+                vm.errorMsg = 'Field not founds or the tabel does not migrated';
+                vm.error = true
+            });
         },
         lastStep: function() {
             this.submit = false;
@@ -83,8 +82,7 @@ var vm = new Vue({
             this.submit = !this.submit;
             this.OneToManyBool = false;
         },
-        removeRelation:function(item)
-        {
+        removeRelation: function(item) {
             this.OneToManyData.$remove(item);
         }
     }
