@@ -65,13 +65,13 @@ class DataSystem
     public function __construct($data)
     {
         unset($data['TableName']);
+        unset($data['template']);
         $this->data = $data;
         $this->migrationData = $this->dataScaffold('migration');
         $this->viewData = $this->dataScaffold('v');
         $this->Tables($this->data);
-        $this->getAttr($this->data);
 
-        //dd($this->dataScaffold($this->data, 'migration'));
+        $this->getAttr($this->data);
     }
 
     /**
