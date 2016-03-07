@@ -132,4 +132,14 @@ class NamesGenerate
         return URL::to($this->TableNameSingle());
     }
 
+    /**
+     * Get Template
+     *
+     * @return String
+     */
+    public function getTemplate()
+    {
+        return $this->data['template'];
+    }
+
 }
