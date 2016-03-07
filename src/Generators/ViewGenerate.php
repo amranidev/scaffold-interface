@@ -47,7 +47,7 @@ class ViewGenerate
         $names = $this->names;
         $dataSystem = $this->dataSystem;
 
-        return view('scaffold-interface::template.views.index', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.index', compact('names', 'dataSystem'))->render();
     }
 
     /**
@@ -61,7 +61,7 @@ class ViewGenerate
         $names = $this->names;
         $dataSystem = $this->dataSystem;
 
-        return view('scaffold-interface::template.views.create', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.create', compact('names', 'dataSystem'))->render();
     }
 
     /**
@@ -75,7 +75,7 @@ class ViewGenerate
         $names = $this->names;
         $dataSystem = $this->dataSystem;
 
-        return view('scaffold-interface::template.views.show', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.show', compact('names', 'dataSystem'))->render();
     }
 
     /**
@@ -89,6 +89,6 @@ class ViewGenerate
         $names = $this->names;
         $dataSystem = $this->dataSystem;
 
-        return view('scaffold-interface::template.views.edit', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.edit', compact('names', 'dataSystem'))->render();
     }
 }
