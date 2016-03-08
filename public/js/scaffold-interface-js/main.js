@@ -48,7 +48,9 @@ var vm = new Vue({
             this.OneToManyBool = true;
             if (this.OpenClose) {
                 var onData = $('#on').val();
-                if (inArray(onData, this.OneToManyData)) {
+                if (inArray(onData, this.OneToManyData) && onData == 'scfld#01') {
+                    this.errorMsg = "Something is going wrong";
+                    this.error = true
                     return;
                 }
                 var onData = $('#on').val();
@@ -59,6 +61,7 @@ var vm = new Vue({
                 });
                 this.OneToManyRows += 1;
             }
+            this.error = false;
         },
         getAttr: function(index) {
             console.log(index);
