@@ -12,10 +12,10 @@
 		<div id = "el1" class = 'container'>
 			<h2 class = "thin">The <i>Scaffold Interface</i> for laravel</h2>
 			<div style = 'margin-top: 2cm;'></div>
-			<button v-if = '!show' class = 'btn' @click = 'show = ! show'><i class = 'material-icons left'>create</i>NEW</button>
+			<button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>NEW</button>
 			<br>
 			<div class="row">
-				<div class="col s5" v-if = 'show'>
+				<div transition = "fade" class="animated col s5" v-if = 'show'>
 					<p class = 'red-text' v-if = 'error'>@{{errorMsg}}</p>
 					<form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
 						<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
@@ -38,7 +38,7 @@
 									<label for="bootstrap">Bootstrap</label>
 								</td>
 							</tr>
-							<tr v-for = "el in rows">
+							<tr transition = "fade" class = 'animated' v-for = "el in rows">
 								<td>
 									<div class="input-field col s12">
 										<select class = 'browser-default' id = "opt@{{el}}" name = "opt@{{el}}" data-id = "@{{el}}">
@@ -55,7 +55,7 @@
 								</td>
 							</tr>
 							<!-- One To Many Relationship-->
-							<tr v-for = "final in OneToManyData">
+							<tr transition = "fade" class = 'animated' v-for = "final in OneToManyData">
 								<td>
 									<div class="input-field col s12">
 										<input disabled name = "tbl@{{final.id}}" type = "text" required='' aria-required='true' value = "@{{final.table}}">
@@ -70,7 +70,7 @@
 									<a class = 'btn-floating red' @click = 'removeRelation(final)'><i class = 'material-icons left'>delete</i></a>
 								</td>
 							</tr>
-							<tr v-if = "OneToManyBool">
+							<tr transition = "fade" class = 'animated' v-if = "OneToManyBool">
 								<td>
 									<div class="input-field col s12">
 										<select @change = 'getAttr($index)' class = 'browser-default' id = "tbl" name = "tbl@{{el}}" data-id = "@{{el}}">
@@ -80,7 +80,7 @@
 									</div>
 								</td>
 								<td>
-									<select class = 'browser-default' id = "on" name = "on" data-id = "on" @change = 'getOnData($index)'>
+									<select class = 'browser-default' id = "on" name = "on" data-id = "on">
 										<option value="scfld#01" disabled selected>Choose your option</option>
 										<option v-for = "elementt in attributes" value = "@{{ elementt }}">@{{* elementt }}</option>
 										<label for = "on">Select Type</label>
@@ -88,8 +88,8 @@
 								</td>
 							</tr>
 						</table>
-						<div class 'row'>
-							<button v-if = 'submit' type = 'submit' class = 'val btn green col s12'>
+						<div transition = 'fade' class = "row animated" v-if = 'submit'>
+							<button type = 'submit' class = 'val btn green col s12 animated'>
 							<i class = 'material-icons left'>done</i>
 							Done
 							</button>
@@ -97,16 +97,20 @@
 					</form>
 				</div>
 				<div class="col s7">
-					<div v-if = 'show'>
+					<div v-if = 'show'  transition = "actions" class = 'animated'>
 						<div class='card-panel #fafafa grey lighten-5'>
 							<h4 class = 'center thin'>Rows</h4>
-							<div class = 'row center actionRow'>
-								<a class = 'btn blue' v-if = '!more' @click = "increment"><i class = 'material-icons left'>add</i>new</a>
-								<a v-if = '!more' class = 'btn red' @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
-								<a class = 'btn green' v-if = "!more" @click = 'more = true'><i class = 'material-icons left'>arrow_forward</i>more</a>
-								<a class = 'btn purple' v-if = 'more' @click = 'lastStep'><i class = 'material-icons left'>arrow_back</i>back</a>
-								<a  v-if = 'more && !submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
-								<a  v-if = 'more && !submit' @click = 'lastOne' class = 'btn orange pushlDown'><i class = 'material-icons left'>layers</i>ready</a>
+							<div class = 'row center actionRow' >
+								<div transition = "fade" class = "animated" v-if = '!more'>
+									<a class = 'btn blue'  @click = "increment"><i class = 'material-icons left'>add</i>new</a>
+									<a class = 'btn red'   @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
+									<a class = 'btn green' @click = 'more = true'><i class = 'material-icons left'>arrow_forward</i>more</a>
+								</div>
+								<div v-show = 'more' transition = "fade" class = "animated">
+									<a class = 'btn purple' @click = 'lastStep'><i class = 'material-icons left'>arrow_back</i>back</a>
+									<a v-if = '!submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
+									<a v-if = '!submit' @click = 'lastOne' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
+								</div>
 							</div>
 						</div>
 					</div>
