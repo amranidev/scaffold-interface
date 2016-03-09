@@ -5,6 +5,15 @@ function inArray(needle, haystack) {
     }
     return false;
 }
+
+Vue.transition('fade',{
+    enterClass: 'fadeInRight',
+    leaveClass: 'fadeOutLeft'
+});
+Vue.transition('actions',{
+    enterClass: 'fadeInRight',
+    leaveClass: 'fadeOutLeft'
+});
 var vm = new Vue({
     el: '.container',
     data: {
@@ -48,12 +57,11 @@ var vm = new Vue({
             this.OneToManyBool = true;
             if (this.OpenClose) {
                 var onData = $('#on').val();
-                if (inArray(onData, this.OneToManyData) && onData == 'scfld#01') {
+                if (inArray(onData, this.OneToManyData) || onData == null) {
                     this.errorMsg = "Something is going wrong";
                     this.error = true
                     return;
                 }
-                var onData = $('#on').val();
                 this.OneToManyData.push({
                     id: this.OneToManyRows,
                     table: this.table,
