@@ -5,14 +5,13 @@ function inArray(needle, haystack) {
     }
     return false;
 }
-
-Vue.transition('fade',{
+Vue.transition('fade', {
     enterClass: 'fadeInRight',
     leaveClass: 'fadeOutLeft'
 });
-Vue.transition('actions',{
+Vue.transition('actions', {
     enterClass: 'fadeInRight',
-    leaveClass: 'fadeOutLeft'
+    leaveClass: 'zoomOutUp'
 });
 var vm = new Vue({
     el: '.container',
