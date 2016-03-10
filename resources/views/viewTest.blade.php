@@ -15,8 +15,8 @@
 			<button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>NEW</button>
 			<br>
 			<div class="row">
-				<div transition = "fade" class="animated col s5" v-if = 'show'>
-					<p class = 'red-text' v-if = 'error'>@{{errorMsg}}</p>
+				<div class="col s5" v-if = 'show'>
+					<p transition = "fade" class = 'animated red-text' v-if = 'error'>@{{errorMsg}}</p>
 					<form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
 						<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 						<table class = 'ta'>
@@ -101,12 +101,12 @@
 						<div class='card-panel #fafafa grey lighten-5'>
 							<h4 class = 'center thin'>Rows</h4>
 							<div class = 'row center actionRow' >
-								<div transition = "fade" class = "animated" v-if = '!more'>
+								<div transition = "actions" class = "animated" v-if = '!more'>
 									<a class = 'btn blue'  @click = "increment"><i class = 'material-icons left'>add</i>new</a>
 									<a class = 'btn red'   @click = 'decrement'><i class = 'material-icons left'>delete</i>remove</a>
 									<a class = 'btn green' @click = 'more = true'><i class = 'material-icons left'>arrow_forward</i>more</a>
 								</div>
-								<div v-show = 'more' transition = "fade" class = "animated">
+								<div v-show = 'more' transition = "actions" class = "animated">
 									<a class = 'btn purple' @click = 'lastStep'><i class = 'material-icons left'>arrow_back</i>back</a>
 									<a v-if = '!submit' @click = 'addOneToMany' class = 'btn #0d47a1 blue darken-4'><i class = 'material-icons left'>device_hub</i>One To Many</a>
 									<a v-if = '!submit' @click = 'lastOne' class = 'btn orange'><i class = 'material-icons left'>layers</i>ready</a>
@@ -172,10 +172,13 @@
 				<li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange"><i class="material-icons">input</i></a></li>
 			</ul>
 		</div>
+		<pre>
+			@{{scaffoldTable | json}}
+		</pre>
 	</body>
 	<script type="text/javascript">
-	var baseUrl = "{{URL::to('/')}}"
-	var scaffoldList = {!! $scaffoldList !!}
+	var baseUrl = "{{URL::to('/')}}";
+	var scaffoldList = {!! $scaffoldList !!};
 	</script>
 	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
