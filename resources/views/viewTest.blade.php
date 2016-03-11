@@ -15,7 +15,7 @@
 			<button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>NEW</button>
 			<br>
 			<div class="row">
-				<div class="col s5" v-if = 'show'>
+				<div transition = "fade" class="col s5 animated" v-if = 'show'>
 					<p transition = "fade" class = 'animated red-text' v-if = 'error'>@{{errorMsg}}</p>
 					<form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
 						<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
@@ -131,7 +131,7 @@
 									<td>{{$value->created_at}}</td>
 									<td><span class = "scaffoldv {{$toto = Schema::hasTable($value->tablename) ? 'green' : 'red'}} white-text">{{$toto = Schema::hasTable($value->tablename) ? 'Migrated' : 'Not migrated'}}</span></td>
 									<td><a href="{{URL::to('/')}}/{{lcfirst(str_singular($value->tablename))}}" class = 'btn-floating blue white-text'><i class = 'material-icons'>send</i></a></td>
-									<td><a href = '#modal1' class = 'delete btn-floating modal-trigger pink' data-link = '/scaffold/guidelete/{{$value->id}}/'><i class = 'material-icons'>repeat</i></a></td>
+									<td><a href = '#modal1' class = 'delete btn-floating pink modal-trigger' data-link = '/scaffold/guidelete/{{$value->id}}/'><i class = 'material-icons'>repeat</i></a></td>
 								</tr>
 								@endforeach
 							</tbody>
@@ -172,16 +172,14 @@
 				<li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange"><i class="material-icons">input</i></a></li>
 			</ul>
 		</div>
-		<pre>
-			@{{scaffoldTable | json}}
-		</pre>
 	</body>
 	<script type="text/javascript">
-	var baseUrl = "{{URL::to('/')}}";
+	var baseURL = "{{URL::to('/')}}";
 	var scaffoldList = {!! $scaffoldList !!};
 	</script>
 	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 	<script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
+	<script type="text/javascript" src = "/js/AjaxisMaterialize.js"></script>
 	<script type="text/javascript" src = "/js/main.js"></script>
 </html>
