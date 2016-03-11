@@ -5,16 +5,17 @@ function inArray(needle, haystack) {
     }
     return false;
 }
-Vue.transition('fade', {
+
+Vue.transition('fade',{
     enterClass: 'fadeInRight',
     leaveClass: 'fadeOutLeft'
 });
-Vue.transition('actions', {
+Vue.transition('actions',{
     enterClass: 'fadeInRight',
     leaveClass: 'zoomOutUp'
 });
 var vm = new Vue({
-    el: '.container',
+    el: 'body',
     data: {
         show: false,
         submit: false,
@@ -25,14 +26,15 @@ var vm = new Vue({
         select: ['String', 'date', 'longText', 'integer', 'biginteger', 'boolean', 'float'],
         selected: '0',
         rows: 0,
-        baseUrl: baseUrl,
+        baseUrl: baseURL,
         OneToMany: scaffoldList,
         attributes: [],
         OneToManyRows: 0,
         table: '',
         OneToManyData: [],
         OneToManyBool: false,
-        OpenClose: false
+        OpenClose: false,
+        modalContent:"",
     },
     methods: {
         increment: function() {
