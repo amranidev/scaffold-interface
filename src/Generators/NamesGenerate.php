@@ -142,4 +142,15 @@ class NamesGenerate
         return $this->data['template'];
     }
 
+    public function getParse()
+    {
+        if (starts_with($this->data['template'], 'boot')) {
+            return "Bt";
+        } else {
+            return "Mt";
+        }
+
+        throw new \Exception('Template Error');
+    }
+
 }
