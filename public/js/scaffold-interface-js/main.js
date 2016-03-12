@@ -5,12 +5,11 @@ function inArray(needle, haystack) {
     }
     return false;
 }
-
-Vue.transition('fade',{
+Vue.transition('fade', {
     enterClass: 'fadeInRight',
     leaveClass: 'fadeOutLeft'
 });
-Vue.transition('actions',{
+Vue.transition('actions', {
     enterClass: 'fadeInRight',
     leaveClass: 'zoomOutUp'
 });
@@ -20,9 +19,10 @@ var vm = new Vue({
         show: false,
         submit: false,
         error: false,
-        errorMsg: '',
-        finals: false,
+        OneToManyBool: false,
         more: false,
+        OpenClose: false,
+        errorMsg: '',
         select: ['String', 'date', 'longText', 'integer', 'biginteger', 'boolean', 'float'],
         selected: '0',
         rows: 0,
@@ -32,9 +32,6 @@ var vm = new Vue({
         OneToManyRows: 0,
         table: '',
         OneToManyData: [],
-        OneToManyBool: false,
-        OpenClose: false,
-        modalContent:"",
     },
     methods: {
         increment: function() {
@@ -81,7 +78,7 @@ var vm = new Vue({
                 this.table = this.selected;
                 this.OpenClose = true;
             }.bind(this)).error(function(response) {
-                vm.errorMsg = 'Field not founds or the tabel does not migrated';
+                vm.errorMsg = 'Field not founds or the table does not migrated';
                 vm.error = true
             });
         },
@@ -96,6 +93,9 @@ var vm = new Vue({
         },
         removeRelation: function(item) {
             this.OneToManyData.$remove(item);
+        },
+        closeMsg: function() {
+            $('.msg').remove();
         }
     }
 })
