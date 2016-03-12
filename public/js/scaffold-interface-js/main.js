@@ -1,3 +1,4 @@
+//helper function
 function inArray(needle, haystack) {
     var length = haystack.length;
     for (var i = 0; i < length; i++) {
@@ -5,6 +6,7 @@ function inArray(needle, haystack) {
     }
     return false;
 }
+// transitions and animations
 Vue.transition('fade', {
     enterClass: 'fadeInRight',
     leaveClass: 'fadeOutLeft'
@@ -16,17 +18,24 @@ Vue.transition('actions', {
 var vm = new Vue({
     el: 'body',
     data: {
+        //Booleans
+
         show: false,
         submit: false,
         error: false,
         OneToManyBool: false,
         more: false,
         OpenClose: false,
+        //error message
         errorMsg: '',
+        // Type select
         select: ['String', 'date', 'longText', 'integer', 'biginteger', 'boolean', 'float'],
         selected: '0',
+        // rows counts
         rows: 0,
+        // your base Url
         baseUrl: baseURL,
+        // Tables
         OneToMany: scaffoldList,
         attributes: [],
         OneToManyRows: 0,
@@ -34,10 +43,12 @@ var vm = new Vue({
         OneToManyData: [],
     },
     methods: {
+        // add row
         increment: function() {
             this.error = false;
             this.rows += 1;
         },
+        //delete row
         decrement: function() {
             if (this.rows == 0 && this.OneToManyRows == 0) {
                 this.errorMsg = 'Cannot remove More'
@@ -51,6 +62,7 @@ var vm = new Vue({
                 this.rows -= 1;
             }
         },
+        // add relation
         addOneToMany: function() {
             this.OneToManyBool = true;
             if (this.OpenClose) {
@@ -69,6 +81,7 @@ var vm = new Vue({
             }
             this.error = false;
         },
+        // get attributes
         getAttr: function(index) {
             console.log(index);
             this.selected = $('#tbl').val();
@@ -82,18 +95,22 @@ var vm = new Vue({
                 vm.error = true
             });
         },
+        // switch
         lastStep: function() {
             this.submit = false;
             this.more = false;
             this.OneToManyBool = false;
         },
+        //switch
         lastOne: function() {
             this.submit = !this.submit;
             this.OneToManyBool = false;
         },
+        //romove relation
         removeRelation: function(item) {
             this.OneToManyData.$remove(item);
         },
+        //clear message
         closeMsg: function() {
             $('.msg').remove();
         }
