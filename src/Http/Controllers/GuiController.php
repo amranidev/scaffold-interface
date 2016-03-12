@@ -30,12 +30,9 @@ class GuiController extends AppController
     public function index()
     {
         $scaffold = Scaffoldinterface::paginate(6);
-
         $scaffoldList = Scaffoldinterface::all()->lists('tablename');
-
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -45,7 +42,7 @@ class GuiController extends AppController
     public function store(Request $request)
     {
         $data = Request::except('_token');
-        //dd($data);
+
         $scaffold = new Scaffold($data);
 
         $scaffold->Migration()->Model()->Controller()->Views()->Route();
@@ -57,14 +54,12 @@ class GuiController extends AppController
         $scaffoldInterface->controller = $scaffold->paths->ControllerPath();
         $scaffoldInterface->views = $scaffold->paths->DirPath();
         $scaffoldInterface->tablename = $scaffold->names->TableNames();
-
         $scaffoldInterface->save();
 
         Session::flash('status', ' Successfully created ' . $scaffold->names->TableName() . '. To complete your scaffold. go ahead and migrate the schema.');
 
         return redirect('scaffold');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -74,7 +69,6 @@ class GuiController extends AppController
     public function destroy($id)
     {
         $scaffoldInterface = Scaffoldinterface::FindOrFail($id);
-
         unlink($scaffoldInterface->model);
         unlink($scaffoldInterface->controller);
         unlink($scaffoldInterface->views . '/index.blade.php');
@@ -83,14 +77,10 @@ class GuiController extends AppController
         unlink($scaffoldInterface->views . '/edit.blade.php');
         unlink($scaffoldInterface->migration);
         rmdir($scaffoldInterface->views);
-
         $scaffoldInterface->delete();
-
         Session::flash('status', 'Successfully deleted');
-
         return URL::to('scaffold');
     }
-
     /**
      * Delete confirmation message by Ajaxis
      *
@@ -101,15 +91,12 @@ class GuiController extends AppController
     public function deleteMsg($id)
     {
         $scaffold = Scaffoldinterface::FindOrFail($id);
-
         $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database. and avoid to keep routes recoureces.", '/scaffold/guirollback/' . $id);
-
         if (Request::ajax()) {
-
             return $msg;
         }
+        return $msg;
     }
-
     /**
      * get Attributes from
      *
@@ -120,13 +107,10 @@ class GuiController extends AppController
     public function GetResult($table)
     {
         $attributes = new AutoArray($table);
-
         if (Request::ajax()) {
-
             return $attributes->getResult();
         }
     }
-
     /**
      * Generate Home Page for app
      *
@@ -135,16 +119,11 @@ class GuiController extends AppController
     public function homePage()
     {
         $scaffoldList = Scaffoldinterface::all();
-
         $home = new HomePageGenerator($scaffoldList);
-
         $home->Burn();
-
         Session::flash('status', 'Home Page Generated Successfully');
-
         return redirect('scaffold/scaffoldHomePageIndex');
     }
-
     /**
      * get index page for the app
      *
@@ -154,7 +133,6 @@ class GuiController extends AppController
     {
         return view('HomePageScaffold');
     }
-
     /**
      * delete index page
      *
@@ -165,17 +143,12 @@ class GuiController extends AppController
         try
         {
             unlink(base_path() . '/resources/views/HomePageScaffold.blade.php');
-
         } catch (\Exception $e) {
-
             return "Scaffold-Interface : " . $e->getMessage();
         }
-
         Session::flash('status', 'Home Page Successfully deleted');
-
         return redirect('scaffold');
     }
-
     /**
      * Migrate table ORM
      *
@@ -184,21 +157,14 @@ class GuiController extends AppController
     public function migrate()
     {
         try {
-
             $exitCode = Artisan::call('migrate');
-
             exec('cd ' . base_path() . ' && composer dump-autoload');
-
         } catch (Exception $e) {
-
             return $e->getMessage();
         }
-
         Session::flash('status', Artisan::output());
-
         return redirect('scaffold');
     }
-
     /**
      * Rollback a table from database
      *
@@ -207,17 +173,11 @@ class GuiController extends AppController
     public function rollback()
     {
         try {
-
             $exitCode = Artisan::call('migrate:rollback');
-
         } catch (Exception $e) {
-
             return $e->getMessage();
         }
-
         Session::flash('status', Artisan::output());
-
         return redirect('scaffold');
     }
-
 }
