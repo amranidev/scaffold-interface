@@ -16,7 +16,7 @@
 			<br>
 			<div class="row">
 				<div transition = "fade" class="col s5 animated" v-if = 'show'>
-					<p transition = "fade" class = 'animated red-text' v-if = 'error'>@{{errorMsg}}</p>
+					<p transition = "fade" class = 'animated red-text flow-text' v-if = 'error'>@{{errorMsg}}</p>
 					<form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
 						<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 						<table class = 'ta'>
@@ -57,14 +57,12 @@
 							<!-- One To Many Relationship-->
 							<tr transition = "fade" class = 'animated' v-for = "final in OneToManyData">
 								<td>
-									<div class="input-field col s12">
-										<input disabled name = "tbl@{{final.id}}" type = "text" required='' aria-required='true' value = "@{{final.table}}">
-									</div>
+									<input  name = "tbl@{{final.id}}" type = "hidden" required='' aria-required='true' value = "@{{final.table}}">
+									<p class = 'flow-text'>@{{final.table}}</p>
 								</td>
 								<td>
-									<div class="input-field col s12">
-										<input disabled name = "on@{{final.id}}" type = "text" required='' aria-required='true' value = "@{{final.onData}}">
-									</div>
+									<input  name = "on@{{final.id}}" type = "hidden" required='' aria-required='true' value = "@{{final.onData}}">
+									<p class = 'flow-text'>@{{final.onData}}</p>
 								</td>
 								<td>
 									<a class = 'btn-floating red' @click = 'removeRelation(final)'><i class = 'material-icons left'>delete</i></a>
@@ -97,6 +95,18 @@
 					</form>
 				</div>
 				<div class="col s7">
+					@if (Session::has('status'))
+					<div transition = 'fade' @click = 'closeMsg' class="msg card-panel #fce4ec green lighten-5 animated">
+						<div class = 'row'>
+							<div class = 'col s5'><i class = 'large material-icons'>info</i></div>
+							<div class = 'col s7'>
+								<blockquote>
+									{{ Session::get('status') }}
+								</blockquote>
+							</div>
+						</div>
+					</div>
+					@endif
 					<div v-if = 'show'  transition = "actions" class = 'animated'>
 						<div class='card-panel #fafafa grey lighten-5'>
 							<h4 class = 'center thin'>Rows</h4>
@@ -171,6 +181,10 @@
 				<li><a href = "{{URL::to('/')}}/scaffold/rollback" class="btn-floating pink"><i class="material-icons">repeat</i></a></li>
 				<li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange"><i class="material-icons">input</i></a></li>
 			</ul>
+		</div>
+		<div id="modal1" class="modal">
+			<div class = "row AjaxisModal">
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
