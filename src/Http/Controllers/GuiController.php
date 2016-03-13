@@ -69,16 +69,20 @@ class GuiController extends AppController
     public function destroy($id)
     {
         $scaffoldInterface = Scaffoldinterface::FindOrFail($id);
+
+        unlink($scaffoldInterface->migration);
         unlink($scaffoldInterface->model);
         unlink($scaffoldInterface->controller);
         unlink($scaffoldInterface->views . '/index.blade.php');
         unlink($scaffoldInterface->views . '/create.blade.php');
         unlink($scaffoldInterface->views . '/show.blade.php');
         unlink($scaffoldInterface->views . '/edit.blade.php');
-        unlink($scaffoldInterface->migration);
         rmdir($scaffoldInterface->views);
+
         $scaffoldInterface->delete();
+
         Session::flash('status', 'Successfully deleted');
+
         return URL::to('scaffold');
     }
     /**
