@@ -34,7 +34,7 @@
             @endif
 
             <br>
-            <table class = "table table-striped">
+            <table class = "table table-striped table-bordered">
                 <thead>
                     @foreach($dataSystem->dataScaffold('v') as $value)
 
@@ -78,11 +78,9 @@
                         @endif
 
                         <td>
-                            <div class = 'row'>
                                 <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger' data-link = "/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                                 <a href = '#' class = 'viewEdit btn btn-primary' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
                                 <a href = '#' class = 'viewShow btn btn-warning' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
-                            </div>
                         </td>
                     </tr>
                     {{$names->endforeachh()}}
