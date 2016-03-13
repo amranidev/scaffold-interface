@@ -78,9 +78,9 @@
                         @endif
 
                         <td>
-                                <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger' data-link = "/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                                <a href = '#' class = 'viewEdit btn btn-primary' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
-                                <a href = '#' class = 'viewShow btn btn-warning' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
+                                <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                                <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
+                                <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
                         </td>
                     </tr>
                     {{$names->endforeachh()}}
