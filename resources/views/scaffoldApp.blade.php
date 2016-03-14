@@ -6,13 +6,13 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Vue Test</title>
+        <title>The scaffold interface</title>
     </head>
     <body>
         <div id = "el1" class = 'container'>
             <h2 class = "thin">The <i>Scaffold Interface</i> for laravel</h2>
             <div style = 'margin-top: 2cm;'></div>
-            <button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>NEW</button>
+            <button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>New Table</button>
             <br>
             <div class="row">
                 <div transition = "fade" class="col s5 animated" v-if = 'show'>
