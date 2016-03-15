@@ -169,14 +169,19 @@ class GuiController extends AppController
         Session::flash('status', Artisan::output());
         return redirect('scaffold');
     }
+
     /**
      * Rollback a table from database
      *
      * @return \Illuminate\Http\Response
+     * @throws Exception
      */
     public function rollback()
     {
         try {
+            if (!Scaffoldinterface::all()->count()) {
+                throw new \Exception("Nothing to rollback");
+            }
             $exitCode = Artisan::call('migrate:rollback');
         } catch (Exception $e) {
             return $e->getMessage();
