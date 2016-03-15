@@ -123,7 +123,7 @@ class Generator extends Filesystem
      */
     public function migration()
     {
-        $this->make($this->paths->MigrationPath(), $this->migration->generate());
+        $this->make($this->paths->migrationPath, $this->migration->generate());
     }
 
     /**
