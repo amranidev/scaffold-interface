@@ -17,6 +17,10 @@ class Paths
     public $names;
 
     /**
+     * @var String $migrationPath
+     */
+    public $migrationPath;
+    /**
      * Create new Paths instance
      *
      * @param NamesGenerate names
@@ -24,6 +28,8 @@ class Paths
     public function __construct(NamesGenerate $names)
     {
         $this->names = $names;
+
+        $this->migrationPath = $this->MigrationPath();
     }
 
     /**
@@ -41,7 +47,7 @@ class Paths
      *
      * @return String
      */
-    public function MigrationPath()
+    private function MigrationPath()
     {
         $FileName = date('Y') . '_' . date('m') . '_' . date('d') . '_' . date('his') . '_' . $this->names->TableNames() . ".php";
         return database_path() . "/migrations/" . $FileName;
