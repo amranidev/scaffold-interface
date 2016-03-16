@@ -70,18 +70,15 @@
                             </tr>
                             <tr transition = "fade" class = 'animated' v-if = "OneToManyBool">
                                 <td>
-                                    <div class="input-field col s12">
-                                        <select @change = 'getAttr($index)' class = 'browser-default' id = "tbl" name = "tbl@{{el}}" data-id = "@{{el}}">
-                                            <option v-for = "element in OneToMany" value = "@{{element}}">@{{element}}</option>
-                                            <label for = "tbl">Select Type</label>
-                                        </select>
-                                    </div>
+                                    <select @change = 'getAttr($index)' class = 'browser-default' id = "tbl" name = "tbl@{{el}}" data-id = "@{{el}}">
+                                        <option value="scfld#01" disabled selected>Choose your table</option>
+                                        <option v-for = "element in OneToMany" value = "@{{element}}">@{{element}}</option>
+                                    </select>
                                 </td>
                                 <td>
                                     <select class = 'browser-default' id = "on" name = "on" data-id = "on">
                                         <option value="scfld#01" disabled selected>Choose your option</option>
                                         <option v-for = "elementt in attributes" value = "@{{ elementt }}">@{{* elementt }}</option>
-                                        <label for = "on">Select Type</label>
                                     </select>
                                 </td>
                             </tr>
