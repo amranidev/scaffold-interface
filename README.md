@@ -11,7 +11,7 @@
 
 + Generate your model,views,controller and migrations just in few clicks.
 
-+ Generate OneToMany relationship.
++ Generate OneToMany relationship including views and controllers.
 
 + Generate dashboard template.
 
@@ -22,16 +22,6 @@
 + Rollbacking possibility.
 
 + Craft your laravel application faster and easier.
-
-###What's new in v1.2.x
-
-+ A helper FAB button.
-
-+ Migration button.
-
-+ Table rollback (database) button.
-
-+ Dashboard template generate.
 
 ###I. Package installation
 
