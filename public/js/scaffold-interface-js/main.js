@@ -51,7 +51,7 @@ var vm = new Vue({
         //delete row
         decrement: function() {
             if (this.rows == 0 && this.OneToManyRows == 0) {
-                this.errorMsg = 'Cannot remove More'
+                this.errorMsg = 'Cannot remove the line'
                 this.error = true;
             } else {
                 if (this.OneToManyRows != 0) {
