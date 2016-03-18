@@ -11,6 +11,8 @@
 
 + Generate your model,views,controller and migrations just in few clicks.
 
++ Views supports Bootstrap and Materializecss
+
 + Generate OneToMany relationship including views and controllers.
 
 + Generate dashboard template.
@@ -30,7 +32,7 @@
     ```json
     require : {
     "laravel/framework": "5.2.*",
-    "Amranidev/scaffold-interface": "v1.2.*"
+    "Amranidev/scaffold-interface": "v1.3.*"
     }
     ```
 
