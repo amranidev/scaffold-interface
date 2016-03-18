@@ -3,7 +3,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 
-# ScaffoldInterface (CRUD Generator)
+# ScaffoldInterface (A Smart CRUD Generator)
 
 ![Scaffold](http://i.imgur.com/62HTlvT.png)
 
@@ -136,10 +136,10 @@ Congratulations, you have successfully installed Scaffold Interface!
 ####TODOS
 
  - [ ] 100% Code coverage + Maximum code quality.
- - [ ] improve Frontend by Vuejs instead JQeury (custom.js , customA.js)
 
 ####DONE
-
+  
+ - [x] Improve Vuejs.
  - [x] Add a select for OneToMany (on data fields) in interface.  
  - [x] Laravel 5.2 supported.
  - [x] Laravel 5.1 supported.
