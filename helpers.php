@@ -76,13 +76,26 @@ if (!function_exists('dataScaffold')) {
     }
 }
 
-if (!function_exists("multiexplode")) {
-    function multiexplode($delimiters, $string)
+if (!function_exists("clearRoutes")) {
+    /**
+     * clear route file
+     *
+     * @param String $remove
+     */
+    function clearRoutes($remove)
     {
-        $ready = str_replace($delimiters, $delimiters[0], $string);
+        $path = app_path() . '/Http/routes.php';
 
-        $launch = explode($delimiters[0], $ready);
+        $lines = file($path, FILE_IGNORE_NEW_LINES);
 
-        return $launch;
+        foreach ($lines as $key => $line) {
+            if (strstr($line, $remove)) {
+                unset($lines[$key]);
+            }
+        }
+
+        $data = implode("\n", array_values($lines));
+
+        return file_put_contents($path, $data);
     }
 }
