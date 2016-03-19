@@ -11,7 +11,7 @@
 
 + Generate your model,views,controller and migrations just in few clicks.
 
-+ Views supports Bootstrap and Materializecss
++ Views supports Bootstrap and Materializecss.
 
 + Generate OneToMany relationship including views and controllers.
 
