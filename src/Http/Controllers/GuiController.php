@@ -79,6 +79,9 @@ class GuiController extends AppController
         unlink($scaffoldInterface->views . '/edit.blade.php');
         rmdir($scaffoldInterface->views);
 
+        //Clear Routes Resources
+        clearRoutes(lcfirst(str_singular($scaffoldInterface->tablename)));
+
         $scaffoldInterface->delete();
 
         Session::flash('status', 'Successfully deleted');
