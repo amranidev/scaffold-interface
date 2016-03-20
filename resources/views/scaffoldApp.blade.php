@@ -145,7 +145,7 @@
                         </table>
                         {!! $scaffold->render() !!}
                         <div class="pushDown"></div>
-                        <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.3.1</span></span>
+                        <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.3.2</span></span>
                         <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
                             Permission is hereby granted, free of charge, to any person obtaining a copy
                             of this software and associated documentation files (the "Scaffold-Interface"), to deal
