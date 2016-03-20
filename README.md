@@ -98,7 +98,7 @@ Congratulations, you have successfully installed Scaffold Interface!
       
       ![Imgur](http://i.imgur.com/dnYc2ZE.png)
 
-      Before you make your rollback make sure that you have rollbacked your table from database and avoid to keep routes recoureces.
+      Before you make your rollback make sure that you have rollbacked your table from database.
   
   6. OneToMany Relationship
       
