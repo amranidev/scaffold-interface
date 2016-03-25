@@ -17,7 +17,7 @@
             <div class="row">
                 <div transition = "fade" class="col s5 animated" v-if = 'show'>
                     <p transition = "fade" class = 'animated red-text flow-text' v-if = 'error'>@{{errorMsg}}</p>
-                    <form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost/'>
+                    <form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost'>
                         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
                         <table class = 'ta'>
                             <tr>
