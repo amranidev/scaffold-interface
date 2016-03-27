@@ -3,7 +3,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 
-# ScaffoldInterface (A Smart CRUD Generator)
+## ScaffoldInterface (A Smart CRUD Generator)
 
 ![Scaffold](http://i.imgur.com/62HTlvT.png)
 
@@ -77,11 +77,11 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   2. Table creation :
 
-     create your table . you can add many of attributes such like (String,date,longtext,etc.) 
+     Create your table . you can add many of attributes such like (String,date,longtext,etc.) 
 
   3. After creation :
      
-     to complete your scaffolding . go to your terminal and type.  
+     To complete your scaffolding . go to your terminal and type.  
      
      ```
      $ php artisan migrate
@@ -90,7 +90,7 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   4. Finally :
      
-     scaffolding it's done. go to http://{your-project}/{your-model} 
+     Scaffolding it's done. go to http://{your-project}/{your-model} 
       
   5. Rollback  
 
@@ -102,14 +102,14 @@ Congratulations, you have successfully installed Scaffold Interface!
   
   6. OneToMany Relationship
       
-      example : 
+      Example : 
 
-      basically we want to generate a small app that contain (Clients , Products , Orders). 
+      Basically we want to generate a small app that contain (Clients , Products , Orders). 
 
-      so the Orders must include the Clients and products foreign keys. 
-      then first things first is to generate Clients and Products normally. 
+      So the Orders must include the Clients and products foreign keys. 
+      Then first things first is to generate Clients and Products normally. 
       
-      after that you could generate Orders and adding two relation to Clients and products.
+      After that you could generate Orders and adding two relation to Clients and products.
 
   7. Check this out
       
