@@ -27,20 +27,10 @@
 
 ###I. Package installation
 
-  1. Add scaffold-interface to your composer.json file to require Scaffold-Interface :
-  
-    ```json
-    require : {
-    "laravel/framework": "5.2.*",
-    "Amranidev/scaffold-interface": "v1.3.*"
-    }
-    ```
-
-  2. Update Composer :
-
+  1. Run composer require to install Scaffold-Interface :
   
     ```
-    composer update
+    composer require Amranidev/scaffold-interface:1.3.*
   
     ```
 
