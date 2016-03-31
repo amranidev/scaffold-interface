@@ -9,15 +9,15 @@
 
 ####Features :
 
-+ Generate your model,views,controller and migrations just in few clicks.
++ Generate your model,views,controller and migrations just in a few clicks.
 
-+ Views supports Bootstrap and Materializecss.
++ Views support Bootstrap and Materializecss.
 
-+ Generate OneToMany relationship including views and controllers.
++ Generate OneToMany relationships including views and controllers.
 
-+ Generate dashboard template.
++ Generate a dashboard template.
 
-+ Delete confirmation message.
++ A delete confirmation message.
 
 + Using an interface to design your table.
 
@@ -27,24 +27,14 @@
 
 ###I. Package installation
 
-  1. Add scaffold-interface to your composer.json file to require Scaffold-Interface :
-  
-    ```json
-    require : {
-    "laravel/framework": "5.2.*",
-    "Amranidev/scaffold-interface": "v1.3.*"
-    }
-    ```
-
-  2. Update Composer :
-
+  1. Run composer require to install Scaffold-Interface :
   
     ```
-    composer update
+    composer require Amranidev/scaffold-interface:1.3.*
   
     ```
 
-  3. Add the service provider to config/app.php :
+  3. Add the service providers to config/app.php :
 
     ```php
 
@@ -53,14 +43,14 @@
   
     ```
 
-  4. Publish assets in your application with :
+  4. Publish the assets in your application with:
 
     ```
     $ php artisan vendor:publish
   
     ```
 
-  5. Migrate scaffoldinterface :
+  5. Migrate for the Scaffold Interface table:
   
     ```
     $ php artisan migrate
@@ -71,47 +61,45 @@ Congratulations, you have successfully installed Scaffold Interface!
 
 ###II. Usage
   
-  1. Access to scaffold interface :
+  1. Access to Scaffold Interface:
     
-     http://{your-project}/scaffold to get into scaffoldinterface.
+     http://{your-project}/scaffold to get into Scaffold Interface.
   
-  2. Table creation :
+  2. Table creation:
 
-     Create your table . you can add many of attributes such like (String,date,longtext,etc.) 
+     You can add many of attributes such as a string, date, longtext,etc.
 
-  3. After creation :
-     
-     To complete your scaffolding . go to your terminal and type.  
+  3. After the creation, to complete your scaffolding, go to the terminal and run:  
      
      ```
      $ php artisan migrate
      
      ```
   
-  4. Finally :
+  4. Finally:
      
-     Scaffolding it's done. go to http://{your-project}/{your-model} 
+     Go to http://{your-project}/{your-model} to see the result.
       
   5. Rollback  
 
-      Now if you want to rollback your table just check this
+      If you want to rollback the table just check this:
       
       ![Imgur](http://i.imgur.com/dnYc2ZE.png)
 
-      Before you make your rollback make sure that you have rollbacked your table from database.
+      Before you make your rollback make sure that you have rolled back your table in the database.
   
   6. OneToMany Relationship
       
-      Example : 
+      Example: 
 
-      Basically we want to generate a small app that contain (Clients , Products , Orders). 
+      Basically we want to generate a small app that contain Clients, Products and Orders. 
 
       So the Orders must include the Clients and products foreign keys. 
-      Then first things first is to generate Clients and Products normally. 
+      The first thing to do is to generate the Clients and Products normally. 
       
-      After that you could generate Orders and adding two relation to Clients and products.
+      After that you could generate Orders and adding two relations to Clients and Products.
 
-  7. Check this out
+  7. Check this out:
       
      Add (route::group) to *vendor/amranidev/scaffold-interface/src/Http/routes.php* if you're using **laravel 5.2** 
       
