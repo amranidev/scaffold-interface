@@ -184,13 +184,13 @@
             </div>
         </div>
     </body>
-    <script type="text/javascript">
+    <script>
     var baseURL = "{{URL::to('/')}}";
     var scaffoldList = {!! $scaffoldList !!};
     </script>
-    <script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script type="text/javascript" src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
-    <script type="text/javascript" src = "/js/AjaxisMaterialize.js"></script>
-    <script type="text/javascript" src = "/js/scaffold-interface-js/main.js"></script>
+    <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <script src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
+    <script src = "/js/AjaxisMaterialize.js"></script>
+    <script src = "/js/scaffold-interface-js/main.js"></script>
 </html>
