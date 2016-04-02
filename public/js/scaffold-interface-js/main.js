@@ -109,10 +109,6 @@ var vm = new Vue({
         //romove relation
         removeRelation: function(item) {
             this.OneToManyData.$remove(item);
-        },
-        //clear message
-        closeMsg: function() {
-            $('.msg').remove();
         }
     }
 })
