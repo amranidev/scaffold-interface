@@ -92,18 +92,6 @@
                     </form>
                 </div>
                 <div class="col s7">
-                    @if (Session::has('status'))
-                    <div transition = 'fade' @click = 'closeMsg' class="msg card-panel #fce4ec green lighten-5 animated">
-                        <div class = 'row'>
-                            <div class = 'col s5'><i class = 'large material-icons'>info</i></div>
-                            <div class = 'col s7'>
-                                <blockquote>
-                                    {{ Session::get('status') }}
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
                     <div v-if = 'show'  transition = "actions" class = 'animated'>
                         <div class='card-panel #fafafa grey lighten-5'>
                             <h4 class = 'center thin'>Rows</h4>
@@ -193,4 +181,9 @@
     <script src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
     <script src = "/js/AjaxisMaterialize.js"></script>
     <script src = "/js/scaffold-interface-js/main.js"></script>
+    <script>
+    @if(Session::has('status'))
+    Materialize.toast("{{ Session::get('status')}}", 4000)
+    @endif
+    </script>
 </html>
