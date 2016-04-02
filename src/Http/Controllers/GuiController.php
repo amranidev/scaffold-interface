@@ -56,7 +56,7 @@ class GuiController extends AppController
         $scaffoldInterface->tablename = $scaffold->names->TableNames();
         $scaffoldInterface->save();
 
-        Session::flash('status', ' Successfully created ' . $scaffold->names->TableName() . '. To complete your scaffold. go ahead and migrate the schema.');
+        Session::flash('status', ' Successfully created ' . $scaffold->names->TableName());
 
         return redirect('scaffold');
     }
@@ -169,7 +169,7 @@ class GuiController extends AppController
         } catch (Exception $e) {
             return $e->getMessage();
         }
-        Session::flash('status', Artisan::output());
+        Session::flash('status', "Migrated");
         return redirect('scaffold');
     }
 
@@ -189,7 +189,7 @@ class GuiController extends AppController
         } catch (Exception $e) {
             return $e->getMessage();
         }
-        Session::flash('status', Artisan::output());
+        Session::flash('status', "Roled back :");
         return redirect('scaffold');
     }
 }
