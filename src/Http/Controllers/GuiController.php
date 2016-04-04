@@ -169,7 +169,11 @@ class GuiController extends AppController
         } catch (Exception $e) {
             return $e->getMessage();
         }
-        Session::flash('status', "Migrated");
+
+        $Msg = str_replace("\n", "", Artisan::output());
+
+        Session::flash('status', $Msg);
+
         return redirect('scaffold');
     }
 
@@ -189,7 +193,11 @@ class GuiController extends AppController
         } catch (Exception $e) {
             return $e->getMessage();
         }
-        Session::flash('status', "Roled back");
+
+        $Msg = str_replace("\n", "", Artisan::output());
+
+        Session::flash('status', $Msg);
+
         return redirect('scaffold');
     }
 }
