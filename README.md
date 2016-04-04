@@ -5,7 +5,7 @@
 
 ## ScaffoldInterface (A Smart CRUD Generator)
 
-![Scaffold](http://i.imgur.com/65uhrP7.gifv)
+![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
 ####Features :
 
