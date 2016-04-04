@@ -3,6 +3,7 @@ function inArray(needle, haystack) {
     var length = haystack.length;
     for (var i = 0; i < length; i++) {
         if (haystack[i].onData == needle) return true;
+        if (haystack[i].table == needle) return true;
     }
     return false;
 }
@@ -19,7 +20,6 @@ var vm = new Vue({
     el: 'body',
     data: {
         //Booleans
-
         show: false,
         submit: false,
         error: false,
@@ -67,7 +67,8 @@ var vm = new Vue({
             this.OneToManyBool = true;
             if (this.OpenClose) {
                 var onData = $('#on').val();
-                if (inArray(onData, this.OneToManyData) || onData == null) {
+                var table = $('#tbl').val();
+                if (inArray(onData, this.OneToManyData) || !onData || inArray(table, this.OneToManyData)) {
                     this.errorMsg = "Something is going wrong";
                     this.error = true
                     return;
