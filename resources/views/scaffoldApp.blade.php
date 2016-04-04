@@ -160,11 +160,11 @@
                 <i class="large mdi-navigation-menu"></i>
             </a>
             <ul>
-                <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePage"class="btn-floating blue"><i class="material-icons">view_list</i></a></li>
-                <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageDelete"class="btn-floating red darken-1"><i class="material-icons">delete</i></a></li>
-                <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageIndex" class="btn-floating #7cb342 light-green darken-1"><i class="material-icons">send</i></a></li>
-                <li><a href = "{{URL::to('/')}}/scaffold/rollback" class="btn-floating pink"><i class="material-icons">repeat</i></a></li>
-                <li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange"><i class="material-icons">input</i></a></li>
+                <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePage" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Generate Home Page"><i class="material-icons">view_list</i></a></li>
+                <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageDelete" class="btn-floating red darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Delete Home Page"><i class="material-icons">delete</i></a></li>
+                <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageIndex" class="btn-floating #7cb342 light-green darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Home Page"><i class="material-icons">send</i></a></li>
+                <li><a href = "{{URL::to('/')}}/scaffold/rollback" class="btn-floating pink tooltipped" data-position="left" data-delay="50" data-tooltip="RollBack the Schema"><i class="material-icons">repeat</i></a></li>
+                <li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange tooltipped"><i class="material-icons" data-position="left" data-delay="50" data-tooltip="Migrate the Shcema">input</i></a></li>
             </ul>
         </div>
         <div id="modal1" class="modal">
