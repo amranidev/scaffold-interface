@@ -58,14 +58,14 @@
                             <tr transition = "fade" class = 'animated' v-for = "final in OneToManyData">
                                 <td>
                                     <input  name = "tbl@{{final.id}}" type = "hidden" required='' aria-required='true' value = "@{{final.table}}">
-                                    <p class = 'flow-text'>@{{final.table}}</p>
+                                    <h5 class = 'thin'>@{{final.table}}</h5>
                                 </td>
                                 <td>
                                     <input  name = "on@{{final.id}}" type = "hidden" required='' aria-required='true' value = "@{{final.onData}}">
-                                    <p class = 'flow-text'>@{{final.onData}}</p>
+                                    <h5 class = 'thin'>@{{final.onData}}</h5>
                                 </td>
                                 <td>
-                                    <a class = 'btn-floating red' @click = 'removeRelation(final)'><i class = 'material-icons left'>delete</i></a>
+                                    <a class = 'btn-floating red' @click = 'removeRelation(final)'><i class = 'material-icons'>delete</i></a>
                                 </td>
                             </tr>
                             <tr transition = "fade" class = 'animated' v-if = "OneToManyBool">
@@ -133,7 +133,7 @@
                         </table>
                         {!! $scaffold->render() !!}
                         <div class="pushDown"></div>
-                        <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
+                        <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.3.12</span></span>
                         <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
                             Permission is hereby granted, free of charge, to any person obtaining a copy
                             of this software and associated documentation files (the "Scaffold-Interface"), to deal
