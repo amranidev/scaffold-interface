@@ -189,7 +189,7 @@ class GuiController extends AppController
         } catch (Exception $e) {
             return $e->getMessage();
         }
-        Session::flash('status', "Roled back :");
+        Session::flash('status', "Roled back");
         return redirect('scaffold');
     }
 }
