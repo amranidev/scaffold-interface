@@ -3,7 +3,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 
-## ScaffoldInterface (A Smart CRUD Generator)
+## A Smart CRUD Generator
 
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
