@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/css/scaffold-interface-css/main.css">
+        <link rel="stylesheet" href="{{URL::asset('css/scaffold-interface-css/main.css')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>The scaffold interface</title>
     </head>
@@ -133,7 +133,7 @@
                         </table>
                         {!! $scaffold->render() !!}
                         <div class="pushDown"></div>
-                        <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
+                        <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.3.13</span></span>
                         <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
                             Permission is hereby granted, free of charge, to any person obtaining a copy
                             of this software and associated documentation files (the "Scaffold-Interface"), to deal
@@ -179,8 +179,8 @@
     <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
     <script src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
-    <script src = "/js/AjaxisMaterialize.js"></script>
-    <script src = "/js/scaffold-interface-js/main.js"></script>
+    <script src = "{{URL::asset('js/AjaxisMaterialize.js')}}"></script>
+    <script src = "{{URL::asset('js/scaffold-interface-js/main.js')}}"></script>
     <script>
     @if(Session::has('status'))
     Materialize.toast("{{ Session::get('status')}}", 4000)
