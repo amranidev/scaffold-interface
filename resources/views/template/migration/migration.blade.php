@@ -32,7 +32,7 @@ class {{studly_case(ucfirst($names->TableNames()))}} extends Migration
         @foreach($dataSystem->foreignKeys as $key)
 
         $table->integer('{{lcfirst(str_singular($key))}}_id')->unsigned();
-        $table->foreign('{{lcfirst(str_singular($key))}}_id')->references('id')->on('{{$key}}');
+        $table->foreign('{{lcfirst(str_singular($key))}}_id')->references('id')->on('{{$key}}')->onDelete('cascade');
 
         @endforeach
 
