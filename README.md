@@ -34,6 +34,21 @@
   
     ```
 
+    Or : 
+    
+    ```json
+    require : {
+    "laravel/framework": "5.1.*",
+    "Amranidev/scaffold-interface": "1.1.*"
+    }
+    ```
+    
+    Then update composer :
+    
+    ```
+    $ composer update
+    ```
+    
   3. Add the service providers to config/app.php :
 
     ```php
