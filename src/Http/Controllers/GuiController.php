@@ -98,10 +98,14 @@ class GuiController extends AppController
     public function deleteMsg($id)
     {
         $scaffold = Scaffoldinterface::FindOrFail($id);
-        $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database.", '/scaffold/guirollback/' . $id);
-        if (Request::ajax()) {
-            return $msg;
+
+        if (Schema::hasTable($scaffold->tablename)) {
+
+            return "Please Rollback " . $scaffold->tablename . " Schema!!";
         }
+
+        $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database.", '/scaffold/guirollback/' . $id);
+
         return $msg;
     }
     /**
