@@ -12,18 +12,21 @@ use Illuminate\Support\Facades\DB;
  */
 class Attributes
 {
+
     /**
      * table name
      *
      * @var $table String
      */
     private $table;
+
     /**
      * Result
      *
      * @var $Result[]
      */
-    public $result = [];
+    private $result = [];
+
     /**
      * create new Attrebutes
      *
@@ -33,8 +36,11 @@ class Attributes
     {
         $this->table = $table;
     }
+
     /**
      * Get attributes from table
+     *
+     * @return mixed
      */
     public function getAttributes()
     {
