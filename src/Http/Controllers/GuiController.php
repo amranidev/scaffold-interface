@@ -2,7 +2,7 @@
 namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
 use Amranidev\Ajaxis\Ajaxis;
-use Amranidev\ScaffoldInterface\AutoArray;
+use Amranidev\ScaffoldInterface\Attributes;
 use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
@@ -117,10 +117,12 @@ class GuiController extends AppController
      */
     public function GetResult($table)
     {
-        $attributes = new AutoArray($table);
+        $attributes = new Attributes($table);
+
         if (Request::ajax()) {
             return $attributes->getResult();
         }
+
     }
     /**
      * Generate Home Page for app
@@ -130,9 +132,13 @@ class GuiController extends AppController
     public function homePage()
     {
         $scaffoldList = Scaffoldinterface::all();
+
         $home = new HomePageGenerator($scaffoldList);
+
         $home->Burn();
+
         Session::flash('status', 'Home Page Generated Successfully');
+
         return redirect('scaffold/scaffoldHomePageIndex');
     }
     /**
