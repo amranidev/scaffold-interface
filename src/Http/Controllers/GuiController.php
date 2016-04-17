@@ -100,8 +100,10 @@ class GuiController extends AppController
         $scaffold = Scaffoldinterface::FindOrFail($id);
 
         if (Schema::hasTable($scaffold->tablename)) {
+            
+            $table = $scaffold->tablename;
 
-            return "Please Rollback " . $scaffold->tablename . " Schema!!";
+            return view('scaffold-interface::template.DeleteMessage.delete', compact('table'))->render();
         }
 
         $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database.", '/scaffold/guirollback/' . $id);
@@ -122,7 +124,6 @@ class GuiController extends AppController
         if (Request::ajax()) {
             return $attributes->getResult();
         }
-
     }
     /**
      * Generate Home Page for app
@@ -157,8 +158,7 @@ class GuiController extends AppController
      */
     public function homePageDelete()
     {
-        try
-        {
+        try {
             unlink(base_path() . '/resources/views/HomePageScaffold.blade.php');
         } catch (\Exception $e) {
             return "Scaffold-Interface : " . $e->getMessage();
