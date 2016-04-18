@@ -1,6 +1,7 @@
 <?php
 namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
+use Illuminate\Support\Facades\Schema;
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attributes;
 use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
