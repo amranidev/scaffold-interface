@@ -46,20 +46,17 @@ class Attributes
     {
         //if PostgreSql
         if (env('DB_CONNECTION') == 'pgsql') {
-
             $this->result = DB::select(DB::raw("SELECT column_name FROM information_schema.columns WHERE table_name ='" . $this->table . "';"));
         
         //if Mysql
-        } elseif(env('DB_CONNECTION') == 'mysql') {
-        
+        } elseif (env('DB_CONNECTION') == 'mysql') {
             $this->result = DB::select(DB::raw("SELECT column_name FROM information_schema.columns WHERE table_schema ='" . env('DB_DATABASE') . "' and table_name ='" . $this->table . "';"));
-        
         }
         
         //delete the first element.(ignore the id section)
         unset($this->result[0]);
 
         //get result
-        return $this->result
+        return $this->result;
     }
 }
