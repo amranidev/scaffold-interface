@@ -100,7 +100,6 @@ class GuiController extends AppController
         $scaffold = Scaffoldinterface::FindOrFail($id);
 
         if (Schema::hasTable($scaffold->tablename)) {
-            
             $table = $scaffold->tablename;
 
             return view('scaffold-interface::template.DeleteMessage.delete', compact('table'))->render();
@@ -122,7 +121,7 @@ class GuiController extends AppController
         $attributes = new Attributes($table);
 
         if (Request::ajax()) {
-            return $attributes->getResult();
+            return $attributes->getAttributes();
         }
     }
     /**
