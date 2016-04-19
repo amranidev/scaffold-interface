@@ -133,24 +133,15 @@
                         </table>
                         {!! $scaffold->render() !!}
                         <div class="pushDown"></div>
-                        <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span>
-                        <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian<br><br>
-                            Permission is hereby granted, free of charge, to any person obtaining a copy
-                            of this software and associated documentation files (the "Scaffold-Interface"), to deal
-                            in the Software without restriction, including without limitation the rights
-                            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                            copies of the Software, and to permit persons to whom the Software is
-                            furnished to do so, subject to the following conditions:<br><br>
-                            The above copyright notice and this permission notice shall be included in
-                            all copies or substantial portions of the Software.<br><br>
-                            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
-                            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                            THE SOFTWARE.
-                        </p>
+                        <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span><br><br>
+                        <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+                        <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=fork&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
+                        <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+                        <br><br>
+                        <a class="twitter-follow-button"
+                            href="https://twitter.com/amranidev">
+                        Follow @Amranidev</a>
+                        <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian</p>
                     </div>
                 </div>
             </div>
@@ -181,6 +172,7 @@
     <script src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
     <script src = "{{URL::asset('js/AjaxisMaterialize.js')}}"></script>
     <script src = "{{URL::asset('js/scaffold-interface-js/main.js')}}"></script>
+    <script src = "{{URL::asset('js/scaffold-interface-js/social.js')}}"></script>
     <script>
     @if(Session::has('status'))
     Materialize.toast("{{ Session::get('status')}}", 4000)
