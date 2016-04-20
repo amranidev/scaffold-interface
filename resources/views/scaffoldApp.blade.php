@@ -78,7 +78,7 @@
                                 <td>
                                     <select class = 'browser-default' id = "on" name = "on" data-id = "on">
                                         <option value="scfld#01" disabled selected>Choose your option</option>
-                                        <option v-for = "attribute in attributes" value = "@{{ attribute.column_name }}">@{{ attribute.column_name }}</option>
+                                        <option v-for = "attribute in attributes" value = "@{{attribute}}">@{{attribute}}</option>
                                     </select>
                                 </td>
                             </tr>
