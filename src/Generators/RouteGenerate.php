@@ -1,4 +1,5 @@
 <?php
+
 namespace Amranidev\ScaffoldInterface\Generators;
 
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;

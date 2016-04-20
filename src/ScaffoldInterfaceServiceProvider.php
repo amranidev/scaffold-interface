@@ -1,4 +1,5 @@
 <?php
+
 namespace Amranidev\ScaffoldInterface;
 
 use Illuminate\Foundation\AliasLoader;
