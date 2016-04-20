@@ -1,9 +1,10 @@
 <?php
+
 namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
 use Illuminate\Support\Facades\Schema;
 use Amranidev\Ajaxis\Ajaxis;
-use Amranidev\ScaffoldInterface\Attributes;
+use Amranidev\ScaffoldInterface\Attribute;
 use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
@@ -34,6 +35,7 @@ class GuiController extends AppController
         $scaffoldList = Scaffoldinterface::all()->lists('tablename');
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -61,6 +63,7 @@ class GuiController extends AppController
 
         return redirect('scaffold');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -89,6 +92,7 @@ class GuiController extends AppController
 
         return URL::to('scaffold');
     }
+
     /**
      * Delete confirmation message by Ajaxis
      *
@@ -110,6 +114,7 @@ class GuiController extends AppController
 
         return $msg;
     }
+
     /**
      * get Attributes from
      *
@@ -119,12 +124,13 @@ class GuiController extends AppController
      */
     public function GetResult($table)
     {
-        $attributes = new Attributes($table);
+        $attributes = new Attribute($table);
 
         if (Request::ajax()) {
             return $attributes->getAttributes();
         }
     }
+
     /**
      * Generate Home Page for app
      *
@@ -142,6 +148,7 @@ class GuiController extends AppController
 
         return redirect('scaffold/scaffoldHomePageIndex');
     }
+
     /**
      * get index page for the app
      *
@@ -151,6 +158,7 @@ class GuiController extends AppController
     {
         return view('HomePageScaffold');
     }
+
     /**
      * delete index page
      *
@@ -166,6 +174,7 @@ class GuiController extends AppController
         Session::flash('status', 'Home Page Successfully deleted');
         return redirect('scaffold');
     }
+
     /**
      * Migrate table ORM
      *
