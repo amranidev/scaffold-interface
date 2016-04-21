@@ -53,7 +53,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         ], 'migrations');
 
         //config path
-        $configPath = __DIR__.'/../config/scaffold-interface.php';
+        $configPath = __DIR__.'/../config/config.php';
         
         //register config
         $this->publishes([
