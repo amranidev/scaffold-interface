@@ -52,9 +52,17 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
 
+        //config path
+        $configPath = __DIR__.'/../config/scaffold-interface.php';
+        
+        //register config
+        $this->publishes([
+            $configPath => config_path('amranidev/config.php')]);
+    
     }
 
     public function register()
-    {}
+    {
+    }
 
 }
