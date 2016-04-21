@@ -21,6 +21,7 @@ class Paths
      * @var String $migrationPath
      */
     public $migrationPath;
+
     /**
      * Create new Paths instance
      *
@@ -40,7 +41,7 @@ class Paths
      */
     public function ModelPath()
     {
-        return app_path() . "/" . $this->names->TableName() . '.php';
+        return config('amranidev.config.model') .'/'. $this->names->TableName() . '.php';
     }
 
     /**
@@ -51,7 +52,7 @@ class Paths
     private function MigrationPath()
     {
         $FileName = date('Y') . '_' . date('m') . '_' . date('d') . '_' . date('his') . '_' . $this->names->TableNames() . ".php";
-        return database_path() . "/migrations/" . $FileName;
+        return config('amranidev.config.migration') .'/'. $FileName;
     }
 
     /**
@@ -62,7 +63,8 @@ class Paths
     public function ControllerPath()
     {
         $FileName = $this->names->TableName() . "Controller.php";
-        return base_path() . "/app/Http/Controllers/" . $FileName;
+        
+        return config('amranidev.config.controller') .'/'. $FileName;
     }
 
     /**
@@ -72,7 +74,7 @@ class Paths
      */
     public function IndexPath()
     {
-        return base_path() . '/resources/views/' . $this->names->TableNameSingle() . '/' . 'index.blade.php';
+        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'index.blade.php';
     }
 
     /**
@@ -82,7 +84,7 @@ class Paths
      */
     public function CreatePath()
     {
-        return base_path() . '/resources/views/' . $this->names->TableNameSingle() . '/' . 'create.blade.php';
+        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'create.blade.php';
     }
 
     /**
@@ -92,7 +94,7 @@ class Paths
      */
     public function ShowPath()
     {
-        return base_path() . '/resources/views/' . $this->names->TableNameSingle() . '/' . 'show.blade.php';
+        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'show.blade.php';
     }
 
     /**
@@ -102,7 +104,7 @@ class Paths
      */
     public function EditPath()
     {
-        return base_path() . '/resources/views/' . $this->names->TableNameSingle() . '/' . 'edit.blade.php';
+        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'edit.blade.php';
     }
 
     /**
@@ -112,7 +114,7 @@ class Paths
      */
     public function RoutePath()
     {
-        return base_path() . "/app/Http/routes.php";
+        return config('amranidev.config.routes');
     }
 
     /**
@@ -122,6 +124,6 @@ class Paths
      */
     public function DirPath()
     {
-        return base_path() . '/resources/views/' . $this->names->TableNameSingle();
+        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle();
     }
 }
