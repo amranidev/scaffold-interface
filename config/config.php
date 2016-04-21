@@ -17,6 +17,8 @@
         
         'controller' => app_path('Http/Controllers'),
         
-        'migration' => database_path('migration')
+        'migration' => database_path('migrations'),
+
+        'routes' => app_path('Http/routes.php')
     
     ];
