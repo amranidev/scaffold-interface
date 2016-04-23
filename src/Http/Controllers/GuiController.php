@@ -49,7 +49,7 @@ class GuiController extends AppController
         $scaffold = new Scaffold($data);
 
         $scaffold->Migration()->Model()->Controller()->Views()->Route();
-
+        
         $scaffoldInterface = new Scaffoldinterface();
 
         $scaffoldInterface->migration = $scaffold->paths->migrationPath;
@@ -183,7 +183,7 @@ class GuiController extends AppController
     public function migrate()
     {
         try {
-            $exitCode = Artisan::call('migrate');
+            $exitCode = Artisan::call('migrate',['--path'=> config('amranidev.config.database')]);
             exec('cd ' . base_path() . ' && composer dump-autoload');
         } catch (Exception $e) {
             return $e->getMessage();
