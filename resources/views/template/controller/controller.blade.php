@@ -1,13 +1,13 @@
-namespace App\Http\Controllers;
+namespace {{config('amranidev.config.controllerNameSpace')}};
 
 use Request;
 use App\Http\Controllers\Controller;
-use App\{{$names->TableName()}};
+use {{config('amranidev.config.modelNameSpace')}}\{{$names->TableName()}};
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 @foreach($dataSystem->foreignKeys as $key)
 
-use App\{{ucfirst(str_singular($key))}};
+use {{config('amranidev.config.modelNameSpace')}}\{{ucfirst(str_singular($key))}};
 
 @endforeach
 
@@ -27,7 +27,7 @@ class {{$names->TableName()}}Controller extends Controller
     public function index()
     {
         ${{$names->TableNames()}} = {{$names->TableName()}}::all();
-        return view('{{$names->TableNameSingle()}}.index',compact('{{$names->TableNames()}}'));
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.index',compact('{{$names->TableNames()}}'));
     }
 
     /**
@@ -42,7 +42,7 @@ class {{$names->TableName()}}Controller extends Controller
         ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->onData[$key]}}','id');
         @endforeach
 
-        return view('{{$names->TableNameSingle()}}.create'
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.create'
         @if($dataSystem->foreignKeys != null)
         ,compact(
         @foreach($dataSystem->foreignKeys as $key => $value)
@@ -97,7 +97,7 @@ class {{$names->TableName()}}Controller extends Controller
         }
 
         ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
-        return view('{{$names->TableNameSingle()}}.show',compact('{{$names->TableNameSingle()}}'));
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.show',compact('{{$names->TableNameSingle()}}'));
     }
 
     /**
@@ -120,7 +120,7 @@ class {{$names->TableName()}}Controller extends Controller
         @endforeach
 
         ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
-        return view('{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}'
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}'
         @if($dataSystem->foreignKeys != null)
         ,
         @foreach($dataSystem->foreignKeys as $key => $value)
