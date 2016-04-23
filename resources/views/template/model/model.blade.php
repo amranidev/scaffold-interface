@@ -1,4 +1,4 @@
-namespace App;
+namespace {{config('amranidev.config.modelNameSpace')}};
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +19,7 @@ class {{$names->TableName()}} extends Model
 
 	public function {{lcfirst(str_singular($key))}}()
 	{
-		return $this->belongsTo('App\{{ucfirst(str_singular($key))}}');
+		return $this->belongsTo('{{config('amranidev.config.modelNameSpace')}}\{{ucfirst(str_singular($key))}}');
 	}
 
 	@endforeach
