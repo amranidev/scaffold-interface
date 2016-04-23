@@ -2,6 +2,19 @@
 
   return [
     
+
+    /*
+     |--------------------------------------------------------------------
+     | Default package Name
+     |--------------------------------------------------------------------
+     |
+     | Here is where you can register your current package.
+     | By default is Laravel
+     |
+     |*/
+
+     'package' => 'Laravel',
+
     /*
      |--------------------------------------------------------------------
      | Default Files Storage , (Models , Views , Controllers , Migrations)
@@ -44,7 +57,7 @@
     
     /*
      |--------------------------------------------------------------------
-     | Package namespace and loaders
+     | Default package namespace and loaders
      |--------------------------------------------------------------------
      |
      | By default scaffold-interface interact with your app without 
