@@ -114,6 +114,7 @@
                         <table class = 'centered highlight'>
                             <thead>
                                 <th>Name</th>
+                                <th>Package</th>
                                 <th>Created at</th>
                                 <th>State</th>
                                 <th>Link</th>
@@ -123,6 +124,7 @@
                                 @foreach($scaffold as $value)
                                 <tr>
                                     <td>{{$value->tablename}}</td>
+                                    <td>{{$value->package}}</td>
                                     <td>{{$value->created_at}}</td>
                                     <td><span class = "scaffoldv {{$toto = Schema::hasTable($value->tablename) ? 'green' : 'red'}} white-text">{{$toto = Schema::hasTable($value->tablename) ? 'Migrated' : 'Not migrated'}}</span></td>
                                     <td><a href="{{URL::to('/')}}/{{lcfirst(str_singular($value->tablename))}}" class = 'btn-floating blue white-text'><i class = 'material-icons'>send</i></a></td>
