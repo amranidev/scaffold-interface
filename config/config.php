@@ -2,8 +2,7 @@
 
   return [
     
-
-    /*
+     /*
      |--------------------------------------------------------------------
      | Default package Name
      |--------------------------------------------------------------------
@@ -11,18 +10,18 @@
      | Here is where you can register your current package.
      | By default is Laravel
      |
-     |*/
+      */
 
-     'package' => 'Laravel',
+        'package' => 'Laravel',
 
-    /*
+     /*
      |--------------------------------------------------------------------
      | Default Files Storage , (Models , Views , Controllers , Migrations)
      |--------------------------------------------------------------------
      |
-     | Here is where you can register you storage paths.
+     | Here is where you can register your storage paths.
      |
-     |*/
+      */
     
         'model' => base_path() . '/app',
 
@@ -32,30 +31,30 @@
 
         'migration' => base_path() . '/database/migrations',
 
-    /*
+     /*
      |--------------------------------------------------------------------
      | Database migration path.
      |--------------------------------------------------------------------
      |
-     | Here is where you can register you migrations path to migrate
-     | the schema via artisan command.
+     | Here is where you can register your migrations path to migrate
+     | the schema via migrate artisan command.
      | 
-     |*/
+      */
 
         'database' => null,
 
-    /*
+     /*
      |-------------------------------------------------------------------
      | Default route file
      |-------------------------------------------------------------------
      |
      | Here is where you can register your route file.
      |
-     |*/
+      */
 
         'routes' => base_path() . '/app/Http/routes.php',
     
-    /*
+     /*
      |--------------------------------------------------------------------
      | Default package namespace and loaders
      |--------------------------------------------------------------------
@@ -65,13 +64,13 @@
      | that you may want scaffold-interface interact with, you must define
      | namespaces.
      |
-     |*/
+      */
 
         'controllerNameSpace' => 'App\\Http\\Controllers',
 
         'modelNameSpace' => 'App',
 
-     /*
+      /*
       |-------------------------------------------------------------------
       | Views loader
       |-------------------------------------------------------------------
@@ -79,7 +78,7 @@
       | Here is where you can register your default views loader.
       | By default is null
       |
-      |*/
+       */
 
         'loadViews' => null,
     ];
