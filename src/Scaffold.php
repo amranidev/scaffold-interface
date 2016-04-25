@@ -3,7 +3,7 @@
 namespace Amranidev\ScaffoldInterface;
 
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
-use Amranidev\ScaffoldInterface\Filesystem\Paths;
+use Amranidev\ScaffoldInterface\Filesystem\Path;
 use Amranidev\ScaffoldInterface\Generators\Generator;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
@@ -56,7 +56,7 @@ class Scaffold
 
         $this->names = new NamesGenerate($data);
 
-        $this->paths = new Paths($this->names);
+        $this->paths = new Path($this->names);
 
         $this->generator = new Generator($this->dataS, $this->names, $this->paths);
     }
