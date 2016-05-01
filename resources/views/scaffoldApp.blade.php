@@ -111,6 +111,7 @@
                     </div>
                     <!-- Interface Core-->
                     <div>
+                        <h5 class = "blue-text thin">You work on <i>{{config('amranidev.config.package')}}</i></h5>
                         <table class = 'centered highlight'>
                             <thead>
                                 <th>Name</th>
