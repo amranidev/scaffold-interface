@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id = "el1" class = 'container'>
-            <h2 class = "thin">A Smart CRUD generator for <i>laravel</i></h2>
+            <h2 class = "thin">A Smart CRUD Generator For <i>Laravel</i></h2>
             <div style = 'margin-top: 2cm;'></div>
             <button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>New Table</button>
             <br>
