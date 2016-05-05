@@ -10,9 +10,9 @@
      | Here is where you can register your current package.
      | By default is Laravel
      |
-      */
+     */
 
-        'package' => 'Laravel',
+     'package' => 'Laravel',
 
      /*
      |--------------------------------------------------------------------
@@ -21,15 +21,15 @@
      |
      | Here is where you can register your storage paths.
      |
-      */
+     */
     
-        'model' => base_path() . '/app',
+     'model' => base_path() . '/app',
 
-        'views' => base_path() . '/resources/views',
+     'views' => base_path() . '/resources/views',
         
-        'controller' => base_path() . '/app/Http/Controllers',
+     'controller' => base_path() . '/app/Http/Controllers',
 
-        'migration' => base_path() . '/database/migrations',
+     'migration' => base_path() . '/database/migrations',
 
      /*
      |--------------------------------------------------------------------
@@ -39,9 +39,9 @@
      | Here is where you can register your migrations path to migrate
      | the schema via migrate artisan command.
      | 
-      */
+     */
 
-        'database' => null,
+     'database' => null,
 
      /*
      |-------------------------------------------------------------------
@@ -50,9 +50,9 @@
      |
      | Here is where you can register your route file.
      |
-      */
+     */
 
-        'routes' => base_path() . '/app/Http/routes.php',
+     'routes' => base_path() . '/app/Http/routes.php',
     
      /*
      |--------------------------------------------------------------------
@@ -64,11 +64,11 @@
      | that you may want scaffold-interface interact with, you must define
      | namespaces.
      |
-      */
+     */
 
-        'controllerNameSpace' => 'App\\Http\\Controllers',
+     'controllerNameSpace' => 'App\\Http\\Controllers',
 
-        'modelNameSpace' => 'App',
+     'modelNameSpace' => 'App',
 
       /*
       |-------------------------------------------------------------------
@@ -78,7 +78,8 @@
       | Here is where you can register your default views loader.
       | By default is null
       |
-       */
+      */
 
-        'loadViews' => null,
+      'loadViews' => null,
+    
     ];
