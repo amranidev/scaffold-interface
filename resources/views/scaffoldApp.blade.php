@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id = "el1" class = 'container'>
-            <h2 class = "thin">The <i>Scaffold Interface</i> for laravel</h2>
+            <h2 class = "thin">A Smart CRUD generator for <i>laravel</i></h2>
             <div style = 'margin-top: 2cm;'></div>
             <button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>New Table</button>
             <br>
@@ -111,7 +111,9 @@
                     </div>
                     <!-- Interface Core-->
                     <div>
-                        <h5 class = "blue-text thin">You work on <i>{{config('amranidev.config.package')}}</i></h5>
+                        <div class = 'center'>
+                            <h5 class = "black-text thin">You work on <i>{{config('amranidev.config.package')}}</i></h5>
+                        </div>
                         <table class = 'centered highlight'>
                             <thead>
                                 <th>Name</th>
