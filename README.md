@@ -25,6 +25,8 @@
 
 + Craft your laravel application faster and easier.
 
++ Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager).
+
 ###I. Package installation
 
   1. Run composer require to install Scaffold-Interface :
@@ -74,7 +76,7 @@
 
 Congratulations, you have successfully installed Scaffold Interface!
 
-###II. Usage
+###II. Quick Start
   
   1. Access to Scaffold Interface:
     
@@ -149,4 +151,4 @@ Congratulations, you have successfully installed Scaffold Interface!
  - [x] Laravel 5.2 supported.
  - [x] Laravel 5.1 supported.
 
-####contact : amranidev@gmail.com
+####Contact : amranidev@gmail.com
