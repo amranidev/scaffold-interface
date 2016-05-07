@@ -36,10 +36,8 @@ class MigrationGenerate
      */
     public function __construct(DataSystem $dataSystem, NamesGenerate $names)
     {
-
         $this->dataSystem = $dataSystem;
         $this->names = $names;
-
     }
 
     /**
@@ -49,7 +47,6 @@ class MigrationGenerate
      */
     public function generate()
     {
-
         $names = $this->names;
         $dataSystem = $this->dataSystem;
 
