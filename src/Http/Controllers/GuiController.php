@@ -60,7 +60,7 @@ class GuiController extends AppController
         $scaffoldInterface->package = config('amranidev.config.package');
         $scaffoldInterface->save();
 
-        Session::flash('status', ' Successfully created ' . $scaffold->names->TableName());
+        Session::flash('status', 'Deleted Successfully' . $scaffold->names->TableName());
 
         return redirect('scaffold');
     }
@@ -89,7 +89,7 @@ class GuiController extends AppController
 
         $scaffoldInterface->delete();
 
-        Session::flash('status', 'Successfully deleted');
+        Session::flash('status', 'Deleted Successfully');
 
         return URL::to('scaffold');
     }
@@ -172,7 +172,7 @@ class GuiController extends AppController
         } catch (\Exception $e) {
             return "Scaffold-Interface : " . $e->getMessage();
         }
-        Session::flash('status', 'Home Page Successfully deleted');
+        Session::flash('status', 'HomePage Deleted Successfully');
         return redirect('scaffold');
     }
 
