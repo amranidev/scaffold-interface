@@ -15,10 +15,10 @@
             <form class = 'col s3' method = 'get' action = '{{$names->standardApi()}}/create'>
                 <button class = 'btn red' type = 'submit'>Create New {{$names->TableName()}}</button>
             </form>
-            @if($dataSystem->relationAttr != null)
+            @if($dataSystem->getRelationAttributes() != null)
 
                 <ul id="dropdown" class="dropdown-content">
-            @foreach($dataSystem->relationAttr as $key => $value)
+            @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     <li><a href="{{URL::to('/')}}/{{lcfirst(str_singular($key))}}">{{ucfirst(str_singular($key))}}</a></li>
             @endforeach
@@ -34,9 +34,9 @@
                     <th>{{$value}}</th>
                     @endforeach
 
-                    @if($dataSystem->relationAttr != null)
+                    @if($dataSystem->getRelationAttributes() != null)
 
-                    @foreach($dataSystem->relationAttr as $key => $value)
+                    @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     @foreach($value as $key1 => $value1)
 
@@ -58,9 +58,9 @@
                         <td>{{$names->open()}}$value->{{$value}}{{$names->close()}}</td>
                         @endforeach
 
-                        @if($dataSystem->relationAttr != null)
+                        @if($dataSystem->getRelationAttributes() != null)
 
-                        @foreach($dataSystem->relationAttr as $key=>$value)
+                        @foreach($dataSystem->getRelationAttributes() as $key=>$value)
 
                         @foreach($value as $key1 => $value1)
 
