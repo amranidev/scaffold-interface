@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use {{config('amranidev.config.modelNameSpace')}}\{{$names->TableName()}};
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
-@foreach($dataSystem->foreignKeys as $key)
+@foreach($dataSystem->getForeignKeys() as $key)
 
 use {{config('amranidev.config.modelNameSpace')}}\{{ucfirst(str_singular($key))}};
 
@@ -37,17 +37,17 @@ class {{$names->TableName()}}Controller extends Controller
      */
     public function create()
     {
-        @foreach($dataSystem->foreignKeys as $key => $value)
+        @foreach($dataSystem->getForeignKeys() as $key => $value)
 
         ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->onData[$key]}}','id');
         @endforeach
 
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.create'
-        @if($dataSystem->foreignKeys != null)
+        @if($dataSystem->getForeignKeys() != null)
         ,compact(
-        @foreach($dataSystem->foreignKeys as $key => $value)
+        @foreach($dataSystem->getForeignKeys() as $key => $value)
         '{{str_plural($value)}}'
-        @if($value != last($dataSystem->foreignKeys)),
+        @if($value != last($dataSystem->getForeignKeys())),
         @endif
         @endforeach)
         @endif
@@ -72,7 +72,7 @@ class {{$names->TableName()}}Controller extends Controller
 
         @endforeach
 
-        @foreach($dataSystem->foreignKeys as $key)
+        @foreach($dataSystem->getForeignKeys() as $key)
 
         ${{$names->TableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
 
@@ -113,7 +113,7 @@ class {{$names->TableName()}}Controller extends Controller
             return URL::to('{{$names->TableNameSingle()}}/'. $id . '/edit');
         }
 
-        @foreach($dataSystem->foreignKeys as $key => $value)
+        @foreach($dataSystem->getForeignKeys() as $key => $value)
 
         ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->onData[$key]}}','id');
 
@@ -121,11 +121,11 @@ class {{$names->TableName()}}Controller extends Controller
 
         ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}'
-        @if($dataSystem->foreignKeys != null)
+        @if($dataSystem->getForeignKeys() != null)
         ,
-        @foreach($dataSystem->foreignKeys as $key => $value)
+        @foreach($dataSystem->getForeignKeys() as $key => $value)
         '{{str_plural($value)}}'
-        @if($value != last($dataSystem->foreignKeys)),
+        @if($value != last($dataSystem->getForeignKeys())),
         @endif
         @endforeach
         )
@@ -152,7 +152,7 @@ class {{$names->TableName()}}Controller extends Controller
         ${{$names->TableNameSingle()}}->{{$value}} = $input['{{$value}}'];
         @endforeach
 
-        @foreach($dataSystem->foreignKeys as $key)
+        @foreach($dataSystem->getForeignKeys() as $key)
 
         ${{$names->TableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
 
