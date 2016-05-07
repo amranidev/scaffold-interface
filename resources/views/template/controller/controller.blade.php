@@ -39,7 +39,7 @@ class {{$names->TableName()}}Controller extends Controller
     {
         @foreach($dataSystem->getForeignKeys() as $key => $value)
 
-        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->onData[$key]}}','id');
+        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->getOnData()[$key]}}','id');
         @endforeach
 
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.create'
@@ -115,7 +115,7 @@ class {{$names->TableName()}}Controller extends Controller
 
         @foreach($dataSystem->getForeignKeys() as $key => $value)
 
-        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->onData[$key]}}','id');
+        ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->getOnData()[$key]}}','id');
 
         @endforeach
 
