@@ -25,7 +25,7 @@
                 </div>
                 @endforeach
 
-                @foreach($dataSystem->foreignKeys as $key)
+                @foreach($dataSystem->getForeignKeys() as $key)
 
                 <div class="form-group">
                     <label>{{$key}} Select</label>
