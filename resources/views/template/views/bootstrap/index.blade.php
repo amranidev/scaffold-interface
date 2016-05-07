@@ -16,7 +16,7 @@
                 <button class = 'btn btn-primary' type = 'submit'>Create New {{$names->TableName()}}</button>
             </form>
             <br>
-            @if($dataSystem->relationAttr != null)
+            @if($dataSystem->getRelationAttributes() != null)
 
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -24,7 +24,7 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    @foreach($dataSystem->relationAttr as $key => $value)
+                    @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     <li><a href="{{URL::to('/')}}/{{lcfirst(str_singular($key))}}">{{ucfirst(str_singular($key))}}</a></li>
                     @endforeach
@@ -41,9 +41,9 @@
                     <th>{{$value}}</th>
                     @endforeach
 
-                    @if($dataSystem->relationAttr != null)
+                    @if($dataSystem->getRelationAttributes() != null)
 
-                    @foreach($dataSystem->relationAttr as $key => $value)
+                    @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     @foreach($value as $key1 => $value1)
 
@@ -64,9 +64,9 @@
                         <td>{{$names->open()}}$value->{{$value}}{{$names->close()}}</td>
                         @endforeach
 
-                        @if($dataSystem->relationAttr != null)
+                        @if($dataSystem->getRelationAttributes() != null)
 
-                        @foreach($dataSystem->relationAttr as $key=>$value)
+                        @foreach($dataSystem->getRelationAttributes() as $key=>$value)
 
                         @foreach($value as $key1 => $value1)
                         <td>{{$names->open()}}$value->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
