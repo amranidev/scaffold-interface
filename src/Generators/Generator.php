@@ -26,33 +26,38 @@ class Generator extends Filesystem
      *
      * @var dataSystem
      */
-    public $dataSystem;
+    private $dataSystem;
 
     /**
      * @var ViewGenerate
      */
-    public $view;
+    private $view;
 
     /**
      * @var ModelGenerate
      */
-    public $model;
+    private $model;
 
     /**
      * @var MigrationGenerate
      */
-    public $migration;
+    private $migration;
 
     /**
      * @var ControllerGenerate
      */
-    public $controller;
+    private $controller;
 
     /**
      * @var RouteGenerate
      */
-    public $route;
+    private $route;
 
+    /**
+     * @var Path
+     */ 
+    private $paths;
+    
     /**
      * Create new Generator instance
      *
