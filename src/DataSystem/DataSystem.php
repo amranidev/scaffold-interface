@@ -19,42 +19,28 @@ class DataSystem
      *
      * @var $data
      */
-    public $data;
+    private $data;
 
     /**
      * on data specification
      *
      * @var $onData
      */
-    public $onData;
-
-    /**
-     * Data For views
-     *
-     * @var $viewData
-     */
-    public $viewData;
-
-    /**
-     * Data for migration
-     *
-     * @var $migrationData
-     */
-    public $migrationData;
+    private $onData;
 
     /**
      * The forrignKeys and relations
      *
      * @var $foreignKeys
      */
-    public $foreignKeys;
+    private $foreignKeys;
 
     /**
      * Relation Columns
      *
      * @var $relationAttr
      */
-    public $relationAttr;
+    private $relationAttributes;
 
     /**
      * Create DataSystem instance
@@ -63,11 +49,14 @@ class DataSystem
      */
     public function __construct($data)
     {
+        // unset TableName
         unset($data['TableName']);
+        
+        // unset template
         unset($data['template']);
+        
         $this->data = $data;
-        $this->migrationData = $this->dataScaffold('migration');
-        $this->viewData = $this->dataScaffold('v');
+
         $this->Tables($this->data);
 
         $this->getAttr($this->data);
@@ -89,9 +78,8 @@ class DataSystem
                     unset($Schema[$SchemaKey]);
                 }
             }
-            $this->relationAttr[$value] = $Schema;
+            $this->relationAttributes[$value] = $Schema;
         }
-
     }
 
     /**
@@ -129,4 +117,19 @@ class DataSystem
         return $this->foreignKeys;
     }
 
+    /**
+     * get relation attributes
+     */ 
+    public function getRelationAttributes()
+    {
+        return $this->relationAttributes;
+    }
+
+    /**
+     * get onData
+     */ 
+    public function getOnData()
+    {
+        return $this->onData;
+    }
 }
