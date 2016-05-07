@@ -24,7 +24,7 @@
                     <label for="{{$value}}">{{$value}}</label>
                 </div>
                 @endforeach
-                @foreach($dataSystem->foreignKeys as $key)
+                @foreach($dataSystem->getForeignKeys() as $key)
 
                 <div class="input-field col s12">
                     <select name = '{{lcfirst(str_singular($key))}}_id'>
