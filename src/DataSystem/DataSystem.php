@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Schema;
  */
 class DataSystem
 {
-
     /**
      * Main interface reqeust
      *
@@ -121,4 +120,13 @@ class DataSystem
     {
         return dataScaffold($this->data, $spec);
     }
+
+    /**
+     * get foreignKeys
+     */ 
+    public function getForeignKeys()
+    {
+        return $this->foreignKeys;
+    }
+
 }
