@@ -34,8 +34,8 @@
                     @endforeach
 
 
-                        @if($dataSystem->relationAttr != null)
-                        @foreach($dataSystem->relationAttr as $key=>$value)
+                        @if($dataSystem->getRelationAttributes() != null)
+                        @foreach($dataSystem->getRelationAttributes() as $key=>$value)
 
                         @foreach($value as $key1 => $value1)
 
