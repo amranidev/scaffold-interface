@@ -81,7 +81,7 @@ class Generator extends Filesystem
      */
     public function index()
     {
-        $this->make($this->paths->IndexPath(), $this->view->GenerateIndex());
+        $this->make($this->paths->indexPath(), $this->view->generateIndex());
     }
 
     /**
@@ -89,7 +89,7 @@ class Generator extends Filesystem
      */
     public function create()
     {
-        $this->make($this->paths->CreatePath(), $this->view->GenerateCreate());
+        $this->make($this->paths->createPath(), $this->view->generateCreate());
     }
 
     /**
@@ -97,7 +97,7 @@ class Generator extends Filesystem
      */
     public function show()
     {
-        $this->make($this->paths->ShowPath(), $this->view->GenerateShow());
+        $this->make($this->paths->showPath(), $this->view->generateShow());
     }
 
     /**
@@ -105,7 +105,7 @@ class Generator extends Filesystem
      */
     public function edit()
     {
-        $this->make($this->paths->EditPath(), $this->view->GenerateEdit());
+        $this->make($this->paths->editPath(), $this->view->generateEdit());
     }
 
     /**
@@ -113,7 +113,7 @@ class Generator extends Filesystem
      */
     public function dir()
     {
-        $this->makeDir($this->paths->DirPath());
+        $this->makeDir($this->paths->dirPath());
     }
 
     /**
@@ -121,7 +121,7 @@ class Generator extends Filesystem
      */
     public function model()
     {
-        $this->make($this->paths->ModelPath(), $this->model->generate());
+        $this->make($this->paths->modelPath(), $this->model->generate());
     }
 
     /**
@@ -137,7 +137,7 @@ class Generator extends Filesystem
      */
     public function controller()
     {
-        $this->make($this->paths->ControllerPath(), $this->controller->generate());
+        $this->make($this->paths->controllerPath(), $this->controller->generate());
     }
 
     /**
@@ -145,6 +145,6 @@ class Generator extends Filesystem
      */
     public function route()
     {
-        $this->append($this->paths->RoutePath(), $this->route->generate());
+        $this->append($this->paths->routePath(), $this->route->generate());
     }
 }
