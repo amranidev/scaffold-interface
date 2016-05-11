@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Schema;
  * Class     DataSystem
  *
  * @package  scaffold-interface\DataSystem
+ * 
  * @author   Amrani Houssain <amranidev@gmail.com>
  *
  */
@@ -58,7 +59,7 @@ class DataSystem
 
         $this->tables($this->data);
 
-        $this->getAttr($this->data);
+        $this->getAttr();
     }
 
     /**
@@ -66,7 +67,7 @@ class DataSystem
      *
      * @param Array $data
      */
-    private function getAttr($data)
+    private function getAttr()
     {
 
         foreach ($this->foreignKeys as $key => $value) {
