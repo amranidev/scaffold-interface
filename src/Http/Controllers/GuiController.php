@@ -48,7 +48,7 @@ class GuiController extends AppController
 
         $scaffold = new Scaffold($data);
 
-        $scaffold->Migration()->Model()->Controller()->Views()->Route();
+        $scaffold->migration()->model()->controller()->views()->route();
         
         $scaffoldInterface = new Scaffoldinterface();
 
@@ -123,7 +123,7 @@ class GuiController extends AppController
      *
      * @return Array
      */
-    public function GetResult($table)
+    public function getResult($table)
     {
         $attributes = new Attribute($table);
 
@@ -209,8 +209,8 @@ class GuiController extends AppController
             if (!Scaffoldinterface::all()->count()) {
                 throw new \Exception("Nothing to rollback");
             }
-            $exitCode = Artisan::call('migrate:rollback');
-        } catch (Exception $e) {
+            Artisan::call('migrate:rollback');
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
 
