@@ -6,13 +6,13 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Create {{$names->TableName()}}</title>
+        <title>Create {{$names->tableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Create {{$names->TableName()}}</h1>
+            <h1>Create {{$names->tableName()}}</h1>
             <form method = 'get' action = '{{$names->standardApi()}}'>
-                <button class = 'btn btn-danger'>{{$names->TableName()}} Index</button>
+                <button class = 'btn btn-danger'>{{$names->tableName()}} Index</button>
             </form>
             <br>
             <form method = 'POST' action = '{{$names->standardApi()}}'>

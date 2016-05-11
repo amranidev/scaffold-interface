@@ -6,13 +6,13 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Edit {{$names->TableName()}}</title>
+        <title>Edit {{$names->tableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Edit {{$names->TableName()}}</h1>
+            <h1>Edit {{$names->tableName()}}</h1>
             <form method = 'get' action = '{{$names->standardApi()}}'>
-                <button class = 'btn btn-danger'>{{$names->TableName()}} Index</button>
+                <button class = 'btn btn-danger'>{{$names->tableName()}} Index</button>
             </form>
             <br>
             <form method = 'POST' action = '{{$names->standardApi()}}/{{$names->open()}}${{$names->TableNameSingle()}}->id{{$names->close()}}/update'>
@@ -21,7 +21,7 @@
 
                 <div class="form-group">
                     <label for="{{$value}}">{{$value}}</label>
-                    <input id="{{$value}}" name = "{{$value}}" type="text" class="form-control" value="{{$names->open()}}${{$names->TableNameSingle()}}->{{$value}}{{$names->close()}}">
+                    <input id="{{$value}}" name = "{{$value}}" type="text" class="form-control" value="{{$names->open()}}${{$names->tableNameSingle()}}->{{$value}}{{$names->close()}}">
                 </div>
                 @endforeach
 

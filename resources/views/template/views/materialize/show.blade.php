@@ -6,13 +6,13 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Show {{$names->TableName()}}</title>
+        <title>Show {{$names->tableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Show {{$names->TableName()}}</h1>
+            <h1>Show {{$names->tableName()}}</h1>
             <form method = 'get' action = '{{$names->standardApi()}}'>
-                <button class = 'btn blue'>{{$names->TableName()}} Index</button>
+                <button class = 'btn blue'>{{$names->tableName()}} Index</button>
             </form>
             <table class = 'highlight bordered'>
                 <thead>
@@ -27,7 +27,7 @@
                         <td>
                             <b><i>{{$value}} : </i></b>
                         </td>
-                        <td>{{$names->open()}}${{$names->TableNameSingle()}}->{{$value}}{{$names->close()}}</td>
+                        <td>{{$names->open()}}${{$names->tableNameSingle()}}->{{$value}}{{$names->close()}}</td>
                     </tr>
                     @endforeach
 
@@ -41,7 +41,7 @@
                         <td>
                             <b><i>{{$value1}} : </i><b>
                         </td>
-                        <td>{{$names->open()}}${{$names->TableNameSingle()}}->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
+                        <td>{{$names->open()}}${{$names->tableNameSingle()}}->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
                         </tr>
                         @endforeach
 

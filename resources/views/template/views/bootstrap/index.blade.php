@@ -7,13 +7,13 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Index {{$names->TableName()}}</title>
+        <title>Index {{$names->tableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>{{$names->TableName()}} Index</h1>
+            <h1>{{$names->tableName()}} Index</h1>
             <form class = 'col s3' method = 'get' action = '{{$names->standardApi()}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Create New {{$names->TableName()}}</button>
+                <button class = 'btn btn-primary' type = 'submit'>Create New {{$names->tableName()}}</button>
             </form>
             <br>
             @if($dataSystem->getRelationAttributes() != null)
@@ -78,9 +78,9 @@
                         @endif
 
                         <td>
-                                <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                                <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
-                                <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
+                                <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                                <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
+                                <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
                         </td>
                     </tr>
                     {{$names->endforeachh()}}

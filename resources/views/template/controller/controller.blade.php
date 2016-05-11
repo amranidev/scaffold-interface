@@ -2,7 +2,7 @@ namespace {{config('amranidev.config.controllerNameSpace')}};
 
 use Request;
 use App\Http\Controllers\Controller;
-use {{config('amranidev.config.modelNameSpace')}}\{{$names->TableName()}};
+use {{config('amranidev.config.modelNameSpace')}}\{{$names->tableName()}};
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 @foreach($dataSystem->getForeignKeys() as $key)
@@ -12,12 +12,12 @@ use {{config('amranidev.config.modelNameSpace')}}\{{ucfirst(str_singular($key))}
 @endforeach
 
 /**
- * Class {{$names->TableName()}}Controller
+ * Class {{$names->tableName()}}Controller
  *
  * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interfac
  */
-class {{$names->TableName()}}Controller extends Controller
+class {{$names->tableName()}}Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class {{$names->TableName()}}Controller extends Controller
      */
     public function index()
     {
-        ${{$names->TableNames()}} = {{$names->TableName()}}::all();
+        ${{$names->tableNames()}} = {{$names->tableName()}}::all();
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.index',compact('{{$names->TableNames()}}'));
     }
 
@@ -64,23 +64,23 @@ class {{$names->TableName()}}Controller extends Controller
     {
         $input = Request::except('_token');
 
-        ${{$names->TableNameSingle()}} = new {{$names->TableName()}}();
+        ${{$names->tableNameSingle()}} = new {{$names->tableName()}}();
 
         @foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$names->TableNameSingle()}}->{{$value}} = $input['{{$value}}'];
+        ${{$names->tableNameSingle()}}->{{$value}} = $input['{{$value}}'];
 
         @endforeach
 
         @foreach($dataSystem->getForeignKeys() as $key)
 
-        ${{$names->TableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
 
         @endforeach
 
-        ${{$names->TableNameSingle()}}->save();
+        ${{$names->tableNameSingle()}}->save();
 
-        return redirect('{{$names->TableNameSingle()}}');
+        return redirect('{{$names->tableNameSingle()}}');
     }
 
     /**
@@ -93,10 +93,10 @@ class {{$names->TableName()}}Controller extends Controller
     {
         if(Request::ajax())
         {
-            return URL::to('{{$names->TableNameSingle()}}/'.$id);
+            return URL::to('{{$names->tableNameSingle()}}/'.$id);
         }
 
-        ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
+        ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.show',compact('{{$names->TableNameSingle()}}'));
     }
 
@@ -110,7 +110,7 @@ class {{$names->TableName()}}Controller extends Controller
     {
         if(Request::ajax())
         {
-            return URL::to('{{$names->TableNameSingle()}}/'. $id . '/edit');
+            return URL::to('{{$names->tableNameSingle()}}/'. $id . '/edit');
         }
 
         @foreach($dataSystem->getForeignKeys() as $key => $value)
@@ -119,7 +119,7 @@ class {{$names->TableName()}}Controller extends Controller
 
         @endforeach
 
-        ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
+        ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}'
         @if($dataSystem->getForeignKeys() != null)
         ,
@@ -146,21 +146,21 @@ class {{$names->TableName()}}Controller extends Controller
     {
         $input = Request::except('_token');
 
-        ${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
+        ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
     	@foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$names->TableNameSingle()}}->{{$value}} = $input['{{$value}}'];
+        ${{$names->tableNameSingle()}}->{{$value}} = $input['{{$value}}'];
         @endforeach
 
         @foreach($dataSystem->getForeignKeys() as $key)
 
-        ${{$names->TableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
 
         @endforeach
 
-        ${{$names->TableNameSingle()}}->save();
+        ${{$names->tableNameSingle()}}->save();
 
-        return redirect('{{$names->TableNameSingle()}}');
+        return redirect('{{$names->tableNameSingle()}}');
     }
 
     /**
@@ -188,9 +188,9 @@ class {{$names->TableName()}}Controller extends Controller
      */
     public function destroy($id)
     {
-     	${{$names->TableNameSingle()}} = {{$names->TableName()}}::findOrfail($id);
-     	${{$names->TableNameSingle()}}->delete();
-        return URL::to('{{$names->TableNameSingle()}}');
+     	${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
+     	${{$names->tableNameSingle()}}->delete();
+        return URL::to('{{$names->tableNameSingle()}}');
     }
 
 }
