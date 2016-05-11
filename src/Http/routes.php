@@ -15,7 +15,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold/guidelete/{id}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@deleteMsg');
 
-    Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@GetResult');
+    Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@getResult');
 
     Route::get('scaffold/scaffoldHomePage', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePage');
 
