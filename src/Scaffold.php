@@ -65,7 +65,7 @@ class Scaffold
      * Scaffold Migration
      *
      */
-    public function Migration()
+    public function migration()
     {
         $this->generator->migration();
 
@@ -76,7 +76,7 @@ class Scaffold
      * Scaffold Model
      *
      */
-    public function Model()
+    public function model()
     {
         $this->generator->model();
 
@@ -87,7 +87,7 @@ class Scaffold
      * Scaffold Views
      *
      */
-    public function Views()
+    public function views()
     {
         $this->generator->dir();
         $this->generator->index();
@@ -102,7 +102,7 @@ class Scaffold
      * Scaffold Controller
      *
      */
-    public function Controller()
+    public function controller()
     {
         $this->generator->controller();
 
@@ -113,7 +113,7 @@ class Scaffold
      * Scaffold Route
      *
      */
-    public function Route()
+    public function route()
     {
         $this->generator->route();
 
