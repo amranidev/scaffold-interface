@@ -42,7 +42,7 @@ class ViewGenerate
      *
      * @return String
      */
-    public function GenerateIndex()
+    public function generateIndex()
     {
 
         $names = $this->names;
@@ -56,7 +56,7 @@ class ViewGenerate
      *
      * @return String
      */
-    public function GenerateCreate()
+    public function generateCreate()
     {
 
         $names = $this->names;
@@ -70,7 +70,7 @@ class ViewGenerate
      *
      * @return String
      */
-    public function GenerateShow()
+    public function generateShow()
     {
 
         $names = $this->names;
@@ -84,7 +84,7 @@ class ViewGenerate
      *
      * @return String
      */
-    public function GenerateEdit()
+    public function generateEdit()
     {
 
         $names = $this->names;
