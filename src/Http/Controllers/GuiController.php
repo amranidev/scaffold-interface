@@ -186,7 +186,7 @@ class GuiController extends AppController
         try {
             $exitCode = Artisan::call('migrate', ['--path'=> config('amranidev.config.database')]);
             exec('cd ' . base_path() . ' && composer dump-autoload');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
 
