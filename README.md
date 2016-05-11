@@ -1,4 +1,4 @@
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5134089a-8f55-42af-baf6-e9a57a76b1b4/big.png)](https://insight.sensiolabs.com/projects/5134089a-8f55-42af-baf6-e9a57a76b1b4)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801/big.png)](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801)
 
 [![Build Status](https://travis-ci.org/amranidev/scaffold-interface.svg?branch=master)](https://travis-ci.org/amranidev/scaffold-interface)
 [![Latest Stable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/stable)](https://packagist.org/packages/amranidev/scaffold-interface)
