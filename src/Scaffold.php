@@ -11,9 +11,9 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
  * Class     Scaffold
  *
  * @package  scaffold-interface
+ * 
  * @author   Amrani Houssain <amranidev@gmail.com>
  *
- * @todo     Testing
  */
 class Scaffold
 {
