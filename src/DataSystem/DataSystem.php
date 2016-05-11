@@ -69,7 +69,6 @@ class DataSystem
      */
     private function getAttr()
     {
-
         foreach ($this->foreignKeys as $key => $value) {
             $Schema = Schema::getColumnListing($value);
             unset($Schema[0]);
@@ -89,11 +88,31 @@ class DataSystem
      */
     private function tables($data)
     {
-        $tmp = getTables($data);
+        $onData = [];
+        $foreignKeys = [];
+        $tmp = '';
+        $i = 0;
+        $j = 0;
+        foreach ($data as $key => $value) {
+            if ($key == 'tbl' . $i) {
+                $tmp = $value;
+                if (in_array($value, $foreignKeys)) {
+                    throw new \Exception($value . " Relation Already selected");
+                }
+                array_push($foreignKeys, $value);
+                $i++;
+            } elseif ($key == 'on' . $j) {
+                if (!in_array($value, Schema::getColumnListing($tmp))) {
+                    throw new \Exception($value . " Does not exist in " . $tmp);
+                }
+                array_push($onData, $value);
+                $j++;
+            }
+        }
 
-        $this->onData = $tmp[0];
+        $this->onData = $onData;
 
-        $this->foreignKeys = $tmp[1];
+        $this->foreignKeys = $foreignKeys;
     }
 
     /**
@@ -101,16 +120,38 @@ class DataSystem
      *
      * @param String specification
      *
-     * @return Array $request
+     * @return Array $result
      */
     public function dataScaffold($spec)
     {
-        return dataScaffold($this->data, $spec);
+        if ($spec == 'migration') {
+            $i = 0;
+        } else {
+            $i = 1;
+        }
+        $result = [];
+        foreach ($this->data as $key => $value) {
+            if ($i == 1) {
+                $i = 0;
+            } elseif ($i == 0) {
+                if ($key == 'tbl0' || $key == 'on0') {
+                    break;
+                } else {
+                    if (str_contains($value, " ")) {
+                        $value = str_slug($value, '_');
+                    }
+                    array_push($result, $value);
+                    $i = 1;
+                }
+            }
+        }
+
+        return $result;
     }
 
     /**
      * get foreignKeys
-     */ 
+     */
     public function getForeignKeys()
     {
         return $this->foreignKeys;
@@ -118,7 +159,7 @@ class DataSystem
 
     /**
      * get relation attributes
-     */ 
+     */
     public function getRelationAttributes()
     {
         return $this->relationAttributes;
@@ -126,7 +167,7 @@ class DataSystem
 
     /**
      * get onData
-     */ 
+     */
     public function getOnData()
     {
         return $this->onData;
