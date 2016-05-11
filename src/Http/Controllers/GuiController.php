@@ -18,9 +18,9 @@ use URL;
  * Class GuiController
  *
  * @package scaffold-interface/Http/Controllers
+ *
  * @author  Amrani Houssain <amranidev@gmail.com>
  *
- * @todo Testing
  */
 class GuiController extends AppController
 {
@@ -53,14 +53,14 @@ class GuiController extends AppController
         $scaffoldInterface = new Scaffoldinterface();
 
         $scaffoldInterface->migration = $scaffold->paths->migrationPath;
-        $scaffoldInterface->model = $scaffold->paths->ModelPath();
-        $scaffoldInterface->controller = $scaffold->paths->ControllerPath();
-        $scaffoldInterface->views = $scaffold->paths->DirPath();
-        $scaffoldInterface->tablename = $scaffold->names->TableNames();
+        $scaffoldInterface->model = $scaffold->paths->modelPath();
+        $scaffoldInterface->controller = $scaffold->paths->controllerPath();
+        $scaffoldInterface->views = $scaffold->paths->dirPath();
+        $scaffoldInterface->tablename = $scaffold->names->tableNames();
         $scaffoldInterface->package = config('amranidev.config.package');
         $scaffoldInterface->save();
 
-        Session::flash('status', 'Deleted Successfully' . $scaffold->names->TableName());
+        Session::flash('status', 'Deleted Successfully' . $scaffold->names->tableName());
 
         return redirect('scaffold');
     }
@@ -143,7 +143,7 @@ class GuiController extends AppController
 
         $home = new HomePageGenerator($scaffoldList);
 
-        $home->Burn();
+        $home->burn();
 
         Session::flash('status', 'Home Page Generated Successfully');
 
@@ -184,8 +184,11 @@ class GuiController extends AppController
     public function migrate()
     {
         try {
-            $exitCode = Artisan::call('migrate', ['--path'=> config('amranidev.config.database')]);
+            
+            Artisan::call('migrate', ['--path'=> config('amranidev.config.database')]);
+            
             exec('cd ' . base_path() . ' && composer dump-autoload');
+        
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -209,7 +212,9 @@ class GuiController extends AppController
             if (!Scaffoldinterface::all()->count()) {
                 throw new \Exception("Nothing to rollback");
             }
+
             Artisan::call('migrate:rollback');
+        
         } catch (\Exception $e) {
             return $e->getMessage();
         }
