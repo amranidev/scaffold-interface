@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Schema;
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  *
- * @todo Test
  */
 class Attribute
 {
