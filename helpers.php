@@ -65,7 +65,7 @@ if (!function_exists('dataScaffold')) {
             if ($i == 1) {
                 $i = 0;
             } elseif ($i == 0) {
-                if ($key == 'tbl0' or $key == 'on0') {break;} else {
+                if ($key == 'tbl0' || $key == 'on0') {break;} else {
                     if (str_contains($value, " ")) {
                         $value = str_slug($value, '_');
                     }
