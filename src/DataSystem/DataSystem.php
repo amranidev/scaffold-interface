@@ -86,7 +86,6 @@ class DataSystem
      * Analyse data and get ondata specification
      *
      * @param Array $data
-     * @todo  optimisation
      */
     private function tables($data)
     {
