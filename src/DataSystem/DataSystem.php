@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Schema;
  * @package  scaffold-interface\DataSystem
  * @author   Amrani Houssain <amranidev@gmail.com>
  *
- * @todo     Testing
  */
 class DataSystem
 {
@@ -57,7 +56,7 @@ class DataSystem
         
         $this->data = $data;
 
-        $this->Tables($this->data);
+        $this->tables($this->data);
 
         $this->getAttr($this->data);
     }
@@ -88,7 +87,7 @@ class DataSystem
      * @param Array $data
      * @todo  optimisation
      */
-    private function Tables($data)
+    private function tables($data)
     {
         $tmp = getTables($data);
 
