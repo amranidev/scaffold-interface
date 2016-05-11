@@ -34,7 +34,7 @@ class NamesGenerate
      *
      * @return String
      */
-    public function TableNames()
+    public function tableNames()
     {
         return str_plural(str_slug($this->data['TableName'], '_'));
     }
@@ -43,9 +43,9 @@ class NamesGenerate
      * Table name parser for migration
      *
      */
-    public function TableNameMigration()
+    public function tableNameMigration()
     {
-        return ucfirst($this->TableNames());
+        return ucfirst($this->tableNames());
     }
 
     /**
@@ -53,7 +53,7 @@ class NamesGenerate
      *
      * @return String
      */
-    public function TableName()
+    public function tableName()
     {
         return ucfirst(str_singular(str_slug($this->data['TableName'], '_')));
     }
@@ -63,9 +63,9 @@ class NamesGenerate
      *
      * @return String
      */
-    public function TableNameSingle()
+    public function tableNameSingle()
     {
-        return lcfirst($this->TableName());
+        return lcfirst($this->tableName());
     }
 
     /**
@@ -95,7 +95,7 @@ class NamesGenerate
      */
     public function foreachh()
     {
-        return "@foreach(\$" . $this->TableNames() . " as \$value)";
+        return "@foreach(\$" . $this->tableNames() . " as \$value)";
     }
 
     /**
@@ -125,7 +125,7 @@ class NamesGenerate
      */
     public function standardapi()
     {
-        return URL::to($this->TableNameSingle());
+        return URL::to($this->tableNameSingle());
     }
 
     /**
