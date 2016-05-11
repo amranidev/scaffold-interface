@@ -22,13 +22,6 @@ class Generator extends Filesystem
 {
 
     /**
-     * the DataSystem instance
-     *
-     * @var dataSystem
-     */
-    private $dataSystem;
-
-    /**
      * @var ViewGenerate
      */
     private $view;
@@ -67,7 +60,6 @@ class Generator extends Filesystem
      */
     public function __construct(DataSystem $dataSystem, NamesGenerate $names, Path $paths)
     {
-        $this->dataSystem = $dataSystem;
         $this->view = new ViewGenerate($dataSystem, $names);
         $this->model = new ModelGenerate($names, $dataSystem);
         $this->migration = new MigrationGenerate($dataSystem, $names);
