@@ -17,7 +17,7 @@ class NamesGenerate
      *
      * @var data
      */
-    public $data;
+    private $data;
 
     /**
      * Create new Names instance
