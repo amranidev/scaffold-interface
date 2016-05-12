@@ -6,20 +6,34 @@ use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 
 class HomePageGenerator extends Filesystem
 {
-    private $Parse;
+    /**
+     * Parser
+     * 
+     * @var $parse
+     */ 
+    private $parse;
 
-    public function __construct($Parse)
+    /**
+     * Create new HomePageGenerator instance
+     *
+     * @param String $parse
+     */ 
+    public function __construct($parse)
     {
-        $this->Parse = $Parse;
+        $this->parse = $parse;
     }
 
+    /**
+     * Generate HomePage
+     */ 
     private function generate()
     {
-        $Parse = $this->Parse;
-
-        return view('scaffold-interface::template.HomePage.HomePage', compact('Parse'))->render();
+        return view('scaffold-interface::template.HomePage.HomePage', ['Parse' => $this->parse])->render();
     }
 
+    /**
+     * Save HomePage
+     */ 
     public function burn()
     {
         $this->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $this->generate());
