@@ -13,12 +13,17 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
  */
 class ModelGenerate
 {
-    public $dataSystem;
+    /**
+     * DataSystem
+     * 
+     * @var $dataSystem
+     */ 
+    private $dataSystem;
 
     /**
      * @var NamesGenerate
      */
-    public $names;
+    private $names;
 
     /**
      * Create new ModelGenerate instance
@@ -38,8 +43,6 @@ class ModelGenerate
      */
     public function generate()
     {
-        $names = $this->names;
-        $foreignKeys = $this->dataSystem->getForeignKeys();
-        return "<?php\n" . view('scaffold-interface::template.model.model', compact('names', 'foreignKeys'))->render();
+        return "<?php\n\n" . view('scaffold-interface::template.model.model', ['names' => $this->names, 'foreignKeys' => $this->dataSystem->getForeignKeys()])->render();
     }
 }
