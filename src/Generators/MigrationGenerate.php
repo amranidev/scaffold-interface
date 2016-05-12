@@ -19,14 +19,14 @@ class MigrationGenerate
      *
      * @var $dataSystem
      */
-    public $dataSystem;
+    private $dataSystem;
 
     /**
      * NamesGenerate instance
      *
      * @var NamesGenerate
      */
-    public $names;
+    private $names;
 
     /**
      * Create New MigrationGenerate instance
@@ -47,10 +47,7 @@ class MigrationGenerate
      */
     public function generate()
     {
-        $names = $this->names;
-        $dataSystem = $this->dataSystem;
-
-        return "<?php\n" . view('scaffold-interface::template.migration.migration', compact('dataSystem', 'names'))->render();
+        return "<?php\n\n" . view('scaffold-interface::template.migration.migration', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
 }
