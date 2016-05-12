@@ -15,7 +15,7 @@ class RouteGenerate
     /**
      * @var NamesGenerate
      */
-    public $names;
+    private $names;
 
     /**
      * Create new RouteGenerate instance
@@ -34,11 +34,7 @@ class RouteGenerate
      */
     public function generate()
     {
-
-        $names = $this->names;
-
-        return "\n" . view('scaffold-interface::template.routes', compact('names'))->render();
-
+        return "\n" . view('scaffold-interface::template.routes', ['names' => $this->names])->render();
     }
 
 }
