@@ -19,12 +19,12 @@ class ControllerGenerate
      *
      * @var dataSystem
      */
-    public $dataSystem;
+    private $dataSystem;
 
     /**
      * @var NamesGenerate
      */
-    public $names;
+    private $names;
 
     /**
      * Create new ControllerGenerate instance
@@ -45,12 +45,7 @@ class ControllerGenerate
      */
     public function generate()
     {
-
-        $names = $this->names;
-        $dataSystem = $this->dataSystem;
-
-        return "<?php\n" . view('scaffold-interface::template.controller.controller', compact('names', 'dataSystem'))->render();
-
+        return "<?php\n\n" . view('scaffold-interface::template.controller.controller', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
 }
