@@ -18,12 +18,12 @@ class ViewGenerate
      *
      * @var $dataSystem
      */
-    public $dataSystem;
+    private $dataSystem;
 
     /**
      * @var NamesGenerate
      */
-    public $names;
+    private $names;
 
     /**
      * Create new ViewGenerate instance
@@ -44,11 +44,7 @@ class ViewGenerate
      */
     public function generateIndex()
     {
-
-        $names = $this->names;
-        $dataSystem = $this->dataSystem;
-
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.index', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.index', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
@@ -58,11 +54,7 @@ class ViewGenerate
      */
     public function generateCreate()
     {
-
-        $names = $this->names;
-        $dataSystem = $this->dataSystem;
-
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.create', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.create', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
@@ -72,11 +64,7 @@ class ViewGenerate
      */
     public function generateShow()
     {
-
-        $names = $this->names;
-        $dataSystem = $this->dataSystem;
-
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.show', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.show', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
@@ -86,10 +74,6 @@ class ViewGenerate
      */
     public function generateEdit()
     {
-
-        $names = $this->names;
-        $dataSystem = $this->dataSystem;
-
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.edit', compact('names', 'dataSystem'))->render();
+        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.edit', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 }
