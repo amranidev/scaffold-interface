@@ -6,19 +6,19 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Index {{$names->TableName()}}</title>
+        <title>Index {{$names->tableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>{{$names->TableName()}} Index</h1>
+            <h1>{{$names->tableName()}} Index</h1>
             <div class="row">
             <form class = 'col s3' method = 'get' action = '{{$names->standardApi()}}/create'>
-                <button class = 'btn red' type = 'submit'>Create New {{$names->TableName()}}</button>
+                <button class = 'btn red' type = 'submit'>Create New {{$names->tableName()}}</button>
             </form>
-            @if($dataSystem->relationAttr != null)
+            @if($dataSystem->getRelationAttributes() != null)
 
                 <ul id="dropdown" class="dropdown-content">
-            @foreach($dataSystem->relationAttr as $key => $value)
+            @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     <li><a href="{{URL::to('/')}}/{{lcfirst(str_singular($key))}}">{{ucfirst(str_singular($key))}}</a></li>
             @endforeach
@@ -34,9 +34,9 @@
                     <th>{{$value}}</th>
                     @endforeach
 
-                    @if($dataSystem->relationAttr != null)
+                    @if($dataSystem->getRelationAttributes() != null)
 
-                    @foreach($dataSystem->relationAttr as $key => $value)
+                    @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     @foreach($value as $key1 => $value1)
 
@@ -58,9 +58,9 @@
                         <td>{{$names->open()}}$value->{{$value}}{{$names->close()}}</td>
                         @endforeach
 
-                        @if($dataSystem->relationAttr != null)
+                        @if($dataSystem->getRelationAttributes() != null)
 
-                        @foreach($dataSystem->relationAttr as $key=>$value)
+                        @foreach($dataSystem->getRelationAttributes() as $key=>$value)
 
                         @foreach($value as $key1 => $value1)
 
@@ -73,9 +73,9 @@
 
                         <td>
                             <div class = 'row'>
-                                <a href = '#modal1' class = 'delete btn-floating modal-trigger red' data-link = "/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                                <a href = '#' class = 'viewEdit btn-floating blue' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
-                                <a href = '#' class = 'viewShow btn-floating orange' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
+                                <a href = '#modal1' class = 'delete btn-floating modal-trigger red' data-link = "/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                                <a href = '#' class = 'viewEdit btn-floating blue' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
+                                <a href = '#' class = 'viewShow btn-floating orange' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
                             </div>
                         </td>
                     </tr>

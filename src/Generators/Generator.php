@@ -22,37 +22,35 @@ class Generator extends Filesystem
 {
 
     /**
-     * the DataSystem instance
-     *
-     * @var dataSystem
-     */
-    public $dataSystem;
-
-    /**
      * @var ViewGenerate
      */
-    public $view;
+    private $view;
 
     /**
      * @var ModelGenerate
      */
-    public $model;
+    private $model;
 
     /**
      * @var MigrationGenerate
      */
-    public $migration;
+    private $migration;
 
     /**
      * @var ControllerGenerate
      */
-    public $controller;
+    private $controller;
 
     /**
      * @var RouteGenerate
      */
-    public $route;
+    private $route;
 
+    /**
+     * @var Path
+     */ 
+    private $paths;
+    
     /**
      * Create new Generator instance
      *
@@ -62,7 +60,6 @@ class Generator extends Filesystem
      */
     public function __construct(DataSystem $dataSystem, NamesGenerate $names, Path $paths)
     {
-        $this->dataSystem = $dataSystem;
         $this->view = new ViewGenerate($dataSystem, $names);
         $this->model = new ModelGenerate($names, $dataSystem);
         $this->migration = new MigrationGenerate($dataSystem, $names);
@@ -76,7 +73,7 @@ class Generator extends Filesystem
      */
     public function index()
     {
-        $this->make($this->paths->IndexPath(), $this->view->GenerateIndex());
+        $this->make($this->paths->indexPath(), $this->view->generateIndex());
     }
 
     /**
@@ -84,7 +81,7 @@ class Generator extends Filesystem
      */
     public function create()
     {
-        $this->make($this->paths->CreatePath(), $this->view->GenerateCreate());
+        $this->make($this->paths->createPath(), $this->view->generateCreate());
     }
 
     /**
@@ -92,7 +89,7 @@ class Generator extends Filesystem
      */
     public function show()
     {
-        $this->make($this->paths->ShowPath(), $this->view->GenerateShow());
+        $this->make($this->paths->showPath(), $this->view->generateShow());
     }
 
     /**
@@ -100,7 +97,7 @@ class Generator extends Filesystem
      */
     public function edit()
     {
-        $this->make($this->paths->EditPath(), $this->view->GenerateEdit());
+        $this->make($this->paths->editPath(), $this->view->generateEdit());
     }
 
     /**
@@ -108,7 +105,7 @@ class Generator extends Filesystem
      */
     public function dir()
     {
-        $this->makeDir($this->paths->DirPath());
+        $this->makeDir($this->paths->dirPath());
     }
 
     /**
@@ -116,7 +113,7 @@ class Generator extends Filesystem
      */
     public function model()
     {
-        $this->make($this->paths->ModelPath(), $this->model->generate());
+        $this->make($this->paths->modelPath(), $this->model->generate());
     }
 
     /**
@@ -132,7 +129,7 @@ class Generator extends Filesystem
      */
     public function controller()
     {
-        $this->make($this->paths->ControllerPath(), $this->controller->generate());
+        $this->make($this->paths->controllerPath(), $this->controller->generate());
     }
 
     /**
@@ -140,6 +137,6 @@ class Generator extends Filesystem
      */
     public function route()
     {
-        $this->append($this->paths->RoutePath(), $this->route->generate());
+        $this->append($this->paths->routePath(), $this->route->generate());
     }
 }

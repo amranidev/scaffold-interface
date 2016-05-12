@@ -2,12 +2,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class {{ucfirst($names->TableNames())}}
+ * Class {{ucfirst($names->tableNames())}}
  *
  * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interfac
  */
-class {{studly_case(ucfirst($names->TableNames()))}} extends Migration
+class {{studly_case(ucfirst($names->tableNames()))}} extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class {{studly_case(ucfirst($names->TableNames()))}} extends Migration
      */
     public function up()
     {
-        Schema::create('{{$names->TableNames()}}',function (Blueprint $table){
+        Schema::create('{{$names->tableNames()}}',function (Blueprint $table){
 
         $table->increments('id');<?php $i = 0;?>
 
@@ -29,7 +29,7 @@ class {{studly_case(ucfirst($names->TableNames()))}} extends Migration
         /**
          * Foreignkeys section
          */
-        @foreach($dataSystem->foreignKeys as $key)
+        @foreach($dataSystem->getForeignKeys() as $key)
 
         $table->integer('{{lcfirst(str_singular($key))}}_id')->unsigned();
         $table->foreign('{{lcfirst(str_singular($key))}}_id')->references('id')->on('{{$key}}')->onDelete('cascade');
@@ -48,6 +48,6 @@ class {{studly_case(ucfirst($names->TableNames()))}} extends Migration
      */
     public function down()
     {
-        Schema::drop('{{$names->TableNames()}}');
+        Schema::drop('{{$names->tableNames()}}');
      }
 }

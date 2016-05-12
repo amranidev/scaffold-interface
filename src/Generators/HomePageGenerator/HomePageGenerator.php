@@ -13,16 +13,16 @@ class HomePageGenerator extends Filesystem
         $this->Parse = $Parse;
     }
 
-    private function Generate()
+    private function generate()
     {
         $Parse = $this->Parse;
 
         return view('scaffold-interface::template.HomePage.HomePage', compact('Parse'))->render();
     }
 
-    public function Burn()
+    public function burn()
     {
-        $this->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $this->Generate());
+        $this->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $this->generate());
     }
 
 }

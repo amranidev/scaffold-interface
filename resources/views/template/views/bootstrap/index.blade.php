@@ -7,16 +7,16 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Index {{$names->TableName()}}</title>
+        <title>Index {{$names->tableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>{{$names->TableName()}} Index</h1>
+            <h1>{{$names->tableName()}} Index</h1>
             <form class = 'col s3' method = 'get' action = '{{$names->standardApi()}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Create New {{$names->TableName()}}</button>
+                <button class = 'btn btn-primary' type = 'submit'>Create New {{$names->tableName()}}</button>
             </form>
             <br>
-            @if($dataSystem->relationAttr != null)
+            @if($dataSystem->getRelationAttributes() != null)
 
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -24,7 +24,7 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    @foreach($dataSystem->relationAttr as $key => $value)
+                    @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     <li><a href="{{URL::to('/')}}/{{lcfirst(str_singular($key))}}">{{ucfirst(str_singular($key))}}</a></li>
                     @endforeach
@@ -41,9 +41,9 @@
                     <th>{{$value}}</th>
                     @endforeach
 
-                    @if($dataSystem->relationAttr != null)
+                    @if($dataSystem->getRelationAttributes() != null)
 
-                    @foreach($dataSystem->relationAttr as $key => $value)
+                    @foreach($dataSystem->getRelationAttributes() as $key => $value)
 
                     @foreach($value as $key1 => $value1)
 
@@ -64,9 +64,9 @@
                         <td>{{$names->open()}}$value->{{$value}}{{$names->close()}}</td>
                         @endforeach
 
-                        @if($dataSystem->relationAttr != null)
+                        @if($dataSystem->getRelationAttributes() != null)
 
-                        @foreach($dataSystem->relationAttr as $key=>$value)
+                        @foreach($dataSystem->getRelationAttributes() as $key=>$value)
 
                         @foreach($value as $key1 => $value1)
                         <td>{{$names->open()}}$value->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
@@ -78,9 +78,9 @@
                         @endif
 
                         <td>
-                                <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                                <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
-                                <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/{{$names->TableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
+                                <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                                <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
+                                <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}$value->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
                         </td>
                     </tr>
                     {{$names->endforeachh()}}

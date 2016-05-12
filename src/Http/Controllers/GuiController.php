@@ -18,9 +18,9 @@ use URL;
  * Class GuiController
  *
  * @package scaffold-interface/Http/Controllers
+ *
  * @author  Amrani Houssain <amranidev@gmail.com>
  *
- * @todo Testing
  */
 class GuiController extends AppController
 {
@@ -48,19 +48,19 @@ class GuiController extends AppController
 
         $scaffold = new Scaffold($data);
 
-        $scaffold->Migration()->Model()->Controller()->Views()->Route();
+        $scaffold->migration()->model()->controller()->views()->route();
         
         $scaffoldInterface = new Scaffoldinterface();
 
         $scaffoldInterface->migration = $scaffold->paths->migrationPath;
-        $scaffoldInterface->model = $scaffold->paths->ModelPath();
-        $scaffoldInterface->controller = $scaffold->paths->ControllerPath();
-        $scaffoldInterface->views = $scaffold->paths->DirPath();
-        $scaffoldInterface->tablename = $scaffold->names->TableNames();
+        $scaffoldInterface->model = $scaffold->paths->modelPath();
+        $scaffoldInterface->controller = $scaffold->paths->controllerPath();
+        $scaffoldInterface->views = $scaffold->paths->dirPath();
+        $scaffoldInterface->tablename = $scaffold->names->tableNames();
         $scaffoldInterface->package = config('amranidev.config.package');
         $scaffoldInterface->save();
 
-        Session::flash('status', ' Successfully created ' . $scaffold->names->TableName());
+        Session::flash('status', 'Deleted Successfully' . $scaffold->names->tableName());
 
         return redirect('scaffold');
     }
@@ -85,11 +85,11 @@ class GuiController extends AppController
         rmdir($scaffoldInterface->views);
 
         //Clear Routes Resources
-        clearRoutes(lcfirst(str_singular($scaffoldInterface->tablename)));
+        $this->clearRoutes(lcfirst(str_singular($scaffoldInterface->tablename)));
 
         $scaffoldInterface->delete();
 
-        Session::flash('status', 'Successfully deleted');
+        Session::flash('status', 'Deleted Successfully');
 
         return URL::to('scaffold');
     }
@@ -123,7 +123,7 @@ class GuiController extends AppController
      *
      * @return Array
      */
-    public function GetResult($table)
+    public function getResult($table)
     {
         $attributes = new Attribute($table);
 
@@ -143,7 +143,7 @@ class GuiController extends AppController
 
         $home = new HomePageGenerator($scaffoldList);
 
-        $home->Burn();
+        $home->burn();
 
         Session::flash('status', 'Home Page Generated Successfully');
 
@@ -172,7 +172,7 @@ class GuiController extends AppController
         } catch (\Exception $e) {
             return "Scaffold-Interface : " . $e->getMessage();
         }
-        Session::flash('status', 'Home Page Successfully deleted');
+        Session::flash('status', 'HomePage Deleted Successfully');
         return redirect('scaffold');
     }
 
@@ -184,9 +184,10 @@ class GuiController extends AppController
     public function migrate()
     {
         try {
-            $exitCode = Artisan::call('migrate', ['--path'=> config('amranidev.config.database')]);
+            Artisan::call('migrate', ['--path'=> config('amranidev.config.database')]);
+            
             exec('cd ' . base_path() . ' && composer dump-autoload');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
 
@@ -209,8 +210,9 @@ class GuiController extends AppController
             if (!Scaffoldinterface::all()->count()) {
                 throw new \Exception("Nothing to rollback");
             }
-            $exitCode = Artisan::call('migrate:rollback');
-        } catch (Exception $e) {
+
+            Artisan::call('migrate:rollback');
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
 
@@ -219,5 +221,29 @@ class GuiController extends AppController
         Session::flash('status', $Msg);
 
         return redirect('scaffold');
+    }
+
+        /**
+     * Clear routes
+     * 
+     * @param String $remove
+     * 
+     * @return mixed
+     */
+    private function clearRoutes($remove)
+    {
+        $path = app_path() . '/Http/routes.php';
+
+        $lines = file($path, FILE_IGNORE_NEW_LINES);
+
+        foreach ($lines as $key => $line) {
+            if (strstr($line, $remove)) {
+                unset($lines[$key]);
+            }
+        }
+
+        $data = implode("\n", array_values($lines));
+
+        return file_put_contents($path, $data);
     }
 }

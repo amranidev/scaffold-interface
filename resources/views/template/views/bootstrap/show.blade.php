@@ -6,14 +6,14 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Show {{$names->TableName()}}</title>
+        <title>Show {{$names->tableName()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Show {{$names->TableName()}}</h1>
+            <h1>Show {{$names->tableName()}}</h1>
             <br>
             <form method = 'get' action = '{{$names->standardApi()}}'>
-                <button class = 'btn btn-primary'>{{$names->TableName()}} Index</button>
+                <button class = 'btn btn-primary'>{{$names->tableName()}} Index</button>
             </form>
             <br>
             <table class = 'table table-bordered'>
@@ -29,13 +29,13 @@
                         <td>
                             <b><i>{{$value}} : </i></b>
                         </td>
-                        <td>{{$names->open()}}${{$names->TableNameSingle()}}->{{$value}}{{$names->close()}}</td>
+                        <td>{{$names->open()}}${{$names->tableNameSingle()}}->{{$value}}{{$names->close()}}</td>
                     </tr>
                     @endforeach
 
 
-                        @if($dataSystem->relationAttr != null)
-                        @foreach($dataSystem->relationAttr as $key=>$value)
+                        @if($dataSystem->getRelationAttributes() != null)
+                        @foreach($dataSystem->getRelationAttributes() as $key=>$value)
 
                         @foreach($value as $key1 => $value1)
 
@@ -43,7 +43,7 @@
                         <td>
                             <b><i>{{$value1}} : </i><b>
                         </td>
-                        <td>{{$names->open()}}${{$names->TableNameSingle()}}->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
+                        <td>{{$names->open()}}${{$names->tableNameSingle()}}->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
                         </tr>
                         @endforeach
 

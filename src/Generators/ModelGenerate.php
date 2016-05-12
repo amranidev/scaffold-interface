@@ -39,7 +39,7 @@ class ModelGenerate
     public function generate()
     {
         $names = $this->names;
-        $foreignKeys = $this->dataSystem->foreignKeys;
+        $foreignKeys = $this->dataSystem->getForeignKeys();
         return "<?php\n" . view('scaffold-interface::template.model.model', compact('names', 'foreignKeys'))->render();
     }
 }

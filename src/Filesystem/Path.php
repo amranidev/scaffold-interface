@@ -39,7 +39,7 @@ class Path
      *
      * @return String
      */
-    public function ModelPath()
+    public function modelPath()
     {
         return config('amranidev.config.model') .'/'. $this->names->TableName() . '.php';
     }
@@ -49,7 +49,7 @@ class Path
      *
      * @return String
      */
-    private function MigrationPath()
+    private function migrationPath()
     {
         $FileName = date('Y') . '_' . date('m') . '_' . date('d') . '_' . date('his') . '_' . $this->names->TableNames() . ".php";
         return config('amranidev.config.migration') .'/'. $FileName;
@@ -60,7 +60,7 @@ class Path
      *
      * @return String
      */
-    public function ControllerPath()
+    public function controllerPath()
     {
         $FileName = $this->names->TableName() . "Controller.php";
         
@@ -72,7 +72,7 @@ class Path
      *
      * @return String
      */
-    public function IndexPath()
+    public function indexPath()
     {
         return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'index.blade.php';
     }
@@ -82,7 +82,7 @@ class Path
      *
      * @return String
      */
-    public function CreatePath()
+    public function createPath()
     {
         return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'create.blade.php';
     }
@@ -92,7 +92,7 @@ class Path
      *
      * @return String
      */
-    public function ShowPath()
+    public function showPath()
     {
         return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'show.blade.php';
     }
@@ -102,7 +102,7 @@ class Path
      *
      * @return String
      */
-    public function EditPath()
+    public function editPath()
     {
         return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'edit.blade.php';
     }
@@ -112,7 +112,7 @@ class Path
      *
      * @return String
      */
-    public function RoutePath()
+    public function routePath()
     {
         return config('amranidev.config.routes');
     }
@@ -122,7 +122,7 @@ class Path
      *
      * @return String
      */
-    public function DirPath()
+    public function dirPath()
     {
         return config('amranidev.config.views') .'/'. $this->names->TableNameSingle();
     }
