@@ -60,7 +60,7 @@ class GuiController extends AppController
         $scaffoldInterface->package = config('amranidev.config.package');
         $scaffoldInterface->save();
 
-        Session::flash('status', 'Deleted Successfully' . $scaffold->names->tableName());
+        Session::flash('status', 'Created Successfully' . $scaffold->names->tableName());
 
         return redirect('scaffold');
     }
