@@ -43,7 +43,7 @@
     ```json
     require : {
         "laravel/framework": "5.1.*",
-        "Amranidev/scaffold-interface": "v1.3.*"
+        "Amranidev/scaffold-interface": "v1.4.*"
     }
     ```
     
