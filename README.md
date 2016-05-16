@@ -27,7 +27,7 @@
 
 + Craft your laravel application faster and easier.
 
-+ Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager).
++ Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager), [CRUD for packages/modules](http://amranidev.github.io/blog/site/crud-generator-for-packages/).
 
 ###I. Package installation
 
