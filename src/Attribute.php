@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * class Attribute
+ * class Attribute.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  *
@@ -14,21 +14,21 @@ class Attribute
 {
 
     /**
-     * table name
+     * table name.
      *
      * @var $table String
      */
     private $table;
 
     /**
-     * Result
+     * Result.
      *
      * @var $Result[]
      */
     private $result = [];
 
     /**
-     * create new Attrebutes
+     * create new attribute instance.
      *
      * @param $table
      */
@@ -38,7 +38,7 @@ class Attribute
     }
 
     /**
-     * Get attributes from table
+     * Get attributes from an existing table.
      *
      * @return mixed
      */
