@@ -6,7 +6,7 @@ use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class ScaffoldInterfaceServiceProvider
+ * Class ScaffoldInterfaceServiceProvider.
  *
  * @package scaffold-interface
  * @author Amrani Houssain <amranidev@gmail.com>
@@ -29,13 +29,13 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        // Get namespace
+        // Get namespace.
         $nameSpace = $this->app->getNamespace();
 
-        // Set namespace alias for AppController
+        // Set namespace alias for AppController.
         AliasLoader::getInstance()->alias('AppController', $nameSpace . 'Http\Controllers\Controller');
 
-        // Routes
+        // Routes.
         $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers'], function () {
             require __DIR__ . '/Http/routes.php';
         });
@@ -44,18 +44,18 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../public' => public_path(),
         ], 'public');
 
-        // Load Views
+        // Load Views.
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffold-interface');
 
-        // Migrations
+        // Migrations.
         $this->publishes([
             __DIR__ . '/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
 
-        //config path
+        //config path.
         $configPath = __DIR__.'/../config/config.php';
         
-        //register config
+        //register config.
         $this->publishes([
             $configPath => config_path('amranidev/config.php')]);
     
