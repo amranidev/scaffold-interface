@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface\DataSystem;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class     DataSystem
+ * Class     DataSystem.
  *
  * @package  scaffold-interface\DataSystem
  * 
@@ -15,35 +15,35 @@ use Illuminate\Support\Facades\Schema;
 class DataSystem
 {
     /**
-     * Main interface reqeust
+     * Main interface reqeust.
      *
      * @var $data
      */
     private $data;
 
     /**
-     * on data specification
+     * on data specification.
      *
      * @var $onData
      */
     private $onData;
 
     /**
-     * The forrignKeys and relations
+     * ForrignKeys and relations.
      *
      * @var $foreignKeys
      */
     private $foreignKeys;
 
     /**
-     * Relation Columns
+     * Relational Columns.
      *
      * @var $relationAttr
      */
     private $relationAttributes;
 
     /**
-     * Create DataSystem instance
+     * Create DataSystem instance.
      *
      * @param Array Data
      */
@@ -63,7 +63,7 @@ class DataSystem
     }
 
     /**
-     * Analyse data and attributes
+     * Analyse data and attributes.
      *
      * @param Array $data
      */
@@ -82,7 +82,7 @@ class DataSystem
     }
 
     /**
-     * Analyse data and get ondata specification
+     * Analyse data and get ondata specification.
      *
      * @param Array $data
      */
@@ -116,11 +116,11 @@ class DataSystem
     }
 
     /**
-     * Data for migration and views
+     * Data for migration and views.
      *
-     * @param String specification
+     * @param string specification
      *
-     * @return Array $result
+     * @return array $result
      */
     public function dataScaffold($spec)
     {
@@ -150,7 +150,7 @@ class DataSystem
     }
 
     /**
-     * get foreignKeys
+     * Get foreignKeys.
      */
     public function getForeignKeys()
     {
@@ -158,7 +158,7 @@ class DataSystem
     }
 
     /**
-     * get relation attributes
+     * Get relational attributes.
      */
     public function getRelationAttributes()
     {
@@ -166,7 +166,7 @@ class DataSystem
     }
 
     /**
-     * get onData
+     * Get onData.
      */
     public function getOnData()
     {
