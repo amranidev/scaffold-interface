@@ -6,16 +6,15 @@ use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
- * Class ControllerGenerate
+ * Class ControllerGenerate.
  *
  * @package scaffold-interface
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class ControllerGenerate
 {
-
     /**
-     * DataSystem Instance
+     * DataSystem Instance.
      *
      * @var dataSystem
      */
@@ -27,7 +26,7 @@ class ControllerGenerate
     private $names;
 
     /**
-     * Create new ControllerGenerate instance
+     * Create new ControllerGenerate instance.
      *
      * @param $dataS Array
      * @param NamesGenerate
@@ -39,13 +38,12 @@ class ControllerGenerate
     }
 
     /**
-     * compile controller tamplate
+     * compile controller tamplate.
      *
-     * @return String
+     * @return string
      */
     public function generate()
     {
         return "<?php\n\n" . view('scaffold-interface::template.controller.controller', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
-
 }

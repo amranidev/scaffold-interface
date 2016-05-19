@@ -6,7 +6,7 @@ use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
- * Class ModelGenerate
+ * Class ModelGenerate.
  *
  * @package scaffold-interface/Generators
  * @author Amrani Houssian <amranidev@gmail.com>
@@ -14,7 +14,7 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 class ModelGenerate
 {
     /**
-     * DataSystem
+     * DataSystem.
      * 
      * @var $dataSystem
      */ 
@@ -26,7 +26,7 @@ class ModelGenerate
     private $names;
 
     /**
-     * Create new ModelGenerate instance
+     * Create new ModelGenerate instance.
      *
      * @param NameGenerate
      */
@@ -37,9 +37,9 @@ class ModelGenerate
     }
 
     /**
-     * Compile Model template
+     * Compile Model template.
      *
-     * @return String
+     * @return string
      */
     public function generate()
     {

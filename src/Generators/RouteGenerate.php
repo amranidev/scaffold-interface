@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface\Generators;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
- * Class RouteGenerate
+ * Class RouteGenerate.
  *
  * @package scaffold-interface/Generators
  * @author Amrani Houssian <amranidev@gmailcom>
@@ -18,7 +18,7 @@ class RouteGenerate
     private $names;
 
     /**
-     * Create new RouteGenerate instance
+     * Create new RouteGenerate instance.
      *
      * @param NamesGenerate
      */
@@ -28,7 +28,7 @@ class RouteGenerate
     }
 
     /**
-     * Compile route template
+     * Compile route template.
      *
      * @return String
      */

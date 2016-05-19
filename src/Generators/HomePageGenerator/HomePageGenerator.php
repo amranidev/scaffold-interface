@@ -38,5 +38,4 @@ class HomePageGenerator extends Filesystem
     {
         $this->make(base_path() . '/resources/views/HomePageScaffold.blade.php', $this->generate());
     }
-
 }

@@ -6,7 +6,7 @@ use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
- * Class ViewGenerate
+ * Class ViewGenerate.
  *
  * @package scaffold-interface/Generators
  * @author Amrani Houssain <amranidev@gmail.com>
@@ -14,7 +14,7 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 class ViewGenerate
 {
     /**
-     * The DataSystem instance
+     * The DataSystem instance.
      *
      * @var $dataSystem
      */
@@ -26,7 +26,7 @@ class ViewGenerate
     private $names;
 
     /**
-     * Create new ViewGenerate instance
+     * Create new ViewGenerate instance.
      *
      * @param $data Array
      * @param NamesGenerate
@@ -38,7 +38,7 @@ class ViewGenerate
     }
 
     /**
-     * compile index view
+     * Compile index view.
      *
      * @return String
      */
@@ -48,7 +48,7 @@ class ViewGenerate
     }
 
     /**
-     * compile create view
+     * Compile create view.
      *
      * @return String
      */
@@ -58,7 +58,7 @@ class ViewGenerate
     }
 
     /**
-     * compile show view
+     * Compile show view.
      *
      * @return String
      */
@@ -68,7 +68,7 @@ class ViewGenerate
     }
 
     /**
-     * compile edit view
+     * Compile edit view.
      *
      * @return String
      */

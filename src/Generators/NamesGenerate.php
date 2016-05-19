@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface\Generators;
 use URL;
 
 /**
- * Class NamesGenerate
+ * Class NamesGenerate.
  *
  * @package scaffold-interface/Generators
  * @author Amrani Houssain <amranidev@gmail.com>
@@ -13,16 +13,16 @@ use URL;
 class NamesGenerate
 {
     /**
-     * Reqeust view data
+     * Reqeust view data.
      *
      * @var data
      */
     private $data;
 
     /**
-     * Create new Names instance
+     * Create new NamesGenerate instance.
      *
-     * @param Array $data
+     * @param array $data
      */
     public function __construct($data)
     {
@@ -30,9 +30,9 @@ class NamesGenerate
     }
 
     /**
-     * Table name parser plurar
+     * Table name parser plurar.
      *
-     * @return String
+     * @return string
      */
     public function tableNames()
     {
@@ -40,8 +40,9 @@ class NamesGenerate
     }
 
     /**
-     * Table name parser for migration
+     * Table name parser for migration.
      *
+     * @return string
      */
     public function tableNameMigration()
     {
@@ -49,9 +50,9 @@ class NamesGenerate
     }
 
     /**
-     * Table name parser for classes
+     * Table name parser for classes.
      *
-     * @return String
+     * @return string
      */
     public function tableName()
     {
@@ -59,9 +60,9 @@ class NamesGenerate
     }
 
     /**
-     * Table name parser single
+     * Table name parser single.
      *
-     * @return String
+     * @return string
      */
     public function tableNameSingle()
     {
@@ -69,7 +70,7 @@ class NamesGenerate
     }
 
     /**
-     * Open age brackets for blades
+     * Open age brackets for blades.
      *
      * @return String
      */
@@ -79,7 +80,7 @@ class NamesGenerate
     }
 
     /**
-     * Close age brackets for blades
+     * Close age brackets for blades.
      *
      * @return String
      */
@@ -89,9 +90,9 @@ class NamesGenerate
     }
 
     /**
-     * Foreach string for blades
+     * Foreach string for blades.
      *
-     * @return String
+     * @return string
      */
     public function foreachh()
     {
@@ -99,7 +100,7 @@ class NamesGenerate
     }
 
     /**
-     * Endforeach String for blades
+     * Endforeach string for blades.
      *
      * @return String
      */
@@ -109,7 +110,7 @@ class NamesGenerate
     }
 
     /**
-     * @ for blades
+     * @ for blades.
      *
      * @return char
      */
@@ -119,9 +120,9 @@ class NamesGenerate
     }
 
     /**
-     * Standard restapi for scaffold
+     * Standard restapi for scaffold.
      *
-     * @return String
+     * @return string
      */
     public function standardapi()
     {
@@ -129,15 +130,21 @@ class NamesGenerate
     }
 
     /**
-     * Get Template
+     * Get Template.
      *
-     * @return String
+     * @return string
      */
     public function getTemplate()
     {
         return $this->data['template'];
     }
 
+    /**
+     * Parse template specification.
+     * 
+     * @return string
+     * @throws Exception
+     */ 
     public function getParse()
     {
         if (starts_with($this->data['template'], 'boot')) {
@@ -148,5 +155,4 @@ class NamesGenerate
 
         throw new \Exception('Template Error');
     }
-
 }

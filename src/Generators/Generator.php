@@ -13,14 +13,13 @@ use Amranidev\ScaffoldInterface\Generators\RouteGenerate;
 use Amranidev\ScaffoldInterface\Generators\ViewGenerate;
 
 /**
- * Class     Generator
+ * Class     Generator.
  *
  * @package  scaffold-interface/Generators
  * @author   Amrani Houssain <amranidev@gmail.com>
  */
 class Generator extends Filesystem
 {
-
     /**
      * @var ViewGenerate
      */
@@ -52,7 +51,7 @@ class Generator extends Filesystem
     private $paths;
     
     /**
-     * Create new Generator instance
+     * Create new Generator instance.
      *
      * @param DataSystem $dataSystem
      * @param NamesGenerate
@@ -69,7 +68,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate index
+     * Generate index.
      */
     public function index()
     {
@@ -77,7 +76,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate create
+     * Generate create.
      */
     public function create()
     {
@@ -85,7 +84,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate show
+     * Generate show.
      */
     public function show()
     {
@@ -93,7 +92,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate edit
+     * Generate edit.
      */
     public function edit()
     {
@@ -101,7 +100,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate views directory
+     * Generate views directory.
      */
     public function dir()
     {
@@ -109,7 +108,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate Model
+     * Generate Model.
      */
     public function model()
     {
@@ -117,7 +116,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate Migration
+     * Generate Migration.
      */
     public function migration()
     {
@@ -125,7 +124,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate Controller
+     * Generate Controller.
      */
     public function controller()
     {
@@ -133,7 +132,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate route
+     * Generate route.
      */
     public function route()
     {

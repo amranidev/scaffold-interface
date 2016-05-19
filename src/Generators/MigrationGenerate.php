@@ -6,7 +6,7 @@ use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
- * Class MigrationGenerate
+ * Class MigrationGenerate.
  *
  * @package scaffold-interface/Generators
  * @author Amrani Houssian <amranidev@gmail.com>
@@ -15,21 +15,21 @@ class MigrationGenerate
 {
 
     /**
-     * DataSystem instance
+     * DataSystem instance.
      *
      * @var $dataSystem
      */
     private $dataSystem;
 
     /**
-     * NamesGenerate instance
+     * NamesGenerate instance.
      *
      * @var NamesGenerate
      */
     private $names;
 
     /**
-     * Create New MigrationGenerate instance
+     * Create New MigrationGenerate instance.
      *
      * @param DataSystem
      * @param NamesGenerate
@@ -41,13 +41,12 @@ class MigrationGenerate
     }
 
     /**
-     * fetch migration template
+     * fetch migration template.
      *
-     * @return String
+     * @return string
      */
     public function generate()
     {
         return "<?php\n\n" . view('scaffold-interface::template.migration.migration', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
-
 }
