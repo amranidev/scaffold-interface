@@ -232,7 +232,7 @@ class GuiController extends AppController
      */
     private function clearRoutes($remove)
     {
-        $path = app_path() . '/Http/routes.php';
+        $path = config('amranidev.config.model').'/Http/routes.php';
 
         $lines = file($path, FILE_IGNORE_NEW_LINES);
 
