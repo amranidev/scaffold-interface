@@ -8,7 +8,7 @@ use Amranidev\ScaffoldInterface\Generators\Generator;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
- * Class     Scaffold
+ * Class     Scaffold.
  *
  * @package  scaffold-interface
  * 
@@ -19,39 +19,38 @@ class Scaffold
 {
 
     /**
-     * The data system instance
+     * DataSystem instance.
      */
     public $dataS;
 
     /**
-     * The Paths instance
+     * Path instance.
      *
      * @var paths
      */
     public $paths;
 
     /**
-     * The Names instance
+     * Names instance.
      *
      * @var names
      */
     public $names;
 
     /**
-     * The generator instance
+     * Generator instance.
      *
      * @var generator
      */
     public $generator;
 
     /**
-     * Create new Scaffold instance
+     * Create new scaffold instance.
      *
      * @param Array $data
      */
     public function __construct($data)
     {
-
         $this->dataS = new DataSystem($data);
 
         $this->names = new NamesGenerate($data);
@@ -62,8 +61,9 @@ class Scaffold
     }
 
     /**
-     * Scaffold Migration
+     * Scaffold Migration.
      *
+     * @return Scaffold
      */
     public function migration()
     {
@@ -73,8 +73,9 @@ class Scaffold
     }
 
     /**
-     * Scaffold Model
+     * Scaffold Model.
      *
+     * @return Scaffold
      */
     public function model()
     {
@@ -84,8 +85,9 @@ class Scaffold
     }
 
     /**
-     * Scaffold Views
+     * Scaffold Views.
      *
+     * @return Scaffold
      */
     public function views()
     {
@@ -99,8 +101,9 @@ class Scaffold
     }
 
     /**
-     * Scaffold Controller
-     *
+     * Scaffold Controller.
+     * 
+     * @return Scaffold
      */
     public function controller()
     {
@@ -110,8 +113,9 @@ class Scaffold
     }
 
     /**
-     * Scaffold Route
-     *
+     * Scaffold Route.
+     * 
+     * @return Scaffold
      */
     public function route()
     {
