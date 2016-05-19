@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface\Filesystem;
 use Amranidev\ScaffoldInterface\Filesystem\FileAlreadyExists;
 
 /**
- * Class FileSystem
+ * Class FileSystem.
  *
  * @package scaffold-interface/FileSystem
  * @author Amrani Houssian <amranidev@gmail.com>
@@ -14,7 +14,7 @@ class FileSystem
 {
 
     /**
-     * Make a file
+     * Make a file.
      *
      * @param $file
      * @param $content
@@ -33,7 +33,7 @@ class FileSystem
     }
 
     /**
-     * Determine if file exists
+     * Determine if file exists.
      *
      * @param $file
      * @return bool
@@ -44,7 +44,7 @@ class FileSystem
     }
 
     /**
-     * make Directory
+     * make directory.
      */
     public function makeDir($path)
     {
@@ -55,7 +55,7 @@ class FileSystem
     }
 
     /**
-     * File Append
+     * File append.
      */
     public function append($path, $content)
     {
