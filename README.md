@@ -118,26 +118,6 @@ Congratulations, you have successfully installed Scaffold Interface!
       
       After that you could generate Orders and adding two relations to Clients and Products.
 
-  7. Check this out:
-      
-     Add (route::group) to *vendor/amranidev/scaffold-interface/src/Http/routes.php* if you're using **laravel 5.2** 
-      
-```php
-  Route::group(['middleware' => 'web'], function () {
-
-    Route::get('scaffold', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@index');
-
-    Route::post('scaffold/guipost', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@store');
-
-    Route::get('scaffold/guirollback/{id}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@destroy');
-
-    Route::get('scaffold/guidelete/{id}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@deleteMsg');
-
-    Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@GetResult');
-
-  });
-```
-
 ####Contribution
 
  Any ideas are welcome. Feel free to submit any issues or pull requests.
