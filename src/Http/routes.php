@@ -1,10 +1,11 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Where the main app (ScaffoldInterface) routes
 |--------------------------------------------------------------------------
 |
- */
+*/
 Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@index');
