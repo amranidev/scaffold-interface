@@ -15,7 +15,7 @@ use Session;
 use URL;
 
 /**
- * Class GuiController
+ * Class GuiController.
  *
  * @package scaffold-interface/Http/Controllers
  *
@@ -95,7 +95,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Delete confirmation message by Ajaxis
+     * Delete confirmation message by ajaxis.
      *
      * @link https://github.com/amranidev/ajaxis
      *
@@ -117,7 +117,7 @@ class GuiController extends AppController
     }
 
     /**
-     * get Attributes from
+     * Get attributes.
      *
      * @param String $table
      *
@@ -133,7 +133,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Generate Home Page for app
+     * Scaffold a home page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -151,7 +151,7 @@ class GuiController extends AppController
     }
 
     /**
-     * get index page for the app
+     * Show homepage.
      *
      * @return \Illuminate\Http\Response
      */
@@ -161,7 +161,7 @@ class GuiController extends AppController
     }
 
     /**
-     * delete index page
+     * Delete homepage
      *
      * @return \Illuminate\Http\Response
      */
@@ -177,7 +177,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Migrate table ORM
+     * Migrate schema.
      *
      * @return \Illuminate\Http\Response
      */
@@ -199,7 +199,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Rollback a table from database
+     * Schema rollbacking.
      *
      * @return \Illuminate\Http\Response
      * @throws Exception
@@ -223,7 +223,7 @@ class GuiController extends AppController
         return redirect('scaffold');
     }
 
-        /**
+    /**
      * Clear routes
      * 
      * @param String $remove
