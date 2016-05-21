@@ -5,17 +5,10 @@ namespace Amranidev\ScaffoldInterface\Generators;
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 use Amranidev\ScaffoldInterface\Filesystem\Path;
-use Amranidev\ScaffoldInterface\Generators\ControllerGenerate;
-use Amranidev\ScaffoldInterface\Generators\MigrationGenerate;
-use Amranidev\ScaffoldInterface\Generators\ModelGenerate;
-use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
-use Amranidev\ScaffoldInterface\Generators\RouteGenerate;
-use Amranidev\ScaffoldInterface\Generators\ViewGenerate;
 
 /**
  * Class     Generator.
  *
- * @package  scaffold-interface/Generators
  * @author   Amrani Houssain <amranidev@gmail.com>
  */
 class Generator extends Filesystem
@@ -47,9 +40,9 @@ class Generator extends Filesystem
 
     /**
      * @var Path
-     */ 
+     */
     private $paths;
-    
+
     /**
      * Create new Generator instance.
      *

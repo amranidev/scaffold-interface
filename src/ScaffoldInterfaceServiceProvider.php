@@ -8,12 +8,10 @@ use Illuminate\Support\ServiceProvider;
 /**
  * Class ScaffoldInterfaceServiceProvider.
  *
- * @package scaffold-interface
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class ScaffoldInterfaceServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -33,36 +31,34 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         $nameSpace = $this->app->getNamespace();
 
         // Set namespace alias for AppController.
-        AliasLoader::getInstance()->alias('AppController', $nameSpace . 'Http\Controllers\Controller');
+        AliasLoader::getInstance()->alias('AppController', $nameSpace.'Http\Controllers\Controller');
 
         // Routes.
-        $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers'], function () {
-            require __DIR__ . '/Http/routes.php';
+        $this->app->router->group(['namespace' => $nameSpace.'Http\Controllers'], function () {
+            require __DIR__.'/Http/routes.php';
         });
 
         // Public
-        $this->publishes([__DIR__ . '/../public' => public_path(),
+        $this->publishes([__DIR__.'/../public' => public_path(),
         ], 'public');
 
         // Load Views.
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffold-interface');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'scaffold-interface');
 
         // Migrations.
         $this->publishes([
-            __DIR__ . '/../database/migrations/' => database_path('migrations'),
+            __DIR__.'/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
 
         //config path.
         $configPath = __DIR__.'/../config/config.php';
-        
+
         //register config.
         $this->publishes([
-            $configPath => config_path('amranidev/config.php')]);
-    
+            $configPath => config_path('amranidev/config.php'), ]);
     }
 
     public function register()
     {
     }
-
 }
