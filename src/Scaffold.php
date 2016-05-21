@@ -10,14 +10,11 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 /**
  * Class     Scaffold.
  *
- * @package  scaffold-interface
- * 
- * @author   Amrani Houssain <amranidev@gmail.com>
  *
+ * @author   Amrani Houssain <amranidev@gmail.com>
  */
 class Scaffold
 {
-
     /**
      * DataSystem instance.
      */
@@ -47,7 +44,7 @@ class Scaffold
     /**
      * Create new scaffold instance.
      *
-     * @param Array $data
+     * @param array $data
      */
     public function __construct($data)
     {
@@ -102,7 +99,7 @@ class Scaffold
 
     /**
      * Scaffold Controller.
-     * 
+     *
      * @return Scaffold
      */
     public function controller()
@@ -114,7 +111,7 @@ class Scaffold
 
     /**
      * Scaffold Route.
-     * 
+     *
      * @return Scaffold
      */
     public function route()

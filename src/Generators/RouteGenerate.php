@@ -2,12 +2,9 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
-
 /**
  * Class RouteGenerate.
  *
- * @package scaffold-interface/Generators
  * @author Amrani Houssian <amranidev@gmailcom>
  */
 class RouteGenerate
@@ -30,11 +27,10 @@ class RouteGenerate
     /**
      * Compile route template.
      *
-     * @return String
+     * @return string
      */
     public function generate()
     {
-        return "\n" . view('scaffold-interface::template.routes', ['names' => $this->names])->render();
+        return "\n".view('scaffold-interface::template.routes', ['names' => $this->names])->render();
     }
-
 }

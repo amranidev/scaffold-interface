@@ -7,7 +7,6 @@ use URL;
 /**
  * Class NamesGenerate.
  *
- * @package scaffold-interface/Generators
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class NamesGenerate
@@ -72,7 +71,7 @@ class NamesGenerate
     /**
      * Open age brackets for blades.
      *
-     * @return String
+     * @return string
      */
     public function open()
     {
@@ -82,7 +81,7 @@ class NamesGenerate
     /**
      * Close age brackets for blades.
      *
-     * @return String
+     * @return string
      */
     public function close()
     {
@@ -96,17 +95,17 @@ class NamesGenerate
      */
     public function foreachh()
     {
-        return "@foreach(\$" . $this->tableNames() . " as \$value)";
+        return '@foreach($'.$this->tableNames().' as $value)';
     }
 
     /**
      * Endforeach string for blades.
      *
-     * @return String
+     * @return string
      */
     public function endforeachh()
     {
-        return "@endforeach";
+        return '@endforeach';
     }
 
     /**
@@ -116,7 +115,7 @@ class NamesGenerate
      */
     public function blade()
     {
-        return "@";
+        return '@';
     }
 
     /**
@@ -141,16 +140,17 @@ class NamesGenerate
 
     /**
      * Parse template specification.
-     * 
-     * @return string
+     *
      * @throws Exception
-     */ 
+     *
+     * @return string
+     */
     public function getParse()
     {
         if (starts_with($this->data['template'], 'boot')) {
-            return "Bt";
+            return 'Bt';
         } else {
-            return "Mt";
+            return 'Mt';
         }
 
         throw new \Exception('Template Error');

@@ -8,22 +8,20 @@ use Illuminate\Support\Facades\Schema;
  * class Attribute.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
- *
  */
 class Attribute
 {
-
     /**
      * table name.
      *
-     * @var $table String
+     * @var String
      */
     private $table;
 
     /**
      * Result.
      *
-     * @var $Result[]
+     * @var[]
      */
     private $result = [];
 

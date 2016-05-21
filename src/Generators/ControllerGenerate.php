@@ -3,12 +3,10 @@
 namespace Amranidev\ScaffoldInterface\Generators;
 
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
-use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
  * Class ControllerGenerate.
  *
- * @package scaffold-interface
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class ControllerGenerate
@@ -44,6 +42,6 @@ class ControllerGenerate
      */
     public function generate()
     {
-        return "<?php\n\n" . view('scaffold-interface::template.controller.controller', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return "<?php\n\n".view('scaffold-interface::template.controller.controller', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 }

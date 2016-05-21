@@ -1,7 +1,7 @@
 <?php
 
   return [
-    
+
      /*
      |--------------------------------------------------------------------
      | Default package Name
@@ -22,14 +22,14 @@
      | Here is where you can register your storage paths.
      |
      */
-    
-     'model' => base_path() . '/app',
 
-     'views' => base_path() . '/resources/views',
-        
-     'controller' => base_path() . '/app/Http/Controllers',
+     'model' => base_path().'/app',
 
-     'migration' => base_path() . '/database/migrations',
+     'views' => base_path().'/resources/views',
+
+     'controller' => base_path().'/app/Http/Controllers',
+
+     'migration' => base_path().'/database/migrations',
 
      /*
      |--------------------------------------------------------------------
@@ -38,7 +38,7 @@
      |
      | Here is where you can register your migrations path to migrate
      | the schema via migrate artisan command.
-     | 
+     |
      */
 
      'database' => null,
@@ -52,15 +52,15 @@
      |
      */
 
-     'routes' => base_path() . '/app/Http/routes.php',
-    
+     'routes' => base_path().'/app/Http/routes.php',
+
      /*
      |--------------------------------------------------------------------
      | Default package namespace and loaders
      |--------------------------------------------------------------------
      |
-     | By default scaffold-interface interact with your app without 
-     | specify any namespace. otherwise, if there is a module or a package 
+     | By default scaffold-interface interact with your app without
+     | specify any namespace. otherwise, if there is a module or a package
      | that you may want scaffold-interface interact with, you must define
      | namespaces.
      |
@@ -81,5 +81,5 @@
       */
 
       'loadViews' => null,
-    
+
     ];

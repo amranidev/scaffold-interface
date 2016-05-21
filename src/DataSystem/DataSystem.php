@@ -7,54 +7,52 @@ use Illuminate\Support\Facades\Schema;
 /**
  * Class     DataSystem.
  *
- * @package  scaffold-interface\DataSystem
- * 
- * @author   Amrani Houssain <amranidev@gmail.com>
  *
+ * @author   Amrani Houssain <amranidev@gmail.com>
  */
 class DataSystem
 {
     /**
      * Main interface reqeust.
      *
-     * @var $data
+     * @var
      */
     private $data;
 
     /**
      * on data specification.
      *
-     * @var $onData
+     * @var
      */
     private $onData;
 
     /**
      * ForrignKeys and relations.
      *
-     * @var $foreignKeys
+     * @var
      */
     private $foreignKeys;
 
     /**
      * Relational Columns.
      *
-     * @var $relationAttr
+     * @var
      */
     private $relationAttributes;
 
     /**
      * Create DataSystem instance.
      *
-     * @param Array Data
+     * @param array Data
      */
     public function __construct($data)
     {
         // unset TableName
         unset($data['TableName']);
-        
+
         // unset template
         unset($data['template']);
-        
+
         $this->data = $data;
 
         $this->tables($this->data);
@@ -65,7 +63,7 @@ class DataSystem
     /**
      * Analyse data and attributes.
      *
-     * @param Array $data
+     * @param array $data
      */
     private function getAttr()
     {
@@ -84,7 +82,7 @@ class DataSystem
     /**
      * Analyse data and get ondata specification.
      *
-     * @param Array $data
+     * @param array $data
      */
     private function tables($data)
     {
@@ -94,16 +92,16 @@ class DataSystem
         $i = 0;
         $j = 0;
         foreach ($data as $key => $value) {
-            if ($key == 'tbl' . $i) {
+            if ($key == 'tbl'.$i) {
                 $tmp = $value;
                 if (in_array($value, $foreignKeys)) {
-                    throw new \Exception($value . " Relation Already selected");
+                    throw new \Exception($value.' Relation Already selected');
                 }
                 array_push($foreignKeys, $value);
                 $i++;
-            } elseif ($key == 'on' . $j) {
+            } elseif ($key == 'on'.$j) {
                 if (!in_array($value, Schema::getColumnListing($tmp))) {
-                    throw new \Exception($value . " Does not exist in " . $tmp);
+                    throw new \Exception($value.' Does not exist in '.$tmp);
                 }
                 array_push($onData, $value);
                 $j++;
@@ -137,7 +135,7 @@ class DataSystem
                 if ($key == 'tbl0' || $key == 'on0') {
                     break;
                 } else {
-                    if (str_contains($value, " ")) {
+                    if (str_contains($value, ' ')) {
                         $value = str_slug($value, '_');
                     }
                     array_push($result, $value);

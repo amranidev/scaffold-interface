@@ -5,25 +5,24 @@ namespace Amranidev\ScaffoldInterface\Filesystem;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
- * Class Paths
+ * Class Paths.
  *
- * @package scaffold-interface/FileSystem
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Path
 {
     /**
-     * The NamesGenerate instance
+     * The NamesGenerate instance.
      */
     public $names;
 
     /**
-     * @var String $migrationPath
+     * @var string
      */
     public $migrationPath;
 
     /**
-     * Create new Paths instance
+     * Create new Paths instance.
      *
      * @param NamesGenerate names
      */
@@ -35,82 +34,83 @@ class Path
     }
 
     /**
-     * return model file path
+     * return model file path.
      *
-     * @return String
+     * @return string
      */
     public function modelPath()
     {
-        return config('amranidev.config.model') .'/'. $this->names->TableName() . '.php';
+        return config('amranidev.config.model').'/'.$this->names->TableName().'.php';
     }
 
     /**
-     * return migration file path
+     * return migration file path.
      *
-     * @return String
+     * @return string
      */
     private function migrationPath()
     {
-        $FileName = date('Y') . '_' . date('m') . '_' . date('d') . '_' . date('his') . '_' . $this->names->TableNames() . ".php";
-        return config('amranidev.config.migration') .'/'. $FileName;
+        $FileName = date('Y').'_'.date('m').'_'.date('d').'_'.date('his').'_'.$this->names->TableNames().'.php';
+
+        return config('amranidev.config.migration').'/'.$FileName;
     }
 
     /**
-     * return controller file path
+     * return controller file path.
      *
-     * @return String
+     * @return string
      */
     public function controllerPath()
     {
-        $FileName = $this->names->TableName() . "Controller.php";
-        
-        return config('amranidev.config.controller') .'/'. $FileName;
+        $FileName = $this->names->TableName().'Controller.php';
+
+        return config('amranidev.config.controller').'/'.$FileName;
     }
 
     /**
-     * retrun index file path
+     * retrun index file path.
      *
-     * @return String
+     * @return string
      */
     public function indexPath()
     {
-        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'index.blade.php';
+        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'index.blade.php';
     }
 
     /**
-     * return create file path
+     * return create file path.
      *
-     * @return String
+     * @return string
      */
     public function createPath()
     {
-        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'create.blade.php';
+        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'create.blade.php';
     }
 
     /**
-     * return show file path
+     * return show file path.
      *
-     * @return String
+     * @return string
      */
     public function showPath()
     {
-        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'show.blade.php';
+        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'show.blade.php';
     }
 
     /**
-     * return edit file path
+     * return edit file path.
      *
-     * @return String
+     * @return string
      */
     public function editPath()
     {
-        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle() .'/'. 'edit.blade.php';
+        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'edit.blade.php';
     }
 
     /**
-     * return route file path
+     * return route file path.
      *
-     * @return String
+     * @return string
      */
     public function routePath()
     {
@@ -118,12 +118,12 @@ class Path
     }
 
     /**
-     * return views directory path
+     * return views directory path.
      *
-     * @return String
+     * @return string
      */
     public function dirPath()
     {
-        return config('amranidev.config.views') .'/'. $this->names->TableNameSingle();
+        return config('amranidev.config.views').'/'.$this->names->TableNameSingle();
     }
 }

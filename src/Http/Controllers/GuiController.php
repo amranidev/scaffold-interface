@@ -2,7 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
-use Illuminate\Support\Facades\Schema;
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attribute;
 use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
@@ -10,6 +9,7 @@ use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 use Request;
 use Session;
 use URL;
@@ -17,10 +17,8 @@ use URL;
 /**
  * Class GuiController.
  *
- * @package scaffold-interface/Http/Controllers
  *
  * @author  Amrani Houssain <amranidev@gmail.com>
- *
  */
 class GuiController extends AppController
 {
@@ -33,13 +31,15 @@ class GuiController extends AppController
     {
         $scaffold = Scaffoldinterface::paginate(6);
         $scaffoldList = Scaffoldinterface::all()->lists('tablename');
+
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -49,7 +49,7 @@ class GuiController extends AppController
         $scaffold = new Scaffold($data);
 
         $scaffold->migration()->model()->controller()->views()->route();
-        
+
         $scaffoldInterface = new Scaffoldinterface();
 
         $scaffoldInterface->migration = $scaffold->paths->migrationPath;
@@ -60,7 +60,7 @@ class GuiController extends AppController
         $scaffoldInterface->package = config('amranidev.config.package');
         $scaffoldInterface->save();
 
-        Session::flash('status', 'Created Successfully' . $scaffold->names->tableName());
+        Session::flash('status', 'Created Successfully'.$scaffold->names->tableName());
 
         return redirect('scaffold');
     }
@@ -68,7 +68,8 @@ class GuiController extends AppController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -78,10 +79,10 @@ class GuiController extends AppController
         unlink($scaffoldInterface->migration);
         unlink($scaffoldInterface->model);
         unlink($scaffoldInterface->controller);
-        unlink($scaffoldInterface->views . '/index.blade.php');
-        unlink($scaffoldInterface->views . '/create.blade.php');
-        unlink($scaffoldInterface->views . '/show.blade.php');
-        unlink($scaffoldInterface->views . '/edit.blade.php');
+        unlink($scaffoldInterface->views.'/index.blade.php');
+        unlink($scaffoldInterface->views.'/create.blade.php');
+        unlink($scaffoldInterface->views.'/show.blade.php');
+        unlink($scaffoldInterface->views.'/edit.blade.php');
         rmdir($scaffoldInterface->views);
 
         //Clear Routes Resources
@@ -99,7 +100,7 @@ class GuiController extends AppController
      *
      * @link https://github.com/amranidev/ajaxis
      *
-     * @return String
+     * @return string
      */
     public function deleteMsg($id)
     {
@@ -111,7 +112,7 @@ class GuiController extends AppController
             return view('scaffold-interface::template.DeleteMessage.delete', compact('table'))->render();
         }
 
-        $msg = Ajaxis::Mtdeleting("Warning!!", "Would you like to rollback '" . $scaffold->tablename . "' ?? by rollbacking this, make sure that you have rollbacked " . $scaffold->tablename . " from database.", '/scaffold/guirollback/' . $id);
+        $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to rollback '".$scaffold->tablename."' ?? by rollbacking this, make sure that you have rollbacked ".$scaffold->tablename.' from database.', '/scaffold/guirollback/'.$id);
 
         return $msg;
     }
@@ -119,9 +120,9 @@ class GuiController extends AppController
     /**
      * Get attributes.
      *
-     * @param String $table
+     * @param string $table
      *
-     * @return Array
+     * @return array
      */
     public function getResult($table)
     {
@@ -161,18 +162,19 @@ class GuiController extends AppController
     }
 
     /**
-     * Delete homepage
+     * Delete homepage.
      *
      * @return \Illuminate\Http\Response
      */
     public function homePageDelete()
     {
         try {
-            unlink(base_path() . '/resources/views/HomePageScaffold.blade.php');
+            unlink(base_path().'/resources/views/HomePageScaffold.blade.php');
         } catch (\Exception $e) {
-            return "Scaffold-Interface : " . $e->getMessage();
+            return 'Scaffold-Interface : '.$e->getMessage();
         }
         Session::flash('status', 'HomePage Deleted Successfully');
+
         return redirect('scaffold');
     }
 
@@ -184,14 +186,14 @@ class GuiController extends AppController
     public function migrate()
     {
         try {
-            Artisan::call('migrate', ['--path'=> config('amranidev.config.database')]);
-            
-            exec('cd ' . base_path() . ' && composer dump-autoload');
+            Artisan::call('migrate', ['--path' => config('amranidev.config.database')]);
+
+            exec('cd '.base_path().' && composer dump-autoload');
         } catch (\Exception $e) {
             return $e->getMessage();
         }
 
-        $Msg = str_replace("\n", "", Artisan::output());
+        $Msg = str_replace("\n", '', Artisan::output());
 
         Session::flash('status', $Msg);
 
@@ -201,14 +203,15 @@ class GuiController extends AppController
     /**
      * Schema rollbacking.
      *
-     * @return \Illuminate\Http\Response
      * @throws Exception
+     *
+     * @return \Illuminate\Http\Response
      */
     public function rollback()
     {
         try {
             if (!Scaffoldinterface::all()->count()) {
-                throw new \Exception("Nothing to rollback");
+                throw new \Exception('Nothing to rollback');
             }
 
             Artisan::call('migrate:rollback');
@@ -216,7 +219,7 @@ class GuiController extends AppController
             return $e->getMessage();
         }
 
-        $Msg = str_replace("\n", "", Artisan::output());
+        $Msg = str_replace("\n", '', Artisan::output());
 
         Session::flash('status', $Msg);
 
@@ -224,10 +227,10 @@ class GuiController extends AppController
     }
 
     /**
-     * Clear routes
-     * 
-     * @param String $remove
-     * 
+     * Clear routes.
+     *
+     * @param string $remove
+     *
      * @return mixed
      */
     private function clearRoutes($remove)

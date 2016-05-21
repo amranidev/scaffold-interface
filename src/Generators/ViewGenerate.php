@@ -3,12 +3,10 @@
 namespace Amranidev\ScaffoldInterface\Generators;
 
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
-use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
  * Class ViewGenerate.
  *
- * @package scaffold-interface/Generators
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class ViewGenerate
@@ -16,7 +14,7 @@ class ViewGenerate
     /**
      * The DataSystem instance.
      *
-     * @var $dataSystem
+     * @var
      */
     private $dataSystem;
 
@@ -40,40 +38,40 @@ class ViewGenerate
     /**
      * Compile index view.
      *
-     * @return String
+     * @return string
      */
     public function generateIndex()
     {
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.index', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.index', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
      * Compile create view.
      *
-     * @return String
+     * @return string
      */
     public function generateCreate()
     {
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.create', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.create', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
      * Compile show view.
      *
-     * @return String
+     * @return string
      */
     public function generateShow()
     {
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.show', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.show', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
      * Compile edit view.
      *
-     * @return String
+     * @return string
      */
     public function generateEdit()
     {
-        return view('scaffold-interface::template.views.' . $this->names->getTemplate() . '.edit', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.edit', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 }

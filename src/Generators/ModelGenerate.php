@@ -3,21 +3,19 @@
 namespace Amranidev\ScaffoldInterface\Generators;
 
 use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
-use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 
 /**
  * Class ModelGenerate.
  *
- * @package scaffold-interface/Generators
  * @author Amrani Houssian <amranidev@gmail.com>
  */
 class ModelGenerate
 {
     /**
      * DataSystem.
-     * 
-     * @var $dataSystem
-     */ 
+     *
+     * @var
+     */
     private $dataSystem;
 
     /**
@@ -43,6 +41,6 @@ class ModelGenerate
      */
     public function generate()
     {
-        return "<?php\n\n" . view('scaffold-interface::template.model.model', ['names' => $this->names, 'foreignKeys' => $this->dataSystem->getForeignKeys()])->render();
+        return "<?php\n\n".view('scaffold-interface::template.model.model', ['names' => $this->names, 'foreignKeys' => $this->dataSystem->getForeignKeys()])->render();
     }
 }
