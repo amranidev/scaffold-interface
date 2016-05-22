@@ -35,7 +35,7 @@
   1. Run composer require to install Scaffold-Interface :
   
     ```
-    composer require Amranidev/scaffold-interface:1.3.*
+    composer require Amranidev/scaffold-interface:1.4.*
   
     ```
 
