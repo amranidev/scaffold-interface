@@ -30,7 +30,7 @@ class GuiController extends AppController
     public function index()
     {
         $scaffold = Scaffoldinterface::paginate(6);
-        $scaffoldList = Scaffoldinterface::all()->lists('tablename');
+        $scaffoldList = Scaffoldinterface::all()->pluck('tablename');
 
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
@@ -48,7 +48,7 @@ class GuiController extends AppController
 
         $scaffold = new Scaffold($data);
 
-        $scaffold->migration()->model()->controller()->views()->route();
+        $scaffold->migration()->model()->controller()->route()->views();
 
         $scaffoldInterface = new Scaffoldinterface();
 
