@@ -142,11 +142,10 @@
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=fork&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
-                        <br><br>
                         <a class="twitter-follow-button"
-                            href="https://twitter.com/amranidev">
+                            href="https://twitter.com/amranidev" data-show-count = "false">
                         Follow @Amranidev</a>
-                        <p class = 'light'>Copyright (c) {{date('Y')}} Amrani Houssian</p>
+                        <p class = 'light'>Created with love and <i class = 'material-icons'>free_breakfast</i> by Amrani Houssain</p>
                     </div>
                 </div>
             </div>
@@ -174,7 +173,7 @@
     </script>
     <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script src = "http://cdn.jsdelivr.net/vue/1.0.17/vue.js"></script>
+    <script src = "http://cdn.jsdelivr.net/vue/1.0.24/vue.js"></script>
     <script src = "{{URL::asset('js/AjaxisMaterialize.js')}}"></script>
     <script src = "{{URL::asset('js/scaffold-interface-js/main.js')}}"></script>
     <script src = "{{URL::asset('js/scaffold-interface-js/social.js')}}"></script>
