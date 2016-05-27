@@ -48,7 +48,7 @@ class Filesystem
         if (is_dir($path)) {
             throw new FileAlreadyExists();
         }
-        mkdir($path);
+        mkdir($path, 0777, true);
     }
 
     /**
