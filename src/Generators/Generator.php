@@ -131,4 +131,43 @@ class Generator extends Filesystem
     {
         $this->append($this->paths->routePath(), $this->route->generate());
     }
+
+    /**
+     * get model generator.
+     */ 
+    public function getModel()
+    {
+        return $this->model;
+    }
+    /**
+     * get migration generator.
+     */ 
+    public function getMigration()
+    {
+        return $this->migration;
+    }
+
+    /**
+     * get view generator.
+     */ 
+    public function getView()
+    {
+        return $this->view;
+    }
+
+    /**
+     * get controller generator.
+     */ 
+    public function getController()
+    {
+        return $this->controller;
+    }
+
+    /**
+     * get route generator.
+     */ 
+    public function getRoute()
+    {
+        return $this->route;
+    }
 }
