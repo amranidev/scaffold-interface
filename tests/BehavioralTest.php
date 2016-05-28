@@ -3,7 +3,6 @@
 namespace Amranidev\ScaffoldInterface\Tests;
 
 use Amranidev\ScaffoldInterface\Scaffold;
-use Amranidev\ScaffoldInterface\Tests\TestCase;
 
 class BehavioralTest extends TestCase
 {
@@ -63,7 +62,7 @@ class BehavioralTest extends TestCase
     {
         //Model Path
         $this->assertEquals(app_path('Test_abraham.php'), $this->scaffold->paths->modelPath());
-        
+
         /*Views*/
         //Views Directory
         $this->assertEquals(base_path().'/resources/views/test_abraham', $this->scaffold->paths->dirPath());

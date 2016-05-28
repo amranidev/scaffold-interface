@@ -171,9 +171,9 @@ class DataSystem
         return $this->onData;
     }
 
-    /**
-     * get request data
-     */
+     /**
+      * get request data.
+      */
      public function getData()
      {
          return $this->data;

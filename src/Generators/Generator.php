@@ -134,14 +134,15 @@ class Generator extends Filesystem
 
     /**
      * get model generator.
-     */ 
+     */
     public function getModel()
     {
         return $this->model;
     }
+
     /**
      * get migration generator.
-     */ 
+     */
     public function getMigration()
     {
         return $this->migration;
@@ -149,7 +150,7 @@ class Generator extends Filesystem
 
     /**
      * get view generator.
-     */ 
+     */
     public function getView()
     {
         return $this->view;
@@ -157,7 +158,7 @@ class Generator extends Filesystem
 
     /**
      * get controller generator.
-     */ 
+     */
     public function getController()
     {
         return $this->controller;
@@ -165,7 +166,7 @@ class Generator extends Filesystem
 
     /**
      * get route generator.
-     */ 
+     */
     public function getRoute()
     {
         return $this->route;
