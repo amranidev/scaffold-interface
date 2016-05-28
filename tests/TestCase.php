@@ -1,25 +1,25 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase
+namespace Amranidev\ScaffoldInterface\Tests;
+
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
+
+class TestCase extends OrchestraTestCase
 {
-    /**
-     * The base URL to use while testing the application.
-     *
-     * @var string
-     */
-    protected $baseUrl = 'http://localhost';
-
-    /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
+    protected function getPackageProviders($app)
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
+        return ['Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider'];
+    }
 
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-
-        return $app;
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('amranidev.config.views', base_path().'/resources/views');
+        $app['config']->set('amranidev.config.model', base_path().'/app');
+        $app['config']->set('amranidev.config.controller', base_path().'/app');
+        $app['config']->set('amranidev.config.migration', base_path().'/database/migrations');
+        $app['config']->set('amranidev.config.routes', base_path().'/app/routes.php');
+        $app['config']->set('amranidev.config.modelNameSpace', 'App');
+        $app['config']->set('amranidev.config.migration', base_path().'/database/migrations');
+        $app['config']->set('amranidev.config.controllerNameSpace', 'App\\Http\\Controllers');
     }
 }
