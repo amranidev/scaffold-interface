@@ -13,14 +13,14 @@ class Scaffoldinterfaces extends Migration
     public function up()
     {
         Schema::create('scaffoldinterfaces', function (Blueprint $table) {
-        $table->increments('id');
-        $table->String('package');
-        $table->String('migration');
-        $table->String('model');
-        $table->String('controller');
-        $table->String('views');
-        $table->String('tablename');
-        $table->timestamps();
+            $table->increments('id');
+            $table->String('package');
+            $table->String('migration');
+            $table->String('model');
+            $table->String('controller');
+            $table->String('views');
+            $table->String('tablename');
+            $table->timestamps();
         });
     }
 
