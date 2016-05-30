@@ -145,7 +145,7 @@
                         <a class="twitter-follow-button"
                             href="https://twitter.com/amranidev" data-show-count = "false">
                         Follow @Amranidev</a>
-                        <p class = 'light'>Created with love and <i class = 'material-icons'>free_breakfast</i> by Amrani Houssain</p>
+                        <p class = 'light'>Created with love and <i class = 'material-icons'>free_breakfast</i> by Amrani Houssain {{date("Y")}}</p>
                     </div>
                 </div>
             </div>
