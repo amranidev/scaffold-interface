@@ -37,7 +37,7 @@
                 </div>
                 @endforeach
 
-                <button class = 'btn btn-primary from-control' type ='submit'>Update</button>
+                <button class = 'btn btn-primary' type ='submit'>Update</button>
             </form>
         </div>
     </body>
