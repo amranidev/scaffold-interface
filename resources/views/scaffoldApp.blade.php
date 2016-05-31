@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{URL::asset('css/scaffold-interface-css/main.css')}}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/animatecss/3.5.1/animate.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>The scaffold interface</title>
     </head>
