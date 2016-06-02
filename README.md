@@ -35,12 +35,7 @@
 
   1. Run composer require to install Scaffold-Interface :
   
-    ```
-    composer require Amranidev/scaffold-interface:1.4.*
-  
-    ```
-
-    Or add in composer.json: 
+    Add to composer.json: 
     
     ```json
     require : {
