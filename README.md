@@ -35,7 +35,7 @@
 
   1. Run composer require to install Scaffold-Interface :
   
-    Add to composer.json: 
+    Add the package to your dependencies in composer.json :
     
     ```json
     require : {
