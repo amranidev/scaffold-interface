@@ -36,8 +36,9 @@ class Database
     /**
      * search helper.
      *
-     * @param array $table
+     * @param array  $table
      * @param string $database
+     *
      * @return array
      */
     private static function search(array $tables, $database = 'mysql')
