@@ -52,6 +52,6 @@ class Database
                 return $database === 'pgsql' && $key !== 'tablename';
             })
             ->values();
-           	})->toArray();
+        })->toArray();
     }
 }
