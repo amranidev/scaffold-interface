@@ -42,22 +42,15 @@ class Database
      */
     private static function search(array $tables, $database = 'mysql')
     {
-        $result = [];
-
-        foreach ($tables as $row) {
-            foreach ($row as $key => $value) {
-                if ($value != 'migrations' && $value != 'scaffoldinterfaces' && $value != 'password_resets') {
-                    if ($database == 'pgsql') {
-                        if ($key == 'tablename') {
-                            $result[] = $value;
-                        }
-                    } else {
-                        $result[] = $value;
-                    }
-                }
-            }
-        }
-
-        return $result;
+        return collect($tables)->flatMap(function ($row) use ($database) {
+            return collect($row)
+            ->reject('migrations')
+            ->reject('scaffoldinterfaces')
+            ->reject('password_resets')
+            ->reject(function ($value, $key) use ($database) {
+                return $database === 'pgsql' && $key !== 'tablename';
+            })
+            ->values();
+           	})->toArray();
     }
 }
