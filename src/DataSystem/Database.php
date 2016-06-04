@@ -14,7 +14,7 @@ class Database
     /**
      * get all tables names.
      *
-     * @return array $result
+     * @return array
      */
     public static function getTablesNames()
     {
@@ -36,7 +36,9 @@ class Database
     /**
      * search helper.
      *
-     * @return array $result
+     * @param array $table
+     * @param string $database
+     * @return array
      */
     private static function search(array $tables, $database = 'mysql')
     {
