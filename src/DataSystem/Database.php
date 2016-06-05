@@ -40,10 +40,10 @@ abstract class Database implements DatabaseContract
      *
      * @return string
      */
-    abstract  public function getQuery();
+    abstract public function getQuery();
 
     /**
-     * table names to be skipped in the result
+     * table names to be skipped in the result.
      *
      * @return /Illuminate/Support/Collection
      */

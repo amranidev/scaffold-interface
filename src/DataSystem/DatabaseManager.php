@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\DataSystem;
 
-use Illuminate\Support\Facades\DB;
-
 /**
  * class Database.
  *
