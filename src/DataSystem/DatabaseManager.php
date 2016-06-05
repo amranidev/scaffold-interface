@@ -39,7 +39,6 @@ class DatabaseManager
         } catch (\Exception $e) {
             return new self(new DefaultDatabase());
         }
-
     }
 
     /**
