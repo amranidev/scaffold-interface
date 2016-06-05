@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
  */
 class DatabaseManager
 {
+    /**
+     * database holder.
+     *
+     * @var /Amranidev/ScaffoldInterface/DataSystem/DatabaseContract
+     */
     protected $database;
 
     public function __construct(DatabaseContract $database)
@@ -19,7 +24,7 @@ class DatabaseManager
     }
 
     /**
-     * new instance based on app's database driver
+     * new instance based on app's database driver.
      *
      * @return self
      */
@@ -32,15 +37,15 @@ class DatabaseManager
         );
 
         try {
-            return new self(new $class);
+            return new self(new $class());
         } catch (\Exception $e) {
-            return new self(new DefaultDatabase);
+            return new self(new DefaultDatabase());
         }
 
     }
 
     /**
-     * retrieve table names from database
+     * retrieve table names from database.
      *
      * @return /Illuminate/Support/Collection
      */

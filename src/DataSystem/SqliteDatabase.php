@@ -3,7 +3,7 @@
 namespace Amranidev\ScaffoldInterface\DataSystem;
 
 /**
- * class SqliteDatabase
+ * class SqliteDatabase.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */

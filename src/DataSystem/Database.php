@@ -5,15 +5,16 @@ namespace Amranidev\ScaffoldInterface\DataSystem;
 use DB;
 
 /**
- * class Database
+ * class Database.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
 abstract class Database implements DatabaseContract
 {
     /**
-     * table names to be skipped in the result
-     * @var Array
+     * table names to be skipped in the result.
+     *
+     * @var array
      */
     protected $skips = [
         'migrations',
@@ -22,22 +23,22 @@ abstract class Database implements DatabaseContract
     ];
 
     /**
-     * retrieve table names from database
+     * retrieve table names from database.
      *
      * @return /Illuminate/Support/Collection
      */
     public function tableNames()
     {
         return collect(DB::select($this->getQuery()))
-                    ->pluck('name')->reject(function($name) {
+                    ->pluck('name')->reject(function ($name) {
                         return $this->skips()->contains($name);
                     });
     }
 
     /**
-     * retrieve the database query for querying all tables
+     * retrieve the database query for querying all tables.
      *
-     * @return String
+     * @return string
      */
     abstract  public function getQuery();
 
@@ -52,7 +53,7 @@ abstract class Database implements DatabaseContract
     }
 
     /**
-     * table names to be skipped in the result
+     * table names to be skipped in the result.
      *
      * @return /Illuminate/Support/Collection
      */

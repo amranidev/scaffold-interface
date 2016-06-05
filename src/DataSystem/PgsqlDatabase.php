@@ -3,7 +3,7 @@
 namespace Amranidev\ScaffoldInterface\DataSystem;
 
 /**
- * class PgsqlDatabase
+ * class PgsqlDatabase.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
@@ -13,7 +13,7 @@ class PgsqlDatabase extends Database
     {
         // TODO: not tested for pgsql driver
         return collect(DB::select($this->getQuery()))
-                    ->pluck('tablename')->reject(function($name) {
+                    ->pluck('tablename')->reject(function ($name) {
                         return $this->skips()->contains($name);
                     });
     }
