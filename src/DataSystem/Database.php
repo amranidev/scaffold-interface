@@ -2,56 +2,59 @@
 
 namespace Amranidev\ScaffoldInterface\DataSystem;
 
-use Illuminate\Support\Facades\DB;
+use DB;
 
 /**
- * calss Database.
+ * class Database
  *
- * @author Amrani Houssain <amranidev@gmail.com>
+ * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
-class Database
+abstract class Database implements DatabaseContract
 {
     /**
-     * get all tables names.
-     *
-     * @return array
+     * table names to be skipped in the result
+     * @var Array
      */
-    public static function getTablesNames()
+    protected $skips = [
+        'migrations',
+        'scaffoldinterfaces',
+        'password_resets',
+    ];
+
+    /**
+     * retrieve table names from database
+     *
+     * @return /Illuminate/Support/Collection
+     */
+    public function tableNames()
     {
-        $result = [];
-
-        if (env('DB_CONNECTION') == 'pgsql') {
-            $tables = DB::select("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';");
-
-            $result = self::search($tables, 'pgsql');
-        } else {
-            $tables = DB::select('SHOW TABLES');
-
-            $result = self::search($tables);
-        }
-
-        return $result;
+        return collect(DB::select($this->getQuery()))
+                    ->pluck('name')->reject(function($name) {
+                        return $this->skips()->contains($name);
+                    });
     }
 
     /**
-     * search helper.
+     * retrieve the database query for querying all tables
      *
-     * @param array  $table
-     * @param string $database
-     *
-     * @return array
+     * @return String
      */
-    private static function search(array $tables, $database = 'mysql')
+    abstract  public function getQuery();
+
+    /**
+     * table names to be skipped in the result
+     *
+     * @return /Illuminate/Support/Collection
+     */
+    public function skips()
     {
-        return collect($tables)->flatMap(function ($row) use ($database) {
-            return collect($row)
-            ->reject('migrations')
-            ->reject('scaffoldinterfaces')
-            ->reject('password_resets')
-            ->reject(function ($value, $key) use ($database) {
-                return $database === 'pgsql' && $key !== 'tablename';
-            })
-            ->values();
-        })->toArray();
+        return collect($this->skips)->merge($this->skipNames());
     }
+
+    /**
+     * table names to be skipped in the result
+     *
+     * @return /Illuminate/Support/Collection
+     */
+    abstract public function skipNames();
 }

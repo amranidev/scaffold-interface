@@ -4,7 +4,7 @@ namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attribute;
-use Amranidev\ScaffoldInterface\DataSystem\Database;
+use Amranidev\ScaffoldInterface\DataSystem\DatabaseManager;
 use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
@@ -31,7 +31,7 @@ class GuiController extends AppController
     public function index()
     {
         $scaffold = Scaffoldinterface::paginate(6);
-        $scaffoldList = collect(Database::getTablesNames());
+        $scaffoldList = DatabaseManager::tableNames();
 
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
