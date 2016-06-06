@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\DataSystem;
 
-use Amranidev\ScaffoldInterface\DataSystem\MysqlDatabase;
-
 /**
  * class Database.
  *
