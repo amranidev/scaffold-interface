@@ -2,6 +2,8 @@
 
 namespace Amranidev\ScaffoldInterface\DataSystem;
 
+use Amranidev\ScaffoldInterface\DataSystem\MysqlDatabase;
+
 /**
  * class Database.
  *
@@ -37,7 +39,7 @@ class DatabaseManager
         try {
             return new self(new $class());
         } catch (\Exception $e) {
-            return new self(new DefaultDatabase());
+            return new self(new MysqlDatabase());
         }
     }
 
