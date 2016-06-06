@@ -14,10 +14,10 @@ class MysqlDatabase extends Database
     public function tableNames()
     {
         return collect(DB::select($this->getQuery()))->pluck('Tables_in_scaffold120')->reject(function ($name) {
-                        return $this->skips()->contains($name);
-                    });
+            return $this->skips()->contains($name);
+        });
     }
-    
+
     public function getQuery()
     {
         return 'SHOW TABLES';
