@@ -2,7 +2,7 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
+use Amranidev\ScaffoldInterface\Datasystem\Datasystem;
 
 /**
  * Class ControllerGenerate.
@@ -29,7 +29,7 @@ class ControllerGenerate
      * @param $dataS Array
      * @param NamesGenerate
      */
-    public function __construct(NamesGenerate $names, DataSystem $dataSystem)
+    public function __construct(NamesGenerate $names, Datasystem $dataSystem)
     {
         $this->dataSystem = $dataSystem;
         $this->names = $names;

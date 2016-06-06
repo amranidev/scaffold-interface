@@ -1,6 +1,6 @@
 <?php
 
-namespace Amranidev\ScaffoldInterface\DataSystem;
+namespace Amranidev\ScaffoldInterface\Datasystem;
 
 use Illuminate\Support\Facades\Schema;
 
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Schema;
  *
  * @author   Amrani Houssain <amranidev@gmail.com>
  */
-class DataSystem
+class Datasystem
 {
     /**
      * Main interface reqeust.

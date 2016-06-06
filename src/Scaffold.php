@@ -2,7 +2,7 @@
 
 namespace Amranidev\ScaffoldInterface;
 
-use Amranidev\ScaffoldInterface\DataSystem\DataSystem;
+use Amranidev\ScaffoldInterface\Datasystem\Datasystem;
 use Amranidev\ScaffoldInterface\Filesystem\Path;
 use Amranidev\ScaffoldInterface\Generators\Generator;
 use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
@@ -48,7 +48,7 @@ class Scaffold
      */
     public function __construct($data)
     {
-        $this->dataS = new DataSystem($data);
+        $this->dataS = new Datasystem($data);
 
         $this->names = new NamesGenerate($data);
 
