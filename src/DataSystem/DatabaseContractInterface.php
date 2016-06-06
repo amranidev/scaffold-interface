@@ -7,7 +7,7 @@ namespace Amranidev\ScaffoldInterface\DataSystem;
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
-interface DatabaseContract
+interface DatabaseContractInterface
 {
     /**
      * retrieve table names from database.
