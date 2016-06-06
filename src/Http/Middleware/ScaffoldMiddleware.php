@@ -14,8 +14,8 @@ class ScaffoldMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure                  $next
+     * @param \Illuminate\Http\Request  $request
+     * @param \Closure                  $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -26,7 +26,7 @@ class ScaffoldMiddleware
             $allowed = collect(config('scaffold.env'))
                             ->contains(config('app.env'));
 
-            if(!$allowed) {
+            if (!$allowed) {
                 return redirect('/');
             }
         }
