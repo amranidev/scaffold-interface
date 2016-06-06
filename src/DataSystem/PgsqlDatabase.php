@@ -24,10 +24,8 @@ class PgsqlDatabase extends Database
             schemaname != 'pg_catalog' AND schemaname != 'information_schema'";
     }
 
-    public function skips()
+    public function skipNames()
     {
-        return collect([
-            'sqlite_sequence',
-        ]);
+        return collect([]);
     }
 }
