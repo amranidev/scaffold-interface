@@ -2,14 +2,14 @@
 
 namespace Amranidev\ScaffoldInterface\DataSystem;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 
 /**
  * class Database.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
-abstract class Database implements DatabaseContract
+abstract class Database implements DatabaseContractInterface
 {
     /**
      * table names to be skipped in the result.
