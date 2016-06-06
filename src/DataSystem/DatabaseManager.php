@@ -16,7 +16,7 @@ class DatabaseManager
      */
     protected $database;
 
-    public function __construct(DatabaseContract $database)
+    public function __construct(DatabaseContractInterface $database)
     {
         $this->database = $database;
     }
