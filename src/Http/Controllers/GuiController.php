@@ -4,7 +4,7 @@ namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attribute;
-use Amranidev\ScaffoldInterface\DataSystem\DatabaseManager;
+use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
 use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;

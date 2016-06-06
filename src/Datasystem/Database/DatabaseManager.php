@@ -1,6 +1,6 @@
 <?php
 
-namespace Amranidev\ScaffoldInterface\DataSystem;
+namespace Amranidev\ScaffoldInterface\Datasystem\Database;
 
 /**
  * class Database.

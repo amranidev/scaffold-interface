@@ -1,7 +1,8 @@
 <?php
 
-namespace Amranidev\ScaffoldInterface\DataSystem;
+namespace Amranidev\ScaffoldInterface\Datasystem\Database;
 
+use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseContractInterface;
 use Illuminate\Support\Facades\DB;
 
 /**
