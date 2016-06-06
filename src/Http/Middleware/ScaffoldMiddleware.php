@@ -4,6 +4,11 @@ namespace Amranidev\ScaffoldInterface\Http\Middleware;
 
 use Closure;
 
+/**
+ * class ScaffoldMiddleware
+ *
+ * @author Athi Krishnan <athikrishnan5@gmail.com>
+ */
 class ScaffoldMiddleware
 {
     /**
@@ -16,13 +21,12 @@ class ScaffoldMiddleware
     public function handle($request, Closure $next)
     {
         if ($request->segment(1) == 'scaffold') {
-            
+
+            // allowed env-s check
             $allowed  = collect(config('scaffold.env'))
                             ->contains(config('app.env'));
 
-            if( ! $allowed) {
-                return redirect('/');
-            }
+            if( ! $allowed) return redirect('/');
         }
 
         return $next($request);
