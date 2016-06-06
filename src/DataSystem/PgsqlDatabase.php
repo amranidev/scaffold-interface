@@ -13,7 +13,6 @@ class PgsqlDatabase extends Database
 {
     public function tableNames()
     {
-        // TODO: not tested for pgsql driver
         return collect(DB::select($this->getQuery()))
                     ->pluck('tablename')->reject(function ($name) {
                         return $this->skips()->contains($name);
