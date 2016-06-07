@@ -26,6 +26,10 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // middleware configuration
+        $this->publishes([
+            __DIR__.'/../config/scaffold.php' => config_path('scaffold.php'),
+        ]);
 
         // Get namespace.
         $nameSpace = $this->app->getNamespace();
