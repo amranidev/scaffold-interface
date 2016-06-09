@@ -102,17 +102,6 @@ Congratulations, you have successfully installed Scaffold Interface!
       ![Imgur](http://i.imgur.com/dnYc2ZE.png)
 
       Before you make your rollback make sure that you have rolled back your table in the database.
-  
-  6. OneToMany Relationship
-      
-      Example: 
-
-      Basically we want to generate a small app that contain Clients, Products and Orders. 
-
-      So the Orders must include the Clients and products foreign keys. 
-      The first thing to do is to generate the Clients and Products normally. 
-      
-      After that you could generate Orders and adding two relations to Clients and Products.
 
 ####Contribution
 
