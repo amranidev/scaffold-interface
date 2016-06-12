@@ -110,6 +110,7 @@ Congratulations, you have successfully installed Scaffold Interface!
 ####TODOS
 
  - [ ] 100% Code coverage + Maximum code quality.
+ - [ ] Allow to generate ManyToMany relationships.
 
 ####DONE
   
