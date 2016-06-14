@@ -20,9 +20,9 @@ class MysqlDatabase extends Database
 
     /**
      * mysql query.
-     * 
+     *
      * @return string
-     */  
+     */
     public function getQuery()
     {
         return 'SHOW TABLES';
@@ -30,9 +30,9 @@ class MysqlDatabase extends Database
 
     /**
      * skip unused schemas.
-     * 
+     *
      * @return /Illuminate/Support/Collection
-     */ 
+     */
     public function skipNames()
     {
         return collect([]);
