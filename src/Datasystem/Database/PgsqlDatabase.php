@@ -26,9 +26,9 @@ class PgsqlDatabase extends Database
 
     /**
      * postgres query.
-     * 
+     *
      * @return string
-     */  
+     */
     public function getQuery()
     {
         return "SELECT * FROM pg_catalog.pg_tables WHERE
@@ -37,9 +37,9 @@ class PgsqlDatabase extends Database
 
     /**
      * skip unused schemas.
-     * 
+     *
      * @return /Illuminate/Support/Collection
-     */ 
+     */
     public function skipNames()
     {
         return collect([]);
