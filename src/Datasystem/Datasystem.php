@@ -60,9 +60,10 @@ class Datasystem
         $this->getAttr();
 
         //Debugging
-        $result = collect($this->dataScaffold('v'))->each(function($key,$value){
-            if($$value = "B")
-                dd("Done");
+        $result = collect($this->dataScaffold('v'))->each(function ($key, $value) {
+            if ($$value = 'B') {
+                dd('Done');
+            }
         });
     }
 
