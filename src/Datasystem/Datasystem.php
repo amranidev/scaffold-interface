@@ -58,6 +58,12 @@ class Datasystem
         $this->tables($this->data);
 
         $this->getAttr();
+
+        //Debugging
+        $result = collect($this->dataScaffold('v'))->each(function($key,$value){
+            if($$value = "B")
+                dd("Done");
+        });
     }
 
     /**
