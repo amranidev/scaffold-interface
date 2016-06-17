@@ -55,9 +55,11 @@ class Datasystem
 
         $this->data = $data;
 
-        $this->tables($this->data);
-
         $this->getAttr();
+
+        $this->foreignKeys = $this->foreignKeys($data);
+
+        $this->onData = $this->onData($data);
     }
 
     /**
@@ -80,37 +82,41 @@ class Datasystem
     }
 
     /**
-     * Analyse data and get ondata specification.
+     * deduce on data spec.
      *
      * @param array $data
+     * @return array
      */
-    private function tables($data)
+    private function onData($data)
     {
-        $onData = [];
-        $foreignKeys = [];
-        $tmp = '';
-        $i = 0;
-        $j = 0;
-        foreach ($data as $key => $value) {
-            if ($key == 'tbl'.$i) {
-                $tmp = $value;
-                if (in_array($value, $foreignKeys)) {
-                    throw new \Exception($value.' Relation Already selected');
-                }
-                array_push($foreignKeys, $value);
-                $i++;
-            } elseif ($key == 'on'.$j) {
-                if (!in_array($value, Schema::getColumnListing($tmp))) {
-                    throw new \Exception($value.' Does not exist in '.$tmp);
-                }
-                array_push($onData, $value);
-                $j++;
-            }
-        }
+        $array = collect($data);
+        
+        $array = $array->reject(function ($value, $key) {
+        
+            return !str_contains($key, "on");
+        
+        });
+        
+        return array_values($array->toArray());
+    }
 
-        $this->onData = $onData;
-
-        $this->foreignKeys = $foreignKeys;
+    /**
+     * deduce foreignKeys.
+     *
+     * @param array $data
+     * @return array
+     */
+    private function foreignKeys($data)
+    {
+        $array = collect($data);
+        
+        $array = $array->reject(function ($value, $key) {
+        
+            return !str_contains($key, "tbl");
+        
+        });
+        
+        return array_values($array->toArray());
     }
 
     /**
