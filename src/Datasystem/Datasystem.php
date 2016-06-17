@@ -85,18 +85,17 @@ class Datasystem
      * deduce on data spec.
      *
      * @param array $data
+     *
      * @return array
      */
     private function onData($data)
     {
         $array = collect($data);
-        
+
         $array = $array->reject(function ($value, $key) {
-        
-            return !str_contains($key, "on");
-        
+            return !str_contains($key, 'on');
         });
-        
+
         return array_values($array->toArray());
     }
 
@@ -104,18 +103,17 @@ class Datasystem
      * deduce foreignKeys.
      *
      * @param array $data
+     *
      * @return array
      */
     private function foreignKeys($data)
     {
         $array = collect($data);
-        
+
         $array = $array->reject(function ($value, $key) {
-        
-            return !str_contains($key, "tbl");
-        
+            return !str_contains($key, 'tbl');
         });
-        
+
         return array_values($array->toArray());
     }
 
