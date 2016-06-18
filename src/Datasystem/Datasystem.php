@@ -55,11 +55,9 @@ class Datasystem
 
         $this->data = $data;
 
+        $this->relationData();
+        
         $this->getAttr();
-
-        $this->foreignKeys = $this->foreignKeys($data);
-
-        $this->onData = $this->onData($data);
     }
 
     /**
@@ -82,41 +80,32 @@ class Datasystem
     }
 
     /**
-     * deduce on data spec.
+     * deduce onData and ForeingKeys.
      *
      * @param array $data
      * @return array
      */
-    private function onData($data)
+    private function relationData()
     {
-        $array = collect($data);
+        $onData = collect($this->data);
         
-        $array = $array->reject(function ($value, $key) {
+        $foreignKeys = collect($this->data);
+
+        $onData = $onData->reject(function ($value, $key) {
         
             return !str_contains($key, "on");
         
         });
-        
-        return array_values($array->toArray());
-    }
 
-    /**
-     * deduce foreignKeys.
-     *
-     * @param array $data
-     * @return array
-     */
-    private function foreignKeys($data)
-    {
-        $array = collect($data);
-        
-        $array = $array->reject(function ($value, $key) {
-        
-            return !str_contains($key, "tbl");
-        
+        $foreignKeys = $foreignKeys->reject(function($value,$key){
+
+        return !str_contains($key, "tbl");
+
         });
+
+        $this->onData = array_values($onData->toArray());
         
-        return array_values($array->toArray());
+        $this->foreignKeys = array_values($foreignKeys->toArray());
     }
 
     /**
@@ -124,33 +113,20 @@ class Datasystem
      *
      * @param string specification
      *
-     * @return array $result
+     * @return array
      */
-    public function dataScaffold($spec)
+    public function dataScaffold($spec = null)
     {
-        if ($spec == 'migration') {
-            $i = 0;
-        } else {
-            $i = 1;
-        }
-        $result = [];
-        foreach ($this->data as $key => $value) {
-            if ($i == 1) {
-                $i = 0;
-            } elseif ($i == 0) {
-                if ($key == 'tbl0' || $key == 'on0') {
-                    break;
-                } else {
-                    if (str_contains($value, ' ')) {
-                        $value = str_slug($value, '_');
-                    }
-                    array_push($result, $value);
-                    $i = 1;
-                }
-            }
-        }
+        $array = collect($this->data);
 
-        return $result;
+            $array = $array->reject(function ($value, $key) use($spec) {
+                if ($spec == 'migration')
+                return !str_contains($key, "opt");
+                
+                return !str_contains($key, "atr");
+            });
+
+        return array_values($array->toArray());
     }
 
     /**
