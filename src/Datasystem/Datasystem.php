@@ -56,7 +56,7 @@ class Datasystem
         $this->data = $data;
 
         $this->relationData();
-        
+
         $this->getAttr();
     }
 
@@ -89,23 +89,19 @@ class Datasystem
     private function relationData()
     {
         $onData = collect($this->data);
-        
+
         $foreignKeys = collect($this->data);
 
         $onData = $onData->reject(function ($value, $key) {
-        
-            return !str_contains($key, "on");
-        
+            return !str_contains($key, 'on');
         });
 
         $foreignKeys = $foreignKeys->reject(function ($value, $key) {
-
-        return !str_contains($key, "tbl");
-
+            return !str_contains($key, 'tbl');
         });
 
         $this->onData = array_values($onData->toArray());
-        
+
         $this->foreignKeys = array_values($foreignKeys->toArray());
     }
 
@@ -121,12 +117,12 @@ class Datasystem
         $array = collect($this->data);
 
         $array = $array->reject(function ($value, $key) use ($spec) {
-                if ($spec == 'migration') {
-                    return !str_contains($key, "opt");
-                }
-                
-                return !str_contains($key, "atr");
-            });
+            if ($spec == 'migration') {
+                return !str_contains($key, 'opt');
+            }
+
+            return !str_contains($key, 'atr');
+        });
 
         return array_values($array->toArray());
     }
