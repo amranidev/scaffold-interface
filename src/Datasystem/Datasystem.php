@@ -63,7 +63,7 @@ class Datasystem
     /**
      * Analyse data and attributes.
      *
-     * @param array $data
+     * @param array
      */
     private function getAttr()
     {
@@ -83,7 +83,8 @@ class Datasystem
      * deduce onData and ForeingKeys.
      *
      * @param array $data
-     * @return array
+     *
+     * @return void
      */
     private function relationData()
     {
@@ -97,7 +98,7 @@ class Datasystem
         
         });
 
-        $foreignKeys = $foreignKeys->reject(function($value,$key){
+        $foreignKeys = $foreignKeys->reject(function ($value, $key) {
 
         return !str_contains($key, "tbl");
 
@@ -119,9 +120,10 @@ class Datasystem
     {
         $array = collect($this->data);
 
-            $array = $array->reject(function ($value, $key) use($spec) {
-                if ($spec == 'migration')
-                return !str_contains($key, "opt");
+        $array = $array->reject(function ($value, $key) use ($spec) {
+                if ($spec == 'migration') {
+                    return !str_contains($key, "opt");
+                }
                 
                 return !str_contains($key, "atr");
             });
