@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.4.25 (2016-06-18)
+
+## Added
+
+- Added overiding foreignKeys convention [f037165](https://github.com/amranidev/scaffold-interface/commit/f03716595ca027a19588730b2c9f9ebb83310988).
+
+- Added Support for RDBMS (Mysql,Postgres,Sqlite).
+
 ## v1.4.23 (2016-05-30)
 
 ### Added
