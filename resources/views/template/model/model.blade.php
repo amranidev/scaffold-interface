@@ -18,8 +18,9 @@ class {{$names->tableName()}} extends Model
 
 	public function {{lcfirst(str_singular($key))}}()
 	{
-		return $this->belongsTo('{{config('amranidev.config.modelNameSpace')}}\{{ucfirst(str_singular($key))}}');
+		return $this->belongsTo('{{config('amranidev.config.modelNameSpace')}}\{{ucfirst(str_singular($key))}}','{{lcfirst(str_singular($key))}}_id');
 	}
 
 	@endforeach
+
 }
