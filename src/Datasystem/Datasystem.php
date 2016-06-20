@@ -62,7 +62,7 @@ class Datasystem
 
     /**
      * deduce relational arttributes.
-     * 
+     *
      * @return void
      */
     private function getAttr()
@@ -73,7 +73,7 @@ class Datasystem
             $Schema = $Schema->reject(function ($value, $key) {
                 return str_contains($value, 'id');
             });
-           $this->relationAttributes[$value] = array_values($Schema->toArray());
+            $this->relationAttributes[$value] = array_values($Schema->toArray());
         });
     }
 
