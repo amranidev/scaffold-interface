@@ -73,7 +73,7 @@ class Datasystem
             $Schema = $Schema->reject(function ($value, $key) {
                 return str_contains($value, 'id');
             });
-            $this->relationAttributes[$value] = array_values($Schema->toArray());
+            $this->relationAttributes[$key] = $Schema->toArray();
         });
     }
 
