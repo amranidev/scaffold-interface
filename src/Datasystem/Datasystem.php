@@ -61,28 +61,24 @@ class Datasystem
     }
 
     /**
-     * Analyse data and attributes.
-     *
-     * @param array
+     * deduce relational arttributes.
+     * 
+     * @return void
      */
     private function getAttr()
     {
-        foreach ($this->foreignKeys as $key => $value) {
-            $Schema = Schema::getColumnListing($value);
-            unset($Schema[0]);
-            foreach ($Schema as $SchemaKey => $SchemaValue) {
-                if (strpos($SchemaValue, '_id')) {
-                    unset($Schema[$SchemaKey]);
-                }
-            }
-            $this->relationAttributes[$value] = $Schema;
-        }
+        $array = collect($this->foreignKeys);
+        $array = $array->each(function ($key, $value) {
+            $Schema = collect(Schema::getColumnListing($key));
+            $Schema = $Schema->reject(function ($value, $key) {
+                return str_contains($value, 'id');
+            });
+           $this->relationAttributes[$value] = array_values($Schema->toArray());
+        });
     }
 
     /**
      * deduce onData and ForeingKeys.
-     *
-     * @param array $data
      *
      * @return void
      */
