@@ -67,7 +67,7 @@ class Datasystem
      */
     private function getAttr()
     {
-        $foreignKeys = collect($this->foreignKeys)->each(function ($key, $value) {
+        collect($this->foreignKeys)->each(function ($key, $value) {
             $Schema = collect(Schema::getColumnListing($key));
             $Schema = $Schema->reject(function ($value, $key) {
                 return str_contains($value, 'id');
