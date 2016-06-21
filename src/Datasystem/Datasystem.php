@@ -67,8 +67,7 @@ class Datasystem
      */
     private function getAttr()
     {
-        $array = collect($this->foreignKeys);
-        $array = $array->each(function ($key, $value) {
+        $foreignKeys = collect($this->foreignKeys)->each(function ($key, $value) {
             $Schema = collect(Schema::getColumnListing($key));
             $Schema = $Schema->reject(function ($value, $key) {
                 return str_contains($value, 'id');
@@ -84,15 +83,11 @@ class Datasystem
      */
     private function relationData()
     {
-        $onData = collect($this->data);
-
-        $foreignKeys = collect($this->data);
-
-        $onData = $onData->reject(function ($value, $key) {
+        $onData = collect($this->data)->reject(function ($value, $key) {
             return !str_contains($key, 'on');
         });
 
-        $foreignKeys = $foreignKeys->reject(function ($value, $key) {
+        $foreignKeys = collect($this->data)->reject(function ($value, $key) {
             return !str_contains($key, 'tbl');
         });
 
@@ -110,9 +105,7 @@ class Datasystem
      */
     public function dataScaffold($spec = null)
     {
-        $array = collect($this->data);
-
-        $array = $array->reject(function ($value, $key) use ($spec) {
+        $data = collect($this->data)->reject(function ($value, $key) use ($spec) {
             if ($spec == 'migration') {
                 return !str_contains($key, 'opt');
             }
@@ -120,7 +113,7 @@ class Datasystem
             return !str_contains($key, 'atr');
         });
 
-        return array_values($array->toArray());
+        return array_values($data->toArray());
     }
 
     /**
