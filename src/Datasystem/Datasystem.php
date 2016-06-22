@@ -57,7 +57,7 @@ class Datasystem
 
         $this->relationData();
 
-        $this->getAttr();
+        $this->getAttributes();
     }
 
     /**
@@ -65,7 +65,7 @@ class Datasystem
      *
      * @return void
      */
-    private function getAttr()
+    private function getAttributes()
     {
         collect($this->foreignKeys)->each(function ($key, $value) {
             $Schema = collect(Schema::getColumnListing($key));
