@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.4.27 (2016-6-22)
+
+###fixed
+- Fix OneToMany select field bug [786e74](https://github.com/amranidev/scaffold-interface/commit/786e74de0a62d7cc88c80617f88bec02dd3e40cd).
+
 ## v1.4.25 (2016-06-18)
 
 ### Added
