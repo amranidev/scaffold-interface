@@ -118,7 +118,7 @@ class Datasystem
 
     /**
      * Get foreignKeys.
-     * 
+     *
      * @return string
      */
     public function getForeignKeys()
@@ -128,7 +128,7 @@ class Datasystem
 
     /**
      * Get relational attributes.
-     * 
+     *
      * @return string
      */
     public function getRelationAttributes()
@@ -138,7 +138,7 @@ class Datasystem
 
     /**
      * Get onData.
-     * 
+     *
      * @return string
      */
     public function getOnData()
@@ -148,7 +148,7 @@ class Datasystem
 
      /**
       * get request data.
-      * 
+      *
       * @return string
       */
      public function getData()
