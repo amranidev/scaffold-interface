@@ -1,6 +1,6 @@
 namespace {{config('amranidev.config.controllerNameSpace')}};
 
-use Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use {{config('amranidev.config.modelNameSpace')}}\{{$names->tableName()}};
 use Amranidev\Ajaxis\Ajaxis;
@@ -62,19 +62,17 @@ class {{$names->tableName()}}Controller extends Controller
      */
     public function store(Request $request)
     {
-        $input = Request::except('_token');
-
         ${{$names->tableNameSingle()}} = new {{$names->tableName()}}();
 
         @foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$names->tableNameSingle()}}->{{$value}} = $input['{{$value}}'];
+        ${{$names->tableNameSingle()}}->{{$value}} = $request->{{$value}};
 
         @endforeach
 
         @foreach($dataSystem->getForeignKeys() as $key)
 
-        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $request->{{lcfirst(str_singular($key))}}_id;
 
         @endforeach
 
@@ -89,9 +87,9 @@ class {{$names->tableName()}}Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
-        if(Request::ajax())
+        if($request->ajax())
         {
             return URL::to('{{$names->tableNameSingle()}}/'.$id);
         }
@@ -106,9 +104,9 @@ class {{$names->tableName()}}Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,Request $request)
     {
-        if(Request::ajax())
+        if($request->ajax())
         {
             return URL::to('{{$names->tableNameSingle()}}/'. $id . '/edit');
         }
@@ -142,19 +140,17 @@ class {{$names->tableName()}}Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id,Request $request)
     {
-        $input = Request::except('_token');
-
         ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
     	@foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$names->tableNameSingle()}}->{{$value}} = $input['{{$value}}'];
+        ${{$names->tableNameSingle()}}->{{$value}} = $request->{{$value}};
         @endforeach
 
         @foreach($dataSystem->getForeignKeys() as $key)
 
-        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $input['{{lcfirst(str_singular($key))}}_id'];
+        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $request->{{lcfirst(str_singular($key))}}_id;
 
         @endforeach
 
@@ -170,11 +166,11 @@ class {{$names->tableName()}}Controller extends Controller
      *
      * @return String
      */
-    public function DeleteMsg($id)
+    public function DeleteMsg($id,Request $request)
     {
         $msg = Ajaxis::{{$names->getParse()}}Deleting('Warning!!','Would you like to remove This?','/{{$names->TableNameSingle()}}/'. $id . '/delete/');
 
-        if(Request::ajax())
+        if($request->ajax())
         {
             return $msg;
         }
