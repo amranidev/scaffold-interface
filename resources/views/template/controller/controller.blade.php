@@ -84,6 +84,7 @@ class {{$names->tableName()}}Controller extends Controller
     /**
      * Display the specified resource.
      *
+     * @param    \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -100,7 +101,7 @@ class {{$names->tableName()}}Controller extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * @param    \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -163,7 +164,7 @@ class {{$names->tableName()}}Controller extends Controller
      * Delete confirmation message by Ajaxis
      *
      * @link https://github.com/amranidev/ajaxis
-     *
+     * @param    \Illuminate\Http\Request  $request
      * @return String
      */
     public function DeleteMsg($id,Request $request)
