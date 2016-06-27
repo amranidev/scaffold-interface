@@ -28,8 +28,8 @@
 
                 <div class="input-field col s12">
                     <select name = '{{lcfirst(str_singular($key))}}_id'>
-                        {{$names->blade()}}foreach(${{str_plural($key)}} as $key1 => $value1)
-                        <option value="@{{$key1}}">@{{$value1}}</option>
+                        {{$names->blade()}}foreach(${{str_plural($key)}} as $key => $value)
+                        <option value="@{{$key}}">@{{$value}}</option>
                         {{$names->blade()}}endforeach
                     </select>
                     <label>{{$key}} Select</label>
