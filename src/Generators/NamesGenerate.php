@@ -95,7 +95,7 @@ class NamesGenerate
      */
     public function foreachh()
     {
-        return '@foreach($'.$this->tableNames().' as $value)';
+        return '@foreach($'.$this->tableNames().' as '.$this->tableName().')';
     }
 
     /**
