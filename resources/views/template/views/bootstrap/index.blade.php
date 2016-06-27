@@ -61,7 +61,7 @@
                     <tr>
                         @foreach($dataSystem->dataScaffold('v') as $value)
 
-                        <td>{{$names->open()}}$value->{{$value}}{{$names->close()}}</td>
+                        <td>{{$names->open()}}${{$names->tableName()}}->{{$value}}{{$names->close()}}</td>
                         @endforeach
 
                         @if($dataSystem->getRelationAttributes() != null)
@@ -69,7 +69,7 @@
                         @foreach($dataSystem->getRelationAttributes() as $key=>$value)
 
                         @foreach($value as $key1 => $value1)
-                        <td>{{$names->open()}}$value->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
+                        <td>{{$names->open()}}${{$names->tableName()}}->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
 
                         @endforeach
 
