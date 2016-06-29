@@ -42,7 +42,7 @@ class {{$names->tableName()}}Controller extends Controller
         ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->lists('{{$dataSystem->getOnData()[$key]}}','id');
         @endforeach
 
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.create' @if($dataSystem->getForeignKeys() != null),compact(@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())), @endif @endforeach) @endif);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.create'@if($dataSystem->getForeignKeys() != null),compact(@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())),@endif @endforeach)@endif);
     }
 
     /**
@@ -110,7 +110,7 @@ class {{$names->tableName()}}Controller extends Controller
         @endforeach
 
         ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}' @if($dataSystem->getForeignKeys() != null),@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}'@if($value != last($dataSystem->getForeignKeys())),@endif@endforeach)@else)@endif);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}' @if($dataSystem->getForeignKeys() != null),@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}'@if($value != last($dataSystem->getForeignKeys())),@endif @endforeach) @else )@endif);
     }
 
     /**
