@@ -101,7 +101,7 @@ class GuiController extends AppController
      *
      * @link https://github.com/amranidev/ajaxis
      *
-     * @return string
+     * @return \Illuminate\Http\Response
      */
     public function deleteMsg($id)
     {
@@ -123,7 +123,7 @@ class GuiController extends AppController
      *
      * @param string $table
      *
-     * @return array
+     * @return \Illuminate\Http\Response
      */
     public function getResult($table)
     {
