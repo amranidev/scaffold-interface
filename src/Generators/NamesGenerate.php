@@ -125,7 +125,7 @@ class NamesGenerate
      */
     public function standardapi()
     {
-        return URL::to($this->tableNameSingle());
+        return $this->tableNameSingle();
     }
 
     /**
