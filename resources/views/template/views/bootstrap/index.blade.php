@@ -12,7 +12,7 @@
     <body>
         <div class = 'container'>
             <h1>{{$names->tableName()}} Index</h1>
-            <form class = 'col s3' method = 'get' action = '{{$names->standardApi()}}/create'>
+            <form class = 'col s3' method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}/create'>
                 <button class = 'btn btn-primary' type = 'submit'>Create New {{$names->tableName()}}</button>
             </form>
             <br>

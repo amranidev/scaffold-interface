@@ -12,7 +12,7 @@
         <div class = 'container'>
             <h1>Show {{$names->tableName()}}</h1>
             <br>
-            <form method = 'get' action = '{{$names->standardApi()}}'>
+            <form method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}'>
                 <button class = 'btn btn-primary'>{{$names->tableName()}} Index</button>
             </form>
             <br>
