@@ -11,11 +11,11 @@
     <body>
         <div class = 'container'>
             <h1>Edit {{$names->tableName()}}</h1>
-            <form method = 'get' action = '{{$names->standardApi()}}'>
+            <form method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}'>
                 <button class = 'btn blue'>{{$names->tableName()}} Index</button>
             </form>
             <br>
-            <form method = 'POST' action = '{{$names->standardApi()}}/{{$names->open()}}${{$names->tableNameSingle()}}->id{{$names->close()}}/update'>
+            <form method = 'POST' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}/{{$names->open()}}${{$names->tableNameSingle()}}->id{{$names->close()}}/update'>
                 <input type = 'hidden' name = '_token' value = '{{$names->open()}}Session::token(){{$names->close()}}'>
                 @foreach($dataSystem->dataScaffold('v') as $value)
 

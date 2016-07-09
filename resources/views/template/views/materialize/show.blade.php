@@ -11,7 +11,7 @@
     <body>
         <div class = 'container'>
             <h1>Show {{$names->tableName()}}</h1>
-            <form method = 'get' action = '{{$names->standardApi()}}'>
+            <form method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}'>
                 <button class = 'btn blue'>{{$names->tableName()}} Index</button>
             </form>
             <table class = 'highlight bordered'>
