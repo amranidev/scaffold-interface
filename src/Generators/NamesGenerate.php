@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use URL;
-
 /**
  * Class NamesGenerate.
  *
