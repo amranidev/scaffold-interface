@@ -1,5 +1,10 @@
 # Release Notes
 
+#v1.4.32 (2016-07-12)
+
+### Enhanced
+- Use Laravel **url()** helper to generate urls into views.
+
 ## v1.4.31 (2016-07-08)
 
 ### Enhanced
