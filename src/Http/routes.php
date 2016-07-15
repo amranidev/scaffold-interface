@@ -7,6 +7,7 @@
 |
 */
 Route::group(['middleware' => 'web'], function () {
+
     Route::get('scaffold', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@index');
 
     Route::post('scaffold/guipost', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@store');
