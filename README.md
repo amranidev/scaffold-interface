@@ -9,6 +9,8 @@
 
 ## A Smart CRUD Generator
 
+> Using laravel v5.1.* ??, it recommended to use scaffold-interface v1.4.11.
+
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
 ####Features :
