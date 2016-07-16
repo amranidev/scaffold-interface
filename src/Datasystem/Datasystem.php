@@ -77,7 +77,7 @@ class Datasystem
     }
 
     /**
-     * deduce onData and ForeingKeys.
+     * deduce onData and foreingKeys.
      *
      * @return void
      */
