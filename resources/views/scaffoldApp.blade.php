@@ -156,6 +156,7 @@
                 <i class="large mdi-navigation-menu"></i>
             </a>
             <ul>
+                <li><a href="{{url('/')}}" class = 'btn btn-floating blue' data-position="left" data-delay="50" data-tooltip="Make auth"><i class="material-icons">users</i></a></li>
                 <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePage" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Generate Home Page"><i class="material-icons">view_list</i></a></li>
                 <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageDelete" class="btn-floating red darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Delete Home Page"><i class="material-icons">delete</i></a></li>
                 <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePageIndex" class="btn-floating #7cb342 light-green darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Home Page"><i class="material-icons">send</i></a></li>
