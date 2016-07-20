@@ -7,6 +7,7 @@
 |
 */
 Route::group(['middleware' => 'web'], function () {
+
     Route::get('scaffold', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@index');
 
     Route::post('scaffold/guipost', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@store');
@@ -17,11 +18,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@getResult');
 
-    Route::get('scaffold/scaffoldHomePage', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePage');
-
-    Route::get('scaffold/scaffoldHomePageIndex', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@getIndex');
-
-    Route::get('scaffold/scaffoldHomePageDelete', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@homePageDelete');
+    Route::get('scaffold/scaffoldHomePage', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@dashboard');
 
     Route::get('scaffold/migrate', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@migrate');
 
