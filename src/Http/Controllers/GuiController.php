@@ -250,4 +250,17 @@ class GuiController extends AppController
 
         return file_put_contents($path, $data);
     }
+
+    public function dashboard()
+    {
+        $scaffoldList = Scaffoldinterface::all();
+
+        $home = new HomePageGenerator($scaffoldList);
+
+        $home->burn();
+
+        Session::flash('status', 'Home Page Generated Successfully');
+
+        return redirect('scaffold/scaffoldHomePageIndex');
+    }
 }
