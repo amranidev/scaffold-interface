@@ -226,9 +226,9 @@ class GuiController extends AppController
 
     /**
      * generate dashboard.
-     * 
-     * @return  \Illuminate\Http\Response
-     */ 
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function dashboard()
     {
         $scaffoldList = Scaffoldinterface::all();
@@ -240,7 +240,7 @@ class GuiController extends AppController
         //Session::flash('status', 'Home Page Generated Successfully');
 
         //return redirect('scaffold/scaffoldHomePageIndex');
-        
+
         return view('scaffold-interface::template.HomePage.HomePage', ['Parse' => $scaffoldList]);
     }
 }
