@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface\Http\Controllers;
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attribute;
 use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
-use Amranidev\ScaffoldInterface\Generators\HomePageGenerator\HomePageGenerator;
+use Amranidev\ScaffoldInterface\Generators\Dashboard\Dashboard;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
@@ -153,33 +153,6 @@ class GuiController extends AppController
     }
 
     /**
-     * Show homepage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getIndex()
-    {
-        return view('HomePageScaffold');
-    }
-
-    /**
-     * Delete homepage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function homePageDelete()
-    {
-        try {
-            unlink(base_path().'/resources/views/HomePageScaffold.blade.php');
-        } catch (\Exception $e) {
-            return 'Scaffold-Interface : '.$e->getMessage();
-        }
-        Session::flash('status', 'HomePage Deleted Successfully');
-
-        return redirect('scaffold');
-    }
-
-    /**
      * Migrate schema.
      *
      * @return \Illuminate\Http\Response
@@ -251,16 +224,23 @@ class GuiController extends AppController
         return file_put_contents($path, $data);
     }
 
+    /**
+     * generate dashboard.
+     * 
+     * @return  \Illuminate\Http\Response
+     */ 
     public function dashboard()
     {
         $scaffoldList = Scaffoldinterface::all();
 
-        $home = new HomePageGenerator($scaffoldList);
+        //$home = new Dashboard($scaffoldList);
 
-        $home->burn();
+        //$home->burn();
 
-        Session::flash('status', 'Home Page Generated Successfully');
+        //Session::flash('status', 'Home Page Generated Successfully');
 
-        return redirect('scaffold/scaffoldHomePageIndex');
+        //return redirect('scaffold/scaffoldHomePageIndex');
+        
+        return view('scaffold-interface::template.HomePage.HomePage', ['Parse' => $scaffoldList]);
     }
 }
