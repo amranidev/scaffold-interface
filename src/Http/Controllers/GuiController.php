@@ -232,7 +232,7 @@ class GuiController extends AppController
     public function dashboard()
     {
         $scaffoldList = Scaffoldinterface::all();
-        
+
         return view('scaffold-interface::template.HomePage.HomePage', ['Parse' => $scaffoldList]);
     }
 }
