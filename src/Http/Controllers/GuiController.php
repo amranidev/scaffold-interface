@@ -232,15 +232,7 @@ class GuiController extends AppController
     public function dashboard()
     {
         $scaffoldList = Scaffoldinterface::all();
-
-        //$home = new Dashboard($scaffoldList);
-
-        //$home->burn();
-
-        //Session::flash('status', 'Home Page Generated Successfully');
-
-        //return redirect('scaffold/scaffoldHomePageIndex');
-
+        
         return view('scaffold-interface::template.HomePage.HomePage', ['Parse' => $scaffoldList]);
     }
 }
