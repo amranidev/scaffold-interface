@@ -1,6 +1,6 @@
 <?php
 
-namespace Amranidev\ScaffoldInterface\Generators\HomePageGenerator;
+namespace Amranidev\ScaffoldInterface\Generators\Dashboard;
 
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 
