@@ -5,7 +5,6 @@ namespace Amranidev\ScaffoldInterface\Http\Controllers;
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attribute;
 use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
-//use Amranidev\ScaffoldInterface\Generators\Dashboard\Dashboard;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
@@ -132,24 +131,6 @@ class GuiController extends AppController
         if (Request::ajax()) {
             return $attributes->getAttributes();
         }
-    }
-
-    /**
-     * Scaffold a home page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function homePage()
-    {
-        $scaffoldList = Scaffoldinterface::all();
-
-        $home = new HomePageGenerator($scaffoldList);
-
-        $home->burn();
-
-        Session::flash('status', 'Home Page Generated Successfully');
-
-        return redirect('scaffold/scaffoldHomePageIndex');
     }
 
     /**
