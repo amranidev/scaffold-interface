@@ -214,6 +214,6 @@ class GuiController extends AppController
     {
         $scaffoldList = Scaffoldinterface::all();
 
-        return view('scaffold-interface::template.HomePage.HomePage', ['Parse' => $scaffoldList]);
+        return view('scaffold-interface::template.Dashboard.Dashboard', ['Parse' => $scaffoldList]);
     }
 }
