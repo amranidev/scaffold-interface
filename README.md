@@ -119,6 +119,7 @@ Congratulations, you have successfully installed Scaffold Interface!
 
  - [ ] 100% Code coverage + Maximum code quality.
  - [ ] Allow to generate ManyToMany relationships.
+ - [ ] AdminLTE Dashboard.
 
 ####DONE
   
