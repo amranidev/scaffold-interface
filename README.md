@@ -109,7 +109,7 @@ Congratulations, you have successfully installed Scaffold Interface!
 
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
-####Special thanks
+####Special thanks to
 
 + [Athi Krishnan](https://github.com/athikrishnan)
 + [JeroenG](https://github.com/Jeroen-G)
