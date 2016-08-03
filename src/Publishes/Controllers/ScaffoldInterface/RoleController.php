@@ -11,8 +11,10 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
+
         return view('scaffold-interface.roles.index', compact('roles'));
     }
+
     public function create()
     {
         return view('scaffold-interface.roles.create');
@@ -39,7 +41,7 @@ class RoleController extends Controller
         $role->name = $request->name;
 
         $role->update();
-        
+
         return redirect('roles');
     }
 
