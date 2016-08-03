@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\ScaffoldInterface;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Hash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    
     public function index()
     {
-    	$users = \App\User::all();
-        return view('scaffold-interface.users.index',compact('users'));
+        $users = \App\User::all();
+
+        return view('scaffold-interface.users.index', compact('users'));
     }
 
     public function create()
@@ -35,9 +35,9 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user =  \App\User::findOrfail($id);
+        $user = \App\User::findOrfail($id);
 
-        return view('scaffold-interface.users.edit',compact('user'));
+        return view('scaffold-interface.users.edit', compact('user'));
     }
 
     public function update(Request $request)
