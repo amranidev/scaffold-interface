@@ -6,7 +6,7 @@
 			<h3>Edit Role</h3>
 		</div>
 		<div class="box-body">
-			<form action="{{url('roles/store')}}" method = "post">
+			<form action="{{url('roles/update')}}" method = "post">
 				{!! csrf_field() !!}
 				<input type="hidden" name = "role_id" value = "{{$role->id}}">
 				<div class="form-group">
@@ -14,7 +14,7 @@
 					<input type="text" name = "name" class = "form-control" placeholder = "Name" value = "{{$role->name}}">
 				</div>
 				<div class="box-footer">
-					<button class = 'btn btn-primary' type = "submit">Create</button>
+					<button class = 'btn btn-primary' type = "submit">Update</button>
 				</div>
 			</form>
 		</div>
