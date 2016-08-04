@@ -11,8 +11,10 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::all();
+
         return view('scaffold-interface.permissions.index', compact('permissions'));
     }
+
     public function create()
     {
         return view('scaffold-interface.permissions.create');
@@ -39,7 +41,7 @@ class PermissionController extends Controller
         $permission->name = $request->name;
 
         $permission->update();
-        
+
         return redirect('permissions');
     }
 
