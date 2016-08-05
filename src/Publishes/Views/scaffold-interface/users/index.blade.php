@@ -20,8 +20,6 @@
 				<td>{{$user->email}}</td>
 				<td>
 					<a href="{{url('/users/edit')}}/{{$user->id}}" class = 'btn btn-primary'>Edit</a>
-					<a href="{{url('/users/addRole')}}" class = 'btn btn-success'>add role</a>
-					<a href="{{url('/users/addPermession')}}" class = 'btn btn-warning'>add permession</a>
 					<a href="{{url('users/delete')}}/{{$user->id}}" class = "btn btn-danger">delete</a>
 				</td>
 			</tr>
