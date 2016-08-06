@@ -83,4 +83,22 @@ class UserController extends Controller
 
         return redirect('users/edit/'.$request->user_id);
     }
+
+    public function revokePermission($permission, $user_id)
+    {
+        $user = \App\User::findorfail($user_id);
+
+        $user->revokePermissionTo(str_slug($permission, ' '));
+        
+        return redirect('users/edit/'.$user_id);
+    }
+
+    public function revokeRole($role, $user_id)
+    {
+        $user = \App\User::findorfail($user_id);
+
+        $user->removeRole(str_slug($role, ' '));
+        
+        return redirect('users/edit/'.$user_id);
+    }
 }
