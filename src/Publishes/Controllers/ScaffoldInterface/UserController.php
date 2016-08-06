@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\ScaffoldInterface;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Hash;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    
     public function index()
     {
         $users = \App\User::all();
+
         return view('scaffold-interface.users.index', compact('users'));
     }
 
@@ -37,7 +37,7 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user =  \App\User::findOrfail($id);
+        $user = \App\User::findOrfail($id);
         $roles = Role::all()->pluck('name');
         $permissions = Permission::all()->pluck('name');
         $userRoles = $user->roles;
