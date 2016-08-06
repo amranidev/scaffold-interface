@@ -11,6 +11,8 @@
 		<thead>
 			<th>Name</th>
 			<th>Email</th>
+			<th>Roles</th>
+			<th>Permissions</th>
 			<th>Actions</th>
 		</thead>
 		<tbody>
@@ -18,6 +20,16 @@
 			<tr>
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
+				<td>
+				@foreach($user->roles as $role)
+				<small class = 'label bg-blue'>{{$role->name}}</small>
+				@endforeach
+				</td>
+				<td>
+				@foreach($user->permissions as $permission)
+				<small class = 'label bg-orange'>{{$permission->name}}</small>
+				@endforeach
+				</td>
 				<td>
 					<a href="{{url('/users/edit')}}/{{$user->id}}" class = 'btn btn-primary'>Edit</a>
 					<a href="{{url('users/delete')}}/{{$user->id}}" class = "btn btn-danger">delete</a>
