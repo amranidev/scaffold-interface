@@ -28,7 +28,7 @@
 		<div class="wrapper">
 			<header class="main-header">
 				<!-- Logo -->
-				<a href="index2.html" class="logo">
+				<a href="{{url('dashboard')}}" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->
 					<span class="logo-mini"><b>E</b>CM</span>
 					<!-- logo for regular state and mobile devices -->
@@ -60,7 +60,7 @@
 					<ul class="sidebar-menu">
 						<li class="header">MAIN NAVIGATION</li>
 						<li class="active treeview">
-							<a href="#">
+							<a href="{{url('dashboard')}}">
 								<i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
 							</a>
 						</li>
