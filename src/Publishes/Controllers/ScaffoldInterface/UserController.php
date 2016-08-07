@@ -89,7 +89,7 @@ class UserController extends Controller
         $user = \App\User::findorfail($user_id);
 
         $user->revokePermissionTo(str_slug($permission, ' '));
-        
+
         return redirect('users/edit/'.$user_id);
     }
 
@@ -98,7 +98,7 @@ class UserController extends Controller
         $user = \App\User::findorfail($user_id);
 
         $user->removeRole(str_slug($role, ' '));
-        
+
         return redirect('users/edit/'.$user_id);
     }
 }
