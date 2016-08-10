@@ -22,4 +22,40 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('scaffold/migrate', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@migrate');
 
     Route::get('scaffold/rollback', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@rollback');
+
 });
+
+Route::group(['middleware' => ['web','auth']], function () {
+
+Route::get('dashboard', function () {
+    $users = \App\User::all();
+    return view('scaffold-interface.dashboard.dashboard', compact('users'));
+});
+
+Route::get('users', '\App\Http\Controllers\ScaffoldInterface\UserController@index');
+Route::get('users/edit/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@edit');
+Route::post('users/update', '\App\Http\Controllers\ScaffoldInterface\UserController@update');
+Route::get('users/create', '\App\Http\Controllers\ScaffoldInterface\UserController@create');
+Route::post('users/store', '\App\Http\Controllers\ScaffoldInterface\UserController@store');
+Route::get('users/delete/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@destroy');
+Route::post('users/addRole', '\App\Http\Controllers\ScaffoldInterface\UserController@addRole');
+Route::post('users/addPermission', '\App\Http\Controllers\ScaffoldInterface\UserController@addPermission');
+Route::get('users/removePermission/{permission}/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@revokePermission');
+Route::get('users/removeRole/{role}/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@revokeRole');
+
+
+Route::get('roles', '\App\Http\Controllers\ScaffoldInterface\RoleController@index');
+Route::get('roles/edit/{role_id}', '\App\Http\Controllers\ScaffoldInterface\RoleController@edit');
+Route::post('roles/update', '\App\Http\Controllers\ScaffoldInterface\RoleController@update');
+Route::get('roles/create', '\App\Http\Controllers\ScaffoldInterface\RoleController@create');
+Route::post('roles/store', '\App\Http\Controllers\ScaffoldInterface\RoleController@store');
+Route::get('roles/delete/{role_id}', '\App\Http\Controllers\ScaffoldInterface\RoleController@destroy');
+
+Route::get('permissions', '\App\Http\Controllers\ScaffoldInterface\PermissionController@index');
+Route::get('permissions/edit/{role_id}', '\App\Http\Controllers\ScaffoldInterface\PermissionController@edit');
+Route::post('permissions/update', '\App\Http\Controllers\ScaffoldInterface\PermissionController@update');
+Route::get('permissions/create', '\App\Http\Controllers\ScaffoldInterface\PermissionController@create');
+Route::post('permissions/store', '\App\Http\Controllers\ScaffoldInterface\PermissionController@store');
+Route::get('permissions/delete/{role_id}', '\App\Http\Controllers\ScaffoldInterface\PermissionController@destroy');
+});
+
