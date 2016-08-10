@@ -156,7 +156,7 @@
                 <i class="large mdi-navigation-menu"></i>
             </a>
             <ul>
-                <li><a href = "{{URL::to('/')}}/scaffold/scaffoldHomePage" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard"><i class="material-icons">view_list</i></a></li>
+                <li><a href = "{{URL::to('/')}}/dashboard" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard"><i class="material-icons">view_list</i></a></li>
                 <li><a href = "{{URL::to('/')}}/scaffold/rollback" class="btn-floating pink tooltipped" data-position="left" data-delay="50" data-tooltip="RollBack the Schema"><i class="material-icons">repeat</i></a></li>
                 <li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange tooltipped" data-position="left" data-delay="50" data-tooltip="Migrate the Shcema"><i class="material-icons">input</i></a></li>
             </ul>
