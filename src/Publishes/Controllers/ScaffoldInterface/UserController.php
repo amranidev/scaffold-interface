@@ -13,7 +13,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return  \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -25,7 +25,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return  \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -35,8 +35,9 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param    \Illuminate\Http\Request  $request
-     * @return  \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -53,7 +54,9 @@ class UserController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param  int $id
+     *
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,8 +73,9 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param   \Illuminate\Http\Request  $request
-     * @return  \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
@@ -89,8 +93,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param   int  $id
-     * @return  \Illuminate\Http\Response
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
@@ -103,8 +108,9 @@ class UserController extends Controller
 
     /**
      * Assign Role to user.
-     * 
+     *
      * @param \Illuminate\Http\Request
+     *
      * @return \Illuminate\Http\Response
      */
     public function addRole(Request $request)
@@ -117,8 +123,9 @@ class UserController extends Controller
 
     /**
      * Assign Permission to a user.
-     * 
+     *
      * @param \Illuminate\Http\Request
+     *
      * @return \Illuminate\Http\Response
      */
     public function addPermission(Request $request)
@@ -131,8 +138,9 @@ class UserController extends Controller
 
     /**
      * revoke Permission to a user.
-     * 
+     *
      * @param \Illuminate\Http\Request
+     *
      * @return \Illuminate\Http\Response
      */
     public function revokePermission($permission, $user_id)
@@ -146,8 +154,9 @@ class UserController extends Controller
 
     /**
      * revoke Role to a a user.
-     * 
+     *
      * @param \Illuminate\Http\Request
+     *
      * @return \Illuminate\Http\Response
      */
     public function revokeRole($role, $user_id)
