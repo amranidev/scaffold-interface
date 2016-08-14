@@ -108,9 +108,9 @@
 							</a>
 						</li>
 						<li class="header">ADMINISTRATOR</li>
-						<li><a href="{{url('/users')}}"><i class="fa fa-users"></i> Users</a></li>
-						<li><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> Roles</a></li>
-						<li><a href="{{url('/permissions')}}"><i class="fa fa-key"></i> Permissions</a></li>
+						<li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
+						<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a></li>
+						<li class="treeview"><a href="{{url('/permissions')}}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
 					</ul>
 				</section>
 				<!-- /.sidebar -->
