@@ -21,7 +21,7 @@
 
 + Generate OneToMany relationships including views and controllers.
 
-+ AdminLTE dashboard template with users management system (users-roles-permissions) using [spatie/laravel-permission](https://github.com/spatie/laravel-permission).
++ AdminLTE dashboard template with users management system (users-roles-permissions) using [laravel-permission](https://github.com/spatie/laravel-permission).
 
 + A delete confirmation message.
 
