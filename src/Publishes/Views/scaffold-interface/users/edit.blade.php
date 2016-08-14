@@ -55,7 +55,7 @@
 							@foreach($userRoles as $role)
 							<tr>
 								<td>{{$role->name}}</td>
-								<td><a href="{{url('users/removeRole')}}/{{str_slug($role->name,'-')}}/{{$user->id}}" class = "btn btn-danger">delete</a></td>
+								<td><a href="{{url('users/removeRole')}}/{{str_slug($role->name,'-')}}/{{$user->id}}" class = "btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -92,7 +92,7 @@
 							@foreach($userPermissions as $permission)
 							<tr>
 								<td>{{$permission->name}}</td>
-								<td><a href="{{url('users/removePermission')}}/{{str_slug($permission->name,'-')}}/{{$user->id}}" class = "btn btn-danger">delete</a></td>
+								<td><a href="{{url('users/removePermission')}}/{{str_slug($permission->name,'-')}}/{{$user->id}}" class = "btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
 							</tr>
 							@endforeach
 						</tbody>
