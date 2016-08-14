@@ -13,7 +13,7 @@
 
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
-####Features :
+####Features:
 
 + Generate your model,views,controller and migrations just in a few clicks.
 
@@ -21,7 +21,7 @@
 
 + Generate OneToMany relationships including views and controllers.
 
-+ Generate a dashboard template.
++ AdminLTE dashboard template with users management system (users-roles-permissions) using [spatie/laravel-permission](https://github.com/spatie/laravel-permission).
 
 + A delete confirmation message.
 
@@ -29,34 +29,33 @@
 
 + Rollbacking possibility.
 
-+ Craft your laravel application faster and easier.
-
 + Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager), [CRUD for packages/modules](http://amranidev.github.io/blog/site/crud-generator-for-packages/).
 
 ###I. Package installation
 
-  1. Run composer require to install Scaffold-Interface :
+  1. Run composer require to install Scaffold-Interface:
   
-    Add the package to your dependencies in composer.json :
+    Add the package to your dependencies in composer.json:
     
     ```json
     require : {
-        "Amranidev/scaffold-interface": "v1.4.*"
+        "Amranidev/scaffold-interface": "v1.5.*"
     }
     ```
     
-    Then update composer :
+    Then update composer:
     
     ```
     $ composer update
     ```
     
-  3. Add the service providers to config/app.php :
+  3. Add the service providers to config/app.php:
 
     ```php
 
     Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
     Amranidev\Ajaxis\AjaxisServiceProvider::class,
+    Spatie\Permission\PermissionServiceProvider::class,
   
     ```
 
@@ -72,6 +71,11 @@
     ```
     $ php artisan migrate
 
+    ```
+  6. Auth scaffolding:
+  
+    ```
+    $ php artisan make:auth
     ```
 
 Congratulations, you have successfully installed Scaffold Interface!
@@ -93,11 +97,11 @@ Congratulations, you have successfully installed Scaffold Interface!
      
      ```
   
-  4. Finally:
+  4. Finally :
      
      Go to http://{your-project}/{your-model} to see the result.
       
-  5. Rollback  
+  5. Rollback :  
 
       If you want to rollback the table just check this:
       
@@ -105,6 +109,34 @@ Congratulations, you have successfully installed Scaffold Interface!
 
       Before you make your rollback make sure that you have rolled back your table in the database.
 
+  6. Dashboard:
+      
+      Go ahead and create a new user, `$ php artisan tinker`:
+      
+      ```
+      $user = new \App\User();
+      $user->name = "john doe";
+      $user->email = "jhondoe@example.com";
+      $user->password = Hash::make("password");
+      $user->save()
+      ```
+      
+      Then add HasRole to app/User.php:
+      
+      ```php
+      use Illuminate\Foundation\Auth\User as Authenticatable;
+      use Spatie\Permission\Traits\HasRoles;
+
+      class User extends Authenticatable
+      {
+        use HasRoles;
+
+        // ...
+      }
+      ```
+      
+      Well, it's time to click on dashboard button or go to http://{your-project}/dashboard.
+      
 ####Contribution
 
  Any ideas are welcome. Feel free to submit any issues or pull requests.
@@ -119,10 +151,10 @@ Congratulations, you have successfully installed Scaffold Interface!
 
  - [ ] 100% Code coverage + Maximum code quality.
  - [ ] Allow to generate ManyToMany relationships.
- - [ ] AdminLTE Dashboard.
 
 ####DONE
-  
+ - [x] Users management system (users-roles-permissions).
+ - [x] AdminLTE Dashboard.  
  - [x] Improve Vuejs.
  - [x] Add a select for OneToMany (on data fields) in interface.  
  - [x] Laravel 5.2 supported.
