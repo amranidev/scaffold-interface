@@ -8,9 +8,9 @@ use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
 use Amranidev\ScaffoldInterface\Scaffold;
 use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Http\Request;
 use Session;
 use URL;
 
@@ -122,7 +122,7 @@ class GuiController extends AppController
      *
      * @return \Illuminate\Http\Response
      */
-    public function getResult($table,Request $request)
+    public function getResult($table, Request $request)
     {
         $attributes = new Attribute($table);
 
