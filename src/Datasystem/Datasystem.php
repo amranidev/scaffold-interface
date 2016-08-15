@@ -43,17 +43,17 @@ class Datasystem
     /**
      * Create DataSystem instance.
      *
-     * @param array Data
+     * @param \Illuminate\Http\Request $request
      */
-    public function __construct($data)
+    public function __construct($request)
     {
         // unset TableName
-        unset($data['TableName']);
+        unset($request['TableName']);
 
         // unset template
-        unset($data['template']);
+        unset($request['template']);
 
-        $this->data = $data;
+        $this->data = $request;
 
         $this->relationData();
 
@@ -134,6 +134,26 @@ class Datasystem
     public function getRelationAttributes()
     {
         return $this->relationAttributes;
+    }
+
+    /**
+     * Check timestamps.
+     * 
+     * @return bool
+     */ 
+    public function isTimestamps()
+    {
+        return $check = array_key_exists('timestamps', $this->data) ? true : false;
+    }
+
+    /**
+     * Check SoftDeletes.
+     * 
+     * @return bool
+     */ 
+    public function isSoftdeletes()
+    {
+        return $check = array_key_exists('softdeletes', $this->data) ? true : false;
     }
 
     /**
