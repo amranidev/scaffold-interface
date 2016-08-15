@@ -44,13 +44,13 @@ class Scaffold
     /**
      * Create new scaffold instance.
      *
-     * @param array $data
+     * @param array $request
      */
-    public function __construct($data)
+    public function __construct($request)
     {
-        $this->dataS = new Datasystem($data);
+        $this->dataS = new Datasystem($request);
 
-        $this->names = new NamesGenerate($data);
+        $this->names = new NamesGenerate($request);
 
         $this->paths = new Path($this->names);
 
