@@ -138,9 +138,9 @@ class Datasystem
 
     /**
      * Check timestamps.
-     * 
+     *
      * @return bool
-     */ 
+     */
     public function isTimestamps()
     {
         return $check = array_key_exists('timestamps', $this->data) ? true : false;
@@ -148,9 +148,9 @@ class Datasystem
 
     /**
      * Check SoftDeletes.
-     * 
+     *
      * @return bool
-     */ 
+     */
     public function isSoftdeletes()
     {
         return $check = array_key_exists('softdeletes', $this->data) ? true : false;
