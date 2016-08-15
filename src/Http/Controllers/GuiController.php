@@ -10,7 +10,7 @@ use Amranidev\ScaffoldInterface\Scaffoldinterface;
 use AppController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
-use Request;
+use Illuminate\Http\Request;
 use Session;
 use URL;
 
@@ -44,9 +44,7 @@ class GuiController extends AppController
      */
     public function store(Request $request)
     {
-        $data = Request::except('_token');
-
-        $scaffold = new Scaffold($data);
+        $scaffold = new Scaffold($request->toArray());
 
         $scaffold->migration()->model()->controller()->route()->views();
 
@@ -124,11 +122,11 @@ class GuiController extends AppController
      *
      * @return \Illuminate\Http\Response
      */
-    public function getResult($table)
+    public function getResult($table,Request $request)
     {
         $attributes = new Attribute($table);
 
-        if (Request::ajax()) {
+        if ($request->ajax()) {
             return $attributes->getAttributes();
         }
     }
@@ -206,7 +204,7 @@ class GuiController extends AppController
     }
 
     /**
-     * generate dashboard.
+     * Generate dashboard.
      *
      * @return \Illuminate\Http\Response
      */
