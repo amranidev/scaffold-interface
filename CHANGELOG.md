@@ -1,5 +1,11 @@
 # Release Notes
 
+#v1.5.0 (2016-08-14)
+
+### Added
+- Add a user interface dashboard with Bootstrap AdminLTE.
+- Add user management system (user-role-permission) using [laravel-permission](https://github.com/spatie/laravel-permission).
+
 #v1.4.32 (2016-07-12)
 
 ### Enhanced
