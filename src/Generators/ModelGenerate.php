@@ -41,6 +41,6 @@ class ModelGenerate
      */
     public function generate()
     {
-        return "<?php\n\n".view('scaffold-interface::template.model.model', ['names' => $this->names, 'foreignKeys' => $this->dataSystem->getForeignKeys()])->render();
+        return "<?php\n\n".view('scaffold-interface::template.model.model', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
     }
 }
