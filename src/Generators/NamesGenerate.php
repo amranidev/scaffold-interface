@@ -10,7 +10,7 @@ namespace Amranidev\ScaffoldInterface\Generators;
 class NamesGenerate
 {
     /**
-     * Reqeust view data.
+     * Reqeust.
      *
      * @var data
      */
@@ -19,11 +19,11 @@ class NamesGenerate
     /**
      * Create new NamesGenerate instance.
      *
-     * @param array $data
+     * @param array $request
      */
-    public function __construct($data)
+    public function __construct($request)
     {
-        $this->data = $data;
+        $this->data = $request;
     }
 
     /**
