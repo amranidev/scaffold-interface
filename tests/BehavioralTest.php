@@ -83,7 +83,7 @@ class BehavioralTest extends TestCase
 
         $dataSystem = $this->scaffold->dataS;
 
-        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.model.model', compact('names', 'foreignKeys'))->render(), $this->scaffold->generator->getModel()->generate());
+        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.model.model', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getModel()->generate());
     }
 
     //test Controller Generate
