@@ -39,6 +39,20 @@
                                     <label for="bootstrap">Bootstrap</label>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        <input type="checkbox" name = "timestamps" id="timestamps" />
+                                        <label for="timestamps">Times Tamps</label>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        <input type="checkbox" name = "softdeletes" id="softdeletes" />
+                                        <label for="softdeletes">Soft Deletes</label>
+                                    </p>
+                                </td>
+                            </tr>
                             <tr transition = "fade" class = 'animated' v-for = "el in rows">
                                 <td>
                                     <div class="input-field col s12">

@@ -31,10 +31,19 @@ class {{studly_case(ucfirst($names->tableNames()))}} extends Migration
          */
         @foreach($dataSystem->getForeignKeys() as $key)
 
-        $table->integer('{{lcfirst(str_singular($key))}}_id')->unsigned();
+        $table->integer('{{lcfirst(str_singular($key))}}_id')->unsigned()->nullable();
         $table->foreign('{{lcfirst(str_singular($key))}}_id')->references('id')->on('{{$key}}')->onDelete('cascade');
-
         @endforeach
+
+        @if($dataSystem->isTimestamps())
+
+        $table->timestamps();
+        @endif
+
+        @if($dataSystem->isSoftdeletes())
+
+        $table->softDeletes();
+        @endif
 
         // type your addition here
 

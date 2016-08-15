@@ -1,6 +1,7 @@
 namespace {{config('amranidev.config.modelNameSpace')}};
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class {{$names->tableName()}}Controller
@@ -10,11 +11,21 @@ use Illuminate\Database\Eloquent\Model;
  */
 class {{$names->tableName()}} extends Model
 {
+	@if($dataSystem->isSoftdeletes())
+
+	use SoftDeletes;
+
+	protected $dates = ['deleted_at'];
+    @endif
+
+	@if(!$dataSystem->isTimestamps())
+
     public $timestamps = false;
+    @endif
 
     protected $table = '{{$names->tableNames()}}';
 
-	@foreach($foreignKeys as $key)
+	@foreach($dataSystem->getForeignKeys() as $key)
 
 	public function {{lcfirst(str_singular($key))}}()
 	{
