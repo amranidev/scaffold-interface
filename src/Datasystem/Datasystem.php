@@ -143,7 +143,7 @@ class Datasystem
      */ 
     public function isTimestamps()
     {
-        return $check = array_key_exists('timestamps', $this->data) ? true : false;
+        return array_key_exists('timestamps', $this->data) ? true : false;
     }
 
     /**
@@ -153,7 +153,7 @@ class Datasystem
      */ 
     public function isSoftdeletes()
     {
-        return $check = array_key_exists('softdeletes', $this->data) ? true : false;
+        return array_key_exists('softdeletes', $this->data) ? true : false;
     }
 
     /**
