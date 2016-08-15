@@ -81,7 +81,7 @@ class BehavioralTest extends TestCase
     {
         $names = $this->scaffold->names;
 
-        $foreignKeys = $this->scaffold->dataS->getForeignKeys();
+        $dataSystem = $this->scaffold->dataS;
 
         $this->assertEquals("<?php\n\n".view('scaffold-interface::template.model.model', compact('names', 'foreignKeys'))->render(), $this->scaffold->generator->getModel()->generate());
     }
