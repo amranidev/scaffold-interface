@@ -23,6 +23,8 @@
 
 + AdminLTE dashboard template with users management system (users-roles-permissions) using [laravel-permission](https://github.com/spatie/laravel-permission).
 
++ Softdeletes and timestamps.
+
 + A delete confirmation message.
 
 + Using an interface to design your table.
