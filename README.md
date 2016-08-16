@@ -120,7 +120,7 @@ Congratulations, you have successfully installed Scaffold Interface!
       $user->name = "john doe";
       $user->email = "jhondoe@example.com";
       $user->password = Hash::make("password");
-      $user->save()
+      $user->save();
       ```
       
       Then add HasRole to app/User.php:
