@@ -1,5 +1,10 @@
 # Release Notes
 
+#v1.5.15 (2016-08-16)
+
+### Added
+- Add timepstamps and softdeletes.
+
 #v1.5.0 (2016-08-14)
 
 ### Added
