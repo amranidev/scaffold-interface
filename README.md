@@ -11,6 +11,8 @@
 
 > Using laravel v5.1.* ??, it recommended to use scaffold-interface v1.4.11
 
+> Using laravel v5.3.* ??, make sure that routes path is configured, [config file](https://github.com/amranidev/scaffold-interface/blob/master/config/config.php#L69)
+
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
 ####Features:
