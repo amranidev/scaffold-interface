@@ -214,4 +214,22 @@ class GuiController extends AppController
 
         return view('scaffold-interface::template.Dashboard.Dashboard', ['Parse' => $scaffoldList]);
     }
+
+    /**
+     * ManyToMany form.
+     * 
+     * @param \Illuminate\Http\Request
+     * 
+     * @return \Illuminate\Http\Response
+     */
+
+     public function manyToManyForm(Request $request)
+     {
+        $dummyData = Scaffoldinterface::all()->pluck('tablename');
+
+         $elements = Ajaxis::MtcreateFormModal([
+            ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => ''],
+            ['type' => 'select', 'name' => 'table2', 'key' => 'table1', 'value' => '']],'/asdasd' , 'Many To Many');
+         return $elements;
+     }
 }
