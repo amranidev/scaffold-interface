@@ -23,7 +23,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold/rollback', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@rollback');
 
-    Route::get('scaffold/manytomany','\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToManyForm');
+    Route::get('scaffold/manytomany', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToManyForm');
 });
 
 Route::group(['middleware' => ['web', 'auth']], function () {
