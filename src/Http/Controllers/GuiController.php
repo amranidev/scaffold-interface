@@ -228,8 +228,8 @@ class GuiController extends AppController
         $dummyData = Scaffoldinterface::all()->pluck('tablename');
 
          $elements = Ajaxis::MtcreateFormModal([
-            ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => ''],
-            ['type' => 'select', 'name' => 'table2', 'key' => 'table1', 'value' => '']],'/asdasd' , 'Many To Many');
+            ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => $dummyData],
+            ['type' => 'select', 'name' => 'table2', 'key' => 'table1', 'value' => $dummyData]],'/asdasd' , 'Many To Many');
          return $elements;
      }
 }
