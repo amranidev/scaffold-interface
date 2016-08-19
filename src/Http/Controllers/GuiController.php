@@ -225,8 +225,7 @@ class GuiController extends AppController
 
      public function manyToManyForm(Request $request)
      {
-        $dummyData = Scaffoldinterface::all()->pluck('tablename');
-
+         $dummyData = DatabaseManager::tableNames();
          $elements = Ajaxis::MtcreateFormModal([
             ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => $dummyData],
             ['type' => 'select', 'name' => 'table2', 'key' => 'table1', 'value' => $dummyData]],'/asdasd' , 'Many To Many');
