@@ -25,7 +25,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold/manyToManyForm', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToManyForm');
 
-    Route::post('scaffold/manyToMany','\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToMany');
+    Route::post('scaffold/manyToMany', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToMany');
 });
 
 Route::group(['middleware' => ['web', 'auth']], function () {
