@@ -227,8 +227,15 @@ class GuiController extends AppController
          $dummyData = DatabaseManager::tableNames();
          $elements = Ajaxis::MtcreateFormModal([
             ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => $dummyData],
-            ['type' => 'select', 'name' => 'table2', 'key' => 'table1', 'value' => $dummyData], ], '/asdasd', 'Many To Many');
+            ['type' => 'select', 'name' => 'table2', 'key' => 'table1', 'value' => $dummyData], ], '/scaffold/manyToMany', 'Many To Many');
 
          return $elements;
      }
+
+    public function manyToMany(Request $request)
+    {
+        dd($request->json());
+
+        return redirect('/');
+    }
 }
