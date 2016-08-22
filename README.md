@@ -150,7 +150,7 @@ Congratulations, you have successfully installed Scaffold Interface!
 + [Athi Krishnan](https://github.com/athikrishnan)
 + [JeroenG](https://github.com/Jeroen-G)
 + [Ihab Shoully](https://github.com/shoully)
-+ [All Contributors](https://github.com/scaffold-interface/contributors)
++ [All Contributors](../../contributors)
 
 ####TODOS
 
