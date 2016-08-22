@@ -145,11 +145,12 @@ Congratulations, you have successfully installed Scaffold Interface!
 
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
-####Special thanks to
+####Credits
 
 + [Athi Krishnan](https://github.com/athikrishnan)
 + [JeroenG](https://github.com/Jeroen-G)
 + [Ihab Shoully](https://github.com/shoully)
++ [All Contributors](https://github.com/scaffold-interface/contributors)
 
 ####TODOS
 
