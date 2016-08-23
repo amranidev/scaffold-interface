@@ -5,8 +5,8 @@ namespace Amranidev\ScaffoldInterface\ManyToMany;
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 
 /**
- * class ManyToMany
- * 
+ * class ManyToMany.
+ *
  * @deprecated Not used by internal and not recommended
  */
 class ManyToMany extends Filesystem
@@ -30,9 +30,8 @@ class ManyToMany extends Filesystem
         $content = view('scaffold-interface::template.ManyToMany.migration', compact('first', 'second'))->render();
 
         $FileName = date('Y').'_'.date('m').'_'.date('d').'_'.date('his').'_'.ucfirst($first).ucfirst($second).'.php';
- 
-    	$this->make(config('amranidev.config.migration').'/'.$FileName,$content);
 
+        $this->make(config('amranidev.config.migration').'/'.$FileName, $content);
     }
 
     public function getRequest()
