@@ -154,7 +154,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Schema rollbacking.
+     * Rollback schema.
      *
      * @throws Exception
      *
@@ -245,7 +245,7 @@ class GuiController extends AppController
     {
         $manytomany = new \Amranidev\ScaffoldInterface\ManyToMany\ManyToMany($request->except('_token'));
 
-        $manytomany->burn();
+        $manytomany->model();
 
         return redirect('/');
     }
