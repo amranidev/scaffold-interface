@@ -219,8 +219,9 @@ class GuiController extends AppController
       * ManyToMany form.
       *
       * @param \Illuminate\Http\Request
+      *
       * @deprecated No longer used by internnal code and not recommended
-      * 
+      *
       * @return \Illuminate\Http\Response
       */
      public function manyToManyForm(Request $request)
@@ -233,14 +234,15 @@ class GuiController extends AppController
          return $elements;
      }
 
-     /**
-      * ManyToMany generate.
-      * 
-      * @deprecated No longer used by internnal code and not recommended
-      * @param \Illuminate\Http\Request
-      * 
-      * @return \Illuminate\Http\Response
-      */ 
+    /**
+     * ManyToMany generate.
+     *
+     * @deprecated Not yet used and not recommended
+     *
+     * @param \Illuminate\Http\Request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function manyToMany(Request $request)
     {
         $manytomany = new \Amranidev\ScaffoldInterface\ManyToMany\ManyToMany($request->except('_token'));

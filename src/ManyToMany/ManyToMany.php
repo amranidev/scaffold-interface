@@ -5,9 +5,9 @@ namespace Amranidev\ScaffoldInterface\ManyToMany;
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 
 /**
- * class ManyToMany
- * 
- * @deprecated Not used by internal and not recommended
+ * class ManyToMany.
+ *
+ * @deprecated Not yet used and not recommended
  */
 class ManyToMany extends Filesystem
 {
@@ -36,10 +36,6 @@ class ManyToMany extends Filesystem
         }
 
         return $result;
-    }
-
-    public function burn()
-    {
     }
 
     public function model()
