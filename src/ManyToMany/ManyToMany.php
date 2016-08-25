@@ -13,19 +13,19 @@ class ManyToMany extends Filesystem
 {
     /**
      * @var request
-     */ 
+     */
     private $request;
 
     /**
      * @var tables
-     */ 
+     */
     private $tables;
 
     /**
      * create new ManyToMany instance.
      *
      * @param array $request
-     */  
+     */
     public function __construct(array $request)
     {
         $this->request = $request;
@@ -34,9 +34,9 @@ class ManyToMany extends Filesystem
 
     /**
      * determine which table is ordered alphabetically.
-     * 
+     *
      * @return array $tables
-     */ 
+     */
     private function attributes()
     {
         $result = [];
@@ -56,9 +56,9 @@ class ManyToMany extends Filesystem
 
     /**
      * add relationships mothods to models.
-     * 
+     *
      * @return void
-     */ 
+     */
     private function model()
     {
         $this->relationship(app_path(ucfirst(str_singular($this->tables['first']))).'.php', $this->tables['second']);
@@ -67,9 +67,9 @@ class ManyToMany extends Filesystem
 
     /**
      * make migration file.
-     * 
+     *
      * @return void
-     */ 
+     */
     private function migration()
     {
         $migrationContent = view('scaffold-interface::template.ManyToMany.migration', $this->tables)->render();
@@ -82,8 +82,8 @@ class ManyToMany extends Filesystem
     /**
      * generate relationships methods.
      *
-     *  @return boolean
-     */ 
+     *  @return bool
+     */
     private function relationship($path, $model)
     {
         $lines = file($path, FILE_IGNORE_NEW_LINES);
@@ -100,10 +100,10 @@ class ManyToMany extends Filesystem
      * scaffold ManyToMany.
      *
      * @return void
-     */  
+     */
     public function burn()
     {
         $this->model();
-        $this->migration();    
+        $this->migration();
     }
 }
