@@ -11,17 +11,33 @@ use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
  */
 class ManyToMany extends Filesystem
 {
+    /**
+     * @var request
+     */ 
     private $request;
 
+    /**
+     * @var tables
+     */ 
     private $tables;
 
+    /**
+     * create new ManyToMany instance.
+     *
+     * @param array $request
+     */  
     public function __construct(array $request)
     {
         $this->request = $request;
         $this->tables = $this->attributes();
     }
     
-    public function attributes()
+    /**
+     * determine which table is ordered alphabetically.
+     * 
+     * @return array $tables
+     */ 
+    private function attributes()
     {
         $result = [];
 
@@ -38,13 +54,23 @@ class ManyToMany extends Filesystem
         return $result;
     }
 
-    public function model()
+    /**
+     * add relationships mothods to models.
+     * 
+     * @return void
+     */ 
+    private function model()
     {
         $this->relationship(app_path(ucfirst(str_singular($this->tables['first']))) .".php", $this->tables['second']);
         $this->relationship(app_path(ucfirst(str_singular($this->tables['second']))) .".php", $this->tables['first']);
     }
 
-    public function migration()
+    /**
+     * make migration file.
+     * 
+     * @return void
+     */ 
+    private function migration()
     {
         $migrationContent = view('scaffold-interface::template.ManyToMany.migration', $this->tables)->render();
 
@@ -53,7 +79,12 @@ class ManyToMany extends Filesystem
         $this->make(config('amranidev.config.migration').'/'.$migrationFileName, $migrationContent);
     }
 
-    public function relationship($path, $model)
+    /**
+     * generate relationships methods.
+     *
+     *  @return boolean
+     */ 
+    private function relationship($path, $model)
     {
         $lines = file($path, FILE_IGNORE_NEW_LINES);
         $last = sizeof($lines) - 1;
@@ -65,8 +96,14 @@ class ManyToMany extends Filesystem
         return file_put_contents($path, $result);
     }
 
-    public function getRequest()
+    /**
+     * scaffold ManyToMany.
+     *
+     * @return void
+     */  
+    public function burn()
     {
-        return $this->request;
+        $this->model();
+        $this->migration();    
     }
 }
