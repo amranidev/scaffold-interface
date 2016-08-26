@@ -162,6 +162,7 @@ Congratulations, you have successfully installed Scaffold Interface!
  - [x] AdminLTE Dashboard.  
  - [x] Improve Vuejs.
  - [x] Add a select for OneToMany (on data fields) in interface.  
+ - [x] Laravel 5.3 supported.
  - [x] Laravel 5.2 supported.
  - [x] Laravel 5.1 supported.
 
