@@ -249,7 +249,7 @@ class GuiController extends AppController
 
         $manytomany->burn();
 
-        Session::flash('status','ManyToMany generated successfully');
+        Session::flash('status', 'ManyToMany generated successfully');
 
         return redirect('/scaffold');
     }
