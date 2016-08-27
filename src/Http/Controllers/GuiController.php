@@ -229,7 +229,7 @@ class GuiController extends AppController
          $dummyData = DatabaseManager::tableNames();
          $elements = Ajaxis::MtcreateFormModal([
             ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => $dummyData],
-            ['type' => 'select', 'name' => 'table2', 'key' => 'table1', 'value' => $dummyData], ], '/scaffold/manyToMany', 'Many To Many');
+            ['type' => 'select', 'name' => 'table2', 'key' => 'table2', 'value' => $dummyData], ], '/scaffold/manyToMany', 'Many To Many');
 
          return $elements;
      }
@@ -247,8 +247,10 @@ class GuiController extends AppController
     {
         $manytomany = new \Amranidev\ScaffoldInterface\ManyToMany\ManyToMany($request->except('_token'));
 
-        $manytomany->model();
+        $manytomany->burn();
 
-        return redirect('/');
+        Session::flash('status','ManyToMany generated successfully');
+
+        return redirect('/scaffold');
     }
 }
