@@ -1,3 +1,8 @@
+    /**
+     * {{str_singular($model)}}.
+     *
+     * @return \Illuminate\Support\Collection;
+     */
     public function {{str_plural($model)}}()
     {
         return $this->belongsToMany('App\{{ucfirst(str_singular($model))}}');
