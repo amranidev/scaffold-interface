@@ -21,7 +21,7 @@
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
 				<td>
-				@if(!empty($user->roels))
+				@if(!empty($user->roles))
 					@foreach($user->roles as $role)
 					<small class = 'label bg-blue'>{{$role->name}}</small>
 					@endforeach
