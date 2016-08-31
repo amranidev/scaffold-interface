@@ -21,14 +21,22 @@
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
 				<td>
-				@foreach($user->roles as $role)
-				<small class = 'label bg-blue'>{{$role->name}}</small>
-				@endforeach
+				@if(!empty($user->roles))
+					@foreach($user->roles as $role)
+					<small class = 'label bg-blue'>{{$role->name}}</small>
+					@endforeach
+				@else
+					No Roles
+				@endif
 				</td>
 				<td>
-				@foreach($user->permissions as $permission)
-				<small class = 'label bg-orange'>{{$permission->name}}</small>
-				@endforeach
+				@if(!empty($user->permissions))
+					@foreach($user->permissions as $permission)
+					<small class = 'label bg-orange'>{{$permission->name}}</small>
+					@endforeach
+				@else
+					No Permissions
+				@endif
 				</td>
 				<td>
 					<a href="{{url('/users/edit')}}/{{$user->id}}" class = 'btn btn-primary btn-sm'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
