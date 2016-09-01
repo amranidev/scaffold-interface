@@ -247,6 +247,7 @@ class GuiController extends AppController
     {
         if ($this->check($request->toArray())) {
             Session::flash('status', 'Error! can not be related');
+
             return redirect('scaffold');
         }
 
@@ -261,9 +262,9 @@ class GuiController extends AppController
 
     /**
      * check if request is available to use.
-     * 
+     *
      * @param array $request
-     * 
+     *
      * @return mixed
      */
     private function check(array $request)
