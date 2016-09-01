@@ -245,6 +245,11 @@ class GuiController extends AppController
      */
     public function manyToMany(Request $request)
     {
+        if ($this->check($request->toArray())) {
+            Session::flash('status', 'Error! can not be related');
+            return redirect('scaffold');
+        }
+
         $manytomany = new \Amranidev\ScaffoldInterface\ManyToMany\ManyToMany($request->except('_token'));
 
         $manytomany->burn();
@@ -252,5 +257,17 @@ class GuiController extends AppController
         Session::flash('status', 'ManyToMany generated successfully');
 
         return redirect('/scaffold');
+    }
+
+    /**
+     * check if request is available to use.
+     * 
+     * @param array $request
+     * 
+     * @return mixed
+     */
+    private function check(array $request)
+    {
+        return $bool = $request['table1'][0] == $request['table2'][0] ? true : false;
     }
 }
