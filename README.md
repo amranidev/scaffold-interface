@@ -36,6 +36,8 @@
 
 + Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager), [CRUD for packages/modules](http://amranidev.github.io/blog/site/crud-generator-for-packages/).
 
+> NOTE : if you want to generate OneToMany relationships between two different packages, all you have to care about is the controller namespace, that can be a kind of troubleshooting.
+
 ###I. Package installation
 
   1. Run composer require to install Scaffold-Interface:
