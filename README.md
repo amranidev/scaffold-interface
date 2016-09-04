@@ -24,6 +24,8 @@
 
 + Generate OneToMany relationships including views and controllers.
 
++ Generate ManyToMany relationships, available only (dev-master).
+
 + AdminLTE dashboard template with users management system (users-roles-permissions) using [laravel-permission](https://github.com/spatie/laravel-permission).
 
 + Softdeletes and timestamps.
