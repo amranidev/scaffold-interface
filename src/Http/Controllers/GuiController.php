@@ -220,8 +220,6 @@ class GuiController extends AppController
       *
       * @param \Illuminate\Http\Request
       *
-      * @deprecated No longer used by internnal code and not recommended
-      *
       * @return \Illuminate\Http\Response
       */
      public function manyToManyForm(Request $request)
@@ -236,8 +234,6 @@ class GuiController extends AppController
 
     /**
      * ManyToMany generate.
-     *
-     * @deprecated Not yet used and not recommended
      *
      * @param \Illuminate\Http\Request
      *
