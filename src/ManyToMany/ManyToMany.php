@@ -7,7 +7,7 @@ use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 /**
  * class ManyToMany.
  *
- * @deprecated Not yet used and not recommended
+ * @author Amrani Houssain <amranidev@gmail.com>
  */
 class ManyToMany extends Filesystem
 {
