@@ -74,7 +74,17 @@
     $ php artisan vendor:publish
   
     ```
-
+    
+    * What does this package publishes:
+      * app/Http/Controllers/UserController.php
+      * app/Http/Controllers/RoleController.php
+      * app/Http/Controllers/PermissionController.php
+      * resources/views/scaffold-interface
+      * public/js/scaffold-interface-js
+      * public/css/scaffold-interface-css
+      * config/amranidev/config.php
+      * database/migrations/migration_file
+      
   5. Migrate for the Scaffold Interface table:
   
     ```
