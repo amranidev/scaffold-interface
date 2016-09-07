@@ -39,7 +39,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         $users = \App\User::all()->count();
         $roles = Spatie\Permission\Models\Role::all()->count();
         $permissions = Spatie\Permission\Models\Permission::all()->count();
-        return view('scaffold-interface.dashboard.dashboard', compact('users','roles','permissions'));
+
+        return view('scaffold-interface.dashboard.dashboard', compact('users', 'roles', 'permissions'));
     });
 
     Route::get('users', '\App\Http\Controllers\ScaffoldInterface\UserController@index');
