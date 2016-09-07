@@ -28,4 +28,3 @@
 	</div>
 </section>
 @endsection
-
