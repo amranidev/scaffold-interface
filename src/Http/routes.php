@@ -28,11 +28,18 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('scaffold/manyToMany', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToMany');
 });
 
+/*
+ |------------------------------------------------------------------------------
+ |Where the user managment system routes (User-Role-Permission)
+ |------------------------------------------------------------------------------
+ |
+ */
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('dashboard', function () {
-        $users = \App\User::all();
-
-        return view('scaffold-interface.dashboard.dashboard', compact('users'));
+        $users = \App\User::all()->count();
+        $roles = Spatie\Permission\Models\Role::all()->count();
+        $permissions = Spatie\Permission\Models\Permission::all()->count();
+        return view('scaffold-interface.dashboard.dashboard', compact('users','roles','permissions'));
     });
 
     Route::get('users', '\App\Http\Controllers\ScaffoldInterface\UserController@index');
