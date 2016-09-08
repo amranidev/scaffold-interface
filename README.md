@@ -61,18 +61,15 @@
   3. Add the service providers to config/app.php:
 
     ```php
-
     Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
     Amranidev\Ajaxis\AjaxisServiceProvider::class,
     Spatie\Permission\PermissionServiceProvider::class,
-  
     ```
 
   4. Publish the assets in your application with:
 
     ```
     $ php artisan vendor:publish
-  
     ```
     
     * What does this package publishes:
