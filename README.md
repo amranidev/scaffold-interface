@@ -24,7 +24,7 @@
 
 + Generate OneToMany relationships including views and controllers.
 
-+ Generate ManyToMany relationships, available only (dev-master).
++ Generate ManyToMany relationships.
 
 + AdminLTE dashboard template with users management system (users-roles-permissions) using [laravel-permission](https://github.com/spatie/laravel-permission).
 
@@ -167,9 +167,9 @@ Congratulations, you have successfully installed Scaffold Interface!
 ####TODOS
 
  - [ ] 100% Code coverage + Maximum code quality.
- - [ ] Allow to generate ManyToMany relationships.
 
 ####DONE
+ - [x] Allow to generate ManyToMany relationships.
  - [x] Users management system (users-roles-permissions).
  - [x] AdminLTE Dashboard.  
  - [x] Improve Vuejs.
