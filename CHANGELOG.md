@@ -1,5 +1,10 @@
 # Release Notes
 
+#v1.5.30 (2016-09-10)
+
+### Added
+- Add ManyToMany ralationships generator.
+
 #v1.5.15 (2016-08-16)
 
 ### Added
