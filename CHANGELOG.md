@@ -1,5 +1,11 @@
 # Release Notes
 
+#v1.5.32 (2016-09-10)
+
+## enhanced
+
+- Update vuejs from v1.0.24 to v1.0.26 
+
 #v1.5.30 (2016-09-10)
 
 ### Added
