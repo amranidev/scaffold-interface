@@ -110,7 +110,7 @@
                 <div class="col s7">
                     <div v-if = 'show'  transition = "actions" class = 'animated'>
                         <div class='card-panel #fafafa grey lighten-5'>
-                            <h4 class = 'center thin'>Rows</h4>
+                            <h4 class = 'center thin'>Actions</h4>
                             <div class = 'row center actionRow' >
                                 <div transition = "actions" class = "animated" v-if = '!more'>
                                     <a class = 'btn blue'  @click = "increment"><i class = 'material-icons left'>add</i>new</a>
@@ -154,7 +154,7 @@
                         </table>
                         {!! $scaffold->render() !!}
                         <div class="pushDown"></div>
-                        <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span><br><br>
+                        <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.5.32</span></span><br><br>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=star&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=fork&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
@@ -187,7 +187,7 @@
     </script>
     <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script src = "http://cdn.jsdelivr.net/vue/1.0.24/vue.js"></script>
+    <script src = "http://cdn.jsdelivr.net/vue/1.0.26/vue.min.js"></script>
     <script src = "{{URL::asset('js/AjaxisMaterialize.js')}}"></script>
     <script src = "{{URL::asset('js/scaffold-interface-js/main.js')}}"></script>
     <script src = "{{URL::asset('js/scaffold-interface-js/social.js')}}"></script>
