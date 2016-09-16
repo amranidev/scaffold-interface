@@ -106,13 +106,13 @@ Congratulations, you have successfully installed Scaffold Interface!
 
      You can add many of attributes such as a string, date, longtext,etc.
 
-  3. After the creation, to complete your scaffolding, go to the terminal and run:  
+  3. After the creation, to migrate the schema click on **migration button** or run in your terminal:  
      
      ```
      $ php artisan migrate
      
      ```
-  
+
   4. Finally :
      
      Go to http://{your-project}/{your-model} to see the result.
@@ -123,9 +123,7 @@ Congratulations, you have successfully installed Scaffold Interface!
       
       ![Imgur](http://i.imgur.com/dnYc2ZE.png)
 
-      Before you make your rollback make sure that you have rolled back your table in the database.
-
-  6. Dashboard:
+  6. Dashboard (UMS):
       
       Go ahead and create a new user, `$ php artisan tinker`:
       
