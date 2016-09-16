@@ -26,7 +26,7 @@
 					<small class = 'label bg-blue'>{{$role->name}}</small>
 					@endforeach
 				@else
-					No Roles
+					<small class = 'label bg-red'>No Roles</small>
 				@endif
 				</td>
 				<td>
@@ -35,7 +35,7 @@
 					<small class = 'label bg-orange'>{{$permission->name}}</small>
 					@endforeach
 				@else
-					No Permissions
+					<small class = 'label bg-red'>No Permissions</small>
 				@endif
 				</td>
 				<td>
