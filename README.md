@@ -165,7 +165,7 @@ Congratulations, you have successfully installed Scaffold Interface!
 ####TODOS
 
  - [ ] 100% Code coverage + Maximum code quality.
- - [ ] integrate pusher notifications. 
+ - [ ] Integrate pusher notifications. 
 
 ####DONE
  - [x] Allow to generate ManyToMany relationships.
