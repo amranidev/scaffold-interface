@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class {{$names->tableName()}}Controller
+ * Class {{$names->tableName()}}.
  *
  * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interface
