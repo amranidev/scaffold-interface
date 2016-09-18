@@ -2,7 +2,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class {{ucfirst($names->tableNames())}}
+ * Class {{ucfirst($names->tableNames())}}.
  *
  * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interface
