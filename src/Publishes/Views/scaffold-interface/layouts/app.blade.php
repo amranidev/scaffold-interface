@@ -42,6 +42,23 @@
 					</a>
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
+							<!-- Not recommended -->
+							<li class="dropdown notifications-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-bell-o"></i>
+									<span class="label notification-label">new</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="header">your notifications</li>
+									<li>
+										<!-- inner menu: contains the actual data -->
+										<ul class="menu notification-menu">
+										</ul>
+									</li>
+									<li class="footer"><a href="#">View all</a></li>
+								</ul>
+							</li>
+							<!-- END notification navbar list -->
 							<li class="dropdown user user-menu">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<img src="http://ahloman.net/wp-content/uploads/2013/06/user.jpg" class="user-image" alt="User Image">
@@ -124,5 +141,25 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/app.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
+		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+		<script>
+		Pusher.logToConsole = true;
+		
+		var pusher = new Pusher("{{env("PUSHER_KEY")}}", {
+		encrypted: true
+		});
+		var channel = pusher.subscribe('test-channel');
+		channel.bind('test-event', function(data) {
+		console.log("Programe log - " + data.message);
+		$('.notification-label').addClass('label-warning');
+		$('.notification-menu').append(
+			'<li>\
+				<a ºhref="#">\
+					<i class="fa fa-users text-aqua"></i> '+data.message+'\
+				</a>\
+			</li>'
+			);
+		});
+		</script>>
 	</body>
 </html>
