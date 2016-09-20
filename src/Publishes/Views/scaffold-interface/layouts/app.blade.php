@@ -49,7 +49,7 @@
 									<span class="label notification-label">new</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li class="header">your notifications</li>
+									<li class="header">Your notifications</li>
 									<li>
 										<!-- inner menu: contains the actual data -->
 										<ul class="menu notification-menu">
@@ -58,7 +58,7 @@
 									<li class="footer"><a href="#">View all</a></li>
 								</ul>
 							</li>
-							<!-- END notification navbar list -->
+							<!-- END notification navbar list-->
 							<li class="dropdown user user-menu">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<img src="http://ahloman.net/wp-content/uploads/2013/06/user.jpg" class="user-image" alt="User Image">
@@ -143,8 +143,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
 		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 		<script>
-		Pusher.logToConsole = true;
-		
 		var pusher = new Pusher("{{env("PUSHER_KEY")}}", {
 		encrypted: true
 		});
