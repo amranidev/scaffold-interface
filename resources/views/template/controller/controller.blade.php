@@ -1,5 +1,6 @@
 namespace {{config('amranidev.config.controllerNameSpace')}};
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use {{config('amranidev.config.modelNameSpace')}}\{{$names->tableName()}};
@@ -68,6 +69,12 @@ class {{$names->tableName()}}Controller extends Controller
         @endforeach
 
         ${{$names->tableNameSingle()}}->save();
+
+        $pusher = App::make('pusher');
+        
+        $pusher->trigger('test-channel',
+                         'test-event',
+                        ['message' => 'A new {{$names->tableNameSingle()}} has been created !!']);
 
         return redirect('{{$names->tableNameSingle()}}');
     }
