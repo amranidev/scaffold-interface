@@ -51,7 +51,7 @@ var vm = new Vue({
         //delete row
         decrement: function() {
             if (this.rows == 0 && this.OneToManyRows == 0) {
-                this.errorMsg = 'Cannot remove the line'
+                this.errorMsg = 'Can not remove the line!!'
                 this.error = true;
             } else {
                 if (this.OneToManyRows != 0) {
@@ -69,7 +69,7 @@ var vm = new Vue({
                 var onData = $('#on').val();
                 var table = $('#tbl').val();
                 if (inArray(onData, this.OneToManyData) || !onData || inArray(table, this.OneToManyData)) {
-                    this.errorMsg = "Something is going wrong";
+                    this.errorMsg = "Whoops, Error!!";
                     this.error = true
                     return;
                 }
