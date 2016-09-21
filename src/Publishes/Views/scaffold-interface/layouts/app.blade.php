@@ -42,7 +42,7 @@
 					</a>
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
-							<!-- Not recommended -->
+							<!-- Notification Navbar List-->
 							<li class="dropdown notifications-menu">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<i class="fa fa-bell-o"></i>
@@ -143,16 +143,19 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
 		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 		<script>
+		// pusher log to console.
+		Pusher.logToConsole = true;
+		// here is pusher client side code.
 		var pusher = new Pusher("{{env("PUSHER_KEY")}}", {
 		encrypted: true
 		});
 		var channel = pusher.subscribe('test-channel');
 		channel.bind('test-event', function(data) {
-		console.log("Programe log - " + data.message);
+		// display message coming from server on dashboard Notification Navbar List.
 		$('.notification-label').addClass('label-warning');
 		$('.notification-menu').append(
 			'<li>\
-				<a ºhref="#">\
+				<a href="#">\
 					<i class="fa fa-users text-aqua"></i> '+data.message+'\
 				</a>\
 			</li>'
