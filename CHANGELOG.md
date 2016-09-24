@@ -1,8 +1,14 @@
 # Release Notes
 
+#v1.5.35 (2016-09-24)
+
+## fixed
+
+- Change lists method to pluck. 
+
 #v1.5.32 (2016-09-10)
 
-## enhanced
+## Enhanced
 
 - Update vuejs from v1.0.24 to v1.0.26 
 
