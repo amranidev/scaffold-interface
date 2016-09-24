@@ -2,7 +2,7 @@
 
 #v1.5.35 (2016-09-24)
 
-## fixed
+## Fixed
 
 - Change lists method to pluck. 
 
