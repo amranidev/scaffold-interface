@@ -18,13 +18,11 @@
 
 ####Features:
 
-+ Generate your model,views,controller and migrations just in a few clicks.
++ Generate your models,views,controllers and migrations just in a few clicks.
 
 + Views support Bootstrap and Materializecss.
 
-+ Generate OneToMany relationships including views and controllers.
-
-+ Generate ManyToMany relationships.
++ Generate (OneToMany,ManyToMany) relationships including views and controllers.
 
 + AdminLTE dashboard template with users management system (users-roles-permissions) using [laravel-permission](https://github.com/spatie/laravel-permission).
 
@@ -34,7 +32,7 @@
 
 + Using an interface to design your table.
 
-+ Rollbacking possibility.
++ Rollback possibility.
 
 + Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager), [CRUD for packages/modules](http://amranidev.github.io/blog/site/crud-generator-for-packages/).
 
