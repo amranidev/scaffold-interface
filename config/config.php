@@ -37,13 +37,13 @@
      |
      */
 
-     'model' => base_path().'/app',
+     'model' => base_path('app'),
 
-     'views' => base_path().'/resources/views',
+     'views' => base_path('resources/views'),
 
-     'controller' => base_path().'/app/Http/Controllers',
+     'controller' => base_path('app/Http/Controllers'),
 
-     'migration' => base_path().'/database/migrations',
+     'migration' => base_path('database/migrations'),
 
      /*
      |--------------------------------------------------------------------
@@ -66,7 +66,7 @@
      |
      */
 
-     'routes' => base_path().'/app/Http/routes.php',
+     'routes' => base_path('app/Http/routes.php'),
 
      /*
      |--------------------------------------------------------------------
