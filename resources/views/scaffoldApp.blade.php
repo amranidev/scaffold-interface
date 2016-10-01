@@ -137,7 +137,7 @@
                                 <th>Created at</th>
                                 <th>State</th>
                                 <th>Link</th>
-                                <th>Rollback</th>
+                                <th>Delete</th>
                             </thead>
                             <tbody>
                                 @foreach($scaffold as $value)
