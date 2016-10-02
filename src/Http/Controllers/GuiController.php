@@ -110,7 +110,7 @@ class GuiController extends AppController
             return view('scaffold-interface::template.DeleteMessage.delete', compact('table'))->render();
         }
 
-        $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to rollback '".$scaffold->tablename."' ?? by rollbacking this, make sure that you have rollbacked ".$scaffold->tablename.' from database.', '/scaffold/guirollback/'.$id);
+        $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to delete {$scaffold->tablename} MVC files ??", '/scaffold/guirollback/'.$id);
 
         return $msg;
     }
