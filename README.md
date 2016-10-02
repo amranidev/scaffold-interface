@@ -8,11 +8,9 @@
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 
-## A Smart CRUD Generator
+#### Detailed Documentation
 
-> Using laravel v5.1.* ??, it recommended to use scaffold-interface v1.4.11
-
-> Using laravel v5.3.* ??, make sure that routes path is configured, [config file](https://github.com/amranidev/scaffold-interface/blob/master/config/config.php#L69)
+[Full documentation](http://amranidev.github.io/blog/site/scaffold-interface/).
 
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
@@ -20,9 +18,11 @@
 
 + Generate your models,views,controllers and migrations just in a few clicks.
 
-+ Views support Bootstrap and Materializecss.
++ Views scaffolding support Bootstrap and Materialize css.
 
 + Generate (OneToMany,ManyToMany) relationships including views and controllers.
+
++ Websockets using [Pusher Notifications](https://www.github.com/pusher).
 
 + AdminLTE dashboard template with users management system (users-roles-permissions) using [laravel-permission](https://github.com/spatie/laravel-permission).
 
@@ -36,136 +36,23 @@
 
 + Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager), [CRUD for packages/modules](http://amranidev.github.io/blog/site/crud-generator-for-packages/).
 
-> NOTE : if you want to generate OneToMany relationships between two different packages, all you have to care about is the controller namespace, that can be a kind of troubleshooting.
-
-###I. Package installation
-
-  1. Run composer require to install Scaffold-Interface:
-  
-    Add the package to your dependencies in composer.json:
-    
-    ```json
-    require : {
-        "Amranidev/scaffold-interface": "v1.5.*"
-    }
-    ```
-    
-    Then update composer:
-    
-    ```
-    $ composer update
-    ```
-    
-  3. Add the service providers to config/app.php:
-
-    ```php
-    Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
-    Amranidev\Ajaxis\AjaxisServiceProvider::class,
-    Spatie\Permission\PermissionServiceProvider::class,
-    ```
-
-  4. Publish the assets in your application with:
-
-    ```
-    $ php artisan vendor:publish
-    ```
-    
-    * What does this package publishes:
-      * app/Http/Controllers/UserController.php
-      * app/Http/Controllers/RoleController.php
-      * app/Http/Controllers/PermissionController.php
-      * resources/views/scaffold-interface
-      * public/js/scaffold-interface-js
-      * public/css/scaffold-interface-css
-      * config/amranidev/config.php
-      * database/migrations/migration_file
-      
-  5. Migrate for the Scaffold Interface table:
-  
-    ```
-    $ php artisan migrate
-
-    ```
-  6. Auth scaffolding:
-  
-    ```
-    $ php artisan make:auth
-    ```
-
-Congratulations, you have successfully installed Scaffold Interface!
-
-###II. Quick Start
-  
-  1. Access to Scaffold Interface:
-    
-     http://{your-project}/scaffold to get into Scaffold Interface.
-  
-  2. Table creation:
-
-     You can add many of attributes such as a string, date, longtext,etc.
-
-  3. After the creation, to migrate the schema click on **migration button** or run in your terminal:  
-     
-     ```
-     $ php artisan migrate
-     
-     ```
-
-  4. Finally :
-     
-     Go to http://{your-project}/{your-model} to see the result.
-      
-  5. Rollback :  
-
-      If you want to rollback the table just check this:
-      
-      ![Imgur](http://i.imgur.com/dnYc2ZE.png)
-
-  6. Dashboard (UMS):
-      
-      Go ahead and create a new user, `$ php artisan tinker`:
-      
-      ```
-      $user = new \App\User();
-      $user->name = "john doe";
-      $user->email = "jhondoe@example.com";
-      $user->password = Hash::make("password");
-      $user->save();
-      ```
-      
-      Then add HasRole to app/User.php:
-      
-      ```php
-      use Illuminate\Foundation\Auth\User as Authenticatable;
-      use Spatie\Permission\Traits\HasRoles;
-
-      class User extends Authenticatable
-      {
-        use HasRoles;
-
-        // ...
-      }
-      ```
-      
-      Well, it's time to click on dashboard button or go to http://{your-project}/dashboard.
-      
-####Contribution
+#### Contribution
 
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
-####Credits
+#### Credits
 
 + [Athi Krishnan](https://github.com/athikrishnan)
 + [JeroenG](https://github.com/Jeroen-G)
 + [Ihab Shoully](https://github.com/shoully)
 + [All Contributors](../../contributors)
 
-####TODOS
+#### TODOS
 
  - [ ] 100% Code coverage + Maximum code quality.
- - [ ] Integrate @pusher notifications. 
 
-####DONE
+#### DONE
+ - [x] Integrate @pusher notifications. 
  - [x] Allow to generate ManyToMany relationships.
  - [x] Users management system (users-roles-permissions).
  - [x] AdminLTE Dashboard.  
