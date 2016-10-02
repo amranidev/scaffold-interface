@@ -1,5 +1,11 @@
 # Release Notes
 
+#v1.6.0 (2016-10-3)
+
+## Added
+
+Integrate [Pusher](https://pusher.com/) websockets.
+
 #v1.5.35 (2016-09-24)
 
 ## Fixed
