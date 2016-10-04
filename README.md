@@ -14,7 +14,7 @@
 
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
-####Features:
+#### Features:
 
 + Generate your models,views,controllers and migrations just in a few clicks.
 
