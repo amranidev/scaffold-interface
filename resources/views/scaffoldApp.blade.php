@@ -147,7 +147,7 @@
                                     <td>{{$value->created_at}}</td>
                                     <td><span class = "scaffoldv {{$toto = Schema::hasTable($value->tablename) ? 'green' : 'red'}} white-text">{{$toto = Schema::hasTable($value->tablename) ? 'Migrated' : 'Not migrated'}}</span></td>
                                     <td><a href="{{URL::to('/')}}/{{lcfirst(str_singular($value->tablename))}}" class = 'btn-floating blue white-text'><i class = 'material-icons'>send</i></a></td>
-                                    <td><a href = '#modal1' class = 'delete btn-floating pink modal-trigger' data-link = '/scaffold/guidelete/{{$value->id}}/'><i class = 'material-icons'>repeat</i></a></td>
+                                    <td><a href = '#modal1' class = 'delete btn-floating pink modal-trigger' data-link = '/scaffold/guidelete/{{$value->id}}'><i class = 'material-icons'>repeat</i></a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
