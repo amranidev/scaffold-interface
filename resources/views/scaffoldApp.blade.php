@@ -147,14 +147,14 @@
                                     <td>{{$value->created_at}}</td>
                                     <td><span class = "scaffoldv {{$toto = Schema::hasTable($value->tablename) ? 'green' : 'red'}} white-text">{{$toto = Schema::hasTable($value->tablename) ? 'Migrated' : 'Not migrated'}}</span></td>
                                     <td><a href="{{URL::to('/')}}/{{lcfirst(str_singular($value->tablename))}}" class = 'btn-floating blue white-text'><i class = 'material-icons'>send</i></a></td>
-                                    <td><a href = '#modal1' class = 'delete btn-floating pink modal-trigger' data-link = '/scaffold/guidelete/{{$value->id}}/'><i class = 'material-icons'>repeat</i></a></td>
+                                    <td><a href = '#modal1' class = 'delete btn-floating pink modal-trigger' data-link = '/scaffold/guidelete/{{$value->id}}'><i class = 'material-icons'>repeat</i></a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         {!! $scaffold->render() !!}
                         <div class="pushDown"></div>
-                        <span>Scaffold-interface <span class = 'scaffoldv blue white-text'>v1.6.1</span></span><br><br>
+                        <span>Scaffold-interface <span class = 'scaffoldv orange white-text'>dev-master</span></span><br><br>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=star&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&repo=scaffold-interface&type=fork&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
                         <iframe src="https://ghbtns.com/github-btn.html?user=amranidev&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
@@ -173,7 +173,7 @@
             <ul>
                 <li><a href = "{{URL::to('/')}}/dashboard" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard"><i class="material-icons">view_list</i></a></li>
                 <li><a href = "{{URL::to('/')}}/scaffold/rollback" class="btn-floating pink tooltipped" data-position="left" data-delay="50" data-tooltip="RollBack the Schema"><i class="material-icons">repeat</i></a></li>
-                <li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange tooltipped" data-position="left" data-delay="50" data-tooltip="Migrate the Shcema"><i class="material-icons">input</i></a></li>
+                <li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange tooltipped" data-position="left" data-delay="50" data-tooltip="Migrate the Schema"><i class="material-icons">input</i></a></li>
             </ul>
         </div>
         <div id="modal1" class="modal">
