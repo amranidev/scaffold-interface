@@ -1,5 +1,15 @@
 # Release Notes
 
+#v1.6.3 (2016-10-9)
+
+##Fixed
+
+Fix rollback problems.
+ 
+ - Fix rollback link [63fc567](https://github.com/amranidev/scaffold-interface/commit/ca1ca9f415340199fc42460f6d355d7085993bb1).
+
+ - Fix routes path [a6c4b1b](https://github.com/amranidev/scaffold-interface/commit/e1611db39de6f17f28c5a50a7d13e65baae2227b).
+
 #v1.6.0 (2016-10-3)
 
 ## Added
