@@ -1,10 +1,11 @@
 # Release Notes
 
-#v1.6.5 (2016-10-13)
+#v1.6.7 (2016-10-13)
 
 ##Fixed
 
 - Fix OneToMany duplicated error.
+- Fix ManyToMany stup.
 
 #v1.6.3 (2016-10-9)
 
