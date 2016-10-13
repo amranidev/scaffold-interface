@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function () {
 
 /*
  |------------------------------------------------------------------------------
- |Where the user managment system routes (User-Role-Permission)
+ | Where the user managment system routes (User-Role-Permission)
  |------------------------------------------------------------------------------
  |
  */
