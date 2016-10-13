@@ -1,5 +1,11 @@
 # Release Notes
 
+#v1.6.5 (2016-10-13)
+
+##Fixed
+
+- Fix OneToMany duplicated error.
+
 #v1.6.3 (2016-10-9)
 
 ##Fixed
