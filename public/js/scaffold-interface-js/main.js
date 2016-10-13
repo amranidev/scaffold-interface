@@ -68,7 +68,7 @@ var vm = new Vue({
             if (this.OpenClose) {
                 var onData = $('#on').val();
                 var table = $('#tbl').val();
-                if (inArray(onData, this.OneToManyData) || !onData || inArray(table, this.OneToManyData)) {
+                if (!onData || inArray(table, this.OneToManyData)) {
                     this.errorMsg = "Whoops, Error!!";
                     this.error = true
                     return;
