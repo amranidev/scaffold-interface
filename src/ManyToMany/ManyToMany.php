@@ -72,7 +72,7 @@ class ManyToMany extends Filesystem
      */
     private function migration()
     {
-        $migrationContent = "<?php\n\n". view('scaffold-interface::template.ManyToMany.migration', $this->tables)->render();
+        $migrationContent = "<?php\n\n".view('scaffold-interface::template.ManyToMany.migration', $this->tables)->render();
 
         $migrationFileName = date('Y').'_'.date('m').'_'.date('d').'_'.date('his').'_'.ucfirst($this->tables['first']).ucfirst($this->tables['second']).'.php';
 
