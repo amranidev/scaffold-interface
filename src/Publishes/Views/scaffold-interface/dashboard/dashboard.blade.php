@@ -51,6 +51,22 @@
 				<a href="{{url('permissions')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
+		<!-- list all entities -->
+		@foreach($entities as $entity)
+		<div class="col-lg-3 col-xs-6">
+			<!-- small box -->
+			<div class="small-box bg-green">
+				<div class="inner">
+					<h3>{{$entity->tablename}}</h3>
+					<p>Permissions</p>
+				</div>
+				<div class="icon">
+					<i class="fa fa-book"></i>
+				</div>
+				<a href="{{url('/')}}/{{lcfirst(str_singular($entity->tablename))}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+			</div>
+		</div>
+		@endforeach
 	</div>
 </section>
 @endsection
