@@ -30,17 +30,18 @@ Route::group(['middleware' => 'web'], function () {
 
 /*
  |------------------------------------------------------------------------------
- | Where the user managment system routes (User-Role-Permission)
+ | Where user managment system routes (User-Role-Permission)
  |------------------------------------------------------------------------------
  |
  */
 Route::group(['middleware' => ['web', 'auth']], function () {
+    // you can change anything you want.
     Route::get('dashboard', function () {
         $users = \App\User::all()->count();
         $roles = Spatie\Permission\Models\Role::all()->count();
         $permissions = Spatie\Permission\Models\Permission::all()->count();
-
-        return view('scaffold-interface.dashboard.dashboard', compact('users', 'roles', 'permissions'));
+        $entities = Amranidev\ScaffoldInterface\Scaffoldinterface::all();
+        return view('scaffold-interface.dashboard.dashboard', compact('users', 'roles', 'permissions','entities'));
     });
 
     Route::get('users', '\App\Http\Controllers\ScaffoldInterface\UserController@index');
