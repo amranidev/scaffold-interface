@@ -1,5 +1,11 @@
 # Release Notes
 
+#v1.6.9 (2016-10-16)
+
+##Enhanced
+
+- Control panel lists all entities automatically.
+
 #v1.6.7 (2016-10-13)
 
 ##Fixed
