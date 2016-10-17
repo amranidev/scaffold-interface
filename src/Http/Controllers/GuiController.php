@@ -257,7 +257,7 @@ class GuiController extends AppController
     }
 
     /**
-     * check if request is available to use.
+     * check ManyToMany request if is it available to use.
      *
      * @param array $request
      *
