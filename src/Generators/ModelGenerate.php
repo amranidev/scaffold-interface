@@ -28,10 +28,10 @@ class ModelGenerate
      *
      * @param NameGenerate
      */
-    public function __construct(NamesGenerate $names, Datasystem $dataSystem)
+    public function __construct()
     {
-        $this->names = $names;
-        $this->dataSystem = $dataSystem;
+        $this->names = app()->make('NamesGenerate');
+        $this->dataSystem = app()->make('Datasystem');
     }
 
     /**
