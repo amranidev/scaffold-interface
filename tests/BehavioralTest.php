@@ -2,131 +2,128 @@
 
 namespace Amranidev\ScaffoldInterface\Tests;
 
-use Amranidev\ScaffoldInterface\Scaffold;
-
 class BehavioralTest extends TestCase
 {
-    //Request from GUI
+    //Request
     public $request;
 
     //Scaffold Object
     public $scaffold;
+
+    //Datasystem
+    public $datasystem;
+
+    //NamesGenerate
+    public $namesGenerate;
+
+    //Paths
+    public $path;
+
+    //Generator
+    public $generator;
 
     //SetUp
     public function __construct()
     {
         parent::setUp();
 
-        $this->request = ['TableName' => 'test abraham',
-            'template'                => 'bootstrap', 'opt0' => 'String',
-            'attr0'                   => 'firstname', 'opt1' => 'Date', 'attr1' => 'birthday', ];
+        // SetUp Request
+        $this->request = app()->make('Request')->setRequest([
+            'TableName' => 'Testable',
+            'template' => 'bootstrap',
+            'opt0'=> 'A', 'attr0'=> 'B']);
 
-        $this->scaffold = new Scaffold($this->request);
+        $this->app->make('Scaffold');
+        
+        $this->datasystem = app()->make('Datasystem');
+
+        $this->namesGenerate = app()->make('NamesGenerate');
+
+        $this->path = app()->make('Path');
+
+        $this->generator = app()->make('Generator');
     }
 
-    //Test Setup
-    public function testScaffoldConstruct()
-    {
-        $this->assertInstanceOf('Amranidev\ScaffoldInterface\DataSystem\DataSystem', $this->scaffold->dataS);
-        $this->assertInstanceOf('Amranidev\ScaffoldInterface\Generators\NamesGenerate', $this->scaffold->names);
-        $this->assertInstanceOf('Amranidev\ScaffoldInterface\Filesystem\Path', $this->scaffold->paths);
-        $this->assertInstanceOf('Amranidev\ScaffoldInterface\Generators\Generator', $this->scaffold->generator);
-        $this->assertInstanceOf('Amranidev\ScaffoldInterface\Scaffold', $this->scaffold);
-    }
 
     //Test DataSystem
     public function testDataSystem()
     {
-        $this->assertArrayHasKey('opt0', $this->scaffold->dataS->getData());
-
-        $this->assertInternalType('array', $this->scaffold->dataS->dataScaffold('v'));
-
-        $this->assertInternalType('array', $this->scaffold->dataS->getOnData());
-
-        $this->assertInternalType('array', $this->scaffold->dataS->getForeignKeys());
+        $this->assertArrayHasKey('opt0', $this->datasystem->getData());
+        $this->assertInternalType('array', $this->datasystem->dataScaffold('v'));
+        $this->assertInternalType('array', $this->datasystem->getOnData());
+        $this->assertInternalType('array', $this->datasystem->getForeignKeys());
     }
 
-    //Test Names (Parse)
+    //Test testNamesGenerate
     public function testNamesGenerate()
     {
-        $this->assertEquals('test_abrahams', $this->scaffold->names->tableNames());
-        $this->assertEquals('Test_abrahams', $this->scaffold->names->tableNameMigration());
-        $this->assertEquals('Test_abraham', $this->scaffold->names->tableName());
-        $this->assertEquals('test_abraham', $this->scaffold->names->tableNameSingle());
-        $this->assertEquals('bootstrap', $this->scaffold->names->getTemplate());
-        $this->assertEquals('Bt', $this->scaffold->names->getParse());
+        $this->assertEquals('testables', $this->namesGenerate->tableNames());
+        $this->assertEquals('Testables', $this->namesGenerate->tableNameMigration());
+        $this->assertEquals('Testable', $this->namesGenerate->tableName());
+        $this->assertEquals('testable', $this->namesGenerate->tableNameSingle());
+        $this->assertEquals('bootstrap', $this->namesGenerate->getTemplate());
+        $this->assertEquals('Bt', $this->namesGenerate->getParse());
     }
 
     //Test Paths
     public function testPaths()
     {
         //Model Path
-        $this->assertEquals(app_path('Test_abraham.php'), $this->scaffold->paths->modelPath());
-
+        $this->assertEquals(app_path('Testable.php'), $this->path->modelPath());
         /*Views*/
         //Views Directory
-        $this->assertEquals(base_path().'/resources/views/test_abraham', $this->scaffold->paths->dirPath());
+        $this->assertEquals(base_path().'/resources/views/testable', $this->path->dirPath());
         //Index
-        $this->assertEquals(base_path().'/resources/views/test_abraham/index.blade.php', $this->scaffold->paths->indexPath());
+        $this->assertEquals(base_path().'/resources/views/testable/index.blade.php', $this->path->indexPath());
         //Create
-        $this->assertEquals(base_path().'/resources/views/test_abraham/create.blade.php', $this->scaffold->paths->createPath());
+        $this->assertEquals(base_path().'/resources/views/testable/create.blade.php', $this->path->createPath());
         //Edit
-        $this->assertEquals(base_path().'/resources/views/test_abraham/edit.blade.php', $this->scaffold->paths->editPath());
+        $this->assertEquals(base_path().'/resources/views/testable/edit.blade.php', $this->path->editPath());
         //Show
-        $this->assertEquals(base_path().'/resources/views/test_abraham/show.blade.php', $this->scaffold->paths->showPath());
+        $this->assertEquals(base_path().'/resources/views/testable/show.blade.php', $this->path->showPath());
     }
 
     //Test Model Generate
     public function testModelGenerate()
     {
-        $names = $this->scaffold->names;
-
-        $dataSystem = $this->scaffold->dataS;
-
-        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.model.model', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getModel()->generate());
+        $names = $this->namesGenerate;
+        $dataSystem = $this->datasystem;
+        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.model.model', compact('names', 'dataSystem'))->render(), $this->generator->getModel()->generate());
     }
 
     //test Controller Generate
     public function testControllerGenerate()
     {
-        $names = $this->scaffold->names;
-
-        $dataSystem = $this->scaffold->dataS;
-
-        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.controller.controller', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getController()->generate());
+        $names = $this->namesGenerate;
+        $dataSystem = $this->datasystem;
+        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.controller.controller', compact('names', 'dataSystem'))->render(), $this->generator->getController()->generate());
     }
 
     //test Migration Generate
     public function testMigrationGenerate()
     {
-        $names = $this->scaffold->names;
-
-        $dataSystem = $this->scaffold->dataS;
-
-        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.migration.migration', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getMigration()->generate());
+        $names = $this->namesGenerate;
+        $dataSystem = $this->datasystem;
+        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.migration.migration', compact('names', 'dataSystem'))->render(), $this->generator->getMigration()->generate());
     }
-
     //test Route Generate
     public function testRouteGenerate()
     {
-        $names = $this->scaffold->names;
-
-        $this->assertEquals("\n".view('scaffold-interface::template.routes', compact('names'))->render(), $this->scaffold->generator->getRoute()->generate());
+        $names = $this->namesGenerate;
+        $this->assertEquals("\n".view('scaffold-interface::template.routes', compact('names'))->render(), $this->generator->getRoute()->generate());
     }
 
     public function testViewsGenerate()
     {
-        $names = $this->scaffold->names;
-
-        $dataSystem = $this->scaffold->dataS;
-
+        $names = $this->namesGenerate;
+        $dataSystem = $this->datasystem;
         //Test Index Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.index', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getView()->generateIndex());
+        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.index', compact('names', 'dataSystem'))->render(), $this->generator->getView()->generateIndex());
         //Test Create Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.create', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getView()->generateCreate());
+        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.create', compact('names', 'dataSystem'))->render(), $this->generator->getView()->generateCreate());
         //Test Edit Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.edit', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getView()->generateEdit());
+        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.edit', compact('names', 'dataSystem'))->render(), $this->generator->getView()->generateEdit());
         //Test Show Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.show', compact('names', 'dataSystem'))->render(), $this->scaffold->generator->getView()->generateShow());
+        $this->assertEquals(view('scaffold-interface::template.views.'.$names->getTemplate().'.show', compact('names', 'dataSystem'))->render(), $this->generator->getView()->generateShow());
     }
 }
