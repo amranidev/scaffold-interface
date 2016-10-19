@@ -44,21 +44,22 @@ class GuiController extends AppController
      */
     public function store(Request $request)
     {
-        $scaffold = new Scaffold($request->toArray());
-
+        app()->make('Request')->setRequest($request->toArray());
+        $scaffold = app()->make('Scaffold');
         $scaffold->migration()->model()->controller()->route()->views();
-
+        $paths = app()->make('Path');
+        $names = app()->make('NamesGenerate');
         $scaffoldInterface = new Scaffoldinterface();
 
-        $scaffoldInterface->migration = $scaffold->paths->migrationPath;
-        $scaffoldInterface->model = $scaffold->paths->modelPath();
-        $scaffoldInterface->controller = $scaffold->paths->controllerPath();
-        $scaffoldInterface->views = $scaffold->paths->dirPath();
-        $scaffoldInterface->tablename = $scaffold->names->tableNames();
+        $scaffoldInterface->migration = $paths->migrationPath;
+        $scaffoldInterface->model = $paths->modelPath();
+        $scaffoldInterface->controller = $paths->controllerPath();
+        $scaffoldInterface->views = $paths->dirPath();
+        $scaffoldInterface->tablename = $names->tableNames();
         $scaffoldInterface->package = config('amranidev.config.package');
         $scaffoldInterface->save();
 
-        Session::flash('status', 'Created Successfully'.$scaffold->names->tableName());
+        Session::flash('status', 'Created Successfully'.$names->tableName());
 
         return redirect('scaffold');
     }
