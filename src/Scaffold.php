@@ -16,25 +16,6 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 class Scaffold
 {
     /**
-     * DataSystem instance.
-     */
-    public $dataS;
-
-    /**
-     * Path instance.
-     *
-     * @var paths
-     */
-    public $paths;
-
-    /**
-     * Names instance.
-     *
-     * @var names
-     */
-    public $names;
-
-    /**
      * Generator instance.
      *
      * @var generator
@@ -46,15 +27,9 @@ class Scaffold
      *
      * @param array $request
      */
-    public function __construct($request)
+    public function __construct()
     {
-        $this->dataS = new Datasystem($request);
-
-        $this->names = new NamesGenerate($request);
-
-        $this->paths = new Path($this->names);
-
-        $this->generator = new Generator($this->dataS, $this->names, $this->paths);
+        $this->generator = app()->make('Generator');
     }
 
     /**
