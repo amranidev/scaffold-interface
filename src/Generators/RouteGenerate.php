@@ -19,9 +19,9 @@ class RouteGenerate
      *
      * @param NamesGenerate
      */
-    public function __construct(NamesGenerate $names)
+    public function __construct()
     {
-        $this->names = $names;
+        $this->names = app()->make('NamesGenerate');
     }
 
     /**
