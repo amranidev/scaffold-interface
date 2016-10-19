@@ -2,9 +2,7 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\Datasystem\Datasystem;
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
-use Amranidev\ScaffoldInterface\Filesystem\Path;
 
 /**
  * Class     Generator.
@@ -50,14 +48,14 @@ class Generator extends Filesystem
      * @param NamesGenerate
      * @param PathsGenerate
      */
-    public function __construct(Datasystem $dataSystem, NamesGenerate $names, Path $paths)
+    public function __construct()
     {
-        $this->view = new ViewGenerate($dataSystem, $names);
-        $this->model = new ModelGenerate($names, $dataSystem);
-        $this->migration = new MigrationGenerate($dataSystem, $names);
-        $this->controller = new ControllerGenerate($names, $dataSystem);
-        $this->route = new RouteGenerate($names);
-        $this->paths = $paths;
+        $this->view = app()->make('ViewGenerate');
+        $this->model = app()->make('ModelGenerate');
+        $this->migration = app()->make('MigrationGenerate');
+        $this->controller = app()->make('ControllerGenerate');
+        $this->route = app()->make('RouteGenerate');
+        $this->paths = app()->make('Path');
     }
 
     /**
