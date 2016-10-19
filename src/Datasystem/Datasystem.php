@@ -43,7 +43,7 @@ class Datasystem
     /**
      * Create DataSystem instance.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param array $request
      */
     public function __construct($request)
     {
