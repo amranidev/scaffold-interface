@@ -64,32 +64,32 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->singleton('laravelRequest',\Illuminate\Http\Request::class);
+        $this->app->singleton('laravelRequest', \Illuminate\Http\Request::class);
 
-        $this->app->singleton('Request',\Amranidev\ScaffoldInterface\Http\Request::class);
+        $this->app->singleton('Request', \Amranidev\ScaffoldInterface\Http\Request::class);
 
-        $this->app->singleton('Scaffold',\Amranidev\ScaffoldInterface\Scaffold::class);
+        $this->app->singleton('Scaffold', \Amranidev\ScaffoldInterface\Scaffold::class);
 
-        $this->app->singleton('Datasystem',function($app){
+        $this->app->singleton('Datasystem', function ($app) {
             return new \Amranidev\ScaffoldInterface\Datasystem\Datasystem($app->make('Request')->getRequest());
         });
 
-        $this->app->singleton('NamesGenerate',function($app){
+        $this->app->singleton('NamesGenerate', function ($app) {
             return new \Amranidev\ScaffoldInterface\Generators\NamesGenerate($app->make('Request')->getRequest());
         });
 
-        $this->app->singleton('Path',\Amranidev\ScaffoldInterface\Filesystem\Path::class);
+        $this->app->singleton('Path', \Amranidev\ScaffoldInterface\Filesystem\Path::class);
 
-        $this->app->singleton('Generator',\Amranidev\ScaffoldInterface\Generators\Generator::class);
+        $this->app->singleton('Generator', \Amranidev\ScaffoldInterface\Generators\Generator::class);
 
-        $this->app->singleton('ModelGenerate',\Amranidev\ScaffoldInterface\Generators\ModelGenerate::class);
-       
-        $this->app->singleton('ViewGenerate',\Amranidev\ScaffoldInterface\Generators\ViewGenerate::class);
+        $this->app->singleton('ModelGenerate', \Amranidev\ScaffoldInterface\Generators\ModelGenerate::class);
 
-        $this->app->singleton('MigrationGenerate',\Amranidev\ScaffoldInterface\Generators\MigrationGenerate::class);
+        $this->app->singleton('ViewGenerate', \Amranidev\ScaffoldInterface\Generators\ViewGenerate::class);
 
-        $this->app->singleton('ControllerGenerate',\Amranidev\ScaffoldInterface\Generators\ControllerGenerate::class);
+        $this->app->singleton('MigrationGenerate', \Amranidev\ScaffoldInterface\Generators\MigrationGenerate::class);
 
-        $this->app->singleton('RouteGenerate',\Amranidev\ScaffoldInterface\Generators\RouteGenerate::class);
+        $this->app->singleton('ControllerGenerate', \Amranidev\ScaffoldInterface\Generators\ControllerGenerate::class);
+
+        $this->app->singleton('RouteGenerate', \Amranidev\ScaffoldInterface\Generators\RouteGenerate::class);
     }
 }
