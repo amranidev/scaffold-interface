@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\DataSystem\Datasystem;
-
 /**
  * Class ModelGenerate.
  *
