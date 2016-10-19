@@ -15,13 +15,13 @@ class ScaffoldTest extends TestCase
         parent::setUp();
 
         $this->request = app()->make('Request')->setRequest(['TableName' => 'Article',
-                'template'            => 'bootstrap',
-                'opt0'                => 'String',
-                'attr0'               => 'title',
-                'opt1'                => 'LongText',
-                'attr1'               => 'body',
-                'attr2'               => 'String',
-                'opt2'                => 'author', ]);
+                'template'                                               => 'bootstrap',
+                'opt0'                                                   => 'String',
+                'attr0'                                                  => 'title',
+                'opt1'                                                   => 'LongText',
+                'attr1'                                                  => 'body',
+                'attr2'                                                  => 'String',
+                'opt2'                                                   => 'author', ]);
 
         $this->scaffold = app()->make('Scaffold');
 

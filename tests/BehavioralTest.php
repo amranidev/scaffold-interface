@@ -30,11 +30,11 @@ class BehavioralTest extends TestCase
         // SetUp Request
         $this->request = app()->make('Request')->setRequest([
             'TableName' => 'Testable',
-            'template' => 'bootstrap',
-            'opt0'=> 'A', 'attr0'=> 'B']);
+            'template'  => 'bootstrap',
+            'opt0'      => 'A', 'attr0' => 'B', ]);
 
         $this->app->make('Scaffold');
-        
+
         $this->datasystem = app()->make('Datasystem');
 
         $this->namesGenerate = app()->make('NamesGenerate');
@@ -43,7 +43,6 @@ class BehavioralTest extends TestCase
 
         $this->generator = app()->make('Generator');
     }
-
 
     //Test DataSystem
     public function testDataSystem()
@@ -106,6 +105,7 @@ class BehavioralTest extends TestCase
         $dataSystem = $this->datasystem;
         $this->assertEquals("<?php\n\n".view('scaffold-interface::template.migration.migration', compact('names', 'dataSystem'))->render(), $this->generator->getMigration()->generate());
     }
+
     //test Route Generate
     public function testRouteGenerate()
     {
