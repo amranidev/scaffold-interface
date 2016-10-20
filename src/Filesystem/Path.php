@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Filesystem;
 
-use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
-
 /**
  * Class Paths.
  *
@@ -13,14 +11,14 @@ class Path
 {
     /**
      * The NamesGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
 
     /**
      * Migration file path.
-     * 
+     *
      * @var string
      */
     public $migrationPath;

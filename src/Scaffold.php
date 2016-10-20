@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface;
 
-use Amranidev\ScaffoldInterface\Generators\Generator;
-
 /**
  * Class     Scaffold.
  *

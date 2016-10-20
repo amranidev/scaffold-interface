@@ -18,7 +18,7 @@ class ViewGenerate
 
     /**
      * The NamesGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
@@ -28,7 +28,7 @@ class ViewGenerate
      *
      * @param $data Array
      * @param NamesGenerate
-     * 
+     *
      * @return void
      */
     public function __construct()

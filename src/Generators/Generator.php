@@ -13,49 +13,49 @@ class Generator extends Filesystem
 {
     /**
      * The ViewGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\ViewGenerate
      */
     private $view;
 
     /**
      * The ViewGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\ModelGenerate
      */
     private $model;
 
     /**
      * The ViewGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\MigrationGenerate
      */
     private $migration;
 
     /**
      * The ViewGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\ControllerGenerate
      */
     private $controller;
 
     /**
      * The ViewGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\RouteGenerate
      */
     private $route;
 
     /**
      * The ViewGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Filesystem\Path
      */
     private $paths;
 
     /**
      * Create new Generator instance.
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -70,7 +70,7 @@ class Generator extends Filesystem
 
     /**
      * Generate index.
-     * 
+     *
      * @return mixed
      */
     public function index()
@@ -80,7 +80,7 @@ class Generator extends Filesystem
 
     /**
      * Generate create.
-     * 
+     *
      * @return mixed
      */
     public function create()
@@ -90,7 +90,7 @@ class Generator extends Filesystem
 
     /**
      * Generate show.
-     * 
+     *
      * @return mixed
      */
     public function show()
@@ -100,7 +100,7 @@ class Generator extends Filesystem
 
     /**
      * Generate edit.
-     * 
+     *
      * @return mixed
      */
     public function edit()
@@ -110,7 +110,7 @@ class Generator extends Filesystem
 
     /**
      * Generate views directory.
-     * 
+     *
      * @return mixed
      */
     public function dir()
@@ -120,7 +120,7 @@ class Generator extends Filesystem
 
     /**
      * Generate Model.
-     * 
+     *
      * @return mixed
      */
     public function model()
@@ -130,7 +130,7 @@ class Generator extends Filesystem
 
     /**
      * Generate Migration.
-     * 
+     *
      * @return mixed
      */
     public function migration()
@@ -140,7 +140,7 @@ class Generator extends Filesystem
 
     /**
      * Generate Controller.
-     * 
+     *
      * @return mixed
      */
     public function controller()
@@ -150,7 +150,7 @@ class Generator extends Filesystem
 
     /**
      * Generate route.
-     * 
+     *
      * @return mixed
      */
     public function route()
@@ -160,7 +160,7 @@ class Generator extends Filesystem
 
     /**
      * get model generator.
-     * 
+     *
      * @return \Amranidev\ScaffoldInterface\Generators\ModelGenerate
      */
     public function getModel()
@@ -178,7 +178,7 @@ class Generator extends Filesystem
 
     /**
      * get view generator.
-     * 
+     *
      * @return \Amranidev\ScaffoldInterface\Generators\ViewGenerate
      */
     public function getView()
@@ -188,7 +188,7 @@ class Generator extends Filesystem
 
     /**
      * get controller generator.
-     * 
+     *
      * @return \Amranidev\ScaffoldInterface\Generators\ControllerGenerate
      */
     public function getController()
@@ -197,8 +197,8 @@ class Generator extends Filesystem
     }
 
     /**
-     * get route. 
-     * 
+     * get route.
+     *
      * @return \Amranidev\ScaffoldInterface\Generators\RouteGenerate
      */
     public function getRoute()
