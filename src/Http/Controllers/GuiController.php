@@ -17,7 +17,6 @@ use URL;
 /**
  * Class GuiController.
  *
- *
  * @author  Amrani Houssain <amranidev@gmail.com>
  */
 class GuiController extends AppController
@@ -258,7 +257,7 @@ class GuiController extends AppController
     }
 
     /**
-     * check ManyToMany request if is it available to use.
+     * Check ManyToMany request if is it available to use.
      *
      * @param array $request
      *
