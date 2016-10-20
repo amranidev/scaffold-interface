@@ -18,7 +18,7 @@ class ControllerGenerate
 
     /**
      * The NamesGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
