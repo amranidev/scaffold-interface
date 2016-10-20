@@ -12,21 +12,23 @@ use Amranidev\ScaffoldInterface\DataSystem\Datasystem;
 class ModelGenerate
 {
     /**
-     * DataSystem.
+     * The DataSystem instance.
      *
-     * @var
+     * @var \Amranidev\ScaffoldInterface\Datasystem\Datasystem
      */
     private $dataSystem;
 
     /**
-     * @var NamesGenerate
+     * The NamesGenerate instance.
+     * 
+     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
 
     /**
      * Create new ModelGenerate instance.
-     *
-     * @param NameGenerate
+     * 
+     * @return void
      */
     public function __construct()
     {
@@ -35,7 +37,7 @@ class ModelGenerate
     }
 
     /**
-     * Compile Model template.
+     * Compile model template.
      *
      * @return string
      */
