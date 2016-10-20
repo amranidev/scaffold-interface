@@ -18,14 +18,14 @@ class Scaffold
     /**
      * Generator instance.
      *
-     * @var generator
+     * @var \Amranidev\ScaffoldInterface\Generators\Generator
      */
     public $generator;
 
     /**
      * Create new scaffold instance.
      *
-     * @param array $request
+     * @return void
      */
     public function __construct()
     {
@@ -35,7 +35,7 @@ class Scaffold
     /**
      * Scaffold Migration.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function migration()
     {
@@ -47,7 +47,7 @@ class Scaffold
     /**
      * Scaffold Model.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function model()
     {
@@ -59,7 +59,7 @@ class Scaffold
     /**
      * Scaffold Views.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function views()
     {
@@ -75,7 +75,7 @@ class Scaffold
     /**
      * Scaffold Controller.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function controller()
     {
@@ -87,7 +87,7 @@ class Scaffold
     /**
      * Scaffold Route.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function route()
     {

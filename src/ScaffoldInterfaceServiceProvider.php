@@ -62,8 +62,14 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
             $configPath => config_path('amranidev/config.php'), ]);
     }
 
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
     public function register()
     {
+        //Register the Utilities
         $this->app->singleton('laravelRequest',\Illuminate\Http\Request::class);
 
         $this->app->singleton('Request',\Amranidev\ScaffoldInterface\Http\Request::class);
