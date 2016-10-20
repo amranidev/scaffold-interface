@@ -13,10 +13,14 @@ class Path
 {
     /**
      * The NamesGenerate instance.
+     * 
+     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
-    public $names;
+    private $names;
 
     /**
+     * Migration file path.
+     * 
      * @var string
      */
     public $migrationPath;
@@ -24,7 +28,7 @@ class Path
     /**
      * Create new Paths instance.
      *
-     * @param NamesGenerate names
+     * @return void
      */
     public function __construct()
     {
@@ -34,7 +38,7 @@ class Path
     }
 
     /**
-     * return model file path.
+     * Get model file path.
      *
      * @return string
      */
@@ -44,7 +48,7 @@ class Path
     }
 
     /**
-     * return migration file path.
+     * Get migration file path.
      *
      * @return string
      */
@@ -56,7 +60,7 @@ class Path
     }
 
     /**
-     * return controller file path.
+     * Get controller file path.
      *
      * @return string
      */
@@ -68,7 +72,7 @@ class Path
     }
 
     /**
-     * retrun index file path.
+     * Get index file path.
      *
      * @return string
      */
@@ -78,7 +82,7 @@ class Path
     }
 
     /**
-     * return create file path.
+     * Get create file path.
      *
      * @return string
      */
@@ -88,7 +92,7 @@ class Path
     }
 
     /**
-     * return show file path.
+     * Get show file path.
      *
      * @return string
      */
@@ -98,7 +102,7 @@ class Path
     }
 
     /**
-     * return edit file path.
+     * Get edit file path.
      *
      * @return string
      */
@@ -108,7 +112,7 @@ class Path
     }
 
     /**
-     * return route file path.
+     * Get route file path.
      *
      * @return string
      */
@@ -118,7 +122,7 @@ class Path
     }
 
     /**
-     * return views directory path.
+     * Get views directory path.
      *
      * @return string
      */
