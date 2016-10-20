@@ -15,7 +15,7 @@ class Request
 	protected $request;
 
 	/**
-	 * set request.
+	 * Set request.
 	 * 
 	 * @param array $request
 	 * 
