@@ -10,22 +10,23 @@ namespace Amranidev\ScaffoldInterface\Generators;
 class ControllerGenerate
 {
     /**
-     * DataSystem Instance.
+     * The DataSystem instance.
      *
-     * @var dataSystem
+     * @var \Amranidev\ScaffoldInterface\Datasystem\Datasystem
      */
     private $dataSystem;
 
     /**
-     * @var NamesGenerate
+     * The NamesGenerate instance.
+     * 
+     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
 
     /**
      * Create new ControllerGenerate instance.
      *
-     * @param $dataS Array
-     * @param NamesGenerate
+     * @return void
      */
     public function __construct()
     {
@@ -34,7 +35,7 @@ class ControllerGenerate
     }
 
     /**
-     * compile controller tamplate.
+     * Compile controller tamplate.
      *
      * @return string
      */
