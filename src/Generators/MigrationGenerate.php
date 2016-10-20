@@ -10,24 +10,23 @@ namespace Amranidev\ScaffoldInterface\Generators;
 class MigrationGenerate
 {
     /**
-     * DataSystem instance.
+     * The DataSystem instance.
      *
-     * @var
+     * @var \Amranidev\ScaffoldInterface\Datasystem\Datasystem
      */
     private $dataSystem;
 
     /**
-     * NamesGenerate instance.
-     *
-     * @var NamesGenerate
+     * The NamesGenerate instance.
+     * 
+     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
 
     /**
      * Create New MigrationGenerate instance.
      *
-     * @param DataSystem
-     * @param NamesGenerate
+     * @return void
      */
     public function __construct()
     {
@@ -36,7 +35,7 @@ class MigrationGenerate
     }
 
     /**
-     * fetch migration template.
+     * Compile migration template.
      *
      * @return string
      */
