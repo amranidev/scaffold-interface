@@ -3,14 +3,14 @@
 namespace Amranidev\ScaffoldInterface\Http;
 
 /**
- * class Request.
+ * Class Request.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Request
 {
 	/**
-	 * @var $reqest
+	 * @var array $reqest
 	 */ 
 	protected $request;
 
@@ -18,13 +18,15 @@ class Request
 	 * set request.
 	 * 
 	 * @param array $request
+	 * 
+	 * @return void
 	 */ 
 	public function setRequest(array $request)
 	{
 		$this->request = $request;
 	}
 	/**
-	 * get request.
+	 * Get request.
 	 * 
 	 * @return array $request
 	 */ 
