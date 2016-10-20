@@ -18,14 +18,14 @@ class ModelGenerate
 
     /**
      * The NamesGenerate instance.
-     * 
+     *
      * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
 
     /**
      * Create new ModelGenerate instance.
-     * 
+     *
      * @return void
      */
     public function __construct()

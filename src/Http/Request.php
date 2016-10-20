@@ -9,29 +9,30 @@ namespace Amranidev\ScaffoldInterface\Http;
  */
 class Request
 {
-	/**
-	 * @var array $reqest
-	 */ 
-	protected $request;
+    /**
+     * @var array
+     */
+    protected $request;
 
-	/**
-	 * Set request.
-	 * 
-	 * @param array $request
-	 * 
-	 * @return void
-	 */ 
-	public function setRequest(array $request)
-	{
-		$this->request = $request;
-	}
-	/**
-	 * Get request.
-	 * 
-	 * @return array $request
-	 */ 
-	public function getRequest() 
-	{
-		return $this->request;
-	}
+    /**
+     * Set request.
+     *
+     * @param array $request
+     *
+     * @return void
+     */
+    public function setRequest(array $request)
+    {
+        $this->request = $request;
+    }
+
+    /**
+     * Get request.
+     *
+     * @return array $request
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
 }
