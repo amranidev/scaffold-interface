@@ -1,5 +1,11 @@
 # Release Notes
 
+#v1.6.10 (2016-10-21)
+
+##Fixed
+
+- Change **lists** method to **pluck** according to Laravel v5.2 and v5.3.
+
 #v1.6.9 (2016-10-16)
 
 ##Enhanced
