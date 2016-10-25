@@ -86,7 +86,7 @@
                     {{$names->endforeachh()}}
                 </tbody>
             </table>
-            @{!! ${{$names->tableName()}}->render() !!}
+            @{!! ${{$names->tableNames()}}->render() !!}
         </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
