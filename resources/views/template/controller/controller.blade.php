@@ -27,7 +27,7 @@ class {{$names->tableName()}}Controller extends Controller
      */
     public function index()
     {
-        ${{$names->tableNames()}} = {{$names->tableName()}}::all();
+        ${{$names->tableNames()}} = {{$names->tableName()}}::paginate(6);
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.index',compact('{{$names->TableNames()}}'));
     }
 
