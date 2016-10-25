@@ -167,6 +167,6 @@
 			</li>'
 			);
 		});
-		</script>>
+		</script>
 	</body>
 </html>
