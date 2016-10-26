@@ -1,5 +1,15 @@
 # Release Notes
 
+#v1.6.12 (2016-10-26)
+
+##Added
+
+- Pagination will be generated automatically.
+
+##Enhanced
+
+- Enhance dashboard.
+
 #v1.6.10 (2016-10-21)
 
 ##Fixed
