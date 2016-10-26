@@ -82,6 +82,7 @@
                     {{$names->endforeachh()}}
                 </tbody>
             </table>
+            @{!! ${{$names->tableNames()}}->render() !!}
         </div>
         <div id="modal1" class="modal">
             <div class = "row AjaxisModal">
