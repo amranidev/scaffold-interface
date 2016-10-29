@@ -21,7 +21,7 @@ class ControllerGenerate
      *
      * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
-    private $names;
+    private $parser;
 
     /**
      * Create new ControllerGenerate instance.
@@ -31,7 +31,7 @@ class ControllerGenerate
     public function __construct()
     {
         $this->dataSystem = app()->make('Datasystem');
-        $this->names = app()->make('NamesGenerate');
+        $this->parser = app()->make('Parser');
     }
 
     /**
@@ -41,6 +41,6 @@ class ControllerGenerate
      */
     public function generate()
     {
-        return "<?php\n\n".view('scaffold-interface::template.controller.controller', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return "<?php\n\n".view('scaffold-interface::template.controller.controller', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 }
