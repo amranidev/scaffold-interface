@@ -3,7 +3,7 @@ namespace {{config('amranidev.config.controllerNameSpace')}};
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use {{config('amranidev.config.modelNameSpace')}}\{{$names->tableName()}};
+use {{config('amranidev.config.modelNameSpace')}}\{{ucfirst($parser->singular())}};
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 @foreach($dataSystem->getForeignKeys() as $key)
@@ -13,12 +13,12 @@ use {{config('amranidev.config.modelNameSpace')}}\{{ucfirst(str_singular($key))}
 @endforeach
 
 /**
- * Class {{$names->tableName()}}Controller.
+ * Class {{ucfirst($parser->singular())}}Controller.
  *
  * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interface
  */
-class {{$names->tableName()}}Controller extends Controller
+class {{ucfirst($parser->singular())}}Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,8 +27,8 @@ class {{$names->tableName()}}Controller extends Controller
      */
     public function index()
     {
-        ${{$names->tableNames()}} = {{$names->tableName()}}::paginate(6);
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.index',compact('{{$names->TableNames()}}'));
+        ${{$parser->plural()}} = {{ucfirst($parser->singular())}}::paginate(6);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.index',compact('{{$parser->plural()}}'));
     }
 
     /**
@@ -43,7 +43,7 @@ class {{$names->tableName()}}Controller extends Controller
         ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->pluck('{{$dataSystem->getOnData()[$key]}}','id');
         @endforeach
 
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.create'@if($dataSystem->getForeignKeys() != null),compact(@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())),@endif @endforeach)@endif);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.create'@if($dataSystem->getForeignKeys() != null),compact(@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())),@endif @endforeach)@endif);
     }
 
     /**
@@ -54,21 +54,21 @@ class {{$names->tableName()}}Controller extends Controller
      */
     public function store(Request $request)
     {
-        ${{$names->tableNameSingle()}} = new {{$names->tableName()}}();
+        ${{$parser->singular()}} = new {{ucfirst($parser->singular())}}();
 
         @foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$names->tableNameSingle()}}->{{$value}} = $request->{{$value}};
+        ${{$parser->singular()}}->{{$value}} = $request->{{$value}};
 
         @endforeach
 
         @foreach($dataSystem->getForeignKeys() as $key)
 
-        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $request->{{lcfirst(str_singular($key))}}_id;
+        ${{$parser->singular()}}->{{lcfirst(str_singular($key))}}_id = $request->{{lcfirst(str_singular($key))}}_id;
 
         @endforeach
 
-        ${{$names->tableNameSingle()}}->save();
+        ${{$parser->singular()}}->save();
 
         $pusher = App::make('pusher');
 
@@ -78,9 +78,9 @@ class {{$names->tableName()}}Controller extends Controller
         //you can modify anything you want or use it wherever.
         $pusher->trigger('test-channel',
                          'test-event',
-                        ['message' => 'A new {{$names->tableNameSingle()}} has been created !!']);
+                        ['message' => 'A new {{$parser->singular()}} has been created !!']);
 
-        return redirect('{{$names->tableNameSingle()}}');
+        return redirect('{{$parser->singular()}}');
     }
 
     /**
@@ -94,11 +94,11 @@ class {{$names->tableName()}}Controller extends Controller
     {
         if($request->ajax())
         {
-            return URL::to('{{$names->tableNameSingle()}}/'.$id);
+            return URL::to('{{$parser->singular()}}/'.$id);
         }
 
-        ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.show',compact('{{$names->TableNameSingle()}}'));
+        ${{$parser->singular()}} = {{ucfirst($parser->singular())}}::findOrfail($id);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.show',compact('{{$parser->singular()}}'));
     }
 
     /**
@@ -111,7 +111,7 @@ class {{$names->tableName()}}Controller extends Controller
     {
         if($request->ajax())
         {
-            return URL::to('{{$names->tableNameSingle()}}/'. $id . '/edit');
+            return URL::to('{{$parser->singular()}}/'. $id . '/edit');
         }
 
         @foreach($dataSystem->getForeignKeys() as $key => $value)
@@ -120,8 +120,8 @@ class {{$names->tableName()}}Controller extends Controller
 
         @endforeach
 
-        ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$names->TableNameSingle()}}.edit',compact('{{$names->TableNameSingle()}}' @if($dataSystem->getForeignKeys() != null),@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}'@if($value != last($dataSystem->getForeignKeys())),@endif @endforeach) @else )@endif);
+        ${{$parser->singular()}} = {{ucfirst($parser->singular())}}::findOrfail($id);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.edit',compact('{{$parser->singular()}}' @if($dataSystem->getForeignKeys() != null),@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}'@if($value != last($dataSystem->getForeignKeys())),@endif @endforeach) @else )@endif);
     }
 
     /**
@@ -133,21 +133,21 @@ class {{$names->tableName()}}Controller extends Controller
      */
     public function update($id,Request $request)
     {
-        ${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
+        ${{$parser->singular()}} = {{ucfirst($parser->singular())}}::findOrfail($id);
     	@foreach($dataSystem->dataScaffold('v') as $value)
 
-        ${{$names->tableNameSingle()}}->{{$value}} = $request->{{$value}};
+        ${{$parser->singular()}}->{{$value}} = $request->{{$value}};
         @endforeach
 
         @foreach($dataSystem->getForeignKeys() as $key)
 
-        ${{$names->tableNameSingle()}}->{{lcfirst(str_singular($key))}}_id = $request->{{lcfirst(str_singular($key))}}_id;
+        ${{$parser->singular()}}->{{lcfirst(str_singular($key))}}_id = $request->{{lcfirst(str_singular($key))}}_id;
 
         @endforeach
 
-        ${{$names->tableNameSingle()}}->save();
+        ${{$parser->singular()}}->save();
 
-        return redirect('{{$names->tableNameSingle()}}');
+        return redirect('{{$parser->singular()}}');
     }
 
     /**
@@ -159,7 +159,7 @@ class {{$names->tableName()}}Controller extends Controller
      */
     public function DeleteMsg($id,Request $request)
     {
-        $msg = Ajaxis::{{$names->getParse()}}Deleting('Warning!!','Would you like to remove This?','/{{$names->TableNameSingle()}}/'. $id . '/delete/');
+        $msg = Ajaxis::{{$parser->getParse()}}Deleting('Warning!!','Would you like to remove This?','/{{$parser->singular()}}/'. $id . '/delete/');
 
         if($request->ajax())
         {
@@ -175,8 +175,8 @@ class {{$names->tableName()}}Controller extends Controller
      */
     public function destroy($id)
     {
-     	${{$names->tableNameSingle()}} = {{$names->tableName()}}::findOrfail($id);
-     	${{$names->tableNameSingle()}}->delete();
-        return URL::to('{{$names->tableNameSingle()}}');
+     	${{$parser->singular()}} = {{ucfirst($parser->singular())}}::findOrfail($id);
+     	${{$parser->singular()}}->delete();
+        return URL::to('{{$parser->singular()}}');
     }
 }
