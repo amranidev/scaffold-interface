@@ -12,7 +12,7 @@
     <body>
         <div class = 'container'>
             <h1>{{$parser->singular()}} Index</h1>
-            <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()"}})!!}/create'>
+            <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}/create'>
                 <button class = 'btn btn-primary' type = 'submit'>Create New {{$parser->singular()}}</button>
             </form>
             <br>
