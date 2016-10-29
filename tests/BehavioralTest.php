@@ -56,8 +56,8 @@ class BehavioralTest extends TestCase
     //Test testNamesGenerate
     public function testParser()
     {
-        $this->assertEquals('testable', $this->namesGenerate->singular());
-        $this->assertEquals('testables', $this->namesGenerate->plural());
+        $this->assertEquals('testable', $this->parser->singular());
+        $this->assertEquals('testables', $this->parser->plural());
         $this->assertEquals('Bt', $this->parser->getParse());
     }
 
