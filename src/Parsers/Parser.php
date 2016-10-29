@@ -3,50 +3,50 @@
 namespace Amranidev\ScaffoldInterface\Parsers;
 
 /**
- * class Parser
- * 
+ * class Parser.
+ *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Parser
 {
-	/**
-	 * parser data
-	 * 
-	 * @var array $data
-	 */ 
-	protected $data;
+    /**
+     * parser data.
+     *
+     * @var array
+     */
+    protected $data;
 
-	/**
-	 * Create new Parser instance
-	 * 
-	 * @return void
-	 */ 
-	public function __construct($request)
-	{
-		$this->data = $request;
-	}
+    /**
+     * Create new Parser instance.
+     *
+     * @return void
+     */
+    public function __construct($request)
+    {
+        $this->data = $request;
+    }
 
-	/**
-	 * Get the entity name singular.
-	 * 
-	 * @return string
-	 */ 
-	public function singular()
-	{
-		 return str_singular(str_slug($this->data['TableName'], '_'));
-	}
+    /**
+     * Get the entity name singular.
+     *
+     * @return string
+     */
+    public function singular()
+    {
+        return str_singular(str_slug($this->data['TableName'], '_'));
+    }
 
-	/**
-	 * Get the entity name plural.
-	 *
-	 * @return string
-	 */  
-	public function plural()
-	{
-		return str_plural(str_slug($this->data['TableName'], '_'));
-	}
+    /**
+     * Get the entity name plural.
+     *
+     * @return string
+     */
+    public function plural()
+    {
+        return str_plural(str_slug($this->data['TableName'], '_'));
+    }
 
-	/**
+    /**
      * Get Template.
      *
      * @return string
