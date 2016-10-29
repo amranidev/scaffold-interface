@@ -45,7 +45,7 @@ class GuiController extends AppController
     {
         app()->make('Request')->setRequest($request->toArray());
         $scaffold = app()->make('Scaffold');
-        $scaffold->migration()->model()->controller()->route()->views();
+        $scaffold->views()->model()->controller()->migration()->route();
         $paths = app()->make('Path');
         $names = app()->make('NamesGenerate');
         $scaffoldInterface = new Scaffoldinterface();
