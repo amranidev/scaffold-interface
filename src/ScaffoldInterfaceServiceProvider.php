@@ -79,7 +79,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
             return new \Amranidev\ScaffoldInterface\Datasystem\Datasystem($app->make('Request')->getRequest());
         });
 
-        $this->app->singleton('Parser',function($app){
+        $this->app->singleton('Parser', function ($app) {
             return new \Amranidev\ScaffoldInterface\Parsers\Parser($app->make('Request')->getRequest());
         });
 
