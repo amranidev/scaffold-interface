@@ -6,22 +6,22 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Edit {{$names->tableName()}}</title>
+        <title>Edit {{ucfirst($parser->singular())}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Edit {{$names->tableName()}}</h1>
-            <form method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}'>
-                <button class = 'btn btn-danger'>{{$names->tableName()}} Index</button>
+            <h1>Edit {{$parser->singular()}}</h1>
+            <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
+                <button class = 'btn btn-danger'>{{$parser->singular()}} Index</button>
             </form>
             <br>
-            <form method = 'POST' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}/{{$names->open()}}${{$names->TableNameSingle()}}->id{{$names->close()}}/update'>
-                <input type = 'hidden' name = '_token' value = '{{$names->open()}}Session::token(){{$names->close()}}'>
+            <form method = 'POST' action = '@{!! url("{{$parser->singular()}}")!!}/@{!!${{$parser->singular()}}->id!!}/update'>
+                <input type = 'hidden' name = '_token' value = '@{{Session::token()}}'>
                 @foreach($dataSystem->dataScaffold('v') as $value)
 
                 <div class="form-group">
                     <label for="{{$value}}">{{$value}}</label>
-                    <input id="{{$value}}" name = "{{$value}}" type="text" class="form-control" value="{{$names->open()}}${{$names->tableNameSingle()}}->{{$value}}{{$names->close()}}">
+                    <input id="{{$value}}" name = "{{$value}}" type="text" class="form-control" value="@{!!${{$parser->singular()}}->{{$value}}!!}">
                 </div>
                 @endforeach
 
@@ -30,9 +30,9 @@
                 <div class="form-group">
                     <label>{{$key}} Select</label>
                     <select name = '{{lcfirst(str_singular($key))}}_id' class = "form-control">
-                        {{$names->blade()}}foreach(${{str_plural($key)}} as $key => $value)
+                        @@foreach(${{str_plural($key)}} as $key => $value)
                         <option value="@{{$key}}">@{{$value}}</option>
-                        {{$names->blade()}}endforeach
+                        @@endforeach
                     </select>
                 </div>
                 @endforeach

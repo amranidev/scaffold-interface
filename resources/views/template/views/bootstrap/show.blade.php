@@ -5,15 +5,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Show {{$names->tableName()}}</title>
+        <meta e="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Show {{$parser->singular()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Show {{$names->tableName()}}</h1>
+            <h1>Show {{$parser->singular()}}</h1>
             <br>
-            <form method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}'>
-                <button class = 'btn btn-primary'>{{$names->tableName()}} Index</button>
+            <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
+                <button class = 'btn btn-primary'>{{$parser->singular()}} Index</button>
             </form>
             <br>
             <table class = 'table table-bordered'>
@@ -29,7 +29,7 @@
                         <td>
                             <b><i>{{$value}} : </i></b>
                         </td>
-                        <td>{{$names->open()}}${{$names->tableNameSingle()}}->{{$value}}{{$names->close()}}</td>
+                        <td>@{!!${{$parser->singular()}}->{{$value}}!!}</td>
                     </tr>
                     @endforeach
 
@@ -43,7 +43,7 @@
                         <td>
                             <b><i>{{$value1}} : </i><b>
                         </td>
-                        <td>{{$names->open()}}${{$names->tableNameSingle()}}->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
+                        <td>@{!!${{$parser->singular()}}->{{str_singular($key)}}->{{$value1}}!!}</td>
                         </tr>
                         @endforeach
 
