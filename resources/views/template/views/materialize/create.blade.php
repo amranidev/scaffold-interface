@@ -6,17 +6,17 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Create {{$names->tableName()}}</title>
+        <title>Create {{ucfirst($parser->singular())}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>Create {{$names->tableName()}}</h1>
-            <form method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}'>
-                <button class = 'btn blue'>{{$names->tableName()}} Index</button>
+            <h1>Create {{$parser->singular()}}</h1>
+            <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
+                <button class = 'btn blue'>{{$parser->singular()}} Index</button>
             </form>
             <br>
-            <form method = 'POST' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}'>
-                <input type = 'hidden' name = '_token' value = '{{$names->open()}}Session::token(){{$names->close()}}'>
+            <form method = 'POST' action = '@{!!url("{{$parser->singular()}}")!!}'>
+                <input type = 'hidden' name = '_token' value = '@{!! Session::token() !!}}'>
                 @foreach($dataSystem->dataScaffold('v') as $value)
 
                 <div class="input-field col s6">
@@ -29,9 +29,9 @@
 
                 <div class="input-field col s12">
                     <select name = '{{lcfirst(str_singular($key))}}_id'>
-                        {{$names->blade()}}foreach(${{str_plural($key)}} as $key => $value)
+                        @@foreach(${{str_plural($key)}} as $key => $value)
                         <option value="@{{$key}}">@{{$value}}</option>
-                        {{$names->blade()}}endforeach
+                        @@endforeach
                     </select>
                     <label>{{$key}} Select</label>
                 </div>

@@ -6,14 +6,14 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Index {{$names->tableName()}}</title>
+        <title>Index {{$parser->singular()}}</title>
     </head>
     <body>
         <div class = 'container'>
-            <h1>{{$names->tableName()}} Index</h1>
+            <h1>{{$parser->singular()}} Index</h1>
             <div class="row">
-            <form class = 'col s3' method = 'get' action = '{{$names->open()}}url("{{$names->standardApi()}}"){{$names->close()}}/create'>
-                <button class = 'btn red' type = 'submit'>Create New {{$names->tableName()}}</button>
+            <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}/create'>
+                <button class = 'btn red' type = 'submit'>Create New {{$parser->singular()}}</button>
             </form>
             @if($dataSystem->getRelationAttributes() != null)
 
@@ -50,12 +50,12 @@
                     <th>actions</th>
                 </thead>
                 <tbody>
-                    {{$names->foreachh()}}
+                    @@foreach(${{$parser->plural()}} as ${{lcfirst($parser->singular())}})
 
                     <tr>
                         @foreach($dataSystem->dataScaffold('v') as $value)
 
-                        <td>{{$names->open()}}${{$names->tableName()}}->{{$value}}{{$names->close()}}</td>
+                        <td>@{!!${{lcfirst($parser->singular())}}->{{$value}}!!}</td>
                         @endforeach
 
                         @if($dataSystem->getRelationAttributes() != null)
@@ -64,7 +64,7 @@
 
                         @foreach($value as $key1 => $value1)
 
-                        <td>{{$names->open()}}${{$names->tableName()}}->{{str_singular($key)}}->{{$value1}}{{$names->close()}}</td>
+                        <td>@{!!${{$parser->singular()}}->{{str_singular($key)}}->{{$value1}}!!}</td>
                         @endforeach
 
                         @endforeach
@@ -73,16 +73,16 @@
 
                         <td>
                             <div class = 'row'>
-                                <a href = '#modal1' class = 'delete btn-floating modal-trigger red' data-link = "/{{$names->tableNameSingle()}}/{{$names->open()}}${{$names->tableName()}}->id{{$names->close()}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                                <a href = '#' class = 'viewEdit btn-floating blue' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}${{$names->tableName()}}->id{{$names->close()}}/edit'><i class = 'material-icons'>edit</i></a>
-                                <a href = '#' class = 'viewShow btn-floating orange' data-link = '/{{$names->tableNameSingle()}}/{{$names->open()}}${{$names->tableName()}}->id{{$names->close()}}'><i class = 'material-icons'>info</i></a>
+                                <a href = '#modal1' class = 'delete btn-floating modal-trigger red' data-link = "/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                                <a href = '#' class = 'viewEdit btn-floating blue' data-link = '/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}/edit'><i class = 'material-icons'>edit</i></a>
+                                <a href = '#' class = 'viewShow btn-floating orange' data-link = '/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}'><i class = 'material-icons'>info</i></a>
                             </div>
                         </td>
                     </tr>
-                    {{$names->endforeachh()}}
+                    @@endforeach
                 </tbody>
             </table>
-            @{!! ${{$names->tableNames()}}->render() !!}
+            @{!! ${{$parser->plural()}}->render() !!}
         </div>
         <div id="modal1" class="modal">
             <div class = "row AjaxisModal">
@@ -91,7 +91,7 @@
     </body>
     <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script> var baseURL = "{{$names->open()}}URL::to('/'){{$names->close()}}"</script>
-    <script src = "{{$names->open()}} URL::asset('js/AjaxisMaterialize.js'){{$names->close()}}"></script>
-    <script src = "{{$names->open()}} URL::asset('js/scaffold-interface-js/customA.js'){{$names->close()}}"></script>
+    <script>  var baseURL = "@{{ URL::to('/') }}"</script>
+    <script src = "@{{URL::asset('js/AjaxisMaterialize.js')}}"></script>
+    <script src = "@{{URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
 </html>
