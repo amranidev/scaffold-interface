@@ -2,12 +2,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class {{ucfirst($names->tableNames())}}.
+ * Class {{ucfirst($parser->plural())}}.
  *
  * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interface
  */
-class {{studly_case(ucfirst($names->tableNames()))}} extends Migration
+class {{studly_case(ucfirst($parser->plural()))}} extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class {{studly_case(ucfirst($names->tableNames()))}} extends Migration
      */
     public function up()
     {
-        Schema::create('{{$names->tableNames()}}',function (Blueprint $table){
+        Schema::create('{{$parser->plural()}}',function (Blueprint $table){
 
         $table->increments('id');<?php $i = 0;?>
 
@@ -57,6 +57,6 @@ class {{studly_case(ucfirst($names->tableNames()))}} extends Migration
      */
     public function down()
     {
-        Schema::drop('{{$names->tableNames()}}');
+        Schema::drop('{{$parser->plural()}}');
     }
 }
