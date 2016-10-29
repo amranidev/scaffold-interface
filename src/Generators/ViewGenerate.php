@@ -21,7 +21,7 @@ class ViewGenerate
      *
      * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
-    private $names;
+    private $parser;
 
     /**
      * Create new ViewGenerate instance.
@@ -34,7 +34,7 @@ class ViewGenerate
     public function __construct()
     {
         $this->dataSystem = app()->make('Datasystem');
-        $this->names = app()->make('NamesGenerate');
+        $this->parser = app()->make('Parser');
     }
 
     /**
@@ -44,7 +44,7 @@ class ViewGenerate
      */
     public function generateIndex()
     {
-        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.index', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.index', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
@@ -54,7 +54,7 @@ class ViewGenerate
      */
     public function generateCreate()
     {
-        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.create', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.create', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
@@ -64,7 +64,7 @@ class ViewGenerate
      */
     public function generateShow()
     {
-        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.show', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.show', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 
     /**
@@ -74,6 +74,6 @@ class ViewGenerate
      */
     public function generateEdit()
     {
-        return view('scaffold-interface::template.views.'.$this->names->getTemplate().'.edit', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.edit', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 }
