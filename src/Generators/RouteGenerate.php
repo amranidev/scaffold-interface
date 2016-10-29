@@ -14,7 +14,7 @@ class RouteGenerate
      *
      * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
-    private $names;
+    private $parser;
 
     /**
      * Create new RouteGenerate instance.
@@ -23,7 +23,7 @@ class RouteGenerate
      */
     public function __construct()
     {
-        $this->names = app()->make('NamesGenerate');
+        $this->parser = app()->make('Parser');
     }
 
     /**
@@ -33,6 +33,6 @@ class RouteGenerate
      */
     public function generate()
     {
-        return "\n".view('scaffold-interface::template.routes', ['names' => $this->names])->render();
+        return "\n".view('scaffold-interface::template.routes', ['parser' => $this->parser])->render();
     }
 }
