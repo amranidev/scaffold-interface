@@ -4,12 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class {{$names->tableName()}}.
+ * Class {{ucfirst($parser->singular())}}.
  *
  * @author The scaffold-interface created at {{date("Y-m-d h:i:sa")}}
  * @link https://github.com/amranidev/scaffold-interface
  */
-class {{$names->tableName()}} extends Model
+class {{ucfirst($parser->singular())}} extends Model
 {
 	@if($dataSystem->isSoftdeletes())
 
@@ -23,7 +23,7 @@ class {{$names->tableName()}} extends Model
     public $timestamps = false;
     @endif
 
-    protected $table = '{{$names->tableNames()}}';
+    protected $table = '{{$parser->plural()}}';
 
 	@foreach($dataSystem->getForeignKeys() as $key)
 
