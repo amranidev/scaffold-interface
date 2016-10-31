@@ -42,9 +42,9 @@ class Filesystem
 
     /**
      * Make directory.
-     * 
+     *
      * @param string $path
-     * 
+     *
      * @return void
      */
     public function makeDir($path)
@@ -57,10 +57,10 @@ class Filesystem
 
     /**
      * File append.
-     * 
+     *
      * @param strign $path
      * @param string $content
-     * 
+     *
      * @return int
      */
     public function append($path, $content)
