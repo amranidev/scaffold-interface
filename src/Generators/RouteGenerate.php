@@ -10,9 +10,9 @@ namespace Amranidev\ScaffoldInterface\Generators;
 class RouteGenerate
 {
     /**
-     * The NamesGenerate instance.
+     * The Parser instance.
      *
-     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
+     * @var \Amranidev\ScaffoldInterface\Parsers\Parser
      */
     private $parser;
 

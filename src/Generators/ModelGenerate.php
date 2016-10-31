@@ -17,9 +17,9 @@ class ModelGenerate
     private $dataSystem;
 
     /**
-     * The NamesGenerate instance.
+     * The Parser instance.
      *
-     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
+     * @var \Amranidev\ScaffoldInterface\Parsers\Parser
      */
     private $parser;
 
