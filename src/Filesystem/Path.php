@@ -10,11 +10,11 @@ namespace Amranidev\ScaffoldInterface\Filesystem;
 class Path
 {
     /**
-     * The NamesGenerate instance.
+     * The Parser instance.
      *
-     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
+     * @var \Amranidev\ScaffoldInterface\Parsers\Parser
      */
-    private $names;
+    private $parser;
 
     /**
      * Migration file path.
@@ -30,7 +30,7 @@ class Path
      */
     public function __construct()
     {
-        $this->names = app()->make('NamesGenerate');
+        $this->parser = app()->make('Parser');
 
         $this->migrationPath = $this->MigrationPath();
     }
@@ -42,7 +42,7 @@ class Path
      */
     public function modelPath()
     {
-        return config('amranidev.config.model').'/'.$this->names->TableName().'.php';
+        return config('amranidev.config.model').'/'.ucfirst($this->parser->singular()).'.php';
     }
 
     /**
@@ -52,7 +52,7 @@ class Path
      */
     private function migrationPath()
     {
-        $FileName = date('Y').'_'.date('m').'_'.date('d').'_'.date('his').'_'.$this->names->TableNames().'.php';
+        $FileName = date('Y').'_'.date('m').'_'.date('d').'_'.date('his').'_'.$this->parser->plural().'.php';
 
         return config('amranidev.config.migration').'/'.$FileName;
     }
@@ -64,7 +64,7 @@ class Path
      */
     public function controllerPath()
     {
-        $FileName = $this->names->TableName().'Controller.php';
+        $FileName = ucfirst($this->parser->singular()).'Controller.php';
 
         return config('amranidev.config.controller').'/'.$FileName;
     }
@@ -76,7 +76,7 @@ class Path
      */
     public function indexPath()
     {
-        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'index.blade.php';
+        return config('amranidev.config.views').'/'.$this->parser->singular().'/'.'index.blade.php';
     }
 
     /**
@@ -86,7 +86,7 @@ class Path
      */
     public function createPath()
     {
-        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'create.blade.php';
+        return config('amranidev.config.views').'/'.$this->parser->singular().'/'.'create.blade.php';
     }
 
     /**
@@ -96,7 +96,7 @@ class Path
      */
     public function showPath()
     {
-        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'show.blade.php';
+        return config('amranidev.config.views').'/'.$this->parser->singular().'/'.'show.blade.php';
     }
 
     /**
@@ -106,7 +106,7 @@ class Path
      */
     public function editPath()
     {
-        return config('amranidev.config.views').'/'.$this->names->TableNameSingle().'/'.'edit.blade.php';
+        return config('amranidev.config.views').'/'.$this->parser->singular().'/'.'edit.blade.php';
     }
 
     /**
@@ -126,6 +126,6 @@ class Path
      */
     public function dirPath()
     {
-        return config('amranidev.config.views').'/'.$this->names->TableNameSingle();
+        return config('amranidev.config.views').'/'.$this->parser->singular();
     }
 }
