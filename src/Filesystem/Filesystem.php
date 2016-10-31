@@ -29,7 +29,7 @@ class Filesystem
     }
 
     /**
-     * Determine if file exists.
+     * Determine if file is already exists.
      *
      * @param $file
      *
@@ -41,7 +41,11 @@ class Filesystem
     }
 
     /**
-     * make directory.
+     * Make directory.
+     * 
+     * @param string $path
+     * 
+     * @return void
      */
     public function makeDir($path)
     {
@@ -53,6 +57,11 @@ class Filesystem
 
     /**
      * File append.
+     * 
+     * @param strign $path
+     * @param string $content
+     * 
+     * @return int
      */
     public function append($path, $content)
     {
