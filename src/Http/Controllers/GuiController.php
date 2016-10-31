@@ -45,20 +45,20 @@ class GuiController extends AppController
     {
         app()->make('Request')->setRequest($request->toArray());
         $scaffold = app()->make('Scaffold');
-        $scaffold->views()->model()->controller()->migration()->route();
+        $scaffold->model()->views()->controller()->migration()->route();
         $paths = app()->make('Path');
-        $names = app()->make('NamesGenerate');
+        $names = app()->make('Parser');
         $scaffoldInterface = new Scaffoldinterface();
 
         $scaffoldInterface->migration = $paths->migrationPath;
         $scaffoldInterface->model = $paths->modelPath();
         $scaffoldInterface->controller = $paths->controllerPath();
         $scaffoldInterface->views = $paths->dirPath();
-        $scaffoldInterface->tablename = $names->tableNames();
+        $scaffoldInterface->tablename = $names->plural();
         $scaffoldInterface->package = config('amranidev.config.package');
         $scaffoldInterface->save();
 
-        Session::flash('status', 'Created Successfully'.$names->tableName());
+        Session::flash('status', 'Created Successfully '.$names->singular());
 
         return redirect('scaffold');
     }
