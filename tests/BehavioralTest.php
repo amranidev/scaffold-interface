@@ -111,6 +111,7 @@ class BehavioralTest extends TestCase
         $parser = $this->parser;
         $this->assertEquals("\n".view('scaffold-interface::template.routes', compact('parser'))->render(), $this->generator->getRoute()->generate());
     }
+
     // test views
     public function testViewsGenerate()
     {
