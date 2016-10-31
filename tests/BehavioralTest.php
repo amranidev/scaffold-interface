@@ -13,8 +13,8 @@ class BehavioralTest extends TestCase
     //Datasystem
     public $datasystem;
 
-    //Parser
-    public $parser;
+    //Indenter
+    public $indenter;
 
     //Paths
     public $path;
@@ -42,6 +42,8 @@ class BehavioralTest extends TestCase
         $this->path = app()->make('Path');
 
         $this->generator = app()->make('Generator');
+
+        $this->indenter = new \Gajus\Dindent\Indenter();
     }
 
     //Test DataSystem
@@ -109,18 +111,22 @@ class BehavioralTest extends TestCase
         $parser = $this->parser;
         $this->assertEquals("\n".view('scaffold-interface::template.routes', compact('parser'))->render(), $this->generator->getRoute()->generate());
     }
-
+    // test views
     public function testViewsGenerate()
     {
         $parser = $this->parser;
         $dataSystem = $this->datasystem;
         //Test Index Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$parser->getTemplate().'.index', compact('parser', 'dataSystem'))->render(), $this->generator->getView()->generateIndex());
+        $this->assertEquals($this->indenter
+        ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.index', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generateIndex());
         //Test Create Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$parser->getTemplate().'.create', compact('parser', 'dataSystem'))->render(), $this->generator->getView()->generateCreate());
+        $this->assertEquals($this->indenter
+        ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.create', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generateCreate());
         //Test Edit Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$parser->getTemplate().'.edit', compact('parser', 'dataSystem'))->render(), $this->generator->getView()->generateEdit());
+        $this->assertEquals($this->indenter
+        ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.edit', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generateEdit());
         //Test Show Generate
-        $this->assertEquals(view('scaffold-interface::template.views.'.$parser->getTemplate().'.show', compact('parser', 'dataSystem'))->render(), $this->generator->getView()->generateShow());
+        $this->assertEquals($this->indenter
+        ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.show', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generateShow());
     }
 }
