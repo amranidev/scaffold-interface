@@ -170,7 +170,7 @@ class Generator extends Filesystem
 
     /**
      * get migration generator.
-     * 
+     *
      * @return \Amranidev\ScaffoldInterface\Generators\MigrationGenerate
      */
     public function getMigration()
