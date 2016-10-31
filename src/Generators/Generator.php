@@ -71,7 +71,7 @@ class Generator extends Filesystem
     /**
      * Generate index.
      *
-     * @return mixed
+     * @return void
      */
     public function index()
     {
@@ -81,7 +81,7 @@ class Generator extends Filesystem
     /**
      * Generate create.
      *
-     * @return mixed
+     * @return void
      */
     public function create()
     {
@@ -91,7 +91,7 @@ class Generator extends Filesystem
     /**
      * Generate show.
      *
-     * @return mixed
+     * @return void
      */
     public function show()
     {
@@ -101,7 +101,7 @@ class Generator extends Filesystem
     /**
      * Generate edit.
      *
-     * @return mixed
+     * @return void
      */
     public function edit()
     {
@@ -111,7 +111,7 @@ class Generator extends Filesystem
     /**
      * Generate views directory.
      *
-     * @return mixed
+     * @return void
      */
     public function dir()
     {
@@ -121,7 +121,7 @@ class Generator extends Filesystem
     /**
      * Generate Model.
      *
-     * @return mixed
+     * @return void
      */
     public function model()
     {
@@ -131,7 +131,7 @@ class Generator extends Filesystem
     /**
      * Generate Migration.
      *
-     * @return mixed
+     * @return void
      */
     public function migration()
     {
@@ -141,7 +141,7 @@ class Generator extends Filesystem
     /**
      * Generate Controller.
      *
-     * @return mixed
+     * @return void
      */
     public function controller()
     {
@@ -151,7 +151,7 @@ class Generator extends Filesystem
     /**
      * Generate route.
      *
-     * @return mixed
+     * @return void
      */
     public function route()
     {
@@ -170,6 +170,8 @@ class Generator extends Filesystem
 
     /**
      * get migration generator.
+     * 
+     * @return \Amranidev\ScaffoldInterface\Generators\MigrationGenerate
      */
     public function getMigration()
     {
