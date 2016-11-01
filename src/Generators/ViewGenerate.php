@@ -42,7 +42,7 @@ class ViewGenerate
     {
         $this->dataSystem = app()->make('Datasystem');
         $this->parser = app()->make('Parser');
-        $this->indenter = new \Gajus\Dindent\Indenter();
+        $this->indenter = app()->make('Indenter');
     }
 
     /**
