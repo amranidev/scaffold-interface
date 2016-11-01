@@ -43,7 +43,7 @@ class BehavioralTest extends TestCase
 
         $this->generator = app()->make('Generator');
 
-        $this->indenter = new \Gajus\Dindent\Indenter();
+        $this->indenter = app()->make('Indenter');
     }
 
     //Test DataSystem
