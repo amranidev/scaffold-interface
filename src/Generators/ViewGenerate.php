@@ -24,10 +24,10 @@ class ViewGenerate
     private $parser;
 
     /**
-     * The Indenter instance
-     * 
+     * The Indenter instance.
+     *
      * @var \Gajus\Dindent\Indenter
-     */ 
+     */
     private $indenter;
 
     /**
@@ -53,7 +53,7 @@ class ViewGenerate
     public function generateIndex()
     {
         return $this->indenter
-        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.index', 
+        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.index',
             ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
@@ -65,7 +65,7 @@ class ViewGenerate
     public function generateCreate()
     {
         return $this->indenter
-        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.create', 
+        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.create',
             ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
