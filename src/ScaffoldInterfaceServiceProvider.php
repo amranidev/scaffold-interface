@@ -83,6 +83,8 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
             return new \Amranidev\ScaffoldInterface\Parsers\Parser($app->make('Request')->getRequest());
         });
 
+        $this->app->singleton('Indenter',\Gajus\Dindent\Indenter::class);
+
         $this->app->singleton('Path', \Amranidev\ScaffoldInterface\Filesystem\Path::class);
 
         $this->app->singleton('Generator', \Amranidev\ScaffoldInterface\Generators\Generator::class);
