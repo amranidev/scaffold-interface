@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Schema;
 class Attribute
 {
     /**
-     * table name.
+     * Table name.
      *
      * @var string
      */
@@ -21,12 +21,12 @@ class Attribute
     /**
      * Result.
      *
-     * @var[]
+     * @var array $result
      */
     private $result = [];
 
     /**
-     * create new attribute instance.
+     * Create new attribute instance.
      *
      * @param $table
      */
@@ -38,7 +38,7 @@ class Attribute
     /**
      * Get attributes from an existing table.
      *
-     * @return mixed
+     * @return array
      */
     public function getAttributes()
     {
