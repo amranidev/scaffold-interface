@@ -21,7 +21,7 @@ class Attribute
     /**
      * Result.
      *
-     * @var array $result
+     * @var array
      */
     private $result = [];
 
