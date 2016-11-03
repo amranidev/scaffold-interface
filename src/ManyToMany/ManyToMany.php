@@ -5,19 +5,23 @@ namespace Amranidev\ScaffoldInterface\ManyToMany;
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
 
 /**
- * class ManyToMany.
+ * Class ManyToMany.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class ManyToMany extends Filesystem
 {
     /**
-     * @var request
+     * Request.
+     * 
+     * @var array
      */
     private $request;
 
     /**
-     * @var tables
+     * Tables.
+     * 
+     * @var array
      */
     private $tables;
 
@@ -29,15 +33,15 @@ class ManyToMany extends Filesystem
     public function __construct(array $request)
     {
         $this->request = $request;
-        $this->tables = $this->attributes();
+        $this->tables = $this->order();
     }
 
     /**
-     * determine which table is ordered alphabetically.
+     * Determine which table is ordered alphabetically.
      *
      * @return array $tables
      */
-    private function attributes()
+    private function order()
     {
         $result = [];
 
@@ -55,7 +59,7 @@ class ManyToMany extends Filesystem
     }
 
     /**
-     * add relationships mothods to models.
+     * Add relationships mothods to models.
      *
      * @return void
      */
@@ -66,7 +70,7 @@ class ManyToMany extends Filesystem
     }
 
     /**
-     * make migration file.
+     * Make migration file.
      *
      * @return void
      */
@@ -80,7 +84,7 @@ class ManyToMany extends Filesystem
     }
 
     /**
-     * generate relationships methods.
+     * Generate relationships methods.
      *
      *  @return bool
      */
@@ -97,7 +101,7 @@ class ManyToMany extends Filesystem
     }
 
     /**
-     * scaffold ManyToMany.
+     * Generate ManyToMany.
      *
      * @return void
      */
