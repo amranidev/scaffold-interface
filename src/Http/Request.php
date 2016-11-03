@@ -11,7 +11,7 @@ class Request
 {
     /**
      * Request.
-     * 
+     *
      * @var array
      */
     protected $request;
