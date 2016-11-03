@@ -3,8 +3,7 @@
 namespace Amranidev\ScaffoldInterface;
 
 /**
- * Class     Scaffold.
- *
+ * Class Scaffold.
  *
  * @author   Amrani Houssain <amranidev@gmail.com>
  */

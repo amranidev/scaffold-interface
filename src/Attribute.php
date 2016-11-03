@@ -44,7 +44,7 @@ class Attribute
     {
         //get table attributes
         $this->result = Schema::getColumnListing($this->table);
-        //delete the first element.(ignore the id section)
+        //delete the first element, (ignore the id section)
         unset($this->result[0]);
         //get result
         return $this->result;

@@ -3,14 +3,14 @@
 namespace Amranidev\ScaffoldInterface\Parsers;
 
 /**
- * class Parser.
+ * Class Parser.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Parser
 {
     /**
-     * parser data.
+     * Parser data.
      *
      * @var array
      */
