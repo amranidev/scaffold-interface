@@ -3,7 +3,7 @@
 namespace Amranidev\ScaffoldInterface\Datasystem\Database;
 
 /**
- * interface DatabaseContract.
+ * Interface DatabaseContract.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
@@ -12,7 +12,7 @@ interface DatabaseContractInterface
     /**
      * retrieve table names from database.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function tableNames();
 }

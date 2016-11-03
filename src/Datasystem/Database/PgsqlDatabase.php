@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface\Datasystem\Database;
 use Illuminate\Support\Facades\DB;
 
 /**
- * class PgsqlDatabase.
+ * Class PgsqlDatabase.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
@@ -14,7 +14,7 @@ class PgsqlDatabase extends Database
     /**
      * retrieve table names from database.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function tableNames()
     {
@@ -38,7 +38,7 @@ class PgsqlDatabase extends Database
     /**
      * skip unused schemas.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function skipNames()
     {

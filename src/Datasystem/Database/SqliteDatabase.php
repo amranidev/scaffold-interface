@@ -3,7 +3,7 @@
 namespace Amranidev\ScaffoldInterface\Datasystem\Database;
 
 /**
- * class SqliteDatabase.
+ * Class SqliteDatabase.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
@@ -22,7 +22,7 @@ class SqliteDatabase extends Database
     /**
      * skip unused schemas.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function skipNames()
     {

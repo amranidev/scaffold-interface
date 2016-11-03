@@ -3,16 +3,16 @@
 namespace Amranidev\ScaffoldInterface\Datasystem\Database;
 
 /**
- * class Database.
+ * Class Database.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
 class DatabaseManager
 {
     /**
-     * database holder.
+     * Database holder.
      *
-     * @var /Amranidev/ScaffoldInterface/DataSystem/DatabaseContract
+     * @var \Amranidev\ScaffoldInterface\DataSystem\DatabaseContract
      */
     protected $database;
 
@@ -22,7 +22,7 @@ class DatabaseManager
     }
 
     /**
-     * new instance based on app's database driver.
+     * New instance based on app's database driver.
      *
      * @return self
      */
@@ -42,9 +42,9 @@ class DatabaseManager
     }
 
     /**
-     * retrieve table names from database.
+     * Retrieve table names from database.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public static function tableNames()
     {
@@ -52,9 +52,9 @@ class DatabaseManager
     }
 
     /**
-     * get all tables names.
+     * Get all tables names.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function getTablesNames()
     {

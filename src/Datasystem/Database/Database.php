@@ -25,7 +25,7 @@ abstract class Database implements DatabaseContractInterface
     /**
      * retrieve table names from database.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function tableNames()
     {
@@ -36,16 +36,16 @@ abstract class Database implements DatabaseContractInterface
     }
 
     /**
-     * retrieve the database query for querying all tables.
+     * Retrieve the database query for querying all tables.
      *
      * @return string
      */
     abstract public function getQuery();
 
     /**
-     * table names to be skipped in the result.
+     * Table names to be skipped in the result.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function skips()
     {
@@ -53,9 +53,9 @@ abstract class Database implements DatabaseContractInterface
     }
 
     /**
-     * table names to be skipped in the result.
+     * Table names to be skipped in the result.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     abstract public function skipNames();
 }

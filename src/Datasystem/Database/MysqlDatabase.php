@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface\Datasystem\Database;
 use Illuminate\Support\Facades\DB;
 
 /**
- * class DefaultDatabase.
+ * Class DefaultDatabase.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */
@@ -19,7 +19,7 @@ class MysqlDatabase extends Database
     }
 
     /**
-     * mysql query.
+     * Mysql query.
      *
      * @return string
      */
@@ -29,9 +29,9 @@ class MysqlDatabase extends Database
     }
 
     /**
-     * skip unused schemas.
+     * Skip unused schemas.
      *
-     * @return /Illuminate/Support/Collection
+     * @return \Illuminate\Support\Collection
      */
     public function skipNames()
     {

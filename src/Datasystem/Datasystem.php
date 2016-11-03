@@ -5,45 +5,46 @@ namespace Amranidev\ScaffoldInterface\Datasystem;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class     DataSystem.
+ * Class DataSystem.
  *
  *
- * @author   Amrani Houssain <amranidev@gmail.com>
+ * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Datasystem
 {
     /**
-     * Main interface reqeust.
+     * Main interface request.
      *
-     * @var
+     * @var array
      */
     private $data;
 
     /**
      * on data specification.
      *
-     * @var
+     * @var array
      */
     private $onData;
 
     /**
-     * ForrignKeys and relations.
+     * ForeignKeys and relations.
      *
-     * @var
+     * @var array
      */
     private $foreignKeys;
 
     /**
-     * Relational Columns.
+     * Relational columns.
      *
-     * @var
+     * @var array
      */
     private $relationAttributes;
 
     /**
-     * Create DataSystem instance.
+     * Create a new DataSystem instance.
      *
      * @param array $request
+     * @return void
      */
     public function __construct($request)
     {
@@ -61,7 +62,7 @@ class Datasystem
     }
 
     /**
-     * deduce relational arttributes.
+     * Deduce relational arttributes.
      *
      * @return void
      */
@@ -77,7 +78,7 @@ class Datasystem
     }
 
     /**
-     * deduce onData and foreingKeys.
+     * Deduce onData and foreingKeys.
      *
      * @return void
      */
