@@ -203,18 +203,6 @@ class GuiController extends AppController
         return file_put_contents($path, $data);
     }
 
-    /**
-     * Generate dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function dashboard()
-    {
-        $scaffoldList = Scaffoldinterface::all();
-
-        return view('scaffold-interface::template.Dashboard.Dashboard', ['Parse' => $scaffoldList]);
-    }
-
      /**
       * ManyToMany form.
       *

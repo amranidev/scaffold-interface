@@ -17,8 +17,6 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('scaffold/getAttributes/{table}', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@getResult');
 
-    Route::get('scaffold/scaffoldHomePage', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@dashboard');
-
     Route::get('scaffold/migrate', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@migrate');
 
     Route::get('scaffold/rollback', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@rollback');

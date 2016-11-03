@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 
 /**
- * class ScaffoldMiddleware.
+ * Class ScaffoldMiddleware.
  *
  * @author Athi Krishnan <athikrishnan5@gmail.com>
  */

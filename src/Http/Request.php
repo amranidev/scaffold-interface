@@ -10,6 +10,8 @@ namespace Amranidev\ScaffoldInterface\Http;
 class Request
 {
     /**
+     * Request.
+     * 
      * @var array
      */
     protected $request;
