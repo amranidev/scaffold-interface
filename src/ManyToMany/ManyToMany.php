@@ -13,14 +13,14 @@ class ManyToMany extends Filesystem
 {
     /**
      * Request.
-     * 
+     *
      * @var array
      */
     private $request;
 
     /**
      * Tables.
-     * 
+     *
      * @var array
      */
     private $tables;
