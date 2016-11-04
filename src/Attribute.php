@@ -5,7 +5,7 @@ namespace Amranidev\ScaffoldInterface;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * class Attribute.
+ * Class Attribute.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
