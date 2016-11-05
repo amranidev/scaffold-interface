@@ -22,7 +22,7 @@
 
 + Generate (OneToMany,ManyToMany) relationships including views and controllers.
 
-+ Websockets using [Pusher Notifications](https://www.github.com/pusher).
++ Websockets using [pusher notifications](https://www.github.com/pusher).
 
 + AdminLTE dashboard template with users management system (users-roles-permissions) using [laravel-permission](https://github.com/spatie/laravel-permission).
 
@@ -40,11 +40,14 @@
 
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
+#### Author
+
++ [Amrani Houssain](https://github.com/amranidev)
+
 #### Credits
 
 + [Athi Krishnan](https://github.com/athikrishnan)
 + [JeroenG](https://github.com/Jeroen-G)
-+ [Ihab Shoully](https://github.com/shoully)
 + [All Contributors](../../contributors)
 
 #### TODOS
