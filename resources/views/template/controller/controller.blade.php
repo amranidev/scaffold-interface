@@ -164,7 +164,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
      */
     public function DeleteMsg($id,Request $request)
     {
-        $msg = Ajaxis::{{$parser->getParse()}}Deleting('Warning!!','Would you like to remove This?','/{{$parser->singular()}}/'. $id . '/delete/');
+        $msg = Ajaxis::{{$parser->getParse()}}Deleting('Warning!!','Would you like to remove This?','/{{$parser->singular()}}/'. $id . '/delete');
 
         if($request->ajax())
         {
