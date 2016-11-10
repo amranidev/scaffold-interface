@@ -41,12 +41,12 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         $this->publishes([__DIR__.'/../public' => public_path(),
         ], 'public');
 
-        // views
+        // Views
         $this->publishes([__DIR__.'/Publishes/Views' => base_path('/resources/views')], 'views');
 
         $this->publishes([__DIR__.'/Publishes/Controllers' => app_path('/Http/Controllers')], 'Controllers');
 
-        // Load Views.
+        // Load views.
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'scaffold-interface');
 
         // Migrations.
@@ -57,7 +57,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         //config path.
         $configPath = __DIR__.'/../config/config.php';
 
-        //register config.
+        //Register config.
         $this->publishes([
             $configPath => config_path('amranidev/config.php'), ]);
     }
