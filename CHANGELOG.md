@@ -1,5 +1,15 @@
 # Release Notes
 
+#v1.6.21 (2016-11-10)
+
+##Enhanced
+
+- Views layouts will be published to your app under (/resources/views/scaffold-interface/layouts/).
+
+##Fixed
+
+- Fix error message (DeleteMessage).
+
 #v1.6.12 (2016-10-26)
 
 ##Added
