@@ -35,7 +35,7 @@ Route::group(['middleware' => 'web'], function () {
 Route::group(['middleware' => ['web', 'auth']], function () {
     // you can change anything you want.
     //Dashboard
-    Route::get('dashboard','\App\Http\Controllers\ScaffoldInterface\AppController@dashboard');
+    Route::get('dashboard', '\App\Http\Controllers\ScaffoldInterface\AppController@dashboard');
 
     //Users
     Route::get('users', '\App\Http\Controllers\ScaffoldInterface\UserController@index');
