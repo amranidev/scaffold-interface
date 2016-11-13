@@ -34,15 +34,10 @@ Route::group(['middleware' => 'web'], function () {
  */
 Route::group(['middleware' => ['web', 'auth']], function () {
     // you can change anything you want.
-    Route::get('dashboard', function () {
-        $users = \App\User::all()->count();
-        $roles = Spatie\Permission\Models\Role::all()->count();
-        $permissions = Spatie\Permission\Models\Permission::all()->count();
-        $entities = Amranidev\ScaffoldInterface\Scaffoldinterface::all();
+    //Dashboard
+    Route::get('dashboard','\App\Http\Controllers\ScaffoldInterface\AppController@dashboard');
 
-        return view('scaffold-interface.dashboard.dashboard', compact('users', 'roles', 'permissions', 'entities'));
-    });
-
+    //Users
     Route::get('users', '\App\Http\Controllers\ScaffoldInterface\UserController@index');
     Route::get('users/edit/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@edit');
     Route::post('users/update', '\App\Http\Controllers\ScaffoldInterface\UserController@update');
@@ -54,7 +49,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('users/removePermission/{permission}/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@revokePermission');
     Route::get('users/removeRole/{role}/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@revokeRole');
 
-
+    //Roles
     Route::get('roles', '\App\Http\Controllers\ScaffoldInterface\RoleController@index');
     Route::get('roles/edit/{role_id}', '\App\Http\Controllers\ScaffoldInterface\RoleController@edit');
     Route::post('roles/update', '\App\Http\Controllers\ScaffoldInterface\RoleController@update');
@@ -62,6 +57,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('roles/store', '\App\Http\Controllers\ScaffoldInterface\RoleController@store');
     Route::get('roles/delete/{role_id}', '\App\Http\Controllers\ScaffoldInterface\RoleController@destroy');
 
+    //Permissions
     Route::get('permissions', '\App\Http\Controllers\ScaffoldInterface\PermissionController@index');
     Route::get('permissions/edit/{role_id}', '\App\Http\Controllers\ScaffoldInterface\PermissionController@edit');
     Route::post('permissions/update', '\App\Http\Controllers\ScaffoldInterface\PermissionController@update');
