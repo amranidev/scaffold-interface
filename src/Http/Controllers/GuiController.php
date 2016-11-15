@@ -6,7 +6,7 @@ use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attribute;
 use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
 use Amranidev\ScaffoldInterface\Scaffold;
-use Amranidev\ScaffoldInterface\Scaffoldinterface;
+use Amranidev\ScaffoldInterface\Models\Scaffoldinterface;
 use AppController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
