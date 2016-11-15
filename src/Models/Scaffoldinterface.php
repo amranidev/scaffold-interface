@@ -1,6 +1,6 @@
 <?php
 
-namespace Amranidev\ScaffoldInterface;
+namespace Amranidev\ScaffoldInterface\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
