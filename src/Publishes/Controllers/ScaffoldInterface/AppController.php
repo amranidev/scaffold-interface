@@ -21,7 +21,7 @@ class AppController extends Controller
         $users = \App\User::all()->count();
         $roles = \Spatie\Permission\Models\Role::all()->count();
         $permissions = \Spatie\Permission\Models\Permission::all()->count();
-        $entities = \Amranidev\ScaffoldInterface\Scaffoldinterface::all();
+        $entities = \Amranidev\ScaffoldInterface\Models\Scaffoldinterface::all();
 
         return view('scaffold-interface.dashboard.dashboard', compact('users', 'roles', 'permissions', 'entities'));
     }
