@@ -2,7 +2,7 @@
 @@section('title','Index')
 @@section('content')
 <section class="content">
-    <h1>{{$parser->singular()}} Index</h1>
+    <h1>{{ucfirst($parser->singular())}} Index</h1>
     <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}/create'>
         <button class = 'btn btn-primary' type = 'submit'>Create New {{$parser->singular()}}</button>
     </form>
@@ -21,7 +21,7 @@
     </div>
     @endif
     <br>
-    <table class = "table table-striped table-bordered">
+    <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
         <thead>
             @foreach($dataSystem->dataScaffold('v') as $value)
             <th>{{$value}}</th>

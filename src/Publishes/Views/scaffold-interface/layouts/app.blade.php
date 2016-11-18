@@ -94,12 +94,11 @@
 										</div>
 										<div class="pull-right">
 											<a href="{{url('logout')}}" class="btn btn-default btn-flat"
-											onclick="event.preventDefault();
-													 document.getElementById('logout-form').submit();">Sign out</a>
-
-	                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-	                                            {{ csrf_field() }}
-	                                        </form>
+												onclick="event.preventDefault();
+											document.getElementById('logout-form').submit();">Sign out</a>
+											<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+												{{ csrf_field() }}
+											</form>
 										</div>
 									</li>
 								</ul>
@@ -142,11 +141,18 @@
 				@yield('content')
 			</div>
 		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class = 'AjaxisModal'>
+			</div>
+		</div>
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/app.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
+		<script> var baseURL = "{{ URL::to('/') }}"</script>
+        <script src = "{{URL::asset('js/AjaxisBootstrap.js') }}"></script>
+        <script src = "{{URL::asset('js/scaffold-interface-js/customA.js') }}"></script>
 		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 		<script>
 		// pusher log to console.
@@ -161,9 +167,9 @@
 		$('.notification-label').addClass('label-warning');
 		$('.notification-menu').append(
 			'<li>\
-				<a href="#">\
-					<i class="fa fa-users text-aqua"></i> '+data.message+'\
-				</a>\
+					<a href="#">\
+							<i class="fa fa-users text-aqua"></i> '+data.message+'\
+					</a>\
 			</li>'
 			);
 		});
