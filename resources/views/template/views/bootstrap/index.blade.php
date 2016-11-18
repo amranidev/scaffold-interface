@@ -1,7 +1,7 @@
-@@extends('scaffold-interface.layouts.defaultBootstrap')
+@@extends('scaffold-interface.layouts.app')
 @@section('title','Index')
 @@section('content')
-<div class = 'container'>
+<section class="content">
     <h1>{{$parser->singular()}} Index</h1>
     <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}/create'>
         <button class = 'btn btn-primary' type = 'submit'>Create New {{$parser->singular()}}</button>

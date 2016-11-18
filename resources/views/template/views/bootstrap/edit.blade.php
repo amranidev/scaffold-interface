@@ -1,4 +1,4 @@
-@@extends('scaffold-interface.layouts.defaultBootstrap')
+@@extends('scaffold-interface.layouts.app')
 @@section('title','Edit')
 @@section('content')
 <div class = 'container'>

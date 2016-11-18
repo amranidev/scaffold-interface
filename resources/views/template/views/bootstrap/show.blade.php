@@ -1,7 +1,7 @@
-@@extends('scaffold-interface.layouts.defaultBootstrap')
+@@extends('scaffold-interface.layouts.app')
 @@section('title','Show')
 @@section('content')
-<div class = 'container'>
+<section class="content">
     <h1>Show {{$parser->singular()}}</h1>
     <br>
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
