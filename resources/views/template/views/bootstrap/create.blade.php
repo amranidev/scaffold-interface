@@ -8,7 +8,7 @@
     </form>
     <br>
     <form method = 'POST' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <input type = 'hidden' name = '_token' value = '@{!! Session::token() !!}}'>
+        <input type = 'hidden' name = '_token' value = '@{{Session::token()}}'>
         @foreach($dataSystem->dataScaffold('v') as $value)
         <div class="form-group">
             <label for="{{$value}}">{{$value}}</label>
