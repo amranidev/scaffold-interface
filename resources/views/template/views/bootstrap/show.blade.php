@@ -27,7 +27,7 @@
             @foreach($value as $key1 => $value1)
             <tr>
                 <td>
-                    <b><i>{{$value1}} : </i><b>
+                    <b><i>{{$value1}} : </i></b>
                 </td>
                 <td>@{!!${{$parser->singular()}}->{{str_singular($key)}}->{{$value1}}!!}</td>
             </tr>
@@ -36,5 +36,5 @@
             @endif
         </tbody>
     </table>
-</div>
+</section>
 @@endsection

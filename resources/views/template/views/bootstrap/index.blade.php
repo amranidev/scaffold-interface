@@ -58,5 +58,5 @@
         </tbody>
     </table>
     @{!! ${{$parser->plural()}}->render() !!}
-</div>
+</section>
 @@endsection

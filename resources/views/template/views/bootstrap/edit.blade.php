@@ -1,7 +1,7 @@
 @@extends('scaffold-interface.layouts.app')
 @@section('title','Edit')
 @@section('content')
-<div class = 'container'>
+<section class="content">
     <h1>Edit {{$parser->singular()}}</h1>
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
         <button class = 'btn btn-danger'>{{$parser->singular()}} Index</button>
@@ -27,5 +27,5 @@
         @endforeach
         <button class = 'btn btn-primary' type ='submit'>Update</button>
     </form>
-</div>
+</section>
 @@endsection

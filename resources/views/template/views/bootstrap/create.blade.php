@@ -27,5 +27,5 @@
         @endforeach
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>
-</div>
+</section>
 @@endsection
