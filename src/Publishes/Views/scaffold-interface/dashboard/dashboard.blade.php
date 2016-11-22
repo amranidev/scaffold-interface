@@ -58,7 +58,7 @@
 			<!-- small box -->
 			<div class="small-box bg-green">
 				<div class="inner">
-					<h3></h3>
+					<h3>{{$entity->tablename}}</h3>
 					<p>{{$entity->tablename}}</p>
 				</div>
 				<div class="icon">
