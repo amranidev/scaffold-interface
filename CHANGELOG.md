@@ -1,5 +1,12 @@
 # Release Notes
 
+#v1.6.31 (2016-11-23)
+
+##Enhanced
+
+- Views(index,create,edit,show) will be formatted properly among creating CRUD.
+- (Entity/Model) layouts handle AdminLTE as well as dashboard.
+
 #v1.6.21 (2016-11-10)
 
 ##Enhanced
