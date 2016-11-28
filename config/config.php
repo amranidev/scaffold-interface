@@ -66,7 +66,7 @@
      |
      */
 
-     'routes' => base_path('app/Http/routes.php'),
+     'routes' => base_path('routes/web.php'),
 
      /*
      |--------------------------------------------------------------------
