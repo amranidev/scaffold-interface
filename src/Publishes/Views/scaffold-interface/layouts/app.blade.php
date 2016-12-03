@@ -30,9 +30,9 @@
 				<!-- Logo -->
 				<a href="{{url('dashboard')}}" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->
-					<span class="logo-mini"><b>E</b>CM</span>
+					<span class="logo-mini"><b>S</b>IN</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg"><b>Admin</b>LTE</span>
+					<span class="logo-lg"><b>ScaffoldInterface</b></span>
 				</a>
 				<!-- Header Navbar: style can be found in header.less -->
 				<nav class="navbar navbar-static-top">
@@ -136,8 +136,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/app.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
 		<script> var baseURL = "{{ URL::to('/') }}"</script>
-        <script src = "{{URL::asset('js/AjaxisBootstrap.js') }}"></script>
-        <script src = "{{URL::asset('js/scaffold-interface-js/customA.js') }}"></script>
+		<script src = "{{URL::asset('js/AjaxisBootstrap.js') }}"></script>
+		<script src = "{{URL::asset('js/scaffold-interface-js/customA.js') }}"></script>
 		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 		<script>
 		// pusher log to console.
@@ -152,9 +152,9 @@
 		$('.notification-label').addClass('label-warning');
 		$('.notification-menu').append(
 			'<li>\
-					<a href="#">\
-							<i class="fa fa-users text-aqua"></i> '+data.message+'\
-					</a>\
+						<a href="#">\
+									<i class="fa fa-users text-aqua"></i> '+data.message+'\
+						</a>\
 			</li>'
 			);
 		});
