@@ -28,4 +28,3 @@
     {
         return $this->{{str_plural($model)}}()->detach(${{str_singular($model)}});
     }
-    
