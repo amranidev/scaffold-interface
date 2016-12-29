@@ -6,7 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/stable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801/mini.png)](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801/small.png)](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801)
 
 ### Detailed Documentation
 
