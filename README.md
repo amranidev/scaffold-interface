@@ -1,3 +1,4 @@
+![Imgur](http://i.imgur.com/9PkXGOV.jpg)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801/big.png)](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801)
 
 [![Build Status](https://travis-ci.org/amranidev/scaffold-interface.svg?branch=master)](https://travis-ci.org/amranidev/scaffold-interface)
