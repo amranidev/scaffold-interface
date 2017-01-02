@@ -1,5 +1,11 @@
 # Release Notes
 
+#v1.6.35 (2016-01-2)
+
+##Enhanced
+
+- Use Laravel v5.3 routes path by default.
+
 #v1.6.31 (2016-11-23)
 
 ##Enhanced
