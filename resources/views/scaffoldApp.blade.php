@@ -15,6 +15,7 @@
             <div style = 'margin-top: 2cm;'></div>
             <button v-if = '!show' transition = "fade" class = 'btn animated' @click = 'show = ! show'><i class = 'material-icons left'>create</i>New Table</button>
             <a href = '#modal1' transition = "fade" class = 'create btn red modal-trigger' data-link = "/scaffold/manyToManyForm"><i class = 'material-icons left'>device_hub</i>Many To Many</a>
+            <a href="{{url('/scaffold/graph')}}" class="btn orange"><i class="material-icons left">share</i>Graph</a>
             <br>
             <div class="row">
                 <div transition = "fade" class="col s5 animated" v-if = 'show'>
