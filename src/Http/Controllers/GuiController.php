@@ -44,7 +44,6 @@ class GuiController extends AppController
     {
         //still in development mode (v1.7.x | dev-master)
         app()->make('Request')->setRequest($request->toArray());
-        //dd(app()->make('Request')->getRequest());
         $scaffold = app()->make('Scaffold');
         $scaffold->model()->views()->controller()->migration()->route();
         $paths = app()->make('Path');
@@ -275,7 +274,6 @@ class GuiController extends AppController
         $nodes = $nodes->toJson();
         $edges = collect($edges)->toJson();
 
-        //dd($nodes, $edges);
         return view('scaffold-interface::graph', compact('nodes', 'edges'));
     }
 }
