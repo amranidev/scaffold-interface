@@ -5,7 +5,7 @@
 | Where the main app (ScaffoldInterface) routes
 |--------------------------------------------------------------------------
 |
-*/
+ */
 Route::group(['middleware' => 'web'], function () {
     Route::get('scaffold', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@index');
 
@@ -24,13 +24,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('scaffold/manyToManyForm', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToManyForm');
 
     Route::post('scaffold/manyToMany', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@manyToMany');
+
+    Route::get('scaffold/graph', '\Amranidev\ScaffoldInterface\Http\Controllers\GuiController@graph');
 });
 
 /*
- |------------------------------------------------------------------------------
- | Where user managment system routes (User-Role-Permission)
- |------------------------------------------------------------------------------
- |
+|------------------------------------------------------------------------------
+| Where user managment system routes (User-Role-Permission)
+|------------------------------------------------------------------------------
+|
  */
 Route::group(['middleware' => ['web', 'auth']], function () {
     // you can change anything you want.
