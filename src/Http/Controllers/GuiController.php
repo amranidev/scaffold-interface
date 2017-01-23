@@ -44,8 +44,6 @@ class GuiController extends AppController
      */
     public function store(Request $request)
     {
-        //dd(collect($request->toArray())->splice('tbl0'));
-
         app()->make('Request')->setRequest($request->toArray());
         $scaffold = app()->make('Scaffold');
         $relations = app()->make('Datasystem');
