@@ -13,7 +13,7 @@ class Scaffoldinterfaces extends Migration
     public function up()
     {
         Schema::create('scaffoldinterfaces', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->String('package');
             $table->String('migration');
             $table->String('model');
