@@ -30,7 +30,8 @@
 		            }
 		        },
 		        edges: {
-		            color: '#D50000'
+		            color: '#D50000',
+		            length: 300
 		        }
 		    };
 		    network = new vis.Network(container, data, options);
@@ -41,15 +42,15 @@
 
 	<style>
 		#mynetwork{
-			height: 300px;
-			border: .5px solid black;
+			height: 500px;
+			border: .1px solid #2196F3;
 			border-radius: 20px;
 		}
 	</style>
 </head>
 <body onload="draw()">
 		<div class="container">
-			<h1>This is graph</h1>
+			<h1>Entities graph</h1>
 			<div id="mynetwork"></div>
 		</div>
 </body>
