@@ -61,10 +61,10 @@ class GuiController extends AppController
         $scaffoldInterface->save();
         if ($relations->getForeignKeys()) {
             foreach ($relations->getForeignKeys() as $foreignKey) {
-                $tmp = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
+                $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
                 $relation = new Relation();
                 $relation->scaffoldinterface_id = $scaffoldInterface->id;
-                $relation->to = $tmp->id;
+                $relation->to = $record->id;
                 $relation->having = 'OneToMany';
                 $relation->save();
             }
@@ -252,6 +252,7 @@ class GuiController extends AppController
 
         $manytomany->burn();
 
+        // save the relationship
         $relation = new Relation();
         $relation->scaffoldinterface_id = $table1->id;
         $relation->to = $table2->id;
@@ -281,7 +282,6 @@ class GuiController extends AppController
      */
     public function graph()
     {
-        //Development mode
         $entities = Scaffoldinterface::all();
         $relations = Relation::all();
         $nodes = collect([]);
