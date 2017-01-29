@@ -22,6 +22,14 @@ class Scaffoldinterfaces extends Migration
             $table->String('tablename');
             $table->timestamps();
         });
+        Schema::create('relations', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('scaffoldinterface_id')->unsigned();
+            $table->String('to');
+            $table->String('having');
+            $table->foreign('scaffoldinterface_id')->references('id')->on('scaffoldinterfaces')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -32,5 +40,6 @@ class Scaffoldinterfaces extends Migration
     public function down()
     {
         Schema::drop('scaffoldinterfaces');
+        Schema::drop('relations');
     }
 }
