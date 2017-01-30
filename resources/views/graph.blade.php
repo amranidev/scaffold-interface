@@ -50,9 +50,13 @@
 	</style>
 </head>
 <body onload="draw()">
-		<div class="container">
-			<h1>Entities graph</h1>
-			<div id="mynetwork"></div>
+	<div class="container">
+		<div class = 'row'>
+			<h1>Entities graph
+			<a href="{{url('scaffold')}}" class="btn btn-primary">Back to the interface</a>
+			<a href="{{url('dashboard')}}" class="btn btn-danger">Dashboard</a></h1>
 		</div>
+		<div id="mynetwork"></div>
+	</div>
 </body>
 </html>
