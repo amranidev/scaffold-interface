@@ -8,19 +8,13 @@
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801/mini.png)](https://insight.sensiolabs.com/projects/4c35ba52-551e-4d62-adb8-ff5199c54801)
 
-|MySQL|PostgreSQL|SQLite|
-|:-------------:|:-------------:|:-----:|
-|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-
-### Detailed Documentation
-
-[Full documentation](http://amranidev.github.io/blog/site/scaffold-interface/).
-
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
 ### Features
 
 + Generate your models,views,controllers and migrations just in a few clicks.
+
++ Models visualization through a graph presentation (**New Feature**).
 
 + Views scaffolding support Bootstrap and Materialize css.
 
@@ -39,6 +33,66 @@
 + Rollback possibility.
 
 + Generate CRUD for packages, see [Lpackager](https://github.com/amranidev/lpackager), [CRUD for packages/modules](http://amranidev.github.io/blog/site/crud-generator-for-packages/).
+
+
+### Installation
+
+1. Add the package to your dependencies in composer.json:
+
+ ```javascript
+  require : {
+    "Amranidev/scaffold-interface": "v1.7.*"
+  }
+ ```
+
+ or run this composer command in your project directory:
+
+ `composer require amranidev/scaffold-interface`
+
+2. Add the service providers to config/app.php:
+
+ ```php
+Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
+Amranidev\Ajaxis\AjaxisServiceProvider::class,
+Spatie\Permission\PermissionServiceProvider::class,
+Vinkla\Pusher\PusherServiceProvider::class,
+ ```
+
+3. Publish the assets in your application with:
+
+ `php artisan vendor:publish`
+
+4. Run migrations:
+
+ `php artisan migrate`
+
+5. Authentication scaffolding:
+
+ `php artisan make:auth`
+
+6. Add HasRole dependency to app/User.php:
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+    use HasRoles;
+}
+ ```
+ 
+Congratulations, you have successfully installed Scaffold Interface!
+ 
+### Detailed Documentation
+
+[Full documentation](http://amranidev.github.io/blog/site/scaffold-interface/).
 
 ### Contribution
 
