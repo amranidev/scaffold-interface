@@ -32,7 +32,7 @@
 		        },
 		        edges: {
 		            color: '#D50000',
-		            length: 300
+		            length: 240
 		        }
 		    };
 		    network = new vis.Network(container, data, options);
@@ -51,12 +51,16 @@
 </head>
 <body onload="draw()">
 	<div class="container">
-		<div class = 'row'>
-			<h1>Entities graph
-			<a href="{{url('scaffold')}}" class="btn btn-primary">Back to the interface</a>
-			<a href="{{url('dashboard')}}" class="btn btn-danger">Dashboard</a></h1>
+		<div align="center">
+			<h1>Models graph
+			<div>
+				<a href="{{url('scaffold')}}" class="btn btn-primary">Back to the interface</a>
+				<a href="{{url('dashboard')}}" class="btn btn-danger">Dashboard</a></h1>
+			</div>
 		</div>
-		<div id="mynetwork"></div>
+		<div class="col-md-10 col-md-offset-1">
+			<div id="mynetwork"></div>
+		</div>
 	</div>
 </body>
 </html>
