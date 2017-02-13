@@ -1,6 +1,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/de72e940-3c06-4664-b84c-425838cd68ea/big.png)](https://insight.sensiolabs.com/projects/de72e940-3c06-4664-b84c-425838cd68ea)
 
 ![Imgur](http://i.imgur.com/9PkXGOV.jpg)
+[![Gitter chat](https://img.shields.io/badge/chat-gitter-F50057.svg)](https://gitter.im/amranidev-scaffold-interface/Lobby)
 [![Build Status](https://travis-ci.org/amranidev/scaffold-interface.svg?branch=master)](https://travis-ci.org/amranidev/scaffold-interface)
 [![StyleCI](https://styleci.io/repos/45497055/shield?style=flat)](https://styleci.io/repos/45497055)
 [![Built For Laravel](https://img.shields.io/badge/built%20for-laravel-blue.svg)](http://laravel.com)
@@ -8,7 +9,6 @@
 [![Latest Stable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/stable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/scaffold-interface/v/unstable)](https://packagist.org/packages/amranidev/scaffold-interface)
 [![License](https://poser.pugx.org/amranidev/scaffold-interface/license)](https://packagist.org/packages/amranidev/scaffold-interface)
-[![Gitter chat](https://img.shields.io/badge/chat-gitter-F50057.svg)](https://gitter.im/amranidev-scaffold-interface/Lobby)
 
 ![Scaffold](http://i.imgur.com/65uhrP7.gif)
 
