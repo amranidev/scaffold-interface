@@ -1,5 +1,11 @@
 # Release Notes
 
+## v1.7.1 (2017-02-20)
+
+### Fixed
+
+- Fix ManyToMany bug [#112](https://github.com/amranidev/scaffold-interface/issues/112)
+
 ## v1.7.0 (2017-02-02)
 
 ### Added
