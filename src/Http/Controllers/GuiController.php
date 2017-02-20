@@ -272,7 +272,7 @@ class GuiController extends AppController
      */
     private function check(array $request)
     {
-        return $request['table1'][0] == $request['table2'][0] ? true : false;
+        return $request['table1'] == $request['table2'] ? true : false;
     }
 
     /**
