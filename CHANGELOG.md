@@ -12,7 +12,6 @@
 
 - Models visualization through a graph presentation.
 
-
 ## v1.6.35 (2017-01-02)
 
 ### Enhanced
