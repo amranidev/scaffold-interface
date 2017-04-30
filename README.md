@@ -39,7 +39,7 @@
 
 ### Installation
 
-1. Add the package to your dependencies in composer.json:
+1. Add the package to your dependencies in composer.json then run `composer update`:
 
  ```javascript
   require : {
