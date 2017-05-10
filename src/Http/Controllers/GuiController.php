@@ -1,7 +1,5 @@
 <?php
-
 namespace Amranidev\ScaffoldInterface\Http\Controllers;
-
 use Amranidev\Ajaxis\Ajaxis;
 use Amranidev\ScaffoldInterface\Attribute;
 use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
@@ -14,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Session;
 use URL;
-
 /**
  * Class GuiController.
  *
@@ -31,10 +28,8 @@ class GuiController extends AppController
     {
         $scaffold = Scaffoldinterface::paginate(6);
         $scaffoldList = DatabaseManager::tableNames();
-
         return view('scaffold-interface::scaffoldApp', compact('scaffold', 'scaffoldList'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -51,7 +46,6 @@ class GuiController extends AppController
         $paths = app()->make('Path');
         $names = app()->make('Parser');
         $scaffoldInterface = new Scaffoldinterface();
-
         $scaffoldInterface->migration = $paths->migrationPath;
         $scaffoldInterface->model = $paths->modelPath();
         $scaffoldInterface->controller = $paths->controllerPath();
@@ -70,10 +64,8 @@ class GuiController extends AppController
             }
         }
         Session::flash('status', 'Created Successfully '.$names->singular());
-
         return redirect('scaffold');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -84,7 +76,6 @@ class GuiController extends AppController
     public function destroy($id)
     {
         $scaffoldInterface = Scaffoldinterface::FindOrFail($id);
-
         unlink($scaffoldInterface->migration);
         unlink($scaffoldInterface->model);
         unlink($scaffoldInterface->controller);
@@ -93,17 +84,12 @@ class GuiController extends AppController
         unlink($scaffoldInterface->views.'/show.blade.php');
         unlink($scaffoldInterface->views.'/edit.blade.php');
         rmdir($scaffoldInterface->views);
-
         //Clear Routes Resources
         $this->clearRoutes(lcfirst(str_singular($scaffoldInterface->tablename)));
-
         $scaffoldInterface->delete();
-
         Session::flash('status', 'Deleted Successfully');
-
         return URL::to('scaffold');
     }
-
     /**
      * Delete confirmation message by ajaxis.
      *
@@ -114,18 +100,13 @@ class GuiController extends AppController
     public function deleteMsg($id)
     {
         $scaffold = Scaffoldinterface::FindOrFail($id);
-
         if (Schema::hasTable($scaffold->tablename)) {
             $table = $scaffold->tablename;
-
             return view('scaffold-interface::template.DeleteMessage.delete', compact('table'))->render();
         }
-
         $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to delete {$scaffold->tablename} MVC files ??", '/scaffold/guirollback/'.$id);
-
         return $msg;
     }
-
     /**
      * Get attributes.
      *
@@ -136,12 +117,10 @@ class GuiController extends AppController
     public function getResult($table, Request $request)
     {
         $attributes = new Attribute($table);
-
         if ($request->ajax()) {
             return $attributes->getAttributes();
         }
     }
-
     /**
      * Migrate schema.
      *
@@ -151,19 +130,14 @@ class GuiController extends AppController
     {
         try {
             Artisan::call('migrate', ['--path' => config('amranidev.config.database')]);
-
             exec('cd '.base_path().' && composer dump-autoload');
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-
         $Msg = str_replace("\n", '', Artisan::output());
-
         Session::flash('status', $Msg);
-
         return redirect('scaffold');
     }
-
     /**
      * Rollback schema.
      *
@@ -177,19 +151,14 @@ class GuiController extends AppController
             if (!Scaffoldinterface::all()->count()) {
                 throw new \Exception('Nothing to rollback');
             }
-
             Artisan::call('migrate:rollback');
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-
         $Msg = str_replace("\n", '', Artisan::output());
-
         Session::flash('status', $Msg);
-
         return redirect('scaffold');
     }
-
     /**
      * Clear routes.
      *
@@ -200,20 +169,15 @@ class GuiController extends AppController
     private function clearRoutes($remove)
     {
         $path = config('amranidev.config.routes');
-
         $lines = file($path, FILE_IGNORE_NEW_LINES);
-
         foreach ($lines as $key => $line) {
             if (strstr($line, $remove)) {
                 unset($lines[$key]);
             }
         }
-
         $data = implode("\n", array_values($lines));
-
         return file_put_contents($path, $data);
     }
-
     /**
      * ManyToMany form.
      *
@@ -227,10 +191,8 @@ class GuiController extends AppController
         $elements = Ajaxis::MtcreateFormModal([
             ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => $dummyData],
             ['type' => 'select', 'name' => 'table2', 'key' => 'table2', 'value' => $dummyData], ], '/scaffold/manyToMany', 'Many To Many');
-
         return $elements;
     }
-
     /**
      * ManyToMany generate.
      *
@@ -242,16 +204,12 @@ class GuiController extends AppController
     {
         if ($this->check($request->toArray())) {
             Session::flash('status', 'Error! could not be related');
-
             return redirect('scaffold');
         }
-
         $table1 = DB::table('scaffoldinterfaces')->where('tablename', $request->toArray()['table1'])->first();
         $table2 = DB::table('scaffoldinterfaces')->where('tablename', $request->toArray()['table2'])->first();
         $manytomany = new \Amranidev\ScaffoldInterface\ManyToMany\ManyToMany($request->except('_token'));
-
         $manytomany->burn();
-
         // save the relationship
         $relation = new Relation();
         $relation->scaffoldinterface_id = $table1->id;
@@ -259,10 +217,8 @@ class GuiController extends AppController
         $relation->having = 'ManyToMany';
         $relation->save();
         Session::flash('status', 'ManyToMany generated successfully');
-
         return redirect('/scaffold');
     }
-
     /**
      * Check ManyToMany request which is it available to use.
      *
@@ -274,7 +230,6 @@ class GuiController extends AppController
     {
         return $request['table1'] == $request['table2'] ? true : false;
     }
-
     /**
      * Transform entities to a grahp.
      *
@@ -292,10 +247,8 @@ class GuiController extends AppController
         foreach ($relations as $relation) {
             $edges->push(['from' => $relation->scaffoldinterface_id, 'to' => $relation->to, 'label' => $relation->having]);
         }
-
         $nodes = $nodes->toJson();
         $edges = $edges->toJson();
-
         return view('scaffold-interface::graph', compact('nodes', 'edges'));
     }
 }
