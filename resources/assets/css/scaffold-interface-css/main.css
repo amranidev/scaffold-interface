@@ -1,0 +1,25 @@
+label {
+    width: 100%;
+}
+
+.scaffoldv {
+    border-radius: 3px;
+    padding: 0 5px 0 5px;
+}
+
+.input-field label {
+    font-size: 0.8rem;
+    -webkit-transform: translateY(-140%);
+    -moz-transform: translateY(-140%);
+    -ms-transform: translateY(-140%);
+    -o-transform: translateY(-140%);
+    transform: translateY(-140%);
+}
+
+.pushDown {
+    margin-top: 20px;
+}
+
+.pushlDown {
+    margin-top: 5px;
+}
