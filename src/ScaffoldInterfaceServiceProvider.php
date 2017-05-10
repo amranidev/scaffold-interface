@@ -38,7 +38,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         });
 
         // Public
-        $this->publishes([__DIR__.'/../public' => public_path(),
+        $this->publishes([__DIR__.'/../resources/assets' => public_path(),
         ], 'public');
 
         // Views
