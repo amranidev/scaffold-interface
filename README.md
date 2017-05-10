@@ -39,15 +39,7 @@
 
 ### Installation
 
-1. Add the package to your dependencies in composer.json:
-
- ```javascript
-  require : {
-    "Amranidev/scaffold-interface": "v1.7.*"
-  }
- ```
-
- or run this composer command in your project directory:
+1. Run the following command:
 
  `composer require amranidev/scaffold-interface`
 
