@@ -25,7 +25,7 @@ class ScaffoldMiddleware
         if ($request->segment(1) == 'scaffold') {
 
             // allowed env-s check
-            $allowed = collect(config('scaffold.env'))
+            $allowed = collect(config('amranidev.config.env'))
                             ->contains(config('app.env'));
 
             if (!$allowed) {
