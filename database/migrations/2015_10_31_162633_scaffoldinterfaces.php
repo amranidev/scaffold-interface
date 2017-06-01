@@ -39,7 +39,7 @@ class Scaffoldinterfaces extends Migration
      */
     public function down()
     {
-        Schema::drop('scaffoldinterfaces');
         Schema::drop('relations');
+        Schema::drop('scaffoldinterfaces');
     }
 }
