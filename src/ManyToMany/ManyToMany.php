@@ -47,7 +47,7 @@ class ManyToMany extends Filesystem
 
         $data = $this->request;
 
-        if ($data['table1'][0] > $data['table2'][0]) {
+        if (!strcmp($data['table1'], $data['table2'])) {
             $result['first'] = $data['table2'];
             $result['second'] = $data['table1'];
         } else {
