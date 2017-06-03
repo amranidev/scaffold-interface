@@ -3,7 +3,7 @@
 @@section('content')
 <section class="content">
     <h1>{{ucfirst($parser->singular())}} Index</h1>
-    <a href="@{!!url("{{$parser->singular()}}")!!}" class = "btn btn-success"><i class="fa fa-plus fa-md" aria-hidden="true"></i> Create New {{ucwords($parser->singular())}}</a>
+    <a href="@{!!url('{{$parser->singular()}}')!!}/create" class = "btn btn-success"><i class="fa fa-plus fa-md" aria-hidden="true"></i> Create New {{ucwords($parser->singular())}}</a>
     <br>
     @if($dataSystem->getRelationAttributes() != null)
     <div class="dropdown">
