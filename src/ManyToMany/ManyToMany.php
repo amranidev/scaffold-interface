@@ -47,7 +47,7 @@ class ManyToMany extends Filesystem
 
         $data = $this->request;
 
-        if (!strcmp($data['table1'], $data['table2'])) {
+        if ($data['table1'] > $data['table2']) {
             $result['first'] = $data['table2'];
             $result['second'] = $data['table1'];
         } else {
@@ -59,7 +59,7 @@ class ManyToMany extends Filesystem
     }
 
     /**
-     * Add relationships mothods to models.
+     * Add relationships methods to models.
      *
      * @return void
      */
