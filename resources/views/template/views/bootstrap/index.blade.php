@@ -3,9 +3,7 @@
 @@section('content')
 <section class="content">
     <h1>{{ucfirst($parser->singular())}} Index</h1>
-    <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}/create'>
-        <button class = 'btn btn-primary' type = 'submit'>Create New {{$parser->singular()}}</button>
-    </form>
+    <a href="@{!!url("{{$parser->singular()}}")!!}" class = "btn btn-success"><i class="fa fa-plus fa-md" aria-hidden="true"></i> Create New {{ucwords($parser->singular())}}</a>
     <br>
     @if($dataSystem->getRelationAttributes() != null)
     <div class="dropdown">
@@ -49,9 +47,9 @@
                 @endforeach
                 @endif
                 <td>
-                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                    <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}/edit'><i class = 'material-icons'>edit</i></a>
-                    <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}'><i class = 'material-icons'>info</i></a>
+                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-sm' data-link = "/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}/deleteMsg" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    <a href = '#' class = 'viewEdit btn btn-primary btn-sm' data-link = '/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href = '#' class = 'viewShow btn btn-warning btn-sm' data-link = '/{{$parser->singular()}}/@{!!${{$parser->singular()}}->id!!}'><i class="fa fa-eye" aria-hidden="true"></i></a>
                 </td>
             </tr>
             @@endforeach

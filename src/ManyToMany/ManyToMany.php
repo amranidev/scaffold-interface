@@ -47,7 +47,7 @@ class ManyToMany extends Filesystem
 
         $data = $this->request;
 
-        if ($data['table1'][0] > $data['table2'][0]) {
+        if (!strcmp($data['table1'], $data['table2'])) {
             $result['first'] = $data['table2'];
             $result['second'] = $data['table1'];
         } else {
@@ -65,8 +65,8 @@ class ManyToMany extends Filesystem
      */
     private function model()
     {
-        $this->relationship(app_path(ucfirst(str_singular($this->tables['first']))).'.php', $this->tables['second']);
-        $this->relationship(app_path(ucfirst(str_singular($this->tables['second']))).'.php', $this->tables['first']);
+        $this->relationship(config('amranidev.config.model') . DIRECTORY_SEPARATOR . ucfirst(str_singular($this->tables['first'])).'.php', $this->tables['second']);
+        $this->relationship(config('amranidev.config.model') . DIRECTORY_SEPARATOR . ucfirst(str_singular($this->tables['second'])).'.php', $this->tables['first']);
     }
 
     /**
