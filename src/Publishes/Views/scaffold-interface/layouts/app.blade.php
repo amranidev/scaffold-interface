@@ -140,7 +140,7 @@
 		// pusher log to console.
 		Pusher.logToConsole = true;
 		// here is pusher client side code.
-		var pusher = new Pusher("{{env("PUSHER_KEY")}}", {
+		var pusher = new Pusher("{{env("PUSHER_APP_KEY")}}", {
 		encrypted: true
 		});
 		var channel = pusher.subscribe('test-channel');
@@ -149,9 +149,9 @@
 		$('.notification-label').addClass('label-warning');
 		$('.notification-menu').append(
 			'<li>\
-						<a href="#">\
-									<i class="fa fa-users text-aqua"></i> '+data.message+'\
-						</a>\
+				<a href="#">\
+					<i class="fa fa-users text-aqua"></i> '+data.message+'\
+				</a>\
 			</li>'
 			);
 		});
