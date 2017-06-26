@@ -41,7 +41,7 @@ class RoleController extends Controller
     {
         Role::create(['name' => $request->name]);
 
-        return redirect('roles');
+        return redirect('scaffold-roles');
     }
 
     /**
@@ -73,7 +73,7 @@ class RoleController extends Controller
 
         $role->update();
 
-        return redirect('roles');
+        return redirect('scaffold-roles');
     }
 
     /**
@@ -89,6 +89,6 @@ class RoleController extends Controller
 
         $role->delete();
 
-        return redirect('roles');
+        return redirect('scaffold-roles');
     }
 }
