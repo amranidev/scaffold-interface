@@ -4,7 +4,7 @@
 <section class="content">
     <h1>Create {{$parser->singular()}}</h1>
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <button class = 'btn btn-danger'>{{$parser->singular()}} Index</button>
+        <button class = 'btn btn-primary'><i class="fa fa-home"></i> {{$parser->upperCaseFirst()}} Index</button>
     </form>
     <br>
     <form method = 'POST' action = '@{!!url("{{$parser->singular()}}")!!}'>
@@ -25,7 +25,7 @@
             </select>
         </div>
         @endforeach
-        <button class = 'btn btn-primary' type ='submit'>Create</button>
+        <button class = 'btn btn-success' type ='submit'> <i class="fa fa-floppy-o"></i> Save</button>
     </form>
 </section>
 @@endsection

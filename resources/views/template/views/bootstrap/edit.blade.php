@@ -4,7 +4,7 @@
 <section class="content">
     <h1>Edit {{$parser->singular()}}</h1>
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <button class = 'btn btn-danger'>{{$parser->singular()}} Index</button>
+        <button class = 'btn btn-danger'><i class="fa fa-home"></i> {{$parser->singular()}} Index</button>
     </form>
     <br>
     <form method = 'POST' action = '@{!! url("{{$parser->singular()}}")!!}/@{!!${{$parser->singular()}}->id!!}/update'>
@@ -25,7 +25,7 @@
             </select>
         </div>
         @endforeach
-        <button class = 'btn btn-primary' type ='submit'>Update</button>
+        <button class = 'btn btn-success' type ='submit'><i class="fa fa-floppy-o"></i> Update</button>
     </form>
 </section>
 @@endsection

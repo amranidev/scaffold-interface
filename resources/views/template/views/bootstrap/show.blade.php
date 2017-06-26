@@ -5,7 +5,7 @@
     <h1>Show {{$parser->singular()}}</h1>
     <br>
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <button class = 'btn btn-primary'>{{$parser->singular()}} Index</button>
+        <button class = 'btn btn-primary'><i class="fa fa-home"></i> {{$parser->upperCaseFirst()}} Index</button>
     </form>
     <br>
     <table class = 'table table-bordered'>
