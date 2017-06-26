@@ -6,7 +6,7 @@
 			<h3>Create new user</h3>
 		</div>
 		<div class="box-body">
-			<form action="{{url('users/store')}}" method = "post">
+			<form action="{{url('scaffold-users/store')}}" method = "post">
 				{!! csrf_field() !!}
 				<input type="hidden" name = "user_id">
 				<div class="form-group">
