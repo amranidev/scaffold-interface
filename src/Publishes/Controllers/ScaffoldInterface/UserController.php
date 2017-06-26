@@ -49,7 +49,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('users');
+        return redirect('scaffold-users');
     }
 
     /**
@@ -87,7 +87,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('users');
+        return redirect('scaffold-users');
     }
 
     /**
@@ -103,7 +103,7 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect('users');
+        return redirect('scaffold-users');
     }
 
     /**
@@ -118,7 +118,7 @@ class UserController extends Controller
         $user = \App\User::findOrfail($request->user_id);
         $user->assignRole($request->role_name);
 
-        return redirect('users/edit/'.$request->user_id);
+        return redirect('scaffold-users/edit/' . $request->user_id);
     }
 
     /**
@@ -133,7 +133,7 @@ class UserController extends Controller
         $user = \App\User::findorfail($request->user_id);
         $user->givePermissionTo($request->permission_name);
 
-        return redirect('users/edit/'.$request->user_id);
+        return redirect('scaffold-users/edit/' . $request->user_id);
     }
 
     /**
@@ -149,7 +149,7 @@ class UserController extends Controller
 
         $user->revokePermissionTo(str_slug($permission, ' '));
 
-        return redirect('users/edit/'.$user_id);
+        return redirect('scaffold-users/edit/' . $user_id);
     }
 
     /**
@@ -165,6 +165,6 @@ class UserController extends Controller
 
         $user->removeRole(str_slug($role, ' '));
 
-        return redirect('users/edit/'.$user_id);
+        return redirect('scaffold-users/edit/' . $user_id);
     }
 }
