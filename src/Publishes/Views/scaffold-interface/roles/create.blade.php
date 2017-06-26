@@ -6,7 +6,7 @@
 			<h3>Create new Role</h3>
 		</div>
 		<div class="box-body">
-			<form action="{{url('roles/store')}}" method = "post">
+			<form action="{{url('scaffold-roles/store')}}" method = "post">
 				{!! csrf_field() !!}
 				<div class="form-group">
 				<label for="">Role</label>

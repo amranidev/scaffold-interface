@@ -6,7 +6,7 @@
 			<h3>Edit Role</h3>
 		</div>
 		<div class="box-body">
-			<form action="{{url('roles/update')}}" method = "post">
+			<form action="{{url('scaffold-roles/update')}}" method = "post">
 				{!! csrf_field() !!}
 				<input type="hidden" name = "role_id" value = "{{$role->id}}">
 				<div class="form-group">
@@ -21,4 +21,3 @@
 	</div>
 </section>
 @endsection
-
