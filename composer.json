@@ -35,8 +35,8 @@
         },
         "laravel": {
             "providers": [
-                "Amranidev\\ScaffoldInterface\\ScaffoldInterfaceServiceProvider",
-            ],
+                "Amranidev\\ScaffoldInterface\\ScaffoldInterfaceServiceProvider"
+            ]
         }
     }
 }
