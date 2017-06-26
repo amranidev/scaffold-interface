@@ -32,6 +32,11 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.8.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Amranidev\\ScaffoldInterface\\ScaffoldInterfaceServiceProvider",
+            ],
         }
     }
 }
