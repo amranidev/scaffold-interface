@@ -5,7 +5,7 @@
      */
     public function {{str_plural($model)}}()
     {
-        return $this->belongsToMany('App\{{ucfirst(str_singular($model))}}');
+        return $this->belongsToMany('{{ config('amranidev.config.modelNameSpace') }}\{{ucfirst(str_singular($model))}}');
     }
 
     /**

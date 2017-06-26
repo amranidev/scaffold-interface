@@ -3,9 +3,7 @@
 @@section('content')
 <section class="content">
     <h1>Edit {{$parser->singular()}}</h1>
-    <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <button class = 'btn btn-danger'><i class="fa fa-home"></i> {{$parser->singular()}} Index</button>
-    </form>
+    <a href="@{!!url('{{$parser->singular()}}')!!}" class = 'btn btn-primary'><i class="fa fa-home"></i> {{$parser->upperCaseFirst()}} Index</a>
     <br>
     <form method = 'POST' action = '@{!! url("{{$parser->singular()}}")!!}/@{!!${{$parser->singular()}}->id!!}/update'>
         <input type = 'hidden' name = '_token' value = '@{{Session::token()}}'>

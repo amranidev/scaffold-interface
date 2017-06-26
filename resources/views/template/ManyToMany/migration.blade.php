@@ -10,7 +10,7 @@ class {{ucfirst($first)}}{{ucfirst($second)}} extends Migration
      */
     public function up()
     {
-        Schema::create('{{$first}}_{{$second}}',function (Blueprint $table){
+        Schema::create('{{str_singular($first)}}_{{str_singular($second)}}',function (Blueprint $table){
 			$table->increments('id')->unique()->index()->unsigned();
 			$table->integer('{{str_singular($first)}}_id')->unsigned()->index();
 			$table->foreign('{{str_singular($first)}}_id')->references('id')->on('{{$first}}')->onDelete('cascade');
@@ -30,6 +30,6 @@ class {{ucfirst($first)}}{{ucfirst($second)}} extends Migration
      */
     public function down()
     {
-        Schema::drop('{{$first}}_{{$second}}');
+        Schema::drop('{{str_singular($first)}}_{{str_singular($second)}}');
     }
 }

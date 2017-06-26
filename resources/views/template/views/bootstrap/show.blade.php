@@ -4,9 +4,7 @@
 <section class="content">
     <h1>Show {{$parser->singular()}}</h1>
     <br>
-    <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <button class = 'btn btn-primary'><i class="fa fa-home"></i> {{$parser->upperCaseFirst()}} Index</button>
-    </form>
+       <a href='@{!!url("{{$parser->singular()}}")!!}' class = 'btn btn-primary'><i class="fa fa-home"></i>{{$parser->upperCaseFirst()}} Index</a>
     <br>
     <table class = 'table table-bordered'>
         <thead>

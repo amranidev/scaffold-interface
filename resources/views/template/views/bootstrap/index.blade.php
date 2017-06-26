@@ -3,9 +3,7 @@
 @@section('content')
 <section class="content">
     <h1>{{ucfirst($parser->singular())}} Index</h1>
-    <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}/create'>
-        <button class = 'btn btn-success' type = 'submit'><i class="fa fa-plus"></i> New</button>
-    </form>
+    <a href='@{!!url("{{$parser->singular()}}")!!}/create' class = 'btn btn-success'><i class="fa fa-plus"></i> New</a>
     <br>
     @if($dataSystem->getRelationAttributes() != null)
     <div class="dropdown">
