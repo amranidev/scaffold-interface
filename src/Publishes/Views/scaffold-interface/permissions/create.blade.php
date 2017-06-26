@@ -6,7 +6,7 @@
 			<h3>Create new Permission</h3>
 		</div>
 		<div class="box-body">
-			<form action="{{url('permissions/store')}}" method = "post">
+			<form action="{{url('scaffold-permissions/store')}}" method = "post">
 				{!! csrf_field() !!}
 				<div class="form-group">
 				<label for="">Permission</label>

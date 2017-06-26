@@ -6,7 +6,7 @@
 			<h3>Edit Permission</h3>
 		</div>
 		<div class="box-body">
-			<form action="{{url('permissions/update')}}" method = "post">
+			<form action="{{url('scaffold-permissions/update')}}" method = "post">
 				{!! csrf_field() !!}
 				<input type="hidden" name = "permission_id" value = "{{$permission->id}}">
 				<div class="form-group">
