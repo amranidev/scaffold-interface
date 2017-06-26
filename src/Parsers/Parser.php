@@ -47,6 +47,16 @@ class Parser
     }
 
     /**
+     * Uppercase-ing the first charechter in the entity name.
+     *
+     * @return string
+     */
+    public function upperCaseFirst()
+    {
+        return ucfirst($this->singular());
+    }
+
+    /**
      * Get Template.
      *
      * @return string
