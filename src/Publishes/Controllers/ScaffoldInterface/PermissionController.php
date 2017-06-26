@@ -41,7 +41,7 @@ class PermissionController extends Controller
     {
         Permission::create(['name' => $request->name]);
 
-        return redirect('permissions');
+        return redirect('scaffold-permissions');
     }
 
     /**
@@ -73,7 +73,7 @@ class PermissionController extends Controller
 
         $permission->update();
 
-        return redirect('permissions');
+        return redirect('scaffold-permissions');
     }
 
     /**
@@ -89,6 +89,6 @@ class PermissionController extends Controller
 
         $permission->delete();
 
-        return redirect('permissions');
+        return redirect('scaffold-permissions');
     }
 }
