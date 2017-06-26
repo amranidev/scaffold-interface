@@ -20,8 +20,8 @@
             <div class="row">
                 <div transition = "fade" class="col s5 animated" v-if = 'show'>
                     <p transition = "fade" class = 'animated red-text flow-text' v-if = 'error'>@{{errorMsg}}</p>
-                    <form id = 'form' method = 'post' action = '{{URL::to("/")}}/scaffold/guipost'>
-                        <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+                    <form id = 'form' method = 'post' action = '{{URL::to("/scaffold/guipost")}}'>
+                        {{csrf_field()}}
                         <table class = 'ta'>
                             <tr>
                                 <td>
@@ -129,7 +129,7 @@
                     <!-- Interface Core-->
                     <div>
                         <div class = 'center'>
-                            <h5 class = "black-text thin">You work on <i>{{config('amranidev.config.package')}}</i></h5>
+                            <h5 class = "black-text thin">You're working in <i>{{config('amranidev.config.package')}}</i></h5>
                         </div>
                         <table class = 'centered highlight'>
                             <thead>
@@ -172,9 +172,9 @@
                 <i class="large mdi-navigation-menu"></i>
             </a>
             <ul>
-                <li><a href = "{{URL::to('/')}}/dashboard" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard"><i class="material-icons">view_list</i></a></li>
-                <li><a href = "{{URL::to('/')}}/scaffold/rollback" class="btn-floating pink tooltipped" data-position="left" data-delay="50" data-tooltip="RollBack the Schema"><i class="material-icons">repeat</i></a></li>
-                <li><a href = "{{URL::to('/')}}/scaffold/migrate" class="btn-floating orange tooltipped" data-position="left" data-delay="50" data-tooltip="Migrate the Schema"><i class="material-icons">input</i></a></li>
+                <li><a href = "{{url('/scaffold-dashboard')}}" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard"><i class="material-icons">view_list</i></a></li>
+                <li><a href = "{{url('/scaffold/rollback')}}" class="btn-floating pink tooltipped" data-position="left" data-delay="50" data-tooltip="RollBack the Schema"><i class="material-icons">repeat</i></a></li>
+                <li><a href = "{{url('/scaffold/migrate')}}" class="btn-floating orange tooltipped" data-position="left" data-delay="50" data-tooltip="Migrate the Schema"><i class="material-icons">input</i></a></li>
             </ul>
         </div>
         <div id="modal1" class="modal">
@@ -183,7 +183,7 @@
         </div>
     </body>
     <script>
-    var baseURL = "{{URL::to('/')}}";
+    var baseURL = "{{url('/')}}";
     var scaffoldList = {!! $scaffoldList !!};
     </script>
     <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
