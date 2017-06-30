@@ -4,9 +4,11 @@
 
 ### Enhanced
 
-- Customize routes adding scaffold- frefix (scaffold-dashboard, scaffold-users, . . ).
+- Customize routes adding `scaffold` frefix (scaffold-dashboard, scaffold-users, . . ).
 
 - Add fontawesome to buttons.
+
+- Add automatic package discovrey supporting laravel 5.5.
 
 ## v1.7.1 (2017-02-20)
 
