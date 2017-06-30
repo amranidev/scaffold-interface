@@ -15,7 +15,7 @@
             @foreach($dataSystem->dataScaffold('v') as $value)
             <tr>
                 <td>
-                    <b><i>{{$value}} : </i></b>
+                    <b>{{$value}}</b>
                 </td>
                 <td>@{!!${{$parser->singular()}}->{{$value}}!!}</td>
             </tr>
