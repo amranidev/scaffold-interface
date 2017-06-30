@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.7.15 (2017-06-30)
+
+### Enhanced
+
+- Customize routes adding scaffold- frefix (scaffold-dashboard, scaffold-users, . . ).
+
+- Add fontawesome to buttons.
+
 ## v1.7.1 (2017-02-20)
 
 ### Fixed
