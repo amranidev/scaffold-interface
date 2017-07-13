@@ -35,7 +35,7 @@ class ControllerGenerate
     }
 
     /**
-     * Compile controller tamplate.
+     * Compile controller template.
      *
      * @return string
      */
