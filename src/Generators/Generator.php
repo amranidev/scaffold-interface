@@ -69,7 +69,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate index.
+     * Generate index.blade.php.
      *
      * @return void
      */
@@ -79,7 +79,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate create.
+     * Generate create.blade.php.
      *
      * @return void
      */
@@ -89,7 +89,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate show.
+     * Generate show.blade.php.
      *
      * @return void
      */
@@ -99,7 +99,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * Generate edit.
+     * Generate edit.blade.php.
      *
      * @return void
      */
@@ -159,7 +159,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * get model generator.
+     * Get model generator instance.
      *
      * @return \Amranidev\ScaffoldInterface\Generators\ModelGenerate
      */
@@ -169,7 +169,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * get migration generator.
+     * Get migration generator instance.
      *
      * @return \Amranidev\ScaffoldInterface\Generators\MigrationGenerate
      */
@@ -179,7 +179,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * get view generator.
+     * Get view generator instance.
      *
      * @return \Amranidev\ScaffoldInterface\Generators\ViewGenerate
      */
@@ -189,7 +189,7 @@ class Generator extends Filesystem
     }
 
     /**
-     * get controller generator.
+     * Get controller generator instance.
      *
      * @return \Amranidev\ScaffoldInterface\Generators\ControllerGenerate
      */
