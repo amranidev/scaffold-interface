@@ -2,12 +2,14 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
+use Amranidev\ScaffoldInterface\Generators\GeneratorInterface;
+
 /**
  * Class ControllerGenerate.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
-class ControllerGenerate
+class ControllerGenerate implements GeneratorInterface
 {
     /**
      * The DataSystem instance.
@@ -41,6 +43,6 @@ class ControllerGenerate
      */
     public function generate()
     {
-        return "<?php\n\n".view('scaffold-interface::template.controller.controller', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
+        return "<?php\n\n" . view('scaffold-interface::template.controller.controller', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 }
