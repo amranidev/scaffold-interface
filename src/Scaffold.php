@@ -58,10 +58,7 @@ class Scaffold
     public function views()
     {
         $this->generator->dir();
-        $this->generator->index();
-        $this->generator->create();
-        $this->generator->show();
-        $this->generator->edit();
+        $this->generator->views();
 
         return $this;
     }
