@@ -30,36 +30,36 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         $nameSpace = $this->app->getNamespace();
 
         // Set namespace alias for AppController.
-        AliasLoader::getInstance()->alias('AppController', $nameSpace . 'Http\Controllers\Controller');
+        AliasLoader::getInstance()->alias('AppController', $nameSpace.'Http\Controllers\Controller');
 
         // Routes.
-        $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers'], function () {
-            require __DIR__ . '/Http/routes.php';
+        $this->app->router->group(['namespace' => $nameSpace.'Http\Controllers'], function () {
+            require __DIR__.'/Http/routes.php';
         });
 
         // Public
-        $this->publishes([__DIR__ . '/../resources/assets' => public_path(),
+        $this->publishes([__DIR__.'/../resources/assets' => public_path(),
         ], 'public');
 
         // Views
-        $this->publishes([__DIR__ . '/Publishes/Views' => base_path('/resources/views')], 'views');
+        $this->publishes([__DIR__.'/Publishes/Views' => base_path('/resources/views')], 'views');
 
-        $this->publishes([__DIR__ . '/Publishes/Controllers' => app_path('/Http/Controllers')], 'Controllers');
+        $this->publishes([__DIR__.'/Publishes/Controllers' => app_path('/Http/Controllers')], 'Controllers');
 
         // Load views.
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffold-interface');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'scaffold-interface');
 
         // Migrations.
         $this->publishes([
-            __DIR__ . '/../database/migrations/' => database_path('migrations'),
+            __DIR__.'/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
 
         //config path.
-        $configPath = __DIR__ . '/../config/config.php';
+        $configPath = __DIR__.'/../config/config.php';
 
         //Register config.
         $this->publishes([
-            $configPath => config_path('amranidev/config.php')]);
+            $configPath => config_path('amranidev/config.php'), ]);
     }
 
     /**

@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\Generators\GeneratorInterface;
-
 /**
  * Class ModelGenerate.
  *
@@ -43,6 +41,6 @@ class ModelGenerate implements GeneratorInterface
      */
     public function generate()
     {
-        return "<?php\n\n" . view('scaffold-interface::template.model.model', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
+        return "<?php\n\n".view('scaffold-interface::template.model.model', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 }
