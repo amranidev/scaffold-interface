@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\Generators\GeneratorInterface;
-
 /**
  * Class ViewGenerate.
  *
@@ -55,7 +53,7 @@ class ViewGenerate implements GeneratorInterface
     private function generateIndex()
     {
         return $this->indenter
-            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.index',
+            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.index',
                 ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
@@ -67,7 +65,7 @@ class ViewGenerate implements GeneratorInterface
     private function generateCreate()
     {
         return $this->indenter
-            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.create',
+            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.create',
                 ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
@@ -79,7 +77,7 @@ class ViewGenerate implements GeneratorInterface
     private function generateShow()
     {
         return $this->indenter
-            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.show',
+            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.show',
                 ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
@@ -91,7 +89,7 @@ class ViewGenerate implements GeneratorInterface
     private function generateEdit()
     {
         return $this->indenter
-            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.edit',
+            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.edit',
                 ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
@@ -103,10 +101,10 @@ class ViewGenerate implements GeneratorInterface
     public function generate()
     {
         return [
-            'index' => $this->generateIndex(),
+            'index'  => $this->generateIndex(),
             'create' => $this->generateCreate(),
-            'edit' => $this->generateEdit(),
-            'show' => $this->generateShow(),
+            'edit'   => $this->generateEdit(),
+            'show'   => $this->generateShow(),
         ];
     }
 }
