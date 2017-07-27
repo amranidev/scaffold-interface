@@ -68,7 +68,7 @@ class GuiController extends AppController
                 $relation->save();
             }
         }
-        Session::flash('status', 'Created Successfully '.$names->singular());
+        Session::flash('status', 'Created Successfully ' . $names->singular());
 
         return redirect('scaffold');
     }
@@ -86,10 +86,10 @@ class GuiController extends AppController
         unlink($scaffoldInterface->migration);
         unlink($scaffoldInterface->model);
         unlink($scaffoldInterface->controller);
-        unlink($scaffoldInterface->views.'/index.blade.php');
-        unlink($scaffoldInterface->views.'/create.blade.php');
-        unlink($scaffoldInterface->views.'/show.blade.php');
-        unlink($scaffoldInterface->views.'/edit.blade.php');
+        unlink($scaffoldInterface->views . '/index.blade.php');
+        unlink($scaffoldInterface->views . '/create.blade.php');
+        unlink($scaffoldInterface->views . '/show.blade.php');
+        unlink($scaffoldInterface->views . '/edit.blade.php');
         rmdir($scaffoldInterface->views);
         //Clear Routes Resources
         $this->clearRoutes(lcfirst(str_singular($scaffoldInterface->tablename)));
@@ -114,7 +114,7 @@ class GuiController extends AppController
 
             return view('scaffold-interface::template.DeleteMessage.delete', compact('table'))->render();
         }
-        $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to delete {$scaffold->tablename} MVC files ??", '/scaffold/guirollback/'.$id);
+        $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to delete {$scaffold->tablename} MVC files ??", '/scaffold/guirollback/' . $id);
 
         return $msg;
     }
@@ -143,7 +143,7 @@ class GuiController extends AppController
     {
         try {
             Artisan::call('migrate', ['--path' => config('amranidev.config.database')]);
-            exec('cd '.base_path().' && composer dump-autoload');
+            exec('cd ' . base_path() . ' && composer dump-autoload');
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -209,7 +209,7 @@ class GuiController extends AppController
         $dummyData = DatabaseManager::tableNames();
         $elements = Ajaxis::MtcreateFormModal([
             ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => $dummyData],
-            ['type' => 'select', 'name' => 'table2', 'key' => 'table2', 'value' => $dummyData], ], '/scaffold/manyToMany', 'Many To Many');
+            ['type' => 'select', 'name' => 'table2', 'key' => 'table2', 'value' => $dummyData]], '/scaffold/manyToMany', 'Many To Many');
 
         return $elements;
     }
@@ -244,7 +244,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Check ManyToMany request which is it available to use.
+     * Check ManyToMany request if it is available to be used.
      *
      * @param array $request
      *
