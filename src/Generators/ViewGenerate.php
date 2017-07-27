@@ -2,12 +2,14 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
+use Amranidev\ScaffoldInterface\Generators\GeneratorInterface;
+
 /**
  * Class ViewGenerate.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
-class ViewGenerate
+class ViewGenerate implements GeneratorInterface
 {
     /**
      * The DataSystem instance.
@@ -38,7 +40,7 @@ class ViewGenerate
      *
      * @return void
      */
-    public function __construct()
+    private function __construct()
     {
         $this->dataSystem = app()->make('Datasystem');
         $this->parser = app()->make('Parser');
@@ -50,11 +52,11 @@ class ViewGenerate
      *
      * @return string
      */
-    public function generateIndex()
+    private function generateIndex()
     {
         return $this->indenter
-        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.index',
-            ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
+            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.index',
+                ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
     /**
@@ -62,11 +64,11 @@ class ViewGenerate
      *
      * @return string
      */
-    public function generateCreate()
+    private function generateCreate()
     {
         return $this->indenter
-        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.create',
-            ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
+            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.create',
+                ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
     /**
@@ -74,11 +76,11 @@ class ViewGenerate
      *
      * @return string
      */
-    public function generateShow()
+    private function generateShow()
     {
         return $this->indenter
-        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.show',
-        ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
+            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.show',
+                ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
     /**
@@ -86,10 +88,25 @@ class ViewGenerate
      *
      * @return string
      */
-    public function generateEdit()
+    private function generateEdit()
     {
         return $this->indenter
-        ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.edit',
-        ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
+            ->indent(view('scaffold-interface::template.views.' . $this->parser->getTemplate() . '.edit',
+                ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
+    }
+
+    /**
+     * Generate Views.
+     *
+     * @return array
+     */
+    public function generate()
+    {
+        return [
+            'index' => $this->generateIndex(),
+            'create' => $this->generateCreate(),
+            'edit' => $this->generateEdit(),
+            'show' => $this->generateShow(),
+        ];
     }
 }
