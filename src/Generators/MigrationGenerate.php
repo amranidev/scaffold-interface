@@ -2,12 +2,14 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
+use Amranidev\ScaffoldInterface\Generators\GeneratorInterface;
+
 /**
  * Class MigrationGenerate.
  *
  * @author Amrani Houssian <amranidev@gmail.com>
  */
-class MigrationGenerate
+class MigrationGenerate implements GeneratorInterface
 {
     /**
      * The DataSystem instance.
@@ -41,6 +43,6 @@ class MigrationGenerate
      */
     public function generate()
     {
-        return "<?php\n\n".view('scaffold-interface::template.migration.migration', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
+        return "<?php\n\n" . view('scaffold-interface::template.migration.migration', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 }
