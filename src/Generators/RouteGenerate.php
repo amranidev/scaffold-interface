@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\Generators\GeneratorInterface;
-
 /**
  * Class RouteGenerate.
  *
@@ -35,6 +33,6 @@ class RouteGenerate implements GeneratorInterface
      */
     public function generate()
     {
-        return "\n" . view('scaffold-interface::template.routes', ['parser' => $this->parser])->render();
+        return "\n".view('scaffold-interface::template.routes', ['parser' => $this->parser])->render();
     }
 }
