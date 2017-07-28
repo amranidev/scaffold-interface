@@ -40,7 +40,7 @@ class ViewGenerate implements GeneratorInterface
      *
      * @return void
      */
-    private function __construct()
+    public function __construct()
     {
         $this->dataSystem = app()->make('Datasystem');
         $this->parser = app()->make('Parser');
