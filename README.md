@@ -14,7 +14,7 @@
 
 ### Features
 
-+ Generate your models,views,controllers and migrations just in a few clicks.
++ Generate your models,views,constrollers,routes and migrations just in a few clicks.
 
 + Models visualization through a graph presentation (**New Feature**).
 
