@@ -168,13 +168,13 @@ class Datasystem
         return $this->onData;
     }
 
-     /**
-      * get request data.
-      *
-      * @return string
-      */
-     public function getData()
-     {
-         return $this->data;
-     }
+    /**
+     * get request data.
+     *
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
 }
