@@ -9,10 +9,10 @@
         "email": "amranidev@gmail.com"
     }],
     "require": {
-        "php": ">=5.5.9",
+        "php" : ">=7.0",
         "Amranidev/Ajaxis": "3.0.*",
-        "spatie/laravel-permission": "^1.5",
-        "vinkla/pusher": "^2.4.0",
+        "spatie/laravel-permission": "^2.7",
+        "vinkla/pusher": "^3.1.0",
         "gajus/dindent": "2.0.*"
     },
     "require-dev": {
