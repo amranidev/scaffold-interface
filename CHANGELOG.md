@@ -1,10 +1,20 @@
 # Release Notes
 
+## v1.7.21 (2017-10-04)
+
+### Enhanced
+
+- Add laravel v5.5 support.
+
+### Fixed
+
+- Fix the installation error.
+
 ## v1.7.15 (2017-06-30)
 
 ### Enhanced
 
-- Customize routes adding `scaffold` frefix (scaffold-dashboard, scaffold-users, . . ).
+- Customize routes adding `scaffold` prefix (scaffold-dashboard, scaffold-users, . . ).
 
 - Add fontawesome to buttons.
 
