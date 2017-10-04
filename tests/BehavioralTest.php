@@ -23,7 +23,7 @@ class BehavioralTest extends TestCase
     public $generator;
 
     //SetUp
-    public function __construct()
+    public function setUp()
     {
         parent::setUp();
 
