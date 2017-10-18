@@ -90,7 +90,7 @@ Congratulations, you have successfully installed Scaffold Interface!
  
 ### Detailed Documentation
 
-[Full documentation](http://amranidev.me/scaffold-interface/docs).
+[Full documentation](https://amranidev.github.io/scaffold-interface/docs).
 
 ### Contribution
 
