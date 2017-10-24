@@ -53,7 +53,7 @@
 Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
 Amranidev\Ajaxis\AjaxisServiceProvider::class,
 Spatie\Permission\PermissionServiceProvider::class,
-Vinkla\Pusher\PusherServiceProvider::class,
+Pusher\Laravel\PusherServiceProvider::class;
  ```
 
 3. Publish the assets in your application with:
