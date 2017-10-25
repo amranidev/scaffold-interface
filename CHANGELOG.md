@@ -1,5 +1,11 @@
 # Release Notes
 
+# v1.7.22 (2017-10-25)
+
+### Fixed
+
+- Replace vinkla/pusher with pusher/pusher-http-laravel.
+
 ## v1.7.21 (2017-10-04)
 
 ### Enhanced
