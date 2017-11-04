@@ -28,7 +28,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
     public function index()
     {
         $title = 'Index - {{$parser->singular()}}';
-        ${{$parser->plural()}} = {{ucfirst($parser->singular())}}::paginate(6);
+        ${{$parser->plural()}} = {{ucfirst($parser->singular())}}::paginate(10);
         return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.index',compact('{{$parser->plural()}}','title'));
     }
 
@@ -56,6 +56,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
      */
     public function store(Request $request)
     {
+
         ${{$parser->singular()}} = new {{ucfirst($parser->singular())}}();
 
         @foreach($dataSystem->dataScaffold('v') as $value)
