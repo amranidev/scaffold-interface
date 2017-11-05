@@ -4,7 +4,7 @@
 
 ### Fixed
 
-- Fix conflict in dashboard layouts #147.
+- Fix conflict in dashboard layouts [#147](https://github.com/amranidev/scaffold-interface/issues/147).
 
 # v1.7.22 (2017-10-25)
 
