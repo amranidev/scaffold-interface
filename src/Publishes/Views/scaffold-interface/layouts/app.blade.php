@@ -151,15 +151,9 @@
 		$('.notification-label').addClass('label-warning');
 		$('.notification-menu').append(
 			'<li>\
-<<<<<<< HEAD
-							<a href="#">\
-											<i class="fa fa-users text-aqua"></i> '+data.message+'\
-							</a>\
-=======
 				<a href="#">\
 					<i class="fa fa-users text-aqua"></i> '+data.message+'\
 				</a>\
->>>>>>> 36e331d580b33e2ad155aae685046a239e096ca2
 			</li>'
 			);
 		});
