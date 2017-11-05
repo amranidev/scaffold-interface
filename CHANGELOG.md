@@ -1,5 +1,11 @@
 # Release Notes
 
+# v1.7.24 (2017-11-05)
+
+### Fixed
+
+- Fix conflict in dashboard layouts #147.
+
 # v1.7.22 (2017-10-25)
 
 ### Fixed
