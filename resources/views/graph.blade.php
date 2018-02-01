@@ -55,7 +55,7 @@
 			<h1>Models graph
 			<div>
 				<a href="{{url('scaffold')}}" class="btn btn-primary">Back to the interface</a>
-				<a href="{{url('dashboard')}}" class="btn btn-danger">Dashboard</a></h1>
+				<a href="{{url('scaffold-dashboard')}}" class="btn btn-danger">Dashboard</a></h1>
 			</div>
 		</div>
 		<div class="col-md-10 col-md-offset-1">
