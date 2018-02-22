@@ -1,6 +1,7 @@
 {
     "name": "amranidev/scaffold-interface",
     "description": "A Smart CRUD Generator For Laravel",
+    "type": "laravel-package",
     "homepage": "http://github.com/amranidev/scaffold-interface",
     "keywords": ["laravel", "framework", "files", "scaffod", "CRUD", "crud generator", "crud generators", "scaffoldinterface", "Scaffolding", "Scaffold", "laravel bootstrap", "laravel materialize", "Laravel 5.1", "Laravel 5.2", "amranidev", "Amrani Houssain", "amrnaihoussain", "smart crud generator", "smart generator"],
     "license": "MIT",
