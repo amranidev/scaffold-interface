@@ -130,4 +130,15 @@ class BehavioralTest extends TestCase
         $this->assertEquals($this->indenter
                 ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.show', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()['show']);
     }
+
+    //test controllers routes with changed directories config
+    public function testControllersRoutesWhenChangedDirectoriesConfig()
+    {
+        $prefixViews = 'testable';
+        $controllerName = 'testableController';
+        $parser = $this->parser;
+        $dataSystem = $this->datasystem;
+        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.controller.controller', compact('parser', 'dataSystem'))->render(), $this->generator->getController()->generate());
+        $this->assertContains($prefixViews.'.'.$controllerName, $this->generator->getController()->generate());
+    }
 }

@@ -24,15 +24,17 @@ class ScaffoldTest extends TestCase
                 'opt2'                                                   => 'author', ]);
 
         $this->scaffold = app()->make('Scaffold');
-
         $this->scaffold->migration()->model()->controller()->route()->views();
+
     }
 
     /**
      * test created files.
+     * @contributor Oscar Alencar (github: oalencar) <oscar.apps@gmail.com>
      */
     public function testScaffold()
     {
+
         $this->assertFileExists(base_path().'/resources/views/article/index.blade.php');
         $this->assertFileExists(base_path().'/resources/views/article/create.blade.php');
         $this->assertFileExists(base_path().'/resources/views/article/edit.blade.php');
@@ -40,5 +42,16 @@ class ScaffoldTest extends TestCase
         $this->assertFileExists(base_path().'/app/Article.php');
         $this->assertFileExists(base_path().'/app/ArticleController.php');
         $this->assertFileExists(base_path().'/app/routes.php');
+
+        unlink(base_path().'/resources/views/article/index.blade.php');
+        unlink(base_path().'/resources/views/article/create.blade.php');
+        unlink(base_path().'/resources/views/article/edit.blade.php');
+        unlink(base_path().'/resources/views/article/show.blade.php');
+        rmdir(base_path().'/resources/views/article/');
+        unlink(base_path().'/app/Article.php');
+        unlink(base_path().'/app/ArticleController.php');
+        unlink(base_path().'/app/routes.php');
+
     }
+
 }

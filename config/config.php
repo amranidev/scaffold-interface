@@ -96,4 +96,16 @@
 
       'loadViews' => null,
 
+      /*
+    |-------------------------------------------------------------------
+    | Views prefix
+    |-------------------------------------------------------------------
+    |
+    | Here is where you can register your default views prefix.
+    | By default is null
+    |
+    */
+
+      'prefixViews' => null,
+
     ];

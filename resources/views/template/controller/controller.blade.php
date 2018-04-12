@@ -29,7 +29,10 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
     {
         $title = 'Index - {{$parser->singular()}}';
         ${{$parser->plural()}} = {{ucfirst($parser->singular())}}::paginate(6);
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.index',compact('{{$parser->plural()}}','title'));
+        return view('
+            @if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif
+            @if(config('amranidev.config.prefixViews')){{config('amranidev.config.prefixViews')}}.@endif
+            {{$parser->singular()}}.index',compact('{{$parser->plural()}}','title'));
     }
 
     /**
@@ -45,7 +48,10 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
         ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->pluck('{{$dataSystem->getOnData()[$key]}}','id');
         @endforeach
 
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.create'@if($dataSystem->getForeignKeys() != null),compact('title',@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())),@endif @endforeach)@endif);
+        return view('
+            @if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif
+            @if(config('amranidev.config.prefixViews')){{config('amranidev.config.prefixViews')}}.@endif
+            {{$parser->singular()}}.create'@if($dataSystem->getForeignKeys() != null),compact('title',@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())),@endif @endforeach)@endif);
     }
 
     /**
