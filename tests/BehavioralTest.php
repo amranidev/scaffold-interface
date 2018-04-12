@@ -131,14 +131,60 @@ class BehavioralTest extends TestCase
                 ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.show', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()['show']);
     }
 
-    //test controllers routes with changed directories config
-    public function testControllersRoutesWhenChangedDirectoriesConfig()
+    //test controllers with prefixViews not null
+    public function testControllersWithPrefixViewsNotNull()
     {
-        $prefixViews = 'testable';
-        $controllerName = 'testableController';
+        $this->app['config']->set('amranidev.config.prefixViews', 'admin');
+        $prefixViews = config('amranidev.config.prefixViews');
+
         $parser = $this->parser;
         $dataSystem = $this->datasystem;
         $this->assertEquals("<?php\n\n".view('scaffold-interface::template.controller.controller', compact('parser', 'dataSystem'))->render(), $this->generator->getController()->generate());
-        $this->assertContains($prefixViews.'.'.$controllerName, $this->generator->getController()->generate());
+
+        // view() index method
+        $this->assertContains($prefixViews.'.'.'testable'.'.index', $this->generator->getController()->generate());
+
+        // view() create method
+        $this->assertContains($prefixViews.'.'.'testable'.'.create', $this->generator->getController()->generate());
+
+        // view() show method
+        $this->assertContains($prefixViews.'.'.'testable'.'.show', $this->generator->getController()->generate());
+
+        // view() edit method
+        $this->assertContains($prefixViews.'.'.'testable'.'.edit', $this->generator->getController()->generate());
+
+    }
+
+    //test controllers with prefixRoutes not null
+    public function testControllersWithPrefixRoutesNotNull()
+    {
+        $this->app['config']->set('amranidev.config.prefixRoutes', 'admin');
+        $prefixRoutes = config('amranidev.config.prefixRoutes');
+
+        $parser = $this->parser;
+        $dataSystem = $this->datasystem;
+        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.controller.controller', compact('parser', 'dataSystem'))->render(), $this->generator->getController()->generate());
+
+        // redirect() method
+        $this->assertContains('redirect(\''.$prefixRoutes.'/'.'testable'.'\')', $this->generator->getController()->generate());
+
+        // to() method
+        $this->assertContains('redirect(\''.$prefixRoutes.'/'.'testable'.'\')', $this->generator->getController()->generate());
+
+    }
+
+    //test controllers with prefixViews null
+    public function testControllersWithPrefixViewsNull()
+    {
+        $this->app['config']->set('amranidev.config.prefixViews', null);
+        $prefixViews = config('amranidev.config.prefixViews');
+
+        $parser = $this->parser;
+        $dataSystem = $this->datasystem;
+        $this->assertEquals("<?php\n\n".view('scaffold-interface::template.controller.controller', compact('parser', 'dataSystem'))->render(), $this->generator->getController()->generate());
+
+        //verifica index
+        $this->assertContains('testable'.'.index', $this->generator->getController()->generate());
+
     }
 }

@@ -29,10 +29,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
     {
         $title = 'Index - {{$parser->singular()}}';
         ${{$parser->plural()}} = {{ucfirst($parser->singular())}}::paginate(6);
-        return view('
-            @if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif
-            @if(config('amranidev.config.prefixViews')){{config('amranidev.config.prefixViews')}}.@endif
-            {{$parser->singular()}}.index',compact('{{$parser->plural()}}','title'));
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif<?php if( config('amranidev.config.prefixViews') ){ echo config('amranidev.config.prefixViews').'.';}?>{{$parser->singular()}}.index',compact('{{$parser->plural()}}','title'));
     }
 
     /**
@@ -48,10 +45,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
         ${{str_plural($value)}} = {{ucfirst(str_singular($value))}}::all()->pluck('{{$dataSystem->getOnData()[$key]}}','id');
         @endforeach
 
-        return view('
-            @if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif
-            @if(config('amranidev.config.prefixViews')){{config('amranidev.config.prefixViews')}}.@endif
-            {{$parser->singular()}}.create'@if($dataSystem->getForeignKeys() != null),compact('title',@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())),@endif @endforeach)@endif);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif @if(config('amranidev.config.prefixViews')){{config('amranidev.config.prefixViews')}}.@endif{{$parser->singular()}}.create'@if($dataSystem->getForeignKeys() != null),compact('title',@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}' @if($value != last($dataSystem->getForeignKeys())),@endif @endforeach)@endif);
     }
 
     /**
@@ -88,7 +82,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
                          'test-event',
                         ['message' => 'A new {{$parser->singular()}} has been created !!']);
 
-        return redirect('{{$parser->singular()}}');
+        return redirect('@if(config('amranidev.config.prefixRoutes')){{config('amranidev.config.prefixRoutes')}}/@endif{{$parser->singular()}}');
     }
 
     /**
@@ -104,11 +98,11 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
 
         if($request->ajax())
         {
-            return URL::to('{{$parser->singular()}}/'.$id);
+            return URL::to('@if(config('amranidev.config.prefixRoutes')){{config('amranidev.config.prefixRoutes')}}/@endif{{$parser->singular()}}/'.$id);
         }
 
         ${{$parser->singular()}} = {{ucfirst($parser->singular())}}::findOrfail($id);
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.show',compact('title','{{$parser->singular()}}'));
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif<?php if( config('amranidev.config.prefixViews') ){ echo config('amranidev.config.prefixViews').'.';}?>{{$parser->singular()}}.show',compact('title','{{$parser->singular()}}'));
     }
 
     /**
@@ -122,7 +116,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
         $title = 'Edit - {{$parser->singular()}}';
         if($request->ajax())
         {
-            return URL::to('{{$parser->singular()}}/'. $id . '/edit');
+            return URL::to('@if(config('amranidev.config.prefixRoutes')){{config('amranidev.config.prefixRoutes')}}/@endif{{$parser->singular()}}/'. $id . '/edit');
         }
 
         @foreach($dataSystem->getForeignKeys() as $key => $value)
@@ -132,7 +126,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
         @endforeach
 
         ${{$parser->singular()}} = {{ucfirst($parser->singular())}}::findOrfail($id);
-        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif{{$parser->singular()}}.edit',compact('title','{{$parser->singular()}}' @if($dataSystem->getForeignKeys() != null),@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}'@if($value != last($dataSystem->getForeignKeys())),@endif @endforeach) @else )@endif);
+        return view('@if(config('amranidev.config.loadViews')){{config('amranidev.config.loadViews')}}::@endif<?php if( config('amranidev.config.prefixViews') ){ echo config('amranidev.config.prefixViews').'.';}?>{{$parser->singular()}}.edit',compact('title','{{$parser->singular()}}' @if($dataSystem->getForeignKeys() != null),@foreach($dataSystem->getForeignKeys() as $key => $value)'{{str_plural($value)}}'@if($value != last($dataSystem->getForeignKeys())),@endif @endforeach) @else )@endif);
     }
 
     /**
@@ -158,7 +152,7 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
 
         ${{$parser->singular()}}->save();
 
-        return redirect('{{$parser->singular()}}');
+        return redirect('@if(config('amranidev.config.prefixRoutes')){{config('amranidev.config.prefixRoutes')}}/@endif{{$parser->singular()}}');
     }
 
     /**
@@ -188,6 +182,6 @@ class {{ucfirst($parser->singular())}}Controller extends Controller
     {
      	${{$parser->singular()}} = {{ucfirst($parser->singular())}}::findOrfail($id);
      	${{$parser->singular()}}->delete();
-        return URL::to('{{$parser->singular()}}');
+        return URL::to('@if(config('amranidev.config.prefixRoutes')){{config('amranidev.config.prefixRoutes')}}/@endif{{$parser->singular()}}');
     }
 }

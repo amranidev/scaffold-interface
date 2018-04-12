@@ -21,5 +21,7 @@ abstract class TestCase extends OrchestraTestCase
         $app['config']->set('amranidev.config.modelNameSpace', 'App');
         $app['config']->set('amranidev.config.migration', base_path().'/database/migrations');
         $app['config']->set('amranidev.config.controllerNameSpace', 'App\\Http\\Controllers');
+        $app['config']->set('amranidev.config.prefixViews', null);
+        $app['config']->set('amranidev.config.prefixRoutes', null);
     }
 }
