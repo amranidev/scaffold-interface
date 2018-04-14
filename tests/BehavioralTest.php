@@ -152,7 +152,6 @@ class BehavioralTest extends TestCase
 
         // view() edit method
         $this->assertContains($prefixViews.'.'.'testable'.'.edit', $this->generator->getController()->generate());
-
     }
 
     //test controllers with prefixRoutes not null
@@ -170,7 +169,6 @@ class BehavioralTest extends TestCase
 
         // to() method
         $this->assertContains('redirect(\''.$prefixRoutes.'/'.'testable'.'\')', $this->generator->getController()->generate());
-
     }
 
     //test controllers with prefixViews null
@@ -185,6 +183,5 @@ class BehavioralTest extends TestCase
 
         //verifica index
         $this->assertContains('testable'.'.index', $this->generator->getController()->generate());
-
     }
 }

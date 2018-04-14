@@ -25,16 +25,15 @@ class ScaffoldTest extends TestCase
 
         $this->scaffold = app()->make('Scaffold');
         $this->scaffold->migration()->model()->controller()->route()->views();
-
     }
 
     /**
      * test created files.
+     *
      * @contributor Oscar Alencar (github: oalencar) <oscar.apps@gmail.com>
      */
     public function testScaffold()
     {
-
         $this->assertFileExists(base_path().'/resources/views/article/index.blade.php');
         $this->assertFileExists(base_path().'/resources/views/article/create.blade.php');
         $this->assertFileExists(base_path().'/resources/views/article/edit.blade.php');
@@ -51,8 +50,5 @@ class ScaffoldTest extends TestCase
         unlink(base_path().'/resources/views/article/edit.blade.php');
         unlink(base_path().'/resources/views/article/show.blade.php');
         rmdir(base_path().'/resources/views/article/');
-
-
     }
-
 }
