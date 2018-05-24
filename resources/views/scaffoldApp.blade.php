@@ -188,7 +188,7 @@
     </script>
     <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script src = "http://cdn.jsdelivr.net/vue/1.0.26/vue.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/vue/1.0.26/vue.min.js"></script>
     <script src = "{{URL::asset('js/AjaxisMaterialize.js')}}"></script>
     <script src = "{{URL::asset('js/scaffold-interface-js/main.js')}}"></script>
     <script src = "{{URL::asset('js/scaffold-interface-js/social.js')}}"></script>
