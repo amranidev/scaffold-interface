@@ -192,6 +192,7 @@ class GuiController extends AppController
                 unset($lines[$key]);
             }
         }
+
         $data = implode("\n", array_values($lines));
 
         return file_put_contents($path, $data);
@@ -264,16 +265,14 @@ class GuiController extends AppController
     {
         $entities = Scaffoldinterface::all();
         $relations = Relation::all();
-        $nodes = collect([]);
-        $edges = collect([]);
-        foreach ($entities as $entity) {
-            $nodes->push(['id' => $entity->id, 'label' => $entity->tablename]);
-        }
-        foreach ($relations as $relation) {
-            $edges->push(['from' => $relation->scaffoldinterface_id, 'to' => $relation->to, 'label' => $relation->having]);
-        }
-        $nodes = $nodes->toJson();
-        $edges = $edges->toJson();
+
+        $nodes = $entities->map(function($entity) {
+            return ['id' => $entity->id, 'label' => $entity->tablename];
+        })->toJson();
+
+        $edges = $relations->map(function($relation) {
+            return ['from' => $relation->scaffoldinterface_id, 'to' => $relation->to, 'label' => $relation->having];
+        })->toJson();
 
         return view('scaffold-interface::graph', compact('nodes', 'edges'));
     }
