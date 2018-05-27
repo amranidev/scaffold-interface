@@ -60,10 +60,10 @@ class GuiController extends AppController
         $scaffoldInterface->save();
         if ($relations->getForeignKeys()) {
             foreach ($relations->getForeignKeys() as $foreignKey) {
-                    $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
-                    Relation::create(['scaffoldinterface_id' => $scaffoldInterface->id,
-                                         'to' => $record->id,
-                                         'having' => 'OneToMany']);
+                $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
+                Relation::create(['scaffoldinterface_id' => $scaffoldInterface->id,
+                                         'to'            => $record->id,
+                                         'having'        => 'OneToMany', ]);
             }
         }
         Session::flash('status', 'Created Successfully '.$names->singular());
@@ -264,11 +264,11 @@ class GuiController extends AppController
         $entities = Scaffoldinterface::all();
         $relations = Relation::all();
 
-        $nodes = $entities->map(function($entity) {
+        $nodes = $entities->map(function ($entity) {
             return ['id' => $entity->id, 'label' => $entity->tablename];
         })->toJson();
 
-        $edges = $relations->map(function($relation) {
+        $edges = $relations->map(function ($relation) {
             return ['from' => $relation->scaffoldinterface_id, 'to' => $relation->to, 'label' => $relation->having];
         })->toJson();
 
