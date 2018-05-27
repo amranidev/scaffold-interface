@@ -257,7 +257,7 @@ class GuiController extends AppController
     }
 
     /**
-     * Transform entities to a grahp.
+     * Transform entities into a grahp.
      *
      * @return \Illuminate\Http\Response
      */
