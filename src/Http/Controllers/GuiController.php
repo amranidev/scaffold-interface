@@ -50,14 +50,16 @@ class GuiController extends AppController
         $scaffold->model()->views()->controller()->migration()->route();
         $paths = app()->make('Path');
         $names = app()->make('Parser');
-        $scaffoldInterface = new Scaffoldinterface();
-        $scaffoldInterface->migration = $paths->migrationPath;
-        $scaffoldInterface->model = $paths->modelPath();
-        $scaffoldInterface->controller = $paths->controllerPath();
-        $scaffoldInterface->views = $paths->dirPath();
-        $scaffoldInterface->tablename = $names->plural();
-        $scaffoldInterface->package = config('amranidev.config.package');
-        $scaffoldInterface->save();
+
+        $scaffoldInterface = Scaffoldinterface::create([
+            'migration' => $paths->migrationPath,
+            'model' => $paths->modelPath(),
+            'controller' => $paths->controllerPath(),
+            'views' => $paths->dirPath(),
+            'tablename' => $names->plural(),
+            'package' => config('amranidev.config.package')
+        ]);
+
         if ($relations->getForeignKeys()) {
             foreach ($relations->getForeignKeys() as $foreignKey) {
                     $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
@@ -67,6 +69,7 @@ class GuiController extends AppController
                                     ]);
             }
         }
+
         Session::flash('status', 'Created Successfully '.$names->singular());
 
         return redirect('scaffold');
