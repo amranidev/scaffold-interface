@@ -63,7 +63,8 @@ class GuiController extends AppController
                     $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
                     Relation::create(['scaffoldinterface_id' => $scaffoldInterface->id,
                                          'to' => $record->id,
-                                         'having' => 'OneToMany']);
+                                         'having' => Relation::OneToMany
+                                    ]);
             }
         }
         Session::flash('status', 'Created Successfully '.$names->singular());
@@ -231,12 +232,13 @@ class GuiController extends AppController
         $table2 = DB::table('scaffoldinterfaces')->where('tablename', $request->toArray()['table2'])->first();
         $manytomany = new \Amranidev\ScaffoldInterface\ManyToMany\ManyToMany($request->except('_token'));
         $manytomany->burn();
-        // save the relationship
-        $relation = new Relation();
-        $relation->scaffoldinterface_id = $table1->id;
-        $relation->to = $table2->id;
-        $relation->having = 'ManyToMany';
-        $relation->save();
+
+        Relation::create([
+            'scaffoldinterface_id' => $table1->id,
+            'to' => $table2->id,
+            'having' => Relation::ManyToMany,
+        ]);
+
         Session::flash('status', 'ManyToMany generated successfully');
 
         return redirect('/scaffold');
