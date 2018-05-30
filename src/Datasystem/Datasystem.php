@@ -121,7 +121,7 @@ class Datasystem
     /**
      * Get foreignKeys.
      *
-     * @return Array
+     * @return array
      */
     public function getForeignKeys()
     {
@@ -131,7 +131,7 @@ class Datasystem
     /**
      * Get relational attributes.
      *
-     * @return Array
+     * @return array
      */
     public function getRelationAttributes()
     {

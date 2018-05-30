@@ -266,11 +266,11 @@ class GuiController extends AppController
         $entities = Scaffoldinterface::all();
         $relations = Relation::all();
 
-        $nodes = $entities->map(function($entity) {
+        $nodes = $entities->map(function ($entity) {
             return ['id' => $entity->id, 'label' => $entity->tablename];
         })->toJson();
 
-        $edges = $relations->map(function($relation) {
+        $edges = $relations->map(function ($relation) {
             return ['from' => $relation->scaffoldinterface_id, 'to' => $relation->to, 'label' => $relation->having];
         })->toJson();
 
