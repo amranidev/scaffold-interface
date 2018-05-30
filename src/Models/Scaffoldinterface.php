@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Scaffoldinterface extends Model
 {
-    //Scaffold Interface model
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array $fillable
+     */
+    protected $fillable = ['migration', 'model', 'controller', 'views', 'tablename', 'package'];
 }
