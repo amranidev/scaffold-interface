@@ -52,20 +52,20 @@ class GuiController extends AppController
         $names = app()->make('Parser');
 
         $scaffoldInterface = Scaffoldinterface::create([
-            'migration' => $paths->migrationPath,
-            'model' => $paths->modelPath(),
+            'migration'  => $paths->migrationPath,
+            'model'      => $paths->modelPath(),
             'controller' => $paths->controllerPath(),
-            'views' => $paths->dirPath(),
-            'tablename' => $names->plural(),
-            'package' => config('amranidev.config.package')
+            'views'      => $paths->dirPath(),
+            'tablename'  => $names->plural(),
+            'package'    => config('amranidev.config.package'),
         ]);
 
         if ($relations->getForeignKeys()) {
             foreach ($relations->getForeignKeys() as $foreignKey) {
-                    $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
-                    Relation::create(['scaffoldinterface_id' => $scaffoldInterface->id,
-                                         'to' => $record->id,
-                                         'having' => Relation::OneToMany
+                $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
+                Relation::create(['scaffoldinterface_id' => $scaffoldInterface->id,
+                                         'to'            => $record->id,
+                                         'having'        => Relation::OneToMany,
                                     ]);
             }
         }
@@ -238,8 +238,8 @@ class GuiController extends AppController
 
         Relation::create([
             'scaffoldinterface_id' => $table1->id,
-            'to' => $table2->id,
-            'having' => Relation::ManyToMany,
+            'to'                   => $table2->id,
+            'having'               => Relation::ManyToMany,
         ]);
 
         Session::flash('status', 'ManyToMany generated successfully');

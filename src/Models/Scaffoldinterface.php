@@ -9,7 +9,7 @@ class Scaffoldinterface extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array $fillable
+     * @var array
      */
     protected $fillable = ['migration', 'model', 'controller', 'views', 'tablename', 'package'];
 }

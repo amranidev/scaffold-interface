@@ -10,7 +10,7 @@ class Relation extends Model
      * OneToMany Relationship.
      */
     const OneToMany = 'OneToMany';
-    
+
     /**
      * ManyToMany Relationship.
      */
@@ -19,7 +19,7 @@ class Relation extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array $fillable
+     * @var array
      */
     protected $fillable = ['scaffoldinterface_id', 'to', 'having'];
 }
