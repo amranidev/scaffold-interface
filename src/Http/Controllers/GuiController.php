@@ -85,17 +85,9 @@ class GuiController extends AppController
     public function destroy($id)
     {
         $scaffoldInterface = Scaffoldinterface::FindOrFail($id);
-        unlink($scaffoldInterface->migration);
-        unlink($scaffoldInterface->model);
-        unlink($scaffoldInterface->controller);
-        unlink($scaffoldInterface->views.'/index.blade.php');
-        unlink($scaffoldInterface->views.'/create.blade.php');
-        unlink($scaffoldInterface->views.'/show.blade.php');
-        unlink($scaffoldInterface->views.'/edit.blade.php');
-        rmdir($scaffoldInterface->views);
-        //Clear Routes Resources
-        $this->clearRoutes(lcfirst(str_singular($scaffoldInterface->tablename)));
+        
         $scaffoldInterface->delete();
+        
         Session::flash('status', 'Deleted Successfully');
 
         return URL::to('scaffold');
@@ -179,28 +171,6 @@ class GuiController extends AppController
     }
 
     /**
-     * Clear routes.
-     *
-     * @param string $remove
-     *
-     * @return mixed
-     */
-    private function clearRoutes($remove)
-    {
-        $path = config('amranidev.config.routes');
-        $lines = file($path, FILE_IGNORE_NEW_LINES);
-        foreach ($lines as $key => $line) {
-            if (strstr($line, $remove)) {
-                unset($lines[$key]);
-            }
-        }
-
-        $data = implode("\n", array_values($lines));
-
-        return file_put_contents($path, $data);
-    }
-
-    /**
      * ManyToMany form.
      *
      * @param \Illuminate\Http\Request
@@ -266,14 +236,11 @@ class GuiController extends AppController
      */
     public function graph()
     {
-        $entities = Scaffoldinterface::all();
-        $relations = Relation::all();
-
-        $nodes = $entities->map(function ($entity) {
+        $nodes = Scaffoldinterface::all()->map(function ($entity) {
             return ['id' => $entity->id, 'label' => $entity->tablename];
         })->toJson();
 
-        $edges = $relations->map(function ($relation) {
+        $edges = Relation::all()->map(function ($relation) {
             return ['from' => $relation->scaffoldinterface_id, 'to' => $relation->to, 'label' => $relation->having];
         })->toJson();
 
