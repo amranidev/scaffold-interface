@@ -17,7 +17,8 @@ class DeleteCrudFiles
     /**
      * Handle the event.
      *
-     * @param  object  $event
+     * @param object $event
+     *
      * @return void
      */
     public function handle($event)
@@ -46,7 +47,9 @@ class DeleteCrudFiles
         $path = config('amranidev.config.routes');
         $lines = file($path, FILE_IGNORE_NEW_LINES);
 
-        foreach (array_filter($lines, function($line) use ($remove) { return strstr($line, $remove); }) as $key => $line) {
+        foreach (array_filter($lines, function ($line) use ($remove) {
+            return strstr($line, $remove);
+        }) as $key => $line) {
             unset($lines[$key]);
         }
 

@@ -2,9 +2,9 @@
 
 namespace Amranidev\ScaffoldInterface;
 
+use Amranidev\ScaffoldInterface\Providers\ScaffoldInterfaceEventServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Amranidev\ScaffoldInterface\Providers\ScaffoldInterfaceEventServiceProvider;
 
 /**
  * Class ScaffoldInterfaceServiceProvider.
