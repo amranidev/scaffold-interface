@@ -85,9 +85,9 @@ class GuiController extends AppController
     public function destroy($id)
     {
         $scaffoldInterface = Scaffoldinterface::FindOrFail($id);
-        
+
         $scaffoldInterface->delete();
-        
+
         Session::flash('status', 'Deleted Successfully');
 
         return URL::to('scaffold');

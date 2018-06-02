@@ -2,12 +2,12 @@
 
 namespace Amranidev\ScaffoldInterface\Providers;
 
-use Amranidev\ScaffoldInterface\Models\Scaffoldinterface;
 use Amranidev\ScaffoldInterface\Events\DeleteCrud;
+use Amranidev\ScaffoldInterface\Models\Scaffoldinterface;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
-class ScaffoldInterfaceEventServiceProvider extends ServiceProvider {
-    
+class ScaffoldInterfaceEventServiceProvider extends ServiceProvider
+{
     /**
      * The event listener mappings.
      *
@@ -28,7 +28,7 @@ class ScaffoldInterfaceEventServiceProvider extends ServiceProvider {
     {
         parent::boot();
 
-        Scaffoldinterface::deleted(function($scaffold) {
+        Scaffoldinterface::deleted(function ($scaffold) {
             event(new DeleteCrud($scaffold));
         });
     }
@@ -40,6 +40,5 @@ class ScaffoldInterfaceEventServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-
     }
 }
