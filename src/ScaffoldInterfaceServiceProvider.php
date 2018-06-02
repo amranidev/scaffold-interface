@@ -4,6 +4,7 @@ namespace Amranidev\ScaffoldInterface;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
+use Amranidev\ScaffoldInterface\Providers\ScaffoldInterfaceEventServiceProvider;
 
 /**
  * Class ScaffoldInterfaceServiceProvider.
@@ -69,6 +70,8 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(ScaffoldInterfaceEventServiceProvider::class);
+
         $this->app->singleton('laravelRequest', \Illuminate\Http\Request::class);
 
         $this->app->singleton('Request', \Amranidev\ScaffoldInterface\Http\Request::class);
