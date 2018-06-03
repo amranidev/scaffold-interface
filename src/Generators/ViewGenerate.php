@@ -100,11 +100,12 @@ class ViewGenerate implements GeneratorInterface
      */
     public function generate()
     {
-        return [
-            'index'  => $this->generateIndex(),
-            'create' => $this->generateCreate(),
-            'edit'   => $this->generateEdit(),
-            'show'   => $this->generateShow(),
-        ];
+        $views = new \StdClass();
+        $views->index = $this->generateIndex();
+        $views->create = $this->generateCreate();
+        $views->edit = $this->generateEdit();
+        $views->show = $this->generateShow();
+
+        return $views;
     }
 }
