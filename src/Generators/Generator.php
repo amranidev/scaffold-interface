@@ -75,10 +75,10 @@ class Generator extends Filesystem
      */
     public function views()
     {
-        $this->make($this->paths->indexPath(), $this->view->generate()['index']);
-        $this->make($this->paths->createPath(), $this->view->generate()['create']);
-        $this->make($this->paths->showPath(), $this->view->generate()['show']);
-        $this->make($this->paths->editPath(), $this->view->generate()['edit']);
+        $this->make($this->paths->indexPath(), $this->view->generate()->index);
+        $this->make($this->paths->createPath(), $this->view->generate()->create);
+        $this->make($this->paths->showPath(), $this->view->generate()->show);
+        $this->make($this->paths->editPath(), $this->view->generate()->edit);
     }
 
     /**
