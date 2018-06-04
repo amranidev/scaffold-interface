@@ -119,16 +119,16 @@ class BehavioralTest extends TestCase
         $dataSystem = $this->datasystem;
         //Test Index Generate
         $this->assertEquals($this->indenter
-                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.index', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()['index']);
+                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.index', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()->index);
         //Test Create Generate
         $this->assertEquals($this->indenter
-                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.create', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()['create']);
+                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.create', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()->create);
         //Test Edit Generate
         $this->assertEquals($this->indenter
-                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.edit', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()['edit']);
+                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.edit', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()->edit);
         //Test Show Generate
         $this->assertEquals($this->indenter
-                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.show', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()['show']);
+                ->indent(view('scaffold-interface::template.views.'.$parser->getTemplate().'.show', compact('parser', 'dataSystem'))->render()), $this->generator->getView()->generate()->show);
     }
 
     //test controllers with prefixViews not null
