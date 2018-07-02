@@ -31,6 +31,13 @@ class ViewGenerate implements GeneratorInterface
     private $indenter;
 
     /**
+     * Views.
+     * 
+     * @var array $views
+     */
+    private $views = ['index', 'create', 'edit', 'show'];
+
+    /**
      * Create new ViewGenerate instance.
      *
      * @param $data Array
@@ -44,67 +51,32 @@ class ViewGenerate implements GeneratorInterface
         $this->parser = app()->make('Parser');
         $this->indenter = app()->make('Indenter');
     }
-
     /**
-     * Compile index view.
-     *
+     * Generate View.
+     * 
+     * @param string $view
+     * 
      * @return string
      */
-    private function generateIndex()
+    private function generateView($view)
     {
         return $this->indenter
-            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.index',
-                ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
-    }
-
-    /**
-     * Compile create view.
-     *
-     * @return string
-     */
-    private function generateCreate()
-    {
-        return $this->indenter
-            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.create',
-                ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
-    }
-
-    /**
-     * Compile show view.
-     *
-     * @return string
-     */
-    private function generateShow()
-    {
-        return $this->indenter
-            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.show',
-                ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
-    }
-
-    /**
-     * Compile edit view.
-     *
-     * @return string
-     */
-    private function generateEdit()
-    {
-        return $this->indenter
-            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.edit',
+            ->indent(view('scaffold-interface::template.views.'.$this->parser->getTemplate().'.'.$view,
                 ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render());
     }
 
     /**
      * Generate Views.
      *
-     * @return array
+     * @return mixed
      */
     public function generate()
     {
         $views = new \StdClass();
-        $views->index = $this->generateIndex();
-        $views->create = $this->generateCreate();
-        $views->edit = $this->generateEdit();
-        $views->show = $this->generateShow();
+
+        foreach ($this->views as $view) {
+            $views->{$view} = $this->generateView($view);
+        }
 
         return $views;
     }
