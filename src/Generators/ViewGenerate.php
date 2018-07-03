@@ -32,8 +32,8 @@ class ViewGenerate implements GeneratorInterface
 
     /**
      * Views.
-     * 
-     * @var array $views
+     *
+     * @var array
      */
     private $views = ['index', 'create', 'edit', 'show'];
 
@@ -51,11 +51,12 @@ class ViewGenerate implements GeneratorInterface
         $this->parser = app()->make('Parser');
         $this->indenter = app()->make('Indenter');
     }
+
     /**
      * Generate View.
-     * 
+     *
      * @param string $view
-     * 
+     *
      * @return string
      */
     private function generateView($view)
