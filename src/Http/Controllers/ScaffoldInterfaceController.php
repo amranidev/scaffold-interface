@@ -4,16 +4,15 @@ namespace Amranidev\ScaffoldInterface\Controllers;
 
 use AppController;
 
-
 /**
- * class ScaffoldInterfaceController
- * 
+ * class ScaffoldInterfaceController.
+ *
  * NOTE: this class is still in development Stage.
- * 
+ *
  * @author Houssain Amrani.
  */
-class ScaffoldInterfaceCotroller extends AppController {
-
+class ScaffoldInterfaceController extends AppController
+{
     /**
      * Display a listing of the resource.
      *
