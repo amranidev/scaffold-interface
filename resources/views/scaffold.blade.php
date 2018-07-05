@@ -38,9 +38,9 @@
                                         <td>@{{entity.tablename}}</td>
                                         <td>@{{entity.package}}</td>
                                         <td>@{{entity.created_at}}</td>
-                                        <td><span class = "scaffoldv white-text">Not sure</span></td>
-                                        <td><a href="" class = 'btn-floating blue white-text'><i class = 'material-icons'>send</i></a></td>
-                                        <td><a href = '#modal1' class = 'delete btn-floating pink modal-trigger'><i class = 'material-icons'>repeat</i></a></td>
+                                        <td><span class = "scaffoldv white-text">TBD</span></td>
+                                        <td><a href="" class=""><i class = 'material-icons'>Link</i></a></td>
+                                        <td><a href = "" class="delete btn-floating pink modal-trigger">Rollback</a></td>
                                     </tr>
                                 </tbody>
                             </table>
