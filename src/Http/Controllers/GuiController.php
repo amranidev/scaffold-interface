@@ -124,7 +124,7 @@ class GuiController extends AppController
     {
         $attributes = new Attribute($table);
         if ($request->ajax()) {
-            return $attributes->getAttributes();
+            return response()->json($attributes->getAttributes(), 200);
         }
     }
 
