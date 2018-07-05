@@ -19,11 +19,11 @@ class Attribute
     private $table;
 
     /**
-     * Result.
-     *
+     * Excluded columns.
+     * 
      * @var array
      */
-    private $result = [];
+    private $exclude = ['id', 'password', 'remember_token', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * Create new attribute instance.
@@ -42,11 +42,8 @@ class Attribute
      */
     public function getAttributes()
     {
-        //get table attributes
-        $this->result = Schema::getColumnListing($this->table);
-        //delete the first element, (ignore the id section)
-        unset($this->result[0]);
-        //get result
-        return $this->result;
+        return collect(Schema::getColumnListing($this->table))->filter(function($column) {
+            return ! in_array($column, $this->exclude);
+        });
     }
 }
