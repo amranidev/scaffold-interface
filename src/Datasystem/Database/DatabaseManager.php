@@ -16,6 +16,13 @@ class DatabaseManager
      */
     protected $database;
 
+    /**
+     * Excluded tables.
+     * 
+     * @var array
+     */
+    protected $exclude = ['relations', 'role_has_permissions', 'model_has_roles', 'model_has_permissions'];
+
     public function __construct(DatabaseContractInterface $database)
     {
         $this->database = $database;
@@ -58,6 +65,8 @@ class DatabaseManager
      */
     public function getTablesNames()
     {
-        return $this->database->tableNames();
+        return $this->database->tableNames()->filter(function($name) {
+            return ! in_array($name, $this->exclude);
+        });
     }
 }
