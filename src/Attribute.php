@@ -20,7 +20,7 @@ class Attribute
 
     /**
      * Excluded columns.
-     * 
+     *
      * @var array
      */
     private $exclude = ['id', 'password', 'remember_token', 'created_at', 'updated_at', 'deleted_at'];
@@ -42,8 +42,8 @@ class Attribute
      */
     public function getAttributes()
     {
-        return collect(Schema::getColumnListing($this->table))->filter(function($column) {
-            return ! in_array($column, $this->exclude);
+        return collect(Schema::getColumnListing($this->table))->filter(function ($column) {
+            return !in_array($column, $this->exclude);
         });
     }
 }
