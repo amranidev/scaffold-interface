@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
-    <title>Smart CRUD GENERATOR</title>
+    <title>Smart CRUD GENERATOR v2</title>
 </head>
 <body>
     <!--The new Front of Scaffold interface-->
