@@ -9,12 +9,12 @@ class Relation extends Model
     /**
      * OneToMany Relationship.
      */
-    const OneToMany = 'OneToMany';
+    const ONE_TO_MANY = 'OneToMany';
 
     /**
      * ManyToMany Relationship.
      */
-    const ManyToMany = 'ManyToMany';
+    const MANY_TO_MANY = 'ManyToMany';
 
     /**
      * The attributes that are mass assignable.
