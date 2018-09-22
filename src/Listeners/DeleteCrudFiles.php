@@ -2,6 +2,8 @@
 
 namespace Amranidev\ScaffoldInterface\Listeners;
 
+use Amranidev\ScaffoldInterface\Events\DeleteCrud;
+
 class DeleteCrudFiles
 {
     /**
@@ -21,15 +23,15 @@ class DeleteCrudFiles
      *
      * @return void
      */
-    public function handle($event)
+    public function handle(DeleteCrud $event)
     {
         unlink($event->scaffold->migration);
         unlink($event->scaffold->model);
         unlink($event->scaffold->controller);
-        unlink($event->scaffold->views.'/index.blade.php');
-        unlink($event->scaffold->views.'/create.blade.php');
-        unlink($event->scaffold->views.'/show.blade.php');
-        unlink($event->scaffold->views.'/edit.blade.php');
+        unlink($event->scaffold->views . '/index.blade.php');
+        unlink($event->scaffold->views . '/create.blade.php');
+        unlink($event->scaffold->views . '/show.blade.php');
+        unlink($event->scaffold->views . '/edit.blade.php');
         rmdir($event->scaffold->views);
         // clear Routes Resources.
         $this->clearRoutes(lcfirst(str_singular($event->scaffold->tablename)));
