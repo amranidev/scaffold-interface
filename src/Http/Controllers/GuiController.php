@@ -52,25 +52,25 @@ class GuiController extends AppController
         $names = app()->make('Parser');
 
         $scaffoldInterface = Scaffoldinterface::create([
-            'migration'  => $paths->migrationPath,
-            'model'      => $paths->modelPath(),
+            'migration' => $paths->migrationPath,
+            'model' => $paths->modelPath(),
             'controller' => $paths->controllerPath(),
-            'views'      => $paths->dirPath(),
-            'tablename'  => $names->plural(),
-            'package'    => config('amranidev.config.package'),
+            'views' => $paths->dirPath(),
+            'tablename' => $names->plural(),
+            'package' => config('amranidev.config.package'),
         ]);
 
         if ($relations->getForeignKeys()) {
             foreach ($relations->getForeignKeys() as $foreignKey) {
                 $record = DB::table('scaffoldinterfaces')->where('tablename', $foreignKey)->first();
                 Relation::create(['scaffoldinterface_id' => $scaffoldInterface->id,
-                                         'to'            => $record->id,
-                                         'having'        => Relation::OneToMany,
-                                    ]);
+                    'to' => $record->id,
+                    'having' => Relation::ONE_TO_MANY,
+                ]);
             }
         }
 
-        Session::flash('status', 'Created Successfully '.$names->singular());
+        Session::flash('status', 'Created Successfully ' . $names->singular());
 
         return redirect('scaffold');
     }
@@ -108,7 +108,7 @@ class GuiController extends AppController
 
             return view('scaffold-interface::template.DeleteMessage.delete', compact('table'))->render();
         }
-        $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to delete {$scaffold->tablename} MVC files ??", '/scaffold/guirollback/'.$id);
+        $msg = Ajaxis::Mtdeleting('Warning!!', "Would you like to delete {$scaffold->tablename} MVC files ??", '/scaffold/guirollback/' . $id);
 
         return $msg;
     }
@@ -137,7 +137,7 @@ class GuiController extends AppController
     {
         try {
             Artisan::call('migrate', ['--path' => config('amranidev.config.database')]);
-            exec('cd '.base_path().' && composer dump-autoload');
+            exec('cd ' . base_path() . ' && composer dump-autoload');
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -182,7 +182,7 @@ class GuiController extends AppController
         $dummyData = DatabaseManager::tableNames();
         $elements = Ajaxis::MtcreateFormModal([
             ['type' => 'select', 'name' => 'table1', 'key' => 'table1', 'value' => $dummyData],
-            ['type' => 'select', 'name' => 'table2', 'key' => 'table2', 'value' => $dummyData], ], '/scaffold/manyToMany', 'Many To Many');
+            ['type' => 'select', 'name' => 'table2', 'key' => 'table2', 'value' => $dummyData]], '/scaffold/manyToMany', 'Many To Many');
 
         return $elements;
     }
@@ -208,8 +208,8 @@ class GuiController extends AppController
 
         Relation::create([
             'scaffoldinterface_id' => $table1->id,
-            'to'                   => $table2->id,
-            'having'               => Relation::ManyToMany,
+            'to' => $table2->id,
+            'having' => Relation::MANY_TO_MANY,
         ]);
 
         Session::flash('status', 'ManyToMany generated successfully');
@@ -236,11 +236,11 @@ class GuiController extends AppController
      */
     public function graph()
     {
-        $nodes = Scaffoldinterface::all()->map(function ($entity) {
+        $nodes = Scaffoldinterface::all()->map(function (Scaffoldinterface $entity) {
             return ['id' => $entity->id, 'label' => $entity->tablename];
         })->toJson();
 
-        $edges = Relation::all()->map(function ($relation) {
+        $edges = Relation::all()->map(function (Relation $relation) {
             return ['from' => $relation->scaffoldinterface_id, 'to' => $relation->to, 'label' => $relation->having];
         })->toJson();
 
