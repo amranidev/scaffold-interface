@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\ScaffoldInterface;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
