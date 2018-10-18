@@ -2,12 +2,12 @@
 
 namespace Amranidev\ScaffoldInterface\Events;
 
-use Amranidev\ScaffoldInterface\Models\Scaffoldinterface;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Amranidev\ScaffoldInterface\Models\Scaffoldinterface;
 
 class DeleteCrud
 {

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\ScaffoldInterface;
 
-use App\Http\Controllers\Controller;
 use Hash;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
