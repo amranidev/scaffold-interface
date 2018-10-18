@@ -2,18 +2,18 @@
 
 namespace Amranidev\ScaffoldInterface\Http\Controllers;
 
-use Amranidev\Ajaxis\Ajaxis;
-use Amranidev\ScaffoldInterface\Attribute;
-use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
-use Amranidev\ScaffoldInterface\Models\Relation;
-use Amranidev\ScaffoldInterface\Models\Scaffoldinterface;
+use URL;
+use Session;
 use AppController;
+use Amranidev\Ajaxis\Ajaxis;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Session;
-use URL;
+use Illuminate\Support\Facades\Artisan;
+use Amranidev\ScaffoldInterface\Attribute;
+use Amranidev\ScaffoldInterface\Models\Relation;
+use Amranidev\ScaffoldInterface\Models\Scaffoldinterface;
+use Amranidev\ScaffoldInterface\Datasystem\Database\DatabaseManager;
 
 /**
  * Class GuiController.
