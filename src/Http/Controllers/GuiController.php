@@ -157,10 +157,12 @@ class GuiController extends AppController
      */
     public function rollback()
     {
+        if (!Scaffoldinterface::all()->count()) {
+          Session::flash('status', 'Nothing To Rollback');
+          return redirect('scaffold');
+        }
+
         try {
-            if (!Scaffoldinterface::all()->count()) {
-                throw new \Exception('Nothing to rollback');
-            }
             Artisan::call('migrate:rollback');
         } catch (\Exception $e) {
             return $e->getMessage();
