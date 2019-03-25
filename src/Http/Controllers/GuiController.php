@@ -139,8 +139,9 @@ class GuiController extends AppController
             Artisan::call('migrate', ['--path' => config('amranidev.config.database')]);
             exec('cd '.base_path().' && composer dump-autoload');
         } catch (\Exception $e) {
-          Session::flash('status', $e->getMessage());
-          return redirect('scaffold');
+            Session::flash('status', $e->getMessage());
+
+            return redirect('scaffold');
         }
         $Msg = str_replace("\n", '', Artisan::output());
         Session::flash('status', $Msg);
@@ -158,8 +159,9 @@ class GuiController extends AppController
     public function rollback()
     {
         if (!Scaffoldinterface::all()->count()) {
-          Session::flash('status', 'Nothing To Rollback');
-          return redirect('scaffold');
+            Session::flash('status', 'Nothing To Rollback');
+
+            return redirect('scaffold');
         }
 
         try {
