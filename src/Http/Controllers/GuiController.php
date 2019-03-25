@@ -139,7 +139,8 @@ class GuiController extends AppController
             Artisan::call('migrate', ['--path' => config('amranidev.config.database')]);
             exec('cd '.base_path().' && composer dump-autoload');
         } catch (\Exception $e) {
-            return $e->getMessage();
+          Session::flash('status', $e->getMessage());
+          return redirect('scaffold');
         }
         $Msg = str_replace("\n", '', Artisan::output());
         Session::flash('status', $Msg);
