@@ -1,4 +1,3 @@
-# Use this alternative tool [Skyvim.com](https://skyvim.com)
 
 ![Imgur](http://i.imgur.com/9PkXGOV.jpg)
 [![Gitter chat](https://img.shields.io/badge/chat-gitter-F50057.svg)](https://gitter.im/amranidev-scaffold-interface/Lobby)
