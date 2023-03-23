@@ -12,7 +12,7 @@
     "require": {
         "php": ">=7.0",
         "Amranidev/Ajaxis": "3.0.*",
-        "spatie/laravel-permission": "^2.7",
+        "spatie/laravel-permission": "^5.4",
         "pusher/pusher-http-laravel": "^4.0.0",
         "gajus/dindent": "2.0.*"
     },
